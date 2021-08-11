@@ -134,7 +134,7 @@ li {
 .container-1 input#search{
   width: 300px;
   height: 50px;
-  background: #2b303b;
+  background: #fff;
   border: none;
   font-size: 10pt;
   float: left;
