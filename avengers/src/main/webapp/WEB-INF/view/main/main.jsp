@@ -25,7 +25,9 @@
 <style>
 * {
 	text-decoration: none;
+	list-style: none;
 }
+
 #logo {
 	font-family: 'Arvo', serif;
 	font-size: 130%;
@@ -38,56 +40,68 @@
 body, h1, h2, h3, h4, h5, h6, .w3-wide {
 	font-family: 'Noto Sans', sans-serif;
 }
-</style>
-<script>
-	// Accordion
-	document.getElementById("myBtn").click();
-	function myAccFunc() {
-		var x = document.getElementById("demoAcc");
-		if (x.className.indexOf("w3-show") == 1) {
-			x.className += " w3-show";
-		} else {
-			x.className = x.className.replace(" w3-show", "");
-		}
-	}
-	document.getElementById("myBtn1").click();
-	function myAccFunc1() {
-		var x = document.getElementById("demoAcc1");
-		if (x.className.indexOf("w3-show") == 1) {
-			x.className += " w3-show";
-		} else {
-			x.className = x.className.replace(" w3-show", "");
-		}
-	}
-	document.getElementById("myBtn2").click();
-	function myAccFunc2() {
-		var x = document.getElementById("demoAcc2");
-		if (x.className.indexOf("w3-show") == 1) {
-			x.className += " w3-show";
-		} else {
-			x.className = x.className.replace(" w3-show", "");
-		}
-	}
-	document.getElementById("myBtn3").click();
-	function myAccFunc3() {
-		var x = document.getElementById("demoAcc3");
-		if (x.className.indexOf("w3-show") == 1) {
-			x.className += " w3-show";
-		} else {
-			x.className = x.className.replace(" w3-show", "");
-		}
-	}
-	// Open and close sidebar
-	function w3_open() {
-		document.getElementById("mySidebar").style.display = "block";
-		document.getElementById("myOverlay").style.display = "block";
-	}
 
-	function w3_close() {
-		document.getElementById("mySidebar").style.display = "none";
-		document.getElementById("myOverlay").style.display = "none";
-	}
-</script>
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	position: relative;
+	background-color: #F9F9F9;
+	min-width: 160px;
+	padding: 8px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+#menu_text {
+	cursor: pointer;
+	display: block;
+	width: 250px;
+	height: 50px;
+	padding-top: 12px;
+	padding-left: 32px;
+}
+
+li {
+	padding: 5px;
+}
+
+.search_area {
+	float: right!important;
+	width: 300px;
+	height: 40px;
+	background: rgba(0.0 .0 .0 .5);
+	border-radius: 5px;
+	margin-top: 24px;
+}
+
+.search_area form input {
+	border: none;
+	background: rgba(0, 0, 0, 0.0);
+	width: 250px;
+	height: 40px;
+	color: #fff;
+	padding-left: 15px;
+}
+
+.search_area form span {
+	width: 50px;
+	color: #fff;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.dropdown-content li:hover {
+	background-color: #000;
+	color: #fff;
+}
+</style>
 <body class="w3-content" style="max-width: 1200px">
 
 	<!-- Sidebar/menu -->
@@ -102,72 +116,64 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 		</div>
 		<div class="w3-padding-64 w3-large w3-text-grey"
 			style="font-weight: bold">
-			<a onclick="myAccFunc1()" href="javascript:void(0)"
-				class="w3-button w3-block w3-white w3-left-align" id="myBtn1">
-				가방 <i class="fa fa-caret-down"></i>
-			</a>
-			<div id="demoAcc1"
-				class="w3-bar-block w3-hide w3-padding-large w3-medium">
-				<a href="#" class="w3-bar-item w3-button w3-light-grey"><i
-					class="fa fa-caret-right w3-margin-right"></i>전체보기</a> <a href="#"
-					class="w3-bar-item w3-button">크로스백/숄더백</a> <a href="#"
-					class="w3-bar-item w3-button">클러치/파우치백</a> <a href="#"
-					class="w3-bar-item w3-button">토트백</a> <a href="#"
-					class="w3-bar-item w3-button">벨트백</a> <a href="#"
-					class="w3-bar-item w3-button">버킷백</a> <a href="#"
-					class="w3-bar-item w3-button">백팩</a> <a href="#"
-					class="w3-bar-item w3-button">트래블</a> <a href="#"
-					class="w3-bar-item w3-button">기타</a>
+			<div class="dropdown">
+				<span id="menu_text">가방</span>
+				<div class="dropdown-content">
+					<ul>
+						<li><a href="#">전체보기</a></li>
+						<li><a href="#">크로스백/숄더백</a></li>
+						<li><a href="#">클러치/파우치백</a></li>
+						<li><a href="#">토트백</a></li>
+						<li><a href="#">벨트백</a></li>
+						<li><a href="#">버킷백</a></li>
+						<li><a href="#">백팩</a></li>
+						<li><a href="#">트래블백</a></li>
+						<li><a href="#">기타</a></li>
+					</ul>
+				</div>
 			</div>
-			<a onclick="myAccFunc2()" href="javascript:void(0)"
-				class="w3-button w3-block w3-white w3-left-align" id="myBtn2">
-				신발 <i class="fa fa-caret-down"></i>
-			</a>
-			<div id="demoAcc2"
-				class="w3-bar-block w3-hide w3-padding-large w3-medium">
-				<a href="#" class="w3-bar-item w3-button w3-light-grey"><i
-					class="fa fa-caret-right w3-margin-right">전체보기</i></a> <a href="#"
-					class="w3-bar-item w3-button">스니커즈</a> <a href="#"
-					class="w3-bar-item w3-button">힐</a> <a href="#"
-					class="w3-bar-item w3-button">플랫</a> <a href="#"
-					class="w3-bar-item w3-button">샌들/슬리퍼</a> <a href="#"
-					class="w3-bar-item w3-button">부츠</a> <a href="#"
-					class="w3-bar-item w3-button">로퍼</a> <a href="#"
-					class="w3-bar-item w3-button">드레스슈즈</a> <a href="#"
-					class="w3-bar-item w3-button">기타</a>
+			<div class="dropdown">
+				<span id="menu_text">신발</span>
+				<div class="dropdown-content">
+					<ul>
+						<li><a href="#">전체보기</a></li>
+						<li><a href="#">힐</a></li>
+						<li><a href="#">플랫</a></li>
+						<li><a href="#">샌들/슬리퍼</a></li>
+						<li><a href="#">부츠</a></li>
+						<li><a href="#">로퍼</a></li>
+						<li><a href="#">드레스슈즈</a></li>
+					</ul>
+				</div>
 			</div>
-			<a onclick="myAccFunc()" href="javascript:void(0)"
-				class="w3-button w3-block w3-white w3-left-align" id="myBtn">
-				쥬얼리 <i class="fa fa-caret-down"></i>
-			</a>
-			<div id="demoAcc"
-				class="w3-bar-block w3-hide w3-padding-large w3-medium">
-				<a href="#" class="w3-bar-item w3-button w3-light-grey"><i
-					class="fa fa-caret-right w3-margin-right"></i>전체보기</a> <a href="#"
-					class="w3-bar-item w3-button">팔찌</a> <a href="#"
-					class="w3-bar-item w3-button">브로치/핀</a> <a href="#"
-					class="w3-bar-item w3-button">귀걸이</a> <a href="#"
-					class="w3-bar-item w3-button">목걸이</a> <a href="#"
-					class="w3-bar-item w3-button">반지</a> <a href="#"
-					class="w3-bar-item w3-button">기타</a>
+			<div class="dropdown">
+				<span id="menu_text">쥬얼리</span>
+				<div class="dropdown-content">
+					<ul>
+						<li><a href="#">전체보기</a></li>
+						<li><a href="#">팔찌</a></li>
+						<li><a href="#">브로치/핀</a></li>
+						<li><a href="#">귀걸이</a></li>
+						<li><a href="#">목걸이</a></li>
+						<li><a href="#">반지</a></li>
+					</ul>
+				</div>
 			</div>
-			<a onclick="myAccFunc3()" href="javascript:void(0)"
-				class="w3-button w3-block w3-white w3-left-align" id="myBtn3">
-				브랜드 <i class="fa fa-caret-down"></i>
-			</a>
-			<div id="demoAcc3"
-				class="w3-bar-block w3-hide w3-padding-large w3-medium">
-				<a href="#" class="w3-bar-item w3-button w3-light-grey"><i
-					class="fa fa-caret-right w3-margin-right"></i>SAINT LAURENT</a> <a
-					href="#" class="w3-bar-item w3-button">PRADA</a> <a href="#"
-					class="w3-bar-item w3-button">BURBERRY</a> <a href="#"
-					class="w3-bar-item w3-button">CHANEL</a> <a href="#"
-					class="w3-bar-item w3-button">GUCCI</a> <a href="#"
-					class="w3-bar-item w3-button">MAISON MARGIELA</a> <a href="#"
-					class="w3-bar-item w3-button">BOTTEGA VENETA</a> <a href="#"
-					class="w3-bar-item w3-button">BALENCIAGA</a> <a href="#"
-					class="w3-bar-item w3-button">LOUIS VUITTON</a> <a href="#"
-					class="w3-bar-item w3-button">VALENTINO</a>
+			<div class="dropdown">
+				<span id="menu_text">브랜드</span>
+				<div class="dropdown-content">
+					<ul>
+						<li><a href="#">SAINT LAURENT</a></li>
+						<li><a href="#">PRADA</a></li>
+						<li><a href="#">BURBERRY</a></li>
+						<li><a href="#">GUCCI</a></li>
+						<li><a href="#">MAISON MARGIELA</a></li>
+						<li><a href="#">BOTTEGA VENETA</a></li>
+						<li><a href="#">VALENTINO</a></li>
+						<li><a href="#">BALENCIAGA</a></li>
+						<li><a href="#">LOUIS VUITTON</a></li>
+					</ul>
+				</div>
 			</div>
 		</div>
 		<a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a>
@@ -197,20 +203,21 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 		<!-- Top header -->
 		<header class="w3-container w3-xlarge">
 			<p class="w3-left">Jeans</p>
-			<p class="w3-right">
-				<i class="fa fa-shopping-cart w3-margin-right"></i> <i
-					class="fa fa-search"></i>
+			<p class="search_area">
+			<form>
+				<input type="search" placeholder="search"> <span>검색</span>
+			</form>
 			</p>
 		</header>
 
 		<!-- Image header -->
 		<div class="w3-display-container w3-container">
-			<img src="/w3images/jeans.jpg" alt="Jeans" style="width: 100%">
+			<img src="images/2nd.png" alt="Jeans" style="width: 100%">
 			<div class="w3-display-topleft w3-text-white"
 				style="padding: 24px 48px">
-				<h1 class="w3-jumbo w3-hide-small">New arrivals</h1>
-				<h1 class="w3-hide-large w3-hide-medium">New arrivals</h1>
-				<h1 class="w3-hide-small">COLLECTION 2016</h1>
+				<!-- 				<h1 class="w3-jumbo w3-hide-small">New arrivals</h1> -->
+				<!-- 				<h1 class="w3-hide-large w3-hide-medium">New arrivals</h1> -->
+				<!-- 				<h1 class="w3-hide-small">COLLECTION 2016</h1> -->
 			</div>
 		</div>
 
@@ -222,13 +229,13 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 		<div class="w3-row w3-grayscale">
 			<div class="w3-col l3 s6">
 				<div class="w3-container">
-					<img src="/w3images/jeans1.jpg" style="width: 100%">
+					<img src="images/1.png" style="width: 100%">
 					<p>
 						Ripped Skinny Jeans<br> <b>$24.99</b>
 					</p>
 				</div>
 				<div class="w3-container">
-					<img src="/w3images/jeans2.jpg" style="width: 100%">
+					<img src="images/2.png" style="width: 100%">
 					<p>
 						Mega Ripped Jeans<br> <b>$19.99</b>
 					</p>
@@ -238,7 +245,7 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 			<div class="w3-col l3 s6">
 				<div class="w3-container">
 					<div class="w3-display-container">
-						<img src="/w3images/jeans2.jpg" style="width: 100%"> <span
+						<img src="images/3.png" style="width: 100%"> <span
 							class="w3-tag w3-display-topleft">New</span>
 						<div class="w3-display-middle w3-display-hover">
 							<button class="w3-button w3-black">
@@ -251,7 +258,7 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 					</p>
 				</div>
 				<div class="w3-container">
-					<img src="/w3images/jeans3.jpg" style="width: 100%">
+					<img src="images/4.png" style="width: 100%">
 					<p>
 						Washed Skinny Jeans<br> <b>$20.50</b>
 					</p>
@@ -260,14 +267,14 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 
 			<div class="w3-col l3 s6">
 				<div class="w3-container">
-					<img src="/w3images/jeans3.jpg" style="width: 100%">
+					<img src="images/1.png" style="width: 100%">
 					<p>
 						Washed Skinny Jeans<br> <b>$20.50</b>
 					</p>
 				</div>
 				<div class="w3-container">
 					<div class="w3-display-container">
-						<img src="/w3images/jeans4.jpg" style="width: 100%"> <span
+						<img src="images/1.png" style="width: 100%"> <span
 							class="w3-tag w3-display-topleft">Sale</span>
 						<div class="w3-display-middle w3-display-hover">
 							<button class="w3-button w3-black">
@@ -283,13 +290,13 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 
 			<div class="w3-col l3 s6">
 				<div class="w3-container">
-					<img src="/w3images/jeans4.jpg" style="width: 100%">
+					<img src="images/1.png" style="width: 100%">
 					<p>
 						Vintage Skinny Jeans<br> <b>$14.99</b>
 					</p>
 				</div>
 				<div class="w3-container">
-					<img src="/w3images/jeans1.jpg" style="width: 100%">
+					<img src="images/1.png" style="width: 100%">
 					<p>
 						Ripped Skinny Jeans<br> <b>$24.99</b>
 					</p>
@@ -333,4 +340,53 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 		</div>
 	</div>
 </body>
+<script>
+	// 	// Accordion
+	// 	document.getElementById("myBtn").click();
+	// 	function myAccFunc() {
+	// 		var x = document.getElementById("demoAcc");
+	// 		if (x.className.indexOf("w3-show") == 1) {
+	// 			x.className += " w3-show";
+	// 		} else {
+	// 			x.className = x.className.replace(" w3-show", "");
+	// 		}
+	// 	}
+	// 	document.getElementById("myBtn1").click();
+	// 	function myAccFunc1() {
+	// 		var x = document.getElementById("demoAcc1");
+	// 		if (x.className.indexOf("w3-show") == 1) {
+	// 			x.className += " w3-show";
+	// 		} else {
+	// 			x.className = x.className.replace(" w3-show", "");
+	// 		}
+	// 	}
+	// 	document.getElementById("myBtn2").click();
+	// 	function myAccFunc2() {
+	// 		var x = document.getElementById("demoAcc2");
+	// 		if (x.className.indexOf("w3-show") == 1) {
+	// 			x.className += " w3-show";
+	// 		} else {
+	// 			x.className = x.className.replace(" w3-show", "");
+	// 		}
+	// 	}
+	// 	document.getElementById("myBtn3").click();
+	// 	function myAccFunc3() {
+	// 		var x = document.getElementById("demoAcc3");
+	// 		if (x.className.indexOf("w3-show") == 1) {
+	// 			x.className += " w3-show";
+	// 		} else {
+	// 			x.className = x.className.replace(" w3-show", "");
+	// 		}
+	// 	}
+	// Open and close sidebar
+	function w3_open() {
+		document.getElementById("mySidebar").style.display = "block";
+		document.getElementById("myOverlay").style.display = "block";
+	}
+
+	function w3_close() {
+		document.getElementById("mySidebar").style.display = "none";
+		document.getElementById("myOverlay").style.display = "none";
+	}
+</script>
 </html>
