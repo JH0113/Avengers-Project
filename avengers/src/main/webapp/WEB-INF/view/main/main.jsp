@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<head>
 <title>mainPage</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -173,6 +174,7 @@ li {
 =======
 >>>>>>> branch 'master' of https://github.com/JH0113/Avengers-Project.git
 </style>
+</head>
 <body class="w3-content" style="max-width: 1200px">
 
 	<!-- Sidebar/menu -->
@@ -419,88 +421,7 @@ li {
 		</div>
 	</div>
 </body>
-<<<<<<< HEAD
 <script>
-	// 	// Accordion
-	// 	document.getElementById("myBtn").click();
-	// 	function myAccFunc() {
-	// 		var x = document.getElementById("demoAcc");
-	// 		if (x.className.indexOf("w3-show") == 1) {
-	// 			x.className += " w3-show";
-	// 		} else {
-	// 			x.className = x.className.replace(" w3-show", "");
-	// 		}
-	// 	}
-	// 	document.getElementById("myBtn1").click();
-	// 	function myAccFunc1() {
-	// 		var x = document.getElementById("demoAcc1");
-	// 		if (x.className.indexOf("w3-show") == 1) {
-	// 			x.className += " w3-show";
-	// 		} else {
-	// 			x.className = x.className.replace(" w3-show", "");
-	// 		}
-	// 	}
-	// 	document.getElementById("myBtn2").click();
-	// 	function myAccFunc2() {
-	// 		var x = document.getElementById("demoAcc2");
-	// 		if (x.className.indexOf("w3-show") == 1) {
-	// 			x.className += " w3-show";
-	// 		} else {
-	// 			x.className = x.className.replace(" w3-show", "");
-	// 		}
-	// 	}
-	// 	document.getElementById("myBtn3").click();
-	// 	function myAccFunc3() {
-	// 		var x = document.getElementById("demoAcc3");
-	// 		if (x.className.indexOf("w3-show") == 1) {
-	// 			x.className += " w3-show";
-	// 		} else {
-	// 			x.className = x.className.replace(" w3-show", "");
-	// 		}
-	// 	}
-=======
-
-
-<script>
-	// Accordion
-	document.getElementById("myBtn").click();
-	function myAccFunc() {
-		var x = document.getElementById("demoAcc");
-		if (x.className.indexOf("w3-show") == 1) {
-			x.className += " w3-show";
-		} else {
-			x.className = x.className.replace(" w3-show", "");
-		}
-	}
-	document.getElementById("myBtn1").click();
-	function myAccFunc1() {
-		var x = document.getElementById("demoAcc1");
-		if (x.className.indexOf("w3-show") == 1) {
-			x.className += " w3-show";
-		} else {
-			x.className = x.className.replace(" w3-show", "");
-		}
-	}
-	document.getElementById("myBtn2").click();
-	function myAccFunc2() {
-		var x = document.getElementById("demoAcc2");
-		if (x.className.indexOf("w3-show") == 1) {
-			x.className += " w3-show";
-		} else {
-			x.className = x.className.replace(" w3-show", "");
-		}
-	}
-	document.getElementById("myBtn3").click();
-	function myAccFunc3() {
-		var x = document.getElementById("demoAcc3");
-		if (x.className.indexOf("w3-show") == 1) {
-			x.className += " w3-show";
-		} else {
-			x.className = x.className.replace(" w3-show", "");
-		}
-	}
->>>>>>> branch 'master' of https://github.com/JH0113/Avengers-Project.git
-	// Open and close sidebar
 	function w3_open() {
 		document.getElementById("mySidebar").style.display = "block";
 		document.getElementById("myOverlay").style.display = "block";
