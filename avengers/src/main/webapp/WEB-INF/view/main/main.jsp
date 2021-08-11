@@ -22,6 +22,7 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"
 	rel="stylesheet">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">	
 <style>
 * {
 	text-decoration: none;
@@ -38,7 +39,7 @@
 }
 
 body, h1, h2, h3, h4, h5, h6, .w3-wide {
-	font-family: 'Noto Sans', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 }
 <<<<<<< HEAD
 
@@ -102,6 +103,73 @@ li {
 	background-color: #000;
 	color: #fff;
 }
+
+.searchName {
+	margin: 20px;
+}
+ 
+.topMenu{
+	float: right;
+	display: inline-block;
+	font-size: 15px;
+}
+.topMenu a{
+	font-weight: bold;
+}
+
+.search{
+	margin-top: 20%; left:40%;
+	background: #333;
+	width: 200px;
+	height: 30px;
+	line-height: 10px;
+	padding: 10px;	
+}
+.box{
+  margin: 50px auto;
+  width: 200px;
+  height: 50px;
+}
+.container-1{
+  width: 300px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+}
+.container-1 input#search{
+  width: 300px;
+  height: 50px;
+  background: white;
+  border: none;
+  font-size: 10pt;
+  float: left;
+  color: #fff;
+  padding-left: 45px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.container-1 input#search::-webkit-input-placeholder {
+   color: #65737e;
+} 
+.container-1 input#search:-moz-placeholder { /* Firefox 18- */
+   color: #65737e;  
+}
+.container-1 input#search::-moz-placeholder {  /* Firefox 19+ */
+   color: #65737e;  
+}
+.container-1 input#search:-ms-input-placeholder {  
+   color: #65737e;  
+}
+.container-1 .icon{
+  position: absolute;
+  top: 50%;
+  margin-left: 17px;
+  margin-top: 17px;
+  z-index: 1;
+  color: #4f5b66;
+}
+
 =======
 >>>>>>> branch 'master' of https://github.com/JH0113/Avengers-Project.git
 </style>
@@ -120,7 +188,7 @@ li {
 		<div class="w3-padding-64 w3-large w3-text-grey"
 			style="font-weight: bold">
 			<div class="dropdown">
-				<span id="menu_text">가방</span>
+				<span id="menu_text">Bags</span>
 				<div class="dropdown-content">
 					<ul>
 						<li><a href="#">전체보기</a></li>
@@ -136,7 +204,7 @@ li {
 				</div>
 			</div>
 			<div class="dropdown">
-				<span id="menu_text">신발</span>
+				<span id="menu_text">Shoes</span>
 				<div class="dropdown-content">
 					<ul>
 						<li><a href="#">전체보기</a></li>
@@ -150,7 +218,7 @@ li {
 				</div>
 			</div>
 			<div class="dropdown">
-				<span id="menu_text">쥬얼리</span>
+				<span id="menu_text">Jewelry</span>
 				<div class="dropdown-content">
 					<ul>
 						<li><a href="#">전체보기</a></li>
@@ -163,7 +231,7 @@ li {
 				</div>
 			</div>
 			<div class="dropdown">
-				<span id="menu_text">브랜드</span>
+				<span id="menu_text">BRAND</span>
 				<div class="dropdown-content">
 					<ul>
 						<li><a href="#">SAINT LAURENT</a></li>
@@ -205,12 +273,23 @@ li {
 
 		<!-- Top header -->
 		<header class="w3-container w3-xlarge">
-			<p class="w3-left">Jeans</p>
-			<p class="search_area">
-			<form>
-				<input type="search" placeholder="search"> <span>검색</span>
-			</form>
-			</p>
+			<!-- <p align="right" class="w3-left">Jeans</p> -->
+			
+				<ul align="right" class="topMenu">
+					<a href="#">L O G I N</a> |
+					<a href="#">J O I N </a> |
+					<a href="#">N O T I C E</a>		
+					
+			       		
+			       		<div class="box">
+						  <div class="container-1">
+						      <span class="icon"><i class="fa fa-search"></i></span>
+						      <input type="search" id="search" placeholder="검색어를 입력하세욥" />
+						  </div>
+						</div>
+			       		
+				</ul> 
+		
 		</header>
 
 		<!-- Image header -->
@@ -218,9 +297,6 @@ li {
 			<img src="images/2nd.png" alt="Jeans" style="width: 100%">
 			<div class="w3-display-topleft w3-text-white"
 				style="padding: 24px 48px">
-				<!-- 				<h1 class="w3-jumbo w3-hide-small">New arrivals</h1> -->
-				<!-- 				<h1 class="w3-hide-large w3-hide-medium">New arrivals</h1> -->
-				<!-- 				<h1 class="w3-hide-small">COLLECTION 2016</h1> -->
 			</div>
 		</div>
 
