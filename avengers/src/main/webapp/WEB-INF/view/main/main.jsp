@@ -40,6 +40,7 @@
 body, h1, h2, h3, h4, h5, h6, .w3-wide {
 	font-family: 'Noto Sans', sans-serif;
 }
+<<<<<<< HEAD
 
 .dropdown {
 	position: relative;
@@ -101,6 +102,8 @@ li {
 	background-color: #000;
 	color: #fff;
 }
+=======
+>>>>>>> branch 'master' of https://github.com/JH0113/Avengers-Project.git
 </style>
 <body class="w3-content" style="max-width: 1200px">
 
@@ -340,6 +343,7 @@ li {
 		</div>
 	</div>
 </body>
+<<<<<<< HEAD
 <script>
 	// 	// Accordion
 	// 	document.getElementById("myBtn").click();
@@ -378,6 +382,48 @@ li {
 	// 			x.className = x.className.replace(" w3-show", "");
 	// 		}
 	// 	}
+=======
+
+
+<script>
+	// Accordion
+	document.getElementById("myBtn").click();
+	function myAccFunc() {
+		var x = document.getElementById("demoAcc");
+		if (x.className.indexOf("w3-show") == 1) {
+			x.className += " w3-show";
+		} else {
+			x.className = x.className.replace(" w3-show", "");
+		}
+	}
+	document.getElementById("myBtn1").click();
+	function myAccFunc1() {
+		var x = document.getElementById("demoAcc1");
+		if (x.className.indexOf("w3-show") == 1) {
+			x.className += " w3-show";
+		} else {
+			x.className = x.className.replace(" w3-show", "");
+		}
+	}
+	document.getElementById("myBtn2").click();
+	function myAccFunc2() {
+		var x = document.getElementById("demoAcc2");
+		if (x.className.indexOf("w3-show") == 1) {
+			x.className += " w3-show";
+		} else {
+			x.className = x.className.replace(" w3-show", "");
+		}
+	}
+	document.getElementById("myBtn3").click();
+	function myAccFunc3() {
+		var x = document.getElementById("demoAcc3");
+		if (x.className.indexOf("w3-show") == 1) {
+			x.className += " w3-show";
+		} else {
+			x.className = x.className.replace(" w3-show", "");
+		}
+	}
+>>>>>>> branch 'master' of https://github.com/JH0113/Avengers-Project.git
 	// Open and close sidebar
 	function w3_open() {
 		document.getElementById("mySidebar").style.display = "block";
