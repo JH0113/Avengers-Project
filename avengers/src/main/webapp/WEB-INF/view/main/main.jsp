@@ -23,6 +23,9 @@
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"
 	rel="stylesheet">
 <style>
+* {
+	text-decoration: none;
+}
 #logo {
 	font-family: 'Arvo', serif;
 	font-size: 130%;
@@ -94,7 +97,7 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 			<i onclick="w3_close()"
 				class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
 			<h3 class="w3-wide">
-				<b id="logo">2nd shop</b>
+				<b id="logo"><a href="main">2nd shop</a></b>
 			</h3>
 		</div>
 		<div class="w3-padding-64 w3-large w3-text-grey"
