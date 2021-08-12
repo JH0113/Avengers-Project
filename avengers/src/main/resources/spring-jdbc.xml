@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:tx="http://www.springframework.org/schema/tx"
+      xsi:schemaLocation="
+         http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/tx
+         http://www.springframework.org/schema/tx/spring-tx.xsd
+         "
+>
+   <bean id="dataSource" 
+      class="com.mchange.v2.c3p0.ComboPooledDataSource" 
+      destroy-method="close">
+      <property name="driverClass" 
+               value="oracle.jdbc.driver.OracleDriver" />
+      <property name="jdbcUrl" 
+               value="jdbc:oracle:thin:@112.148.121.62:1521:xe"/>
+      <property name="user" value="AVENGERS"/>
+      <property name="password" value="oracle"/>
+   </bean>
+   
+   <!-- SqlSessionFactory 객체 주입 mybatis jdbc설정-->
+   <bean id="sqlSessionFactory" 
+         class="org.mybatis.spring.SqlSessionFactoryBean">
+      <property name="dataSource" ref="dataSource" />
+      <property name="configLocation" 
+            value="classpath:mybatis-config.xml" />
+      <property name="mapperLocations" 
+            value="classpath:mappers/**/*Mapper.xml"/>
+   </bean>
+   <bean id="sqlSession" 
+      class="org.mybatis.spring.SqlSessionTemplate" 
+      destroy-method="clearCache">
+      <constructor-arg name="sqlSessionFactory" 
+         ref="sqlSessionFactory" />
+   </bean>
+   
+   <bean id="transactionManager"
+   class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+      <property name="dataSource" ref="dataSource"></property>
+   </bean>
+   <tx:annotation-driven transaction-manager="transactionManager" />
+</beans>

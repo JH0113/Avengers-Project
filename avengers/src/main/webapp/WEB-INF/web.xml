@@ -26,6 +26,9 @@
 			<param-value>
 				classpath:spring-mvc.xml
 				classpath:spring-main.xml
+				classpath:spring-jdbc.xml
+				classpath:mybatis-config.xml
+				
 			</param-value>
 		</init-param>
 	</servlet>
