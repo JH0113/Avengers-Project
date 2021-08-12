@@ -278,8 +278,7 @@ li {
                         <span class="icon"><i class="fa fa-search"></i></span>
                         <input type="search" id="search" placeholder="검색어를 입력하세욥" />
                     </div>
-                  </div>
-                      
+                  </div>                      
             </ul> 
       
       </header>
