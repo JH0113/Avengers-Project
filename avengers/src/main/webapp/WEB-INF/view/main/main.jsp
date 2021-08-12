@@ -185,15 +185,15 @@ li {
             <span id="menu_text">Bags</span>
             <div class="dropdown-content">
                <ul>
-                  <li><a href="#">전체보기</a></li>
-                  <li><a href="#">크로스백/숄더백</a></li>
-                  <li><a href="#">클러치/파우치백</a></li>
-                  <li><a href="#">토트백</a></li>
-                  <li><a href="#">벨트백</a></li>
-                  <li><a href="#">버킷백</a></li>
-                  <li><a href="#">백팩</a></li>
-                  <li><a href="#">트래블백</a></li>
-                  <li><a href="#">기타</a></li>
+                  <li><a href="#">all</a></li>
+                  <li><a href="#">cross/shoulder bag</a></li>
+                  <li><a href="#">clutch/pouch bag</a></li>
+                  <li><a href="#">tote bag</a></li>
+                  <li><a href="#">belt bag</a></li>
+                  <li><a href="#">bucket bag</a></li>
+                  <li><a href="#">backpack</a></li>
+                  <li><a href="#">suitcase</a></li>
+                  <li><a href="#">etc</a></li>
                </ul>
             </div>
          </div>
@@ -201,13 +201,13 @@ li {
             <span id="menu_text">Shoes</span>
             <div class="dropdown-content">
                <ul>
-                  <li><a href="#">전체보기</a></li>
-                  <li><a href="#">힐</a></li>
-                  <li><a href="#">플랫</a></li>
-                  <li><a href="#">샌들/슬리퍼</a></li>
-                  <li><a href="#">부츠</a></li>
-                  <li><a href="#">로퍼</a></li>
-                  <li><a href="#">드레스슈즈</a></li>
+                  <li><a href="#">all</a></li>
+                  <li><a href="#">heels</a></li>
+                  <li><a href="#">flat</a></li>
+                  <li><a href="#">sandal/slippers</a></li>
+                  <li><a href="#">boots</a></li>
+                  <li><a href="#">loafer</a></li>
+                  <li><a href="#">dress shoes</a></li>
                </ul>
             </div>
          </div>
@@ -215,12 +215,12 @@ li {
             <span id="menu_text">Jewelry</span>
             <div class="dropdown-content">
                <ul>
-                  <li><a href="#">전체보기</a></li>
-                  <li><a href="#">팔찌</a></li>
-                  <li><a href="#">브로치/핀</a></li>
-                  <li><a href="#">귀걸이</a></li>
-                  <li><a href="#">목걸이</a></li>
-                  <li><a href="#">반지</a></li>
+                  <li><a href="#">all</a></li>
+                  <li><a href="#">bracelet</a></li>
+                  <li><a href="#">brooch/pin</a></li>
+                  <li><a href="#">earring</a></li>
+                  <li><a href="#">necklace</a></li>
+                  <li><a href="#">ring</a></li>
                </ul>
             </div>
          </div>
