@@ -27,6 +27,9 @@
 				classpath:spring-mvc.xml
 				classpath:spring-main.xml
 				classpath:spring-jdbc.xml
+				classpath:spring-login.xml
+				classpath:spring-notice.xml
+				classpath:spring-regist.xml
 				classpath:mybatis-config.xml
 			</param-value>
 		</init-param>
