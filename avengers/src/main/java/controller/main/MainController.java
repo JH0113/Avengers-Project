@@ -9,4 +9,8 @@ public class MainController {
 	public String mainPage() {
 		return "main/main";
 	}
+	@RequestMapping("test")
+	public String testPage() {
+		return "main/test";
+	}
 }
