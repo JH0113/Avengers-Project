@@ -7,4 +7,6 @@
 			"
 >
 	<bean class="controller.notice.NoticeController" />
+	<bean class="repository.NoticeRepository" />
+	<bean class="service.notice.NoticeListService" />
 </beans>

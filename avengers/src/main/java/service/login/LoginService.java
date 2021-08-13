@@ -4,8 +4,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import Model.LoginDTO;
 import authinfo.AuthinfoDTO;
+import model.LoginDTO;
 import repository.LoginRepository;
 
 public class LoginService {
