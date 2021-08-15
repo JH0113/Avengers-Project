@@ -18,4 +18,8 @@ public class NoticePageController {
 		noticeListService.noticeList(page,model);
 		return "notice/noticePage";
 	}
+	@RequestMapping("noticeDetail")
+	public String noticeDetail() {	    
+	    return "notice/noticeDetail";
+	}
 }

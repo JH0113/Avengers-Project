@@ -9,7 +9,10 @@
 
 	<bean class="controller.page.MainPageController" />
 	<bean class="controller.page.LoginPageController" />
-	<bean class="controller.page.NoticePageController" />
+	<bean class="controller.page.NoticePageController" />	
+	<bean class="repository.NoticeRepository" />
+	<bean class="service.notice.NoticeListService" />
 	<bean class="controller.page.RegistPageController" />
 	<bean class="controller.page.ProductPageController" />
+	
 </beans>

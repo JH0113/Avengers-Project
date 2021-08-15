@@ -151,20 +151,38 @@ li a {
    background-size: 100% 400px;
 }
 
-.products {
+.notiveContents {
    font-family: 'Montserrat', sans-serif;
    width: 100%;
    height: 600px;
 }
 
-td {
-   padding: 10px;
+
+td,th {
+   padding-top: 20px;
+   padding-bottom: 20px;
+   padding-left: 15px;
+   padding-right: 15px;
    text-align: center;
 }
+ 
 
 table {
-   margin: auto;
+   width: 1200px;
+      margin: auto;
+      border-top: none; 
+   border-bottom: none; 
+   border-left: none;
+   border-right: none; 
+   border-collapse: collapse;
 }
+tr.border_bottom td{
+   border-bottom: 1px solid #e6e6e6;
+}
+tr.border_bottom_th{
+   border-bottom: 3px solid #1a1a1a;
+}
+
 
 .footer {
    width: 100%;
@@ -185,7 +203,7 @@ table {
       <div class="body">
          <div class="left_bar">
             <div class="logo">
-               <span id="logo_text"><a href="main">2nd shop</a><span>
+               <span id="logo_text">2nd shop<span>
             </div>
             <div class="category">
                <div class="dropdown">
@@ -248,16 +266,30 @@ table {
       
       <div class="leg">
       <div class="banner"></div>
-            <div class="products">
+            <div class="notiveContents">
                <table>
-                  <tr>
+                  <tr class="border_bottom_th">
                      <th>글번호</th><th>종류</th><th>제목</th><th>조회수</th><th>글쓴이</th><th>게시일</th></tr>
                   
-                  <tr>
-                     <td>1</td><td>이벤트공지</td><td>[이벤트] 전 상품 최대 할인 (test용~~~) 어쩌구 저쩌구 궁시렁 어쩌구 저쩌궁 </td><td>650</td><td>관리자</td><td>2021-08-06</td>
+                  <tr class="border_bottom">           
+                     <td>1</td><td>정책변경공지</td><td><a href="noticeDetail?noticeNum=#">중고거래 게시판 거래 및 환불 정책이 변경될 예정입니다.</a> </td><td>650</td><td>관리자</td><td>2021-08-06</td>
                   </tr>
-
+              <!--     
+                  <tr class="border_bottom">           
+                     <td>2</td><td>공지</td><td>상황별 알림음 설정과 카테고리 개선 </td><td>914</td><td>관리자</td><td>2021-07-13</td>
+                  </tr>
+                  
+                  <tr class="border_bottom">           
+                     <td>3</td><td>이벤트당첨공지</td><td>지역광고 후기 이벤트 당첨자를 공개합니다!</td><td>887</td><td>관리자</td><td>2021-06-23</td>
+                  </tr>
+                -->       
+                <tr><td colspan="7" align="center">
+               <%@include file="../include/includePage.jsp" %>
+            </td></tr>
                </table>
+               
+               <!-- 공지등록은 관리자 로그인 시에만 보이게 하기 -->
+         <p align="center" bgcolor=#e0e0eb><a href="noticeRegist">공지등록 </a></p>
       </div>
       </div>
       
