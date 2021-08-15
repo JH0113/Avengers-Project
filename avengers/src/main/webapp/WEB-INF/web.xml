@@ -25,7 +25,7 @@
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
 				classpath:spring-mvc.xml
-				classpath:spring-main.xml
+				classpath:spring-page.xml
 				classpath:spring-jdbc.xml
 				classpath:spring-login.xml
 				classpath:spring-notice.xml

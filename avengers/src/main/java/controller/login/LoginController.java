@@ -11,17 +11,24 @@ import model.LoginDTO;
 import service.login.LoginService;
 
 @Controller
+@RequestMapping("login")
 public class LoginController {
 	@Autowired
 	LoginService loginService;
-	
-	@RequestMapping("loginPage")
-	public String loginPage() {
-		return "login/loginPage";
+	// request(login)을 url로 치고 들어왔을 때를 차단.
+	@RequestMapping(method = RequestMethod.GET)
+	public String main() {
+		return "redirect:/";
 	}
-	@RequestMapping(value = "login" , method = RequestMethod.POST)
+	// request(login)을 정식 post 방식으로 받았을 때 로그인 서비스 실행.
+	@RequestMapping(method = RequestMethod.POST)
 	public String login(LoginDTO loginDTO , HttpSession httpSession) {
 		loginService.login(loginDTO, httpSession);
+		return "redirect:/";
+	}
+	@RequestMapping("logout")
+	public String logOut(HttpSession httpSession) {
+		httpSession.invalidate();
 		return "redirect:/";
 	}
 }

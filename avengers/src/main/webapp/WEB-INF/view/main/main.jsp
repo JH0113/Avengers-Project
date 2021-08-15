@@ -214,7 +214,7 @@ table {
       <div class="body">
          <div class="left_bar">
             <div class="logo">
-               <span id="logo_text">2nd shop<span>
+               <span id="logo_text"><a href="main">2nd shop</a><span>
             </div>
             <div class="category">
                <div class="dropdown">
@@ -297,9 +297,9 @@ table {
                   </c:if>
                   <c:if test="${!empty authinfo }">
                      <ul class="nav">
-                        <li><a href="loginPage">LOGOUT</a></li>
                         <li><a href="registPage">MYPAGE</a></li>
                         <li><a href="noticePage">NOTICE</a></li>
+                        <li><a href="login/logout">LOGOUT</a></li>
                      </ul>
                   </c:if>
                </div>
