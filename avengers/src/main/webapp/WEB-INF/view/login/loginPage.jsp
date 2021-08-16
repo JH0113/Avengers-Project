@@ -258,12 +258,13 @@
 					<span><a href="main">2nd shop</a></span>
 				</div>
 			</header>
+			<form action="login" method="post" name="frm">
 			<section class="login-input-section-wrap">
 				<div class="login-input-wrap">
-					<input placeholder="아이디" type="text"></input>
+					<input placeholder="아이디" type="text" name="userId"></input>
 				</div>
 				<div class="login-input-wrap password-wrap">
-					<input placeholder="비밀번호" type="password"></input>
+					<input placeholder="비밀번호" type="password" name="userPw"></input>
 				</div>
 				<div class="login-button-wrap">
 					<button type="submit">로그인</button>
@@ -273,6 +274,7 @@
 					<span>로그인 상태 유지</span>
 				</div>
 			</section>
+			</form>
 			<section class="Easy-sgin-in-wrap">
 				<h2>더욱 간편한 로그인</h2>
 				<ul class="sign-button-list">

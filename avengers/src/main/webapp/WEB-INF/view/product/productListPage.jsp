@@ -30,12 +30,12 @@
 .body {
 	max-width: 1200px;
 	display: flex;
-	height: 1300px;
+	height: 1500px;
 	margin: auto;
 }
 
 .left_bar {
-	height: 1200px;
+	height: 1500px;
 	width: 250px;
 }
 
@@ -102,7 +102,7 @@ li a {
 
 .right_bar {
 	width: 950px;
-	height: 1200px;
+	height: 1500px;
 }
 
 .header {
@@ -174,11 +174,15 @@ li a {
 	cursor: pointer;
 }
 
-.banner {
+.kategorie_top {
 	width: 100%;
-	height: 400px;
-	background-image: url("images/2nd.png");
-	background-size: 100% 400px;
+	height: 100px;
+	border-bottom: solid 1px;
+	border-top: solid 1px;
+	text-align: center;
+	line-height: 100px;
+	font-weight: bolder;
+	font-size: 180%;
 }
 
 .products {
@@ -221,15 +225,15 @@ table {
 						<span id="menu_text">Bags</span>
 						<div class="dropdown-content">
 							<ul>
-								<li><a href="productListPage">all</a></li>
+								<li><a href="test">all</a></li>
 								<li><a href="productListPage">cross/shoulder bag</a></li>
-								<li><a href="productListPage">clutch/pouch bag</a></li>
-								<li><a href="productListPage">tote bag</a></li>
-								<li><a href="productListPage">belt bag</a></li>
-								<li><a href="productListPage">bucket bag</a></li>
-								<li><a href="productListPage">backpack</a></li>
-								<li><a href="productListPage">suitcase</a></li>
-								<li><a href="productListPage">etc</a></li>
+								<li><a href="#">clutch/pouch bag</a></li>
+								<li><a href="#">tote bag</a></li>
+								<li><a href="#">belt bag</a></li>
+								<li><a href="#">bucket bag</a></li>
+								<li><a href="#">backpack</a></li>
+								<li><a href="#">suitcase</a></li>
+								<li><a href="#">etc</a></li>
 							</ul>
 						</div>
 					</div>
@@ -237,13 +241,13 @@ table {
 						<span id="menu_text">Shoes</span>
 						<div class="dropdown-content">
 							<ul>
-								<li><a href="productListPage">all</a></li>
-								<li><a href="productListPage">heels</a></li>
-								<li><a href="productListPage">flat</a></li>
-								<li><a href="productListPage">sandal/slippers</a></li>
-								<li><a href="productListPage">boots</a></li>
-								<li><a href="productListPage">loafer</a></li>
-								<li><a href="productListPage">dress shoes</a></li>
+								<li><a href="#">all</a></li>
+								<li><a href="#">heels</a></li>
+								<li><a href="#">flat</a></li>
+								<li><a href="#">sandal/slippers</a></li>
+								<li><a href="#">boots</a></li>
+								<li><a href="#">loafer</a></li>
+								<li><a href="#">dress shoes</a></li>
 							</ul>
 						</div>
 					</div>
@@ -251,12 +255,12 @@ table {
 						<span id="menu_text">Jewelry</span>
 						<div class="dropdown-content">
 							<ul>
-								<li><a href="productListPage">all</a></li>
-								<li><a href="productListPage">bracelet</a></li>
-								<li><a href="productListPage">brooch/pin</a></li>
-								<li><a href="productListPage">earring</a></li>
-								<li><a href="productListPage">necklace</a></li>
-								<li><a href="productListPage">ring</a></li>
+								<li><a href="#">all</a></li>
+								<li><a href="#">bracelet</a></li>
+								<li><a href="#">brooch/pin</a></li>
+								<li><a href="#">earring</a></li>
+								<li><a href="#">necklace</a></li>
+								<li><a href="#">ring</a></li>
 							</ul>
 						</div>
 					</div>
@@ -264,15 +268,15 @@ table {
 						<span id="menu_text">BRAND</span>
 						<div class="dropdown-content">
 							<ul>
-								<li><a href="productListPage">SAINT LAURENT</a></li>
-								<li><a href="productListPage">PRADA</a></li>
-								<li><a href="productListPage">BURBERRY</a></li>
-								<li><a href="productListPage">GUCCI</a></li>
-								<li><a href="productListPage">MAISON MARGIELA</a></li>
-								<li><a href="productListPage">BOTTEGA VENETA</a></li>
-								<li><a href="productListPage">VALENTINO</a></li>
-								<li><a href="productListPage">BALENCIAGA</a></li>
-								<li><a href="productListPage">LOUIS VUITTON</a></li>
+								<li><a href="#">SAINT LAURENT</a></li>
+								<li><a href="#">PRADA</a></li>
+								<li><a href="#">BURBERRY</a></li>
+								<li><a href="#">GUCCI</a></li>
+								<li><a href="#">MAISON MARGIELA</a></li>
+								<li><a href="#">BOTTEGA VENETA</a></li>
+								<li><a href="#">VALENTINO</a></li>
+								<li><a href="#">BALENCIAGA</a></li>
+								<li><a href="#">LOUIS VUITTON</a></li>
 							</ul>
 						</div>
 					</div>
@@ -304,7 +308,7 @@ table {
 						</c:if>
 					</div>
 				</div>
-				<div class="banner"></div>
+				<div class="kategorie_top">cross/shoulder bag</div>
 				<div class="products">
 					<table>
 						<tr>
@@ -344,7 +348,40 @@ table {
 								<p>가격</p></td>
 						</tr>
 						<tr>
-
+							<td><img width="200" height="200" alt="product image"
+								src="images/1.png">
+								<p>상품명</p>
+								<p>가격</p></td>
+							<td><img width="200" height="200" alt="product image"
+								src="images/2.png">
+								<p>상품명</p>
+								<p>가격</p></td>
+							<td><img width="200" height="200" alt="product image"
+								src="images/3.png">
+								<p>상품명</p>
+								<p>가격</p></td>
+							<td><img width="200" height="200" alt="product image"
+								src="images/4.png">
+								<p>상품명</p>
+								<p>가격</p></td>
+						</tr>
+						<tr>
+							<td><img width="200" height="200" alt="product image"
+								src="images/1.png">
+								<p>상품명</p>
+								<p>가격</p></td>
+							<td><img width="200" height="200" alt="product image"
+								src="images/2.png">
+								<p>상품명</p>
+								<p>가격</p></td>
+							<td><img width="200" height="200" alt="product image"
+								src="images/3.png">
+								<p>상품명</p>
+								<p>가격</p></td>
+							<td><img width="200" height="200" alt="product image"
+								src="images/4.png">
+								<p>상품명</p>
+								<p>가격</p></td>
 						</tr>
 					</table>
 				</div>
