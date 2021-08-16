@@ -203,7 +203,7 @@ tr.border_bottom_th{
       <div class="body">
          <div class="left_bar">
             <div class="logo">
-               <span id="logo_text">2nd shop<span>
+               <span id="logo_text"><a href="main">2nd shop</a><span>
             </div>
             <div class="category">
                <div class="dropdown">

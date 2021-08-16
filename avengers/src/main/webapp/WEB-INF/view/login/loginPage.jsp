@@ -255,7 +255,7 @@
 					</select>
 				</div>
 				<div class="logo-wrap">
-					<span>2nd shop</span>
+					<span><a href="main">2nd shop</a></span>
 				</div>
 			</header>
 			<section class="login-input-section-wrap">
@@ -266,7 +266,7 @@
 					<input placeholder="비밀번호" type="password"></input>
 				</div>
 				<div class="login-button-wrap">
-					<button>로그인</button>
+					<button type="submit">로그인</button>
 				</div>
 				<div class="login-stay-sign-in">
 					<i class="far fa-check-circle"></i>
