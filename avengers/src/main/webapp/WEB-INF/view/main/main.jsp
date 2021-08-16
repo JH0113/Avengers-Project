@@ -297,7 +297,7 @@ table {
 						</c:if>
 						<c:if test="${!empty authinfo }">
 							<ul class="nav">
-								<li><a href="registPage">MYPAGE</a></li>
+								<li><a href="myPage">MYPAGE</a></li>
 								<li><a href="noticePage">NOTICE</a></li>
 								<li><a href="login/logout">LOGOUT</a></li>
 							</ul>
