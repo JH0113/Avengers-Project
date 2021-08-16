@@ -151,7 +151,7 @@ li a {
    background-size: 100% 400px;
 }
 
-.notiveContents {
+.noticeContents {
    font-family: 'Montserrat', sans-serif;
    width: 100%;
    height: 600px;
@@ -266,13 +266,13 @@ tr.border_bottom_th{
       
       <div class="leg">
       <div class="banner"></div>
-            <div class="notiveContents">
+            <div class="noticeContents">
                <table>
                   <tr class="border_bottom_th">
                      <th>글번호</th><th>종류</th><th>제목</th><th>조회수</th><th>글쓴이</th><th>게시일</th></tr>
                   
                   <tr class="border_bottom">           
-                     <td>1</td><td>정책변경공지</td><td><a href="noticeDetail?noticeNum=#">중고거래 게시판 거래 및 환불 정책이 변경될 예정입니다.</a> </td><td>650</td><td>관리자</td><td>2021-08-06</td>
+                     <td>1</td><td>정책변경공지</td><td><a href="noticeDetail?noticeNum=#">중고거래 게시판 거래 및 환불 정책이 변경될 예정입니다.</a> </td><td>3254</td><td>관리자</td><td>2021-08-06</td>
                   </tr>
               <!--     
                   <tr class="border_bottom">           
