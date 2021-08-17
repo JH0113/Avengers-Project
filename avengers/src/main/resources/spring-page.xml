@@ -15,5 +15,6 @@
 	<bean class="controller.page.MyPageController" />
 	<bean class="repository.NoticeRepository" />
 	<bean class="service.notice.NoticeListService" />
+	<bean class="controller.page.ProductRegisterPage" />
 	
 </beans>
