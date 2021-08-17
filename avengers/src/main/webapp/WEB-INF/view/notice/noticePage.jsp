@@ -253,7 +253,7 @@ tr.border_bottom_th{
                      <c:if test="${!empty authinfo }">
                      <ul class="nav">
                            <li><a href="loginPage">LOGOUT</a></li>
-                           <li><a href="registPage">MYPAGE</a></li>
+                           <li><a href="myPage">MYPAGE</a></li>
                            <li><a href="noticePage">NOTICE</a></li>
                      </ul>
                      </c:if>

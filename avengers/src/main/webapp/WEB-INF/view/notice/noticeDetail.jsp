@@ -195,7 +195,7 @@ tr.border_bottom_th {
 		<div class="body">
 			<div class="left_bar">
 				<div class="logo">
-					<span id="logo_text">2nd shop<span>
+					<span id="logo_text"><a href="main">2nd shop</a><span>
 				</div>
 			</div>
 			
@@ -220,7 +220,7 @@ tr.border_bottom_th {
 							<c:if test="${!empty authinfo }">
 								<ul class="nav">
 									<li><a href="loginPage">LOGOUT</a></li>
-									<li><a href="registPage">MYPAGE</a></li>
+									<li><a href="myPage">MYPAGE</a></li>
 									<li><a href="noticePage">NOTICE</a></li>
 								</ul>
 							</c:if>
@@ -257,7 +257,6 @@ tr.border_bottom_th {
 								모두 휴무하는 공휴일입니다 커먼유니크의 상품 주문 및 입금확인은 정상적으로 처리되나 고객상담, 배송 등의 업무는
 								20일(목)부터 재개됩니다 , 즐거운 공휴일 보내시길 바랍니다 :-)</p></td>
 					</tr>
-
 				</table>
 
 			</div>
