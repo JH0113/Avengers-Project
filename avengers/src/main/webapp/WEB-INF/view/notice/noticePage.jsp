@@ -272,7 +272,7 @@ tr.border_bottom_th{
                      <th>글번호</th><th>종류</th><th>제목</th><th>조회수</th><th>글쓴이</th><th>게시일</th></tr>
                   
                   <tr class="border_bottom">           
-                     <td>1</td><td>정책변경공지</td><td><a href="noticeDetail?noticeNum=#">중고거래 게시판 거래 및 환불 정책이 변경될 예정입니다.</a> </td><td>3254</td><td>관리자</td><td>2021-08-06</td>
+                     <td>1</td><td>정책변경공지</td><td><a href="noticeDetail?noticeNum=#">중고거래 게시판 거래 및 환불 정책이 변경될 예정입니다</a> </td><td>3254</td><td>관리자</td><td>2021-08-06</td>
                   </tr>
               <!--     
                   <tr class="border_bottom">           
