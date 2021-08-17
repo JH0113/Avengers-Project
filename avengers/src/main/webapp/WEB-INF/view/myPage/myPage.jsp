@@ -1,257 +1,269 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>main page</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+	rel="stylesheet">
 <style type="text/css">
-element.style {
-    min-height: 450px;
+* {
+	list-style: none;
+	text-decoration: none;
+	color: #000;
+	margin: 0;
+	padding: 0;
 }
-div {
-    display: block;
-}
-#container {
-    z-index: 100;
-    position: relative;
-    overflow: hidden;
-    margin-top: -1px;
-    margin-left: -1px;
-    background: #fff;
-    -webkit-transition: 300ms;
-    -moz-transition: 300ms;
-    -ms-transition: 300ms;
-    -o-transition: 300ms;
-    transition: 300ms;
-    -webkit-backface-visibility: hidden;
-    -ms-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-html, body, div,  ul, li, h2,  p {
-    margin: 0;
-    padding: 0;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-}
-body {
-    height: 100%;
-    font-family: 'Lato','Nanum Gothic','verdana','돋움','굴림';
-    min-width: 320px;
-    font-size: 11px;
-    line-height: 1.2em;
-    color: #353535;
-    background: #fff;
-    -webkit-text-size-adjust: none;
-    border-top: 3px solid #333;
-}
-footer, header, section {
-    display: block;
-}
-#header .header {
-    position: relative;
-    text-align: center;
-    height: 60px;
-    padding: 11px 0 13px;
-    width: 100%;
-    background: #fff;
-    border-bottom: 1px solid #d1d1d1;
-}
-h1 {
-    display: block;
-    font-size: 2em;
-    margin-block-start: 0.67em;
-    margin-block-end: 0.67em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
-}
-#header h1 {
-    height: 60px;
-    line-height: 60px;
-    padding: 0;
-}
-#header h1 a {
-    display: inline-block;
-}
-a {
-    text-decoration: none;
-    color: #000;
-}
-#header {
-    position: absolute;
-    top: 19px;
-    height: 40px;
-    padding: 0;
-}
-p {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-}
-#contents {
-    position: relative;
-    background-color: #fff;
-    font-weight: 400;
-    font-size: 11px;
-    padding: 0;
-    margin: 0;
-}
-#titleArea {
-    position: relative;
-    background-color: #fff;
-    display: block;
-    width: 90%;
-    margin: 10px auto 20px;
-}
-#titleArea h2 {
-    padding: 0;
-    font-weight: 700;
-    font-size: 11px;
-    line-height: 35px;
-    color: #2e2e2e;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-}
-/* .myshopMain {
-    font-weight: 400;
-    height: auto;
-    font-size: 12px;
-} */
-.myshopMain{
-    padding:14px 7px;
-    font-weight:400;
-    font-size:12px}
 
-ul {
-    margin: 0;
-    padding: 0;
+.web {
+	width: 100%;
+	height: 100%;
 }
-ul li {
-    list-style: none;
+
+.body {
+	max-width: 1200px;
+	display: flex;
+	height: 240px;
+	margin: auto;
 }
-.myshopMain .navigation li {
-    width: 22%;
-    display: inline-block;
+
+.left_bar {
+	height: 240px;
+	width: 250px;
 }
-.myshopMain .myshopDetail{
-    margin: 150px 0;
+
+.logo {
+	background-color: #fff;
+	height: 150px;
+	width: 100%;
+	text-align: center;
+	line-height: 150px;
 }
+
+#logo_text {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 300%;
+}
+
 li {
-    display: list-item;
-    text-align: -webkit-match-parent;
+	padding: 5px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 130%;
 }
 
-.myshopMain .navigation li a {
-    display: block;   
-    padding: 20px;
-    font-family:'Lato','Nanum Gothic','verdana','돋움','굴림';
-    font-size:12px;
-    text-align: center;
+li a {
+	display: block;
 }
+
+.right_bar {
+	height: 240px;
+	width: 950px;
+}
+
+.header {
+	height: 240px;
+	width: 100%;
+}
+
+.top_menu {
+	display: flex;
+	width: 900px;
+	margin: auto;
+	height: 86px;
+	padding-top: 10px;
+	padding-left: 440px;
+}
+
+.nav {
+	float: right;
+	background-color: #fff;
+	display: flex;
+	justify-content: flex-end;
+	line-height: 86px;
+}
+
+.nav li {
+	margin-left: 84px;
+}
+
+.nav li a:hover {
+	font-weight: bolder;
+}
+
+.nav li a {
+	color: #000;
+}
+
+.search {
+	width: 100%;
+	height: 120px;
+	padding-top: 20px;
+}
+
+.search_area {
+	float: right;
+	width: 300px;
+	height: 40px;
+	background: rgba(0.0 .0 .0 .5);
+	border-radius: 5px;
+	margin-top: 24px;
+}
+
+.search_area form input {
+	border: none;
+	border-bottom: solid 1px;
+	background: rgba(0, 0, 0, 0.0);
+	width: 250px;
+	height: 40px;
+	color: #000;
+	padding-left: 15px;
+}
+
+.search_area form span {
+	width: 50px;
+	color: #000;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.headmenu {
+	width: 100%;
+	height: 120px;
+}
+
+.leg {
+	background-color: rgb(231, 231, 231);
+	width: 1200px;
+	height: 250px;
+	margin: auto;
+	padding-top: 40px;
+	border-radius: 10px;
+}
+
 .footer {
-    display: block;
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 15px;
-    color: #1b1b1b;
-    border-top: 1px solid #eee;
+	width: 100%;
+	height: 150px;
+	background-color: #000;
+	clear: both;
+	text-align: center;
+	line-height: 50px;
+	margin-top: 150px;
 }
-.footer address {
-    padding: 20px 7%;
-    border-bottom: 1px solid #eee;
-    background-color: #fbfbfb;
-    line-height: 20px;
-}
-address {
-    display: block;
-    font-style: italic;
-}
-.myshopDetail{
-    width:97%;
-    padding:20px;
-    background-color: rgb(231, 231, 231);
- }
- .navigation{
-     width:97%;
-     margin:10px 5% 10px;
-     display:inline-block;
-    }
 
-/* .navigation>li{
-    background-color: white;
-    height: 200px;
-} */
-.navigation li{
-    float:left;
-    width:22%;
-    height:200px;
-    margin:10px 5px 15px;
-    background-color: white;
-    
+#footer_text {
+	color: #fff;
 }
-.myshopMain .navigation li a img{
-    margin:10px 0 0;
+
+.navigation {
+	display: flex;
+	justify-content: center;
 }
-.myshopMain .navigation li a p{
-    margin:5px 0 0;
-    overflow:hidden;
-    display:block;
-    width:100%;
-    height:60px;
-    padding:0;
-    font-size:12px;
-    line-height:85px;
-    text-align:center;
-    background-repeat:no-repeat;
-    background-position:center 0;
-    background-size:30px 30px;
-    position:relative;
+
+.my_menu {
+	width: 200px;
+	height: 200px;
+	margin-left: 30px;
+	margin-right: 30px;
+	background-color: white;
+	border-radius: 10px;
+}
+
+.my_menu a {
+	display: block;
+	padding: 20px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 90%;
+	text-align: center;
+	margin-top: 45px;
+}
+.banner {
+	margin: auto;
+   width: 1200px;
+   height: 400px;
+   background-image: url("images/mypage_banner.png");
+   background-size: 1200px 400px;
+   margin-top: 50px;
 }
 </style>
 </head>
 <body>
-    <div id="container" style="min-height: 450px">
-        <div id="contents">
-            <div id="titleArea">
-                <h2>MY PAGE</h2>
-            </div>
-            <div class="myshopMain">
-                <div class="myshopDetail">
-                    <ul class="navigation">
-                        <li class="modify">
-                            <a href="#">
-                                <img src="images/profile.png" width="40" height="40">
-                                <p>회원정보</p>
-                            </a>
-                        </li>
-                        <li class="order">
-                            <a href="#">
-                                <img src="images/shopping-bag.png" width="40" height="40">
-                                <p>구매내역</p>
-                            </a>
-                        </li>
-                        <li class="sale">
-                            <a href="#">
-                                <img src="images/list.png" width="40" height="40">
-                                <p>판매내역</p>
-                            </a>
-                        </li>
-                        <li class="wishlist">
-                            <a href="#">
-                                <img src="images/wishlist.png" width="40" height="40">
-                                <p>관심목록</p>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <footer class="footer">
-            <address>아이고 힘들어라 푸터다ㅏ</address>
-        </footer>
-    </div>
+	<div class="web">
+		<div class="body">
+			<div class="left_bar">
+				<div class="logo">
+					<span id="logo_text"><a href="main">2nd shop</a><span>
+				</div>
+			</div>
+			<div class="right_bar">
+				<div class="header">
+					<div class="search">
+						<div class="search_area">
+							<form>
+								<input type="search" placeholder="search"> <span>검색</span>
+							</form>
+						</div>
+					</div>
+					<div class="headmenu">
+						<div class="top_menu">
+							<c:if test="${empty authinfo }">
+								<ul class="nav">
+									<li><a href="loginPage">LOGIN</a></li>
+									<li><a href="registPage">REGIST</a></li>
+									<li><a href="noticePage">NOTICE</a></li>
+								</ul>
+							</c:if>
+							<c:if test="${!empty authinfo }">
+								<ul class="nav">
+									<li><a href="loginPage">LOGOUT</a></li>
+									<li><a href="myPage">MYPAGE</a></li>
+									<li><a href="noticePage">NOTICE</a></li>
+								</ul>
+							</c:if>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="leg">
+			<div class="navigation">
+				<div class="my_menu">
+					<a href="#"> <img src="images/profile.png" width="40"
+						height="40">
+						<p>회원정보</p>
+					</a>
+				</div>
+				<div class="my_menu">
+					<a href="#"> <img src="images/shopping-bag.png" width="40"
+						height="40">
+						<p>구매내역</p>
+					</a>
+				</div>
+				<div class="my_menu">
+					<a href="#"> <img src="images/list.png" width="40" height="40">
+						<p>판매내역</p>
+					</a>
+				</div>
+				<div class="my_menu">
+					<a href="#"> <img src="images/wishlist.png" width="40"
+						height="40">
+						<p>관심목록</p>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="banner"></div>
+		<div class="footer">
+			<h2 id="footer_text">푸터입니당.</h2>
+		</div>
+	</div>
 </body>
 </html>
