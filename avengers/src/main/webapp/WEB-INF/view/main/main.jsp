@@ -195,26 +195,15 @@ table {
 	margin: auto;
 }
 
-.footer {
-	width: 100%;
-	height: 150px;
-	background-color: #000;
-	clear: both;
-	text-align: center;
-	line-height: 50px;
-}
 
-#footer_text {
-	color: #fff;
-}
 </style>
 </head>
 <body>
-	<div class="web">
+	<div class="">
 		<div class="body">
 			<div class="left_bar">
 				<div class="logo">
-					<span id="logo_text"><a href="main">2nd shop</a><span>
+					<span id="logo_text"><a href="main">2nd shop</a></span>
 				</div>
 				<div class="category">
 					<div class="dropdown">
@@ -298,7 +287,7 @@ table {
 						<c:if test="${!empty authinfo }">
 							<ul class="nav">
 								<li><a href="myPage">MYPAGE</a></li>
-								<li><a href="productRegisterPage">SELL ITEMS</a></li>						
+								<li><a href="productRegisterPage">SELL ITEMS</a></li>
 								<li><a href="noticePage">NOTICE</a></li>
 								<li><a href="login/logout">LOGOUT</a></li>
 							</ul>
@@ -352,7 +341,7 @@ table {
 			</div>
 		</div>
 		<div class="footer">
-			<h2 id="footer_text">푸터입니당.</h2>
+			<%@include file="../include/includeFooter.jsp" %>
 		</div>
 	</div>
 </body>

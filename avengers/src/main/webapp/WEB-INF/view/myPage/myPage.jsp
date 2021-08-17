@@ -30,7 +30,7 @@
 .body {
 	max-width: 1200px;
 	display: flex;
-	height: 240px;
+	height: 350px;
 	margin: auto;
 }
 
@@ -71,22 +71,19 @@ li a {
 	height: 240px;
 	width: 100%;
 }
-
 .top_menu {
-	display: flex;
-	width: 900px;
-	margin: auto;
-	height: 86px;
-	padding-top: 10px;
-	padding-left: 440px;
+   display: flex;
+   width: 100%;
+   margin: auto;
+   height: 86px;
 }
-
 .nav {
-	float: right;
-	background-color: #fff;
-	display: flex;
-	justify-content: flex-end;
-	line-height: 86px;
+   width: 950px;
+   height : 96px;
+   display: flex;
+   justify-content: flex-end;
+   line-height: 86px;
+   background-color: #fff;
 }
 
 .nav li {
@@ -147,20 +144,6 @@ li a {
 	border-radius: 10px;
 }
 
-.footer {
-	width: 100%;
-	height: 150px;
-	background-color: #000;
-	clear: both;
-	text-align: center;
-	line-height: 50px;
-	margin-top: 150px;
-}
-
-#footer_text {
-	color: #fff;
-}
-
 .navigation {
 	display: flex;
 	justify-content: center;
@@ -184,12 +167,13 @@ li a {
 	margin-top: 45px;
 }
 .banner {
-	margin: auto;
+   margin: auto;
    width: 1200px;
    height: 400px;
-   background-image: url("images/mypage_banner.png");
+   background-image: url("images/mypagebanner.png");
    background-size: 1200px 400px;
    margin-top: 50px;
+   margin-bottom: 100px;
 }
 </style>
 </head>
@@ -221,9 +205,10 @@ li a {
 							</c:if>
 							<c:if test="${!empty authinfo }">
 								<ul class="nav">
-									<li><a href="loginPage">LOGOUT</a></li>
-									<li><a href="myPage">MYPAGE</a></li>
-									<li><a href="noticePage">NOTICE</a></li>
+								<li><a href="myPage">MYPAGE</a></li>
+								<li><a href="productRegisterPage">SELL ITEMS</a></li>
+								<li><a href="noticePage">NOTICE</a></li>
+								<li><a href="login/logout">LOGOUT</a></li>
 								</ul>
 							</c:if>
 						</div>
@@ -262,7 +247,7 @@ li a {
 		</div>
 		<div class="banner"></div>
 		<div class="footer">
-			<h2 id="footer_text">푸터입니당.</h2>
+			<%@include file="../include/includeFooter.jsp" %>
 		</div>
 	</div>
 </body>

@@ -21,24 +21,20 @@
 	margin: 0;
 	padding: 0;
 }
-
 .web {
 	width: 100%;
 	height: 100%;
 }
-
 .body {
 	max-width: 1200px;
 	display: flex;
 	height: 240px;
 	margin: auto;
 }
-
 .left_bar {
 	height: 240px;
 	width: 250px;
 }
-
 .logo {
 	background-color: #fff;
 	height: 150px;
@@ -46,67 +42,54 @@
 	text-align: center;
 	line-height: 150px;
 }
-
 #logo_text {
 	font-family: 'Montserrat', sans-serif;
 	font-size: 300%;
 }
-
 li {
 	padding: 5px;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 130%;
 }
-
 li a {
 	display: block;
 }
-
 .right_bar {
 	height: 240px;
 	width: 950px;
 }
-
 .header {
 	height: 240px;
 	width: 100%;
 }
-
 .top_menu {
-	display: flex;
-	width: 900px;
-	margin: auto;
-	height: 86px;
-	padding-top: 10px;
-	padding-left: 440px;
+   display: flex;
+   width: 100%;
+   margin: auto;
+   height: 86px;
 }
-
 .nav {
-	float: right;
-	background-color: #fff;
-	display: flex;
-	justify-content: flex-end;
-	line-height: 86px;
+   width: 950px;
+   height : 96px;
+   display: flex;
+   justify-content: flex-end;
+   line-height: 86px;
+   background-color: #fff;
 }
-
 .nav li {
 	margin-left: 84px;
 }
-
 .nav li a:hover {
 	font-weight: bolder;
 }
-
 .nav li a {
 	color: #000;
 }
-
 .search {
 	width: 100%;
 	height: 120px;
 	padding-top: 20px;
 }
-
 .search_area {
 	float: right;
 	width: 300px;
@@ -115,7 +98,6 @@ li a {
 	border-radius: 5px;
 	margin-top: 24px;
 }
-
 .search_area form input {
 	border: none;
 	border-bottom: solid 1px;
@@ -125,31 +107,26 @@ li a {
 	color: #000;
 	padding-left: 15px;
 }
-
 .search_area form span {
 	width: 50px;
 	color: #000;
 	font-weight: bold;
 	cursor: pointer;
 }
-
 .headmenu {
 	width: 100%;
 	height: 120px;
 }
-
 .leg {
 	width: 1200px;
 	height: 1000px;
 	margin: auto;
 }
-
 .noticeContents {
 	font-family: 'Montserrat', sans-serif;
 	width: 100%;
 	height: auto;
 }
-
 td, th {
 	padding-top: 20px;
 	padding-bottom: 20px;
@@ -157,7 +134,6 @@ td, th {
 	padding-right: 15px;
 	text-align: center;
 }
-
 table {
 	width: 1200px;
 	margin: auto;
@@ -167,15 +143,12 @@ table {
 	border-right: none;
 	border-collapse: collapse;
 }
-
 tr.border_bottom td {
 	border-bottom: 1px solid #e6e6e6;
 }
-
 tr.border_bottom_th {
 	border-bottom: 3px solid #1a1a1a;
 }
-
 .footer {
 	clear: both;
 	width: 100%;
@@ -184,7 +157,6 @@ tr.border_bottom_th {
 	text-align: center;
 	line-height: 50px;
 }
-
 #footer_text {
 	color: #fff;
 }
@@ -219,9 +191,10 @@ tr.border_bottom_th {
 							</c:if>
 							<c:if test="${!empty authinfo }">
 								<ul class="nav">
-									<li><a href="loginPage">LOGOUT</a></li>
-									<li><a href="myPage">MYPAGE</a></li>
-									<li><a href="noticePage">NOTICE</a></li>
+								<li><a href="myPage">MYPAGE</a></li>
+								<li><a href="productRegisterPage">SELL ITEMS</a></li>
+								<li><a href="noticePage">NOTICE</a></li>
+								<li><a href="login/logout">LOGOUT</a></li>
 								</ul>
 							</c:if>
 						</div>
@@ -262,7 +235,7 @@ tr.border_bottom_th {
 			</div>
 		</div>
 		<div class="footer">
-			<h2 id="footer_text">푸터입니당.</h2>
+			<%@include file="../include/includeFooter.jsp"%>
 		</div>
 	</div>
 		

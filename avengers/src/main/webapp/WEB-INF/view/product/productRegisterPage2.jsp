@@ -21,12 +21,10 @@
 	margin: 0;
 	padding: 0;
 }
-
 .web {
 	width: 100%;
 	height: 100%;
 }
-
 .body {
 	max-width: 1200px;
 	display: flex;
@@ -73,24 +71,22 @@ li a {
 }
 
 .top_menu {
-	display: flex;
-	width: 900px;
-	margin: auto;
-	height: 86px;
-	padding-top: 10px;
-	padding-left: 440px;
+   display: flex;
+   width: 100%;
+   margin: auto;
+   height: 86px;
 }
-
 .nav {
-	float: right;
-	background-color: #fff;
-	display: flex;
-	justify-content: flex-end;
-	line-height: 70px;
+   width: 950px;
+   height : 96px;
+   display: flex;
+   justify-content: flex-end;
+   line-height: 86px;
+   background-color: #fff;
 }
 
 .nav li {
-	margin-left: 30px;
+	margin-left: 84px;
 }
 
 .nav li a:hover {
@@ -164,7 +160,7 @@ img {
 }
 
 .regist_box {
-	height: 400px;
+	height: 450px;
 	width: 600px;
 	margin: auto;
 }
@@ -216,7 +212,7 @@ td, th {
 
 .foot {
 	width: 1200px;
-	height: 400px;
+	height: 500px;
 	margin: auto;
 }
 
@@ -282,10 +278,10 @@ textarea {
 							</c:if>
 							<c:if test="${!empty authinfo }">
 								<ul class="nav">
-									<li><a href="loginPage">LOGOUT</a></li>
-									<li><a href="registPage">MYPAGE</a></li>
-									<li><a href="noticePage">NOTICE</a></li>
-									<li><a href="productRegisterPage">SELL ITEMS</a></li>
+								<li><a href="myPage">MYPAGE</a></li>
+								<li><a href="productRegisterPage">SELL ITEMS</a></li>
+								<li><a href="noticePage">NOTICE</a></li>
+								<li><a href="login/logout">LOGOUT</a></li>
 								</ul>
 							</c:if>
 						</div>
@@ -327,6 +323,11 @@ textarea {
 			추가이미지 선택 <input type="file">
 			<button type="submit" class="btn">상품등록</button>
 		</div>
+		
+				<div class="footer">
+			<%@include file="../include/includeFooter.jsp"%>
+		</div>
+		
 	</div>
 </body>
 </html>

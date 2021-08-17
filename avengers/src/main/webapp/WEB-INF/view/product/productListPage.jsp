@@ -199,18 +199,6 @@ table {
 	margin: auto;
 }
 
-.footer {
-	width: 100%;
-	height: 150px;
-	background-color: #000;
-	clear: both;
-	text-align: center;
-	line-height: 50px;
-}
-
-#footer_text {
-	color: #fff;
-}
 </style>
 </head>
 <body>
@@ -388,7 +376,7 @@ table {
 			</div>
 		</div>
 		<div class="footer">
-			<h2 id="footer_text">푸터입니당.</h2>
+			<%@include file="../include/includeFooter.jsp" %>
 		</div>
 	</div>
 </body>
