@@ -17,7 +17,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 	<style type="text/css">
 		:root {
-			--body-background-color: #ffffff;
+			--body-background-color: #f5f6f7;
 			--font-color: #4e4e4e;
 			--border-gray-color: #dadada;
 			--login-button-color: #000000;
@@ -59,7 +59,7 @@
 		}
 
 		.main-container .main-wrap .logo-wrap {
-			padding-top: 55px;
+			padding-top: 100px;
 		}
 
 
@@ -91,7 +91,7 @@
 
 		/* 로그인 영역 */
 		.login-input-section-wrap {
-			padding-top: 60px;
+			padding-top: 80px;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
@@ -248,12 +248,6 @@
 	<div class="main-container">
 		<div class="main-wrap">
 			<header>
-				<div class="sel-lang-wrap">
-					<select class="lang-select">
-						<option>한국어</option>
-						<option>English</option>
-					</select>
-				</div>
 				<div class="logo-wrap">
 					<span><a href="main">2nd shop</a></span>
 				</div>
@@ -276,12 +270,6 @@
 			</section>
 			</form>
 			<section class="Easy-sgin-in-wrap">
-				<h2>더욱 간편한 로그인</h2>
-				<ul class="sign-button-list">
-					<li><button><i class="fas fa-qrcode"></i><span>QR코드 로그인</span></button></li>
-					<li><button><i class="fab fa-facebook-square"></i><span>Facebook</span></button></li>
-					<li><button><i class="fab fa-line"></i><span>line</span></button></li>
-				</ul>
 				<p class="forget-msg"><a href="#">아이디 찾기</a> | <a href="#">비밀번호 찾기</a> | <a href="#">회원가입</a></p>
 			</section>
 			<footer>

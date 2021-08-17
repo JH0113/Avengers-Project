@@ -5,8 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>regist Page</title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+	rel="stylesheet">
 <style type="text/css">
 * {
+	font-family: 'Montserrat', sans-serif;
 	text-decoration: none;
 	list-style: none;
 	padding: 0px;
@@ -22,7 +26,7 @@
 
 .container {
 	width: 500px;
-	height: 1200px;
+	height: 1300px;
 	margin: auto;
 	top: 0px;
 }
@@ -34,7 +38,7 @@
 	font-weight: bold;
 	font-size: 250%;
 	text-align: center;
-	line-height: 200px;
+	line-height: 240px;
 }
 
 .regist_box {
@@ -89,6 +93,20 @@
 	cursor: pointer;
 	box-sizing: border-box;
 	margin-top: 30px;
+	background-color: #000;
+	color: #fff;
+}
+
+.footer {
+	padding-top: 95px;
+	padding-bottom: 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+#copyright {
+	font-family: none;
 }
 </style>
 </head>
@@ -96,7 +114,9 @@
 	<div class="web">
 		<form action="regist" name="frm" method="post">
 			<div class="container">
-				<div class="logo"><a href="main">2nd shop</a></div>
+				<div class="logo">
+					<a href="main">2nd shop</a>
+				</div>
 				<div class="regist_box">
 					<div class="text_box">아이디</div>
 					<span class="input_box"> <input type="text" name="memId"
@@ -107,8 +127,8 @@
 						class="input">
 					</span>
 					<div class="text_box">비밀번호 확인</div>
-					<span class="input_box"> <input type="password" name="memPwCon"
-						class="input">
+					<span class="input_box"> <input type="password"
+						name="memPwCon" class="input">
 					</span>
 					<div class="text_box">이름</div>
 					<span class="input_box"> <input type="text" name="memName"
@@ -119,22 +139,26 @@
 						class="input">
 					</span>
 					<div class="text_box">우편번호</div>
-					<span class="input_box"> <input type="text" name="postNumber"
-						class="input">
+					<span class="input_box"> <input type="text"
+						name="postNumber" class="input">
 					</span>
 					<div class="text_box">주소</div>
 					<span class="input_box"> <input type="text" name="memAdd"
 						class="input">
 					</span>
 					<div class="text_box">상세주소</div>
-					<span class="input_box"> <input type="text" name="memAddDetail"
-						class="input">
+					<span class="input_box"> <input type="text"
+						name="memAddDetail" class="input">
 					</span>
 					<div class="text_box">핸드폰</div>
 					<span class="input_box"> <input type="text" name="memPhone"
 						class="input">
 					</span>
 					<button type="submit" class="btn">가입하기</button>
+					<div class="footer">
+						<span id="copyright">Copyright © 2nd shop All Rights
+							Reserved.</span>
+					</div>
 				</div>
 			</div>
 		</form>

@@ -293,12 +293,12 @@ table {
 								<li><a href="loginPage">LOGIN</a></li>
 								<li><a href="registPage">REGIST</a></li>
 								<li><a href="noticePage">NOTICE</a></li>
-								<li><a href="productRegisterPage">SELL ITEMS</a></li>						
 							</ul>
 						</c:if>
 						<c:if test="${!empty authinfo }">
 							<ul class="nav">
 								<li><a href="myPage">MYPAGE</a></li>
+								<li><a href="productRegisterPage">SELL ITEMS</a></li>						
 								<li><a href="noticePage">NOTICE</a></li>
 								<li><a href="login/logout">LOGOUT</a></li>
 							</ul>

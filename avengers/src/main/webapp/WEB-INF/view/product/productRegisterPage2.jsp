@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8" isELIgnored="false"%>
+	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -139,22 +139,34 @@ li a {
 }
 
 .leg {
-	width: 1200px;
-	height: auto;
 	margin: auto;
-}
-
-.banner {
-	width: 100%;
+	width: 1200px;
 	height: 400px;
-	background-image: url("images/notice.png");
-	background-size: 100% 400px;
+	display: flex;
 }
 
-.noticeContents {
-	font-family: 'Montserrat', sans-serif;
-	width: 100%;
-	height: 600px;
+.leg_left {
+	width: 400px;
+	height: 400px;
+	background-image: url("images/noimage02.png");
+	background-size: 400px 400px;
+	border: solid 1px;
+}
+
+img {
+	width: 400px;
+	height: 400px;
+}
+
+.leg_right {
+	height: 400px;
+	width: 800px;
+}
+
+.regist_box {
+	height: 400px;
+	width: 600px;
+	margin: auto;
 }
 
 td, th {
@@ -165,37 +177,79 @@ td, th {
 	text-align: center;
 }
 
-table {
-	width: 1200px;
-	margin: auto;
-	border-top: none;
-	border-bottom: none;
-	border-left: none;
-	border-right: none;
-	border-collapse: collapse;
-}
-
-tr.border_bottom td {
-	border-bottom: 1px solid #e6e6e6;
-}
-
-tr.border_bottom_th {
-	border-bottom: 3px solid #1a1a1a;
-}
-
-.footer {
+.input_box {
+	display: block;
+	position: relative;
 	width: 100%;
-	height: 150px;
-	background-color: #000;
-	clear: both;
-	text-align: center;
-	line-height: 50px;
+	height: 51px;
+	border: solid 1px #dadada;
+	padding: 10px 110px 10px 14px;
+	background: #fff;
+	box-sizing: border-box;
+	vertical-align: top;
 }
 
-#footer_text {
+.input {
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 29px;
+	padding-right: 25px;
+	line-height: 29px;
+	border: none;
+	background: #fff;
+	font-size: 15px;
+	box-sizing: border-box;
+	z-index: 10;
+	*position: absolute;
+	*top: 0;
+	*left: 0;
+	apperance: none;
+	-webkit-apperance: none;
+}
+
+.text_box {
+	margin: 19px 0 8px;
+	font-size: 14px;
+	font-weight: 700;
+}
+
+.foot {
+	width: 1200px;
+	height: 400px;
+	margin: auto;
+}
+
+.btn {
+	display: block;
+	width: 600px;
+	margin: auto; padding : 15px 0 15px;
+	font-size: 18px;
+	font-weight: 700;
+	text-align: center;
+	cursor: pointer;
+	box-sizing: border-box;
+	margin-top: 30px;
+	background-color: #000;
 	color: #fff;
+	padding: 15px 0 15px;
+}
+
+textarea {
+	font-size: 150%;
 }
 </style>
+<script type="text/javascript">
+	function setThumbnail(event) {
+		var reader = new FileReader();
+		reader.onload = function(event) {
+			var img = document.createElement("img");
+			img.setAttribute("src", event.target.result);
+			document.querySelector("div#image_container").appendChild(img);
+		};
+		reader.readAsDataURL(event.target.files[0]);
+	}
+</script>
 </head>
 
 <body>
@@ -204,24 +258,6 @@ tr.border_bottom_th {
 			<div class="left_bar">
 				<div class="logo">
 					<span id="logo_text"><a href="main">2nd shop</a><span>
-				</div>
-				<div class="category">
-					<div class="dropdown">
-						<span id="menu_text"></span>
-						<div class="dropdown-content"></div>
-					</div>
-					<div class="dropdown">
-						<span id="menu_text"></span>
-						<div class="dropdown-content"></div>
-					</div>
-					<div class="dropdown">
-						<span id="menu_text"></span>
-						<div class="dropdown-content"></div>
-					</div>
-					<div class="dropdown">
-						<span id="menu_text"></span>
-						<div class="dropdown-content"></div>
-					</div>
 				</div>
 			</div>
 			<div class="right_bar">
@@ -255,56 +291,42 @@ tr.border_bottom_th {
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
-
-		<!-- 상품등록 시작 -->
-		<div class="product_body">
-			<div class="product_ctgr">
-				<th>상품 등록</th>
-				<br />
-				<br /> 카테고리 선택: <select class="ctgr_select">
-					<option>가방</option>
-					<option>신발</option>
-					<option>쥬얼리</option>
-				</select><br /> 글 제목:<input type="text" name="product_title"><br />
-				판매가:<input type="text" name="product_price"><br />
-				<form>
-					<div>
-						보증서 유무: <input type="radio" id="tag1" name="product_tag" value="유"
-							checked> <label for="contactChoice1">유</label> <input
-							type="radio" id="tag2" name="product_tag" value="무"> <label
-							for="contactChoice2">무</label>
-					</div>
-				</form>
-				거래가능 지역: <input type="text" name="product_location"><br />
-				<div class="product_img">
-					상품 이미지:<input type="file" name="prod_Image" multiple="multiple"/>
-				</div>
+		<div class="leg">
+			<div class="leg_left" onclick="onclick=document.all.image.click()">
+				<div id="image_container"></div>
 			</div>
-			<div class="product_footer">
-				<div class="product_detail">
-					상품정보:
-					<textarea rows="20" cols="50"
-						placeholder="1.상품명	
-														2.구입시기
-										 	 			3.구입장소
-									 		 			4.구입가격
-										 	 			5.부속품
-									 		 			6.인증서 여부
-									 		 			7.상세설명">
-				</textarea>
+			<div class="leg_right">
+				<div class="regist_box">
+					<div class="text_box">상품이름</div>
+					<span class="input_box"> <input type="text" name="prodName"
+						class="input">
+					</span>
+					<div class="text_box">희망가격</div>
+					<span class="input_box"> <input type="text" name="prodName"
+						class="input">
+					</span>
+					<div class="text_box">거래가능지역</div>
+					<span class="input_box"> <input type="text" name="prodName"
+						class="input">
+					</span>
+					<div class="text_box">보증서</div>
+					<span> 유<input type="radio" name="prodName"> 무<input
+						type="radio" name="prodName">
+					</span> <input type="file" id="image" accept="image/*"
+						onchange="setThumbnail(event);" style="display: none" />
 				</div>
-				<input type="submit" value="상품 등록"
-					onclick="javascript:location.href='main'" /> <input type="button"
-					value="취소" onclick="javascript:location.href='main'" />
 			</div>
 		</div>
-	</div>
-	<div class="footer">
-		<h2 id="footer_text">푸터입니당.</h2>
-	</div>
+		<div class="foot">
+			<div class="text_box">
+				<h1>상품상세설명</h1>
+			</div>
+			<textarea rows="10" cols="118" placeholder="상품에 대한 상세설명을 입력해주세요."></textarea>
+			추가이미지 선택 <input type="file">
+			<button type="submit" class="btn">상품등록</button>
+		</div>
 	</div>
 </body>
 </html>
