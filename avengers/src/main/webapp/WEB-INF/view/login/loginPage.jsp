@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,6 +62,7 @@
 	background: #fff;
 	margin-bottom: 8px;
 	height: 29px;
+	display: flex;
 }
 
 .input {
@@ -68,13 +70,22 @@
 	line-height: 16px;
 	position: relative;
 	z-index: 9;
-	width: 100%;
+	width: 80%;
 	height: 16px;
 	padding: 8px 0 6px;
 	color: #000;
 	border: none;
 	background: #fff;
 	-webkit-appearance: none;
+}
+
+.error_box {
+	font-size: 60%;
+	margin-bottom: 8px;
+	margin-left: 10px;
+}
+#error_text {
+	color: red;
 }
 
 .btn {
@@ -86,7 +97,7 @@
 	border-radius: 0;
 	border: solid 1px rgba(0, 0, 0, .1);
 	box-shadow: 0 2px 6px 0 rgb(61 80 81/ 8%);
-	background-color: #03c75a;
+	background-color: #404040;
 	color: #fff;
 	font-size: 16px;
 	font-weight: 700;
@@ -144,13 +155,21 @@
 			</div>
 		</div>
 		<div class="form_container">
-			<form action="login" name="frm" method="post">
+			<form:form action="login" name="frm" method="post"
+				modelAttribute="loginDTO">
 				<div class="form_box">
 					<div class="input_box">
 						<input class="input" type="text" name="userId" placeholder="아이디">
 					</div>
+					<div class="error_box">
+						<form:errors id="error_text" path="userId" />
+					</div>
 					<div class="input_box">
-						<input class="input" type="password" name="userPw" placeholder="비밀번호">
+						<input class="input" type="password" name="userPw"
+							placeholder="비밀번호">
+					</div>
+					<div class="error_box">
+						<form:errors id="error_text" path="userPw" />
 					</div>
 					<input type="submit" value="로그인" class="btn">
 					<div class="check_box">
@@ -158,7 +177,7 @@
 						유지
 					</div>
 				</div>
-			</form>
+			</form:form>
 		</div>
 		<div class="option_container">
 			<div class="opt_text">아이디 찾기 | 비밀번호 찾기 | 회원가입</div>

@@ -15,7 +15,7 @@ public class LoginService {
 	public void login(LoginDTO loginDTO , HttpSession httpSession, Errors errors) {
 		String userId = loginDTO.getUserId();
 		AuthinfoDTO dto = loginRepository.login(userId);
-		if (dto.getUserId().equals("")) {
+		if (dto == null) {
 			errors.rejectValue("userId", "noneId");
 		}else {
 			if (loginDTO.getUserPw().equals(dto.getUserPw())) {

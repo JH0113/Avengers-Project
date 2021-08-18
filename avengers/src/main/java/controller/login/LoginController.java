@@ -30,6 +30,9 @@ public class LoginController {
 			return "login/loginPage";
 		}
 		loginService.login(loginDTO, httpSession, errors);
+		if (errors.hasErrors()) {
+			return "login/loginPage";
+		}
 		return "redirect:/";
 	}
 	@RequestMapping("logout")
