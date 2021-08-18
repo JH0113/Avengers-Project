@@ -17,9 +17,10 @@ public class MemberValidator implements Validator {
 	@Override
 	public void validate(Object target, Errors errors) {
 		MemberCommand memberCommand = (MemberCommand)target;
-		if(memberCommand.getMemPw() != null && memberCommand.getMemPwCon() != null) {
-			if(!memberCommand.PwCk()) {
-				errors.rejectValue("memPwCon", "nomatch");
+		if (memberCommand.getMemPw() != null && memberCommand.getMemPwCon() != null) {
+			if (!memberCommand.PwCk()) {
+				System.out.println("하이");
+				errors.rejectValue("memPwCon", "nomatchPwCon");
 			}
 		}
 		ValidationUtils.rejectIfEmpty(errors, "memId", "required");
@@ -31,5 +32,4 @@ public class MemberValidator implements Validator {
 		ValidationUtils.rejectIfEmpty(errors, "memPostNumber", "required");
 		ValidationUtils.rejectIfEmpty(errors, "memPhone", "required");
 	}
-
 }

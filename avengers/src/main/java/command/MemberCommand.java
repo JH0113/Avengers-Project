@@ -11,7 +11,7 @@ public class MemberCommand {
 	String memDetailAdd;
 	String memPhone;
 	
-	public Boolean PwCk() {
+	public boolean PwCk() {
 		return memPw.equals(memPwCon);
 	}
 	public String getMemId() {
