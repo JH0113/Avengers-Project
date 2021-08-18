@@ -218,8 +218,8 @@ textarea {
 	cursor: pointer;
 	box-sizing: border-box;
 	margin-top: 30px;
-	background-color: #000;
-	color: #404040;
+	background-color: #404040;
+	color: #ffffff;
 	padding: 15px 0 15px;
 }
 

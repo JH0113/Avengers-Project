@@ -178,7 +178,7 @@
 <body>
 	<div class="web">
 		<form:form action="memjoin" name="frm" method="post"
-			modelAttribute="MemberCommand">
+			modelAttribute="memberCommand">
 			<div class="container">
 				<div class="logo">
 					<a href="main">2nd shop</a>
