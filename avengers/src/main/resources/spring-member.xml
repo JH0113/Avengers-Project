@@ -8,4 +8,6 @@
 >
 	<bean class="controller.member.MemberRegistController" />
 	<bean class="controller.member.MyPageController" />
+	<bean class="repository.MemberRepository" />
+	<bean class="service.join.MemberJoinService" />
 </beans>

@@ -1,0 +1,20 @@
+package repository;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import model.MemberDTO;
+
+public class MemberRepository {
+	
+	String statement;
+	String namespace = "mappers.joinMapper";
+	@Autowired
+	SqlSession sqlSession;
+	public void memjoin(MemberDTO dto) {
+		statement = namespace + ".memjoin";
+		sqlSession.insert(statement, dto);
+	}
+	
+	
+}

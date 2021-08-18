@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.joinMapper">
+	<insert id="memjoin" parameterType="model.MemberDTO">
+	insert into member
+	(MEM_ID , MEM_NICK , MEM_PW , 
+	MEM_NAME, MEM_ADDR, MEM_POSTNUMBER,
+	MEM_DETAILADD,MEM_PHONE,MEM_REPORTED_COUNT)
+	values
+	(#{memId},#{memNick},#{memPw},
+	#{memName},#{memAddr},#{memPostNumber},
+	<if test="memDetailAdd == null">null</if>
+	<if test="memDetailAdd != null">#{memDetailAdd}</if>
+	,#{memPhone},0)
+</insert>
+</mapper>
