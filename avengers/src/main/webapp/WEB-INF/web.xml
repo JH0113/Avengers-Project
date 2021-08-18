@@ -25,10 +25,13 @@
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
 				classpath:spring-mvc.xml
-				classpath:spring-page.xml
 				classpath:spring-jdbc.xml
-				classpath:spring-login.xml
 				classpath:mybatis-config.xml
+				classpath:spring-main.xml
+				classpath:spring-login.xml
+				classpath:spring-member.xml
+				classpath:spring-notice.xml
+				classpath:spring-product.xml
 				
 			</param-value>
 		</init-param>
