@@ -285,12 +285,22 @@ table {
 							</ul>
 						</c:if>
 						<c:if test="${!empty authinfo }">
+							<c:if test="${authinfo.grade == 1 }">
 							<ul class="nav">
 								<li><a href="myPage">MYPAGE</a></li>
 								<li><a href="productRegisterPage">SELL ITEMS</a></li>
 								<li><a href="noticePage">NOTICE</a></li>
 								<li><a href="login/logout">LOGOUT</a></li>
 							</ul>
+							</c:if>
+							<c:if test="${authinfo.grade != 1 }">
+							<ul class="nav">
+								<li><a href="#">MEMBER LIST</a></li>
+								<li><a href="#">REPORT</a></li>
+								<li><a href="#">NOTICE</a></li>
+								<li><a href="login/logout">LOGOUT</a></li>
+							</ul>
+							</c:if>
 						</c:if>
 					</div>
 				</div>

@@ -2,9 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="aaa">
-	<select id="login" parameterType="string" resultType="authinfo.AuthinfoDTO">
-		select MEM_ID userId, MEM_PW userPw
+	<select id="login" resultType="authinfo.AuthinfoDTO">
+		select MEM_ID userId, MEM_PW userPw,MEM_PHONE userPhone, 1 grade
 		from member
 		where MEM_ID = #{userId}
+		union
+		select EMP_ID, EMP_PW,'',0
+		from employees
+		where EMP_ID = #{userId}
 	</select>
 </mapper>

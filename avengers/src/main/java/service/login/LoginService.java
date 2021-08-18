@@ -16,6 +16,7 @@ public class LoginService {
 		AuthinfoDTO dto = loginRepository.login(userId);
 		if (loginDTO.getUserPw().equals(dto.getUserPw())) {
 			httpSession.setAttribute("authinfo", dto);
+			System.out.println(dto.getGrade());
 		}
 	}
 }
