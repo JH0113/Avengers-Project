@@ -1,282 +1,169 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!doctype HTML>
-
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>LOGIN PAGE</title>
+<meta charset="UTF-8">
+<title>login Page</title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+	rel="stylesheet">
+<style type="text/css">
+* {
+	padding: 0px;
+	margin: 0px;
+	text-decoration: none;
+	list-style: none;
+	border-collapse: collapse;
+	color: #000;
+}
 
-	<!-- CSS 시작 -->
-	<link rel="stylesheet" href="style.css">
-	<!-- fa 이미지를 쓰기 위한 스크립트 링크 -->
-	<script src="https://kit.fontawesome.com/51db22a717.js" crossorigin="anonymous"></script>
+.wrap {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #f5f6f7;
+}
 
-	<link rel="stylesheet" href="style.css">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-	<style type="text/css">
-		:root {
-			--body-background-color: #f5f6f7;
-			--font-color: #4e4e4e;
-			--border-gray-color: #dadada;
-			--login-button-color: #000000;
-			--login-button-border-color: #000000;
-		}
+.header {
+	width: 768px;
+	height: 200px;
+	margin: auto;
+}
 
-		* {
-			margin: 0;
-			padding: 0;
-		}
+.logo {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+	font-size: 250%;
+	text-align: center;
+	line-height: 240px;
+}
 
-		a {
-			text-decoration: none;
-			color: #000000;
-		}
+.form_container {
+	position: relative;
+	width: 768px;
+	height: 265px;
+	margin: auto;
+}
 
-		body {
-			background: var(--body-background-color);
-		}
+.form_box {
+	max-width: 400px;
+	margin: auto;
+}
 
-		/* 메인 컨테이너 */
-		.main-container {
-			width: 100%;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			margin-top: 21px;
-		}
+.input_box {
+	position: relative;
+	width: 354px;
+	height: 29px;
+	margin-bottom: 8px;
+	padding: 7px 35px 10px 11px;
+	border: solid 1px #dadada;
+	background: #fff;
+	margin-bottom: 8px;
+	height: 29px;
+}
 
-		.main-container .main-wrap {
-			width: 768px;
-		}
+.input {
+	font-size: 14px;
+	line-height: 16px;
+	position: relative;
+	z-index: 9;
+	width: 100%;
+	height: 16px;
+	padding: 8px 0 6px;
+	color: #000;
+	border: none;
+	background: #fff;
+	-webkit-appearance: none;
+}
 
-		.main-container .main-wrap .sel-lang-wrap .lang-select {
-			width: 96px;
-			height: 30px;
-			color: var(--font-color);
-			border: solid 1px var(--border-gray-color);
-		}
+.btn {
+	display: block;
+	width: 100%;
+	height: 56px;
+	line-height: 55px;
+	margin: 12px 0 14px;
+	border-radius: 0;
+	border: solid 1px rgba(0, 0, 0, .1);
+	box-shadow: 0 2px 6px 0 rgb(61 80 81/ 8%);
+	background-color: #03c75a;
+	color: #fff;
+	font-size: 16px;
+	font-weight: 700;
+	cursor: pointer;
+	text-align: center;
+}
 
-		.main-container .main-wrap .logo-wrap {
-			padding-top: 100px;
-		}
+.check_box {
+	width: 100% px;
+	height: 36px;
+	border-bottom: solid 1px threedface;
+}
 
+.option_container {
+	position: relative;
+	width: 768px;
+	height: 265px;
+	margin: auto;
+	text-align: center;
+}
 
-		.main-container .main-wrap .logo-wrap img /* 로고 이미지 대신 텍스트를 썼는데
-		.logo-wrap img 이걸 삭제하면 div가 틀어져서 그냥 두었습니다. */
-			{
-			width: 231px;
-			height: 44px;
-		}
+.opt_text {
+	width: 100%;
+	height: 56px;
+}
 
-		.main-container .main-wrap header .sel-lang-wrap {
-			display: flex;
-			justify-content: flex-end;
-		}
+.banner {
+	width: 400px;
+	height: 200px;
+	margin: auto;
+	background-image: url("images/noticeBanner.png");
+	background-size: 400px 200px;
+	background-image: url("images/noticeBanner.png");
+}
 
-		.main-container .main-wrap header .logo-wrap {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-		}
-
-		/* 로고 */
-		.logo-wrap {
-			font-family: 'Montserrat', sans-serif;
-			font-weight: bold;
-			font-size: 250%;
-		}
-
-
-		/* 로그인 영역 */
-		.login-input-section-wrap {
-			padding-top: 80px;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-		}
-
-		.login-input-wrap {
-			width: 465px;
-			height: 48px;
-			border: solid 1px var(--border-gray-color);
-			background: white;
-		}
-
-		.password-wrap {
-			margin-top: 13px;
-		}
-
-		.login-input-wrap input {
-			border: none;
-			width: 430px;
-			margin-top: 10px;
-			font-size: 14px;
-			margin-left: 10px;
-			height: 30px;
-		}
-
-		.login-button-wrap {
-			padding-top: 13px;
-		}
-
-		.login-button-wrap button {
-			width: 465px;
-			height: 48px;
-			font-size: 18px;
-			background: var(--login-button-color);
-			color: white;
-			border: solid 1px var(--login-button-border-color);
-		}
-
-		.login-stay-sign-in {
-			width: 465px;
-			height: 52px;
-
-			display: flex;
-			font-size: 15px;
-			color: #4e4e4e;
-			align-items: center;
-			justify-content: flex-start;
-			border-bottom: solid 1px var(--border-gray-color);
-		}
-
-		.login-stay-sign-in i {
-			font-size: 25px;
-			color: #9ba1a3;
-		}
-
-		.login-stay-sign-in span {
-			padding-left: 5px;
-			line-height: 25px;
-		}
-
-		/* 간편로그인 영역 */
-		.Easy-sgin-in-wrap {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			padding-top: 40px;
-		}
-
-		.Easy-sgin-in-wrap h2 {
-			font-size: 20px;
-		}
-
-		.Easy-sgin-in-wrap .sign-button-list {
-			padding-top: 25px;
-			list-style: none;
-			width: 465px;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-		}
-
-		.Easy-sgin-in-wrap .sign-button-list li {
-			padding-bottom: 10px;
-		}
-
-		.Easy-sgin-in-wrap .sign-button-list li button {
-			width: 465px;
-			height: 56px;
-			border: solid 1px var(--border-gray-color);
-			text-align: left;
-			background: white;
-		}
-
-		.Easy-sgin-in-wrap .sign-button-list li button i {
-			padding-left: 15px;
-			font-size: 20px;
-		}
-
-		/* fa 이미지 */
-		.fa-qrcode {
-			color: var(--login-button-color);
-		}
-
-		.fa-line {
-			color: var(--login-button-color);
-		}
-
-		.fa-facebook-square {
-			color: #4064ac;
-		}
-
-		.Easy-sgin-in-wrap .sign-button-list li button span {
-			padding-left: 20px;
-			font-size: 18px;
-		}
-
-		/* 아이디 찾기, 비밀번호 찾기, 회원가입 영역 */
-		.Easy-sgin-in-wrap .forget-msg {
-			color: var(--font-color);
-			font-size: 14px;
-			padding-top: 10px;
-
-		}
-
-		/* 푸터 */
-		footer {
-			padding-top: 95px;
-			padding-bottom: 15px;
-
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			width: 768px;
-		}
-
-		.copyright-wrap {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			height: 15px;
-		}
-
-		footer .copyright-wrap span {
-			font-size: 13px;
-			line-height: 15px;
-		}
-	</style>
+.footer {
+	padding-top: 95px;
+	padding-bottom: 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+.copyright {
+	font-style: none;
+}
+</style>
 </head>
-
-
-<!-- html 시작 -->
-
 <body>
-	<div class="main-container">
-		<div class="main-wrap">
-			<header>
-				<div class="logo-wrap">
-					<span><a href="main">2nd shop</a></span>
+	<div class="wrap">
+		<div class="header">
+			<div class="logo">
+				<a href="main">2nd shop</a>
+			</div>
+		</div>
+		<div class="form_container">
+			<div class="form_box">
+				<div class="input_box">
+					<input class="input" type="text" name="userId" placeholder="아이디">
 				</div>
-			</header>
-			<form action="login" method="post" name="frm">
-			<section class="login-input-section-wrap">
-				<div class="login-input-wrap">
-					<input placeholder="아이디" type="text" name="userId"></input>
+				<div class="input_box">
+					<input class="input" type="text" name="userId" placeholder="비밀번호">
 				</div>
-				<div class="login-input-wrap password-wrap">
-					<input placeholder="비밀번호" type="password" name="userPw"></input>
+				<input type="submit" value="로그인" class="btn">
+				<div class="check_box">
+					<input type="checkbox" value="Y" name="autoLogin"> 로그인 상태
+					유지
 				</div>
-				<div class="login-button-wrap">
-					<button type="submit">로그인</button>
-				</div>
-				<div class="login-stay-sign-in">
-					<i class="far fa-check-circle"></i>
-					<span>로그인 상태 유지</span>
-				</div>
-			</section>
-			</form>
-			<section class="Easy-sgin-in-wrap">
-				<p class="forget-msg"><a href="#">아이디 찾기</a> | <a href="#">비밀번호 찾기</a> | <a href="#">회원가입</a></p>
-			</section>
-			<footer>
-				<div class="copyright-wrap">
-					<span> Copyright © 2nd shop All Rights Reserved.</span>
-				</div>
-			</footer>
+			</div>
+		</div>
+		<div class="option_container">
+			<div class="opt_text">아이디 찾기 | 비밀번호 찾기 | 회원가입</div>
+			<div class="banner"></div>
+		</div>
+		<div class="footer">
+			<span id="copyright">Copyright © 2nd shop All Rights Reserved.</span>
 		</div>
 	</div>
 </body>
+</html>

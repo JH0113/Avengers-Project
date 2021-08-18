@@ -25,11 +25,11 @@ public class LoginController {
 	// request(login)을 정식 post 방식으로 받았을 때 로그인 서비스 실행.
 	@RequestMapping(method = RequestMethod.POST)
 	public String login(LoginDTO loginDTO , HttpSession httpSession, Errors errors) {
-		loginService.login(loginDTO, httpSession);
 		new LoginDtoValidator().validate(loginDTO, errors);
 		if (errors.hasErrors()) {
 			return "login/loginPage";
 		}
+		loginService.login(loginDTO, httpSession, errors);
 		return "redirect:/";
 	}
 	@RequestMapping("logout")
