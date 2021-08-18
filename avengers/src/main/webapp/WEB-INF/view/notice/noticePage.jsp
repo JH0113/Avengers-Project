@@ -189,24 +189,7 @@ tr.border_bottom_th {
 				<div class="logo">
 					<span id="logo_text"><a href="main">2nd shop</a></span>
 				</div>
-				<div class="category">
-					<div class="dropdown">
-						<span id="menu_text"></span>
-						<div class="dropdown-content"></div>
-					</div>
-					<div class="dropdown">
-						<span id="menu_text"></span>
-						<div class="dropdown-content"></div>
-					</div>
-					<div class="dropdown">
-						<span id="menu_text"></span>
-						<div class="dropdown-content"></div>
-					</div>
-					<div class="dropdown">
-						<span id="menu_text"></span>
-						<div class="dropdown-content"></div>
-					</div>
-				</div>
+
 			</div>
 			<div class="right_bar">
 				<div class="header">
@@ -254,6 +237,11 @@ tr.border_bottom_th {
 						<th>게시일</th>
 					</tr>
 
+
+<c:forEach items="${noticeList }" var="dto"> 
+
+
+
 					<tr class="border_bottom">
 						<td>1</td>
 						<td>정책변경공지</td>
@@ -263,25 +251,7 @@ tr.border_bottom_th {
 						<td>관리자</td>
 						<td>2021-08-06</td>
 					</tr>
-
-					<tr class="border_bottom">
-						<td>2</td>
-						<td>공지</td>
-						<td>상황별 알림음 설정과 카테고리 개선</td>
-						<td>914</td>
-						<td>관리자</td>
-						<td>2021-07-13</td>
-					</tr>
-
-					<tr class="border_bottom">
-						<td>3</td>
-						<td>이벤트당첨공지</td>
-						<td>지역광고 후기 이벤트 당첨자를 공개합니다!</td>
-						<td>887</td>
-						<td>관리자</td>
-						<td>2021-06-23</td>
-					</tr>
-
+</c:forEach>
 					<tr>
 						<td colspan="7" align="center"><%@include
 								file="../include/includePage.jsp"%></td>

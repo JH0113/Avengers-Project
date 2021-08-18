@@ -9,5 +9,7 @@
 
 	<bean class="controller.notice.NoticeController" />	
 	<bean class="service.notice.NoticeListService" />
+	<bean class="service.notice.NoticeEmpIdService" />
+	<bean class="service.notice.NoticeJoinService" />
 	<bean class="repository.NoticeRepository" />
 </beans>

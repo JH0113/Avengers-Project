@@ -14,4 +14,18 @@
 <select id="count" resultType="int">
 	select count(*) from notice
 </select>
+
+<sql id="noticeNum">
+	select nvl(max(NOT_NUM),0) + 1 from notice
+</sql>
+
+<insert id="noticeInsert" parameterType="model.NoticeDTO">
+	insert into notice	
+	(NOT_NUM, NOT_SUB, NOT_CONTENTS, NOT_DATE, NOT_HITS, EMP_ID)
+	values	
+	((<include refid="noticeNum"/>),#{noticeSub},#{noticeContents},sysdate,0,#{noticeEmpId})
+</insert>
+
+
+
 </mapper>

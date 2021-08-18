@@ -12,6 +12,7 @@ public class NoticeCommand {
 	Date noticeDate;
 	String noticeHits;
 	String noticeEmpId;
+
 	public String getNoticeNum() {
 		return noticeNum;
 	}
