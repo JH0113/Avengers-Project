@@ -130,6 +130,7 @@
 	align-items: center;
 	width: 100%;
 }
+
 .copyright {
 	font-style: none;
 }
@@ -143,19 +144,21 @@
 			</div>
 		</div>
 		<div class="form_container">
-			<div class="form_box">
-				<div class="input_box">
-					<input class="input" type="text" name="userId" placeholder="아이디">
+			<form action="login" name="frm" method="post">
+				<div class="form_box">
+					<div class="input_box">
+						<input class="input" type="text" name="userId" placeholder="아이디">
+					</div>
+					<div class="input_box">
+						<input class="input" type="password" name="userPw" placeholder="비밀번호">
+					</div>
+					<input type="submit" value="로그인" class="btn">
+					<div class="check_box">
+						<input type="checkbox" value="Y" name="autoLogin"> 로그인 상태
+						유지
+					</div>
 				</div>
-				<div class="input_box">
-					<input class="input" type="text" name="userId" placeholder="비밀번호">
-				</div>
-				<input type="submit" value="로그인" class="btn">
-				<div class="check_box">
-					<input type="checkbox" value="Y" name="autoLogin"> 로그인 상태
-					유지
-				</div>
-			</div>
+			</form>
 		</div>
 		<div class="option_container">
 			<div class="opt_text">아이디 찾기 | 비밀번호 찾기 | 회원가입</div>
