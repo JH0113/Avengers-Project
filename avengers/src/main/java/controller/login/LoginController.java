@@ -4,11 +4,13 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import model.LoginDTO;
 import service.login.LoginService;
+import validator.LoginDtoValidator;
 
 @Controller
 @RequestMapping("login")
@@ -22,8 +24,12 @@ public class LoginController {
 	}
 	// request(login)을 정식 post 방식으로 받았을 때 로그인 서비스 실행.
 	@RequestMapping(method = RequestMethod.POST)
-	public String login(LoginDTO loginDTO , HttpSession httpSession) {
+	public String login(LoginDTO loginDTO , HttpSession httpSession, Errors errors) {
 		loginService.login(loginDTO, httpSession);
+		new LoginDtoValidator().validate(loginDTO, errors);
+		if (errors.hasErrors()) {
+			return "login/loginPage";
+		}
 		return "redirect:/";
 	}
 	@RequestMapping("logout")
