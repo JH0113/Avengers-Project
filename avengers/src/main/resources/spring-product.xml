@@ -8,5 +8,7 @@
 >
 	<bean class="controller.product.ProductListController" />
 	<bean class="controller.product.ProductRegisterController" />
+	<bean class="service.product.ProductRegistService" />
+	<bean class="repository.ProductRepository" />
 	
 </beans>

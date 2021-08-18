@@ -289,6 +289,7 @@ textarea {
 				</div>
 			</div>
 		</div>
+		<form action="productRegister" method="post">
 		<div class="leg">
 			<div class="leg_left" onclick="onclick=document.all.image.click()">
 				<div id="image_container"></div>
@@ -300,18 +301,18 @@ textarea {
 						class="input">
 					</span>
 					<div class="text_box">희망가격</div>
-					<span class="input_box"> <input type="text" name="prodName"
+					<span class="input_box"> <input type="text" name="prodPrice"
 						class="input">
 					</span>
 					<div class="text_box">거래가능지역</div>
-					<span class="input_box"> <input type="text" name="prodName"
+					<span class="input_box"> <input type="text" name="prodLocation"
 						class="input">
 					</span>
 					<div class="text_box">보증서</div>
-					<span> 유<input type="radio" name="prodName"> 무<input
-						type="radio" name="prodName">
+					<span> 유<input type="radio" name="prodTag"> 무<input
+						type="radio" name="prodTag">
 					</span> <input type="file" id="image" accept="image/*"
-						onchange="setThumbnail(event);" style="display: none" />
+						onchange="setThumbnail(event);" style="display: none" name="prodImage"/>
 				</div>
 			</div>
 		</div>
@@ -319,11 +320,11 @@ textarea {
 			<div class="text_box">
 				<h1>상품상세설명</h1>
 			</div>
-			<textarea rows="10" cols="118" placeholder="상품에 대한 상세설명을 입력해주세요."></textarea>
-			추가이미지 선택 <input type="file">
-			<button type="submit" class="btn">상품등록</button>
+			<textarea rows="10" cols="118" placeholder="상품에 대한 상세설명을 입력해주세요." name="prodContext"></textarea>
+			추가이미지 선택 <input type="file" name="prodImageplus">
+			<input type="submit" class="btn" value="상품등록" ></input>
 		</div>
-		
+		</form>
 				<div class="footer">
 			<%@include file="../include/includeFooter.jsp"%>
 		</div>
