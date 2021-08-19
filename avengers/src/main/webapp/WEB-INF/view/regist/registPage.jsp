@@ -237,6 +237,74 @@
 					}
 				}).open();
 	}
+	
+	function valid(x){
+	    var alphaDigit= "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+	    
+	    //아이디의 입력 타당성 검사
+	    if (x.memId.value=="") {
+	    alert("ID를 입력해 주세요.");
+	    x.memId.focus();
+	    return; 
+	    }
+	    if (x.memId.value.length < 4 || x.memId.value.length > 15){
+	    alert("ID는 4~15자 이내여야 합니다.");
+	    x.memId.focus();
+	    return;
+	    }
+	    if (x.memId.value.indexOf(" ") >= 0) {
+	    alert("ID에는 공백이 들어가면 안됩니다.");
+	    x.memId.focus();
+	    return;
+	    }
+	    for (i=0; i<x.memId.value.length; i++) {
+	      if (alphaDigit.indexOf(x.memId.value.substring(i, i+1)) == -1) {
+	      alert("ID는 영문과 숫자의 조합만 사용할 수 있습니다.");
+	      x.memId.focus();
+	      return;
+	      }
+	    }
+	    
+	    // 비밀번호의  타당성 검사
+	    if (x.memPw.value=="") {
+	    alert("비밀번호를 입력하셔야 합니다.")
+	    x.memPw.focus();
+	    return;
+	    }
+	    if (x.memPw.value.length < 4) {
+	    alert("비밀번호는 4자리 이상 입력하셔야 합니다.");
+	    x.memPw.value="";
+	    x.memPw.focus();
+	    return;
+	    }
+	    if (x.memPwCon.value==""){
+	    alert("비밀번호를 확인 입력해 주셔야 합니다.")
+	    x.memPwCon.focus();
+	    return;
+	    }
+	    if (x.memPw.value != x.memPwCon.value) {
+	    alert("비밀번호가 서로 일치하지 않습니다.");
+	    x.memPw.value=x.memPwCon.value="";
+	    x.memPw.focus();
+	    return;
+	    } 
+	    if (x.memPw.value.indexOf(" ") >= 0) {
+	    alert("비밀번호에는 공백이 들어가면 안됩니다.");
+	    x.memPw.value=x.memPwCon.value="";
+	    x.memPw.focus();
+	    return;
+	    }
+	    for (i=0; i<x.memPw.value.length; i++) {
+	      if (alphaDigit.indexOf(x.memPw.value.substring(i, i+1)) < 0) {
+	      alert("비밀번호는 영문과 숫자의 조합만 사용할 수 있습니다.");
+	      x.memPw.value=x.memPwCon.value="";
+	      x.memPw.focus();
+	      return;
+	      } 
+	    }
+	    alert("잘 입력하셨습니다.")
+	    }
+
 </script>
 </head>
 <body>
@@ -339,7 +407,7 @@
 					<div class="btn_box">
 						<input type="button" class="btn" value="가입 취소"
 							onclick="javascript:location.href='main'" />
-						<button type="submit" class="btn">가입 완료</button>
+						<button type="submit" class="btn" onclick="valid(this.form)">가입 완료</button>
 					</div>
 					<div class="footer">
 						<span id="copyright">Copyright © 2nd shop All Rights
