@@ -27,5 +27,16 @@ public class NoticeRepository {
 		sqlSession.insert(statement,dto);
 	}
 	
-	
+	public void noticeReadCount(String noticeNum) {
+		statement = nameSpace + ".noticeReadCount";
+		sqlSession.update(statement, noticeNum);
+	}
+	public NoticeDTO noticeDetail(String noticeNum) {
+		statement = nameSpace + ".noticeDetail";
+		return sqlSession.selectOne(statement, noticeNum);
+	}
+	public void noticeDelete(String noticeNum) {
+		statement = nameSpace + ".noticeDelete";
+		sqlSession.delete(statement, noticeNum);
+	}
 }

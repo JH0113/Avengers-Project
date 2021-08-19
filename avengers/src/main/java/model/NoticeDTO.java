@@ -9,6 +9,7 @@ public class NoticeDTO {
 	Date noticeDate;
 	String noticeHits;
 	String noticeEmpId;
+	String noticeKind;
 	StartEndPageDTO startEndPageDTO;
 	
 	public StartEndPageDTO getStartEndPageDTO() {
@@ -16,6 +17,13 @@ public class NoticeDTO {
 	}
 	public void setStartEndPageDTO(StartEndPageDTO startEndPageDTO) {
 		this.startEndPageDTO = startEndPageDTO;
+	}
+
+	public String getNoticeKind() {
+		return noticeKind;
+	}
+	public void setNoticeKind(String noticeKind) {
+		this.noticeKind = noticeKind;
 	}
 	public String getNoticeNum() {
 		return noticeNum;

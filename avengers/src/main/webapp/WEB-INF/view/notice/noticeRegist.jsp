@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file="../include/includeTags.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -85,7 +85,6 @@ li a {
 }
 
 .nav {
-	/*float: right;*/
 	width: 950px;
 	height: 96px;
 	display: flex;
@@ -140,7 +139,7 @@ li a {
 
 .leg {
 	width: 1200px;
-	height: 750px;
+	height: 860px;
 	margin: auto;
 }
 
@@ -199,21 +198,16 @@ table {
 
 .foot {
 	width: 1000px;
-	height: 100px;
+	height: 150px;
 	margin: auto;
-}
-
-textarea {
-	font-size: 130%;
 }
 
 .btn {
 	display: block;
-	width: 600px;
-	margin: auto;
+	width: 200px;
 	padding: 15px 0 15px;
-	font-size: 18px;
-	font-weight: 700;
+	font-size: 15px;
+	font-family: 'Montserrat', sans-serif;
 	text-align: center;
 	cursor: pointer;
 	box-sizing: border-box;
@@ -232,6 +226,27 @@ textarea {
 	border-radius: 5px;
 	font-size: 16px;
 	resize: none;
+}
+
+select {
+	width: 200px;
+	height: 50px;
+	padding: .8em .5em;
+	border: solid 1px #dadada;
+	font-size: 15px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+select::-ms-expand {
+	display: none;
+}
+.error_box {
+	font-size: 60%;
+	margin-bottom: 8px;
+	margin-left: 10px;
+}
+#error_text {
+	color: red;
 }
 </style>
 
@@ -277,25 +292,43 @@ textarea {
 
 			</div>
 		</div>
-
-	 	<div class="leg">
-			<div class="regist_box">
-			<form action="noticeJoin" name="frm" method="post">
-					<div class="text_box">제목</div>
+		
+		<form:form action="noticeJoin" name="frm" method="post" modelAttribute="noticeCommand">
+		<div class="leg">
+				<div class="regist_box">
+					<div class="text_box">공지종류</div>
+					<div class="selectbox">
+						<select name="noticeKind">
+							<option>일반공지</option>
+							<option>정책변경공지</option>
+							<option>방침변경공지</option>
+						</select>
+					</div>
+					<div class="text_box">* 제목</div>
 					<span class="input_box"> <input type="text" name="noticeSub" class="input" /></span>
-					<div class="text_box">내용</div>
+
+					<div class="error_box">
+						<form:errors id="error_text" path="noticeSub" />
+					</div>
+
+					<div class="text_box">* 내용</div>
 					<textarea rows="20" cols="100" name="noticeContents"></textarea>
 
+					<div class="error_box">
+						<form:errors id="error_text" path="noticeContents" />
+					</div>
+
 					<div class="text_box">글쓴이</div>
-					<span class="input_box"> <input type="text"	name="noticeEmpId" value="${noticeEmpId }" class="input" readonly="readonly"/></span>				
-			</div>
+					<span class="input_box"> <input type="text"
+						name="noticeEmpId" value="${noticeEmpId }" class="input"
+						readonly="readonly" /></span>
+				</div>
 		</div>
-
-		<div class="foot">
-			<input type="submit" value="등록" class="btn">
-			</form>
+		<div class="foot" align="center">
+			<input type="submit" value="공지사항 등록" class="btn" style="display: inline-block"> 
+			<input type="button" value="취소" class="btn" style="display: inline-block" onclick="javascript:location.href='noticePage'">
 		</div>
-
+		</form:form>
 		<div class="footer">
 			<%@include file="../include/includeFooter.jsp"%>
 		</div>

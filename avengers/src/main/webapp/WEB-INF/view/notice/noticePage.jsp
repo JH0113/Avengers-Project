@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file="../include/includeTags.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,24 +71,27 @@ li a {
 	height: 240px;
 	width: 100%;
 }
+
 .headmenu {
 	width: 950px;
 	height: 120px;
 }
+
 .top_menu {
-   display: flex;
-   width: 100%;
-   margin: auto;
-   height: 86px;
+	display: flex;
+	width: 100%;
+	margin: auto;
+	height: 86px;
 }
+
 .nav {
-   /*float: right;*/
-   width: 950px;
-   height : 96px;
-   display: flex;
-   justify-content: flex-end;
-   line-height: 86px;
-   background-color: #fff;
+	/*float: right;*/
+	width: 950px;
+	height: 96px;
+	display: flex;
+	justify-content: flex-end;
+	line-height: 86px;
+	background-color: #fff;
 }
 
 .nav li {
@@ -135,7 +138,6 @@ li a {
 	cursor: pointer;
 }
 
-
 .leg {
 	width: 1200px;
 	height: auto;
@@ -180,6 +182,22 @@ tr.border_bottom td {
 tr.border_bottom_th {
 	border-bottom: 3px solid #1a1a1a;
 }
+
+.btn {
+	display: block;
+	width: 400px;
+	margin: auto;
+	padding: 15px 0 15px;
+	font-size: 18px;
+	font-family: 'Montserrat', sans-serif;
+	text-align: center;
+	cursor: pointer;
+	box-sizing: border-box;
+	margin-top: 30px;
+	background-color: #404040;
+	color: #ffffff;
+	padding: 15px 0 15px;
+}
 </style>
 </head>
 <body>
@@ -210,12 +228,22 @@ tr.border_bottom_th {
 								</ul>
 							</c:if>
 							<c:if test="${!empty authinfo }">
-								<ul class="nav">
-								<li><a href="myPage">MYPAGE</a></li>
-								<li><a href="productRegisterPage">SELL ITEMS</a></li>
-								<li><a href="noticePage">NOTICE</a></li>
-								<li><a href="login/logout">LOGOUT</a></li>
-								</ul>
+								<c:if test="${authinfo.grade == 1 }">
+									<ul class="nav">
+										<li><a href="myPage">MYPAGE</a></li>
+										<li><a href="productRegisterPage">SELL ITEMS</a></li>
+										<li><a href="noticePage">NOTICE</a></li>
+										<li><a href="login/logout">LOGOUT</a></li>
+									</ul>
+								</c:if>
+								<c:if test="${authinfo.grade != 1 }">
+									<ul class="nav">
+										<li><a href="#">MEMBER LIST</a></li>
+										<li><a href="#">REPORT</a></li>
+										<li><a href="noticePage">NOTICE</a></li>
+										<li><a href="login/logout">LOGOUT</a></li>
+									</ul>
+								</c:if>
 							</c:if>
 						</div>
 					</div>
@@ -223,7 +251,6 @@ tr.border_bottom_th {
 
 			</div>
 		</div>
-
 		<div class="leg">
 			<div class="banner"></div>
 			<div class="noticeContents">
@@ -236,35 +263,31 @@ tr.border_bottom_th {
 						<th>글쓴이</th>
 						<th>게시일</th>
 					</tr>
-
-
-<c:forEach items="${noticeList }" var="dto"> 
-
-
-
-					<tr class="border_bottom">
-						<td>1</td>
-						<td>정책변경공지</td>
-						<td><a href="noticeDetail?noticeNum=#">중고거래 게시판 거래 및 환불
-								정책이 변경될 예정입니다</a></td>
-						<td>3254</td>
-						<td>관리자</td>
-						<td>2021-08-06</td>
-					</tr>
-</c:forEach>
+					<c:forEach items="${noticeList }" var="dto">
+						<tr class="border_bottom">
+							<td>${dto.noticeNum }</td>
+							<td>${dto.noticeKind }</td>
+							<td><a href="noticeDetail?noticeNum=${dto.noticeNum }">${dto.noticeSub }</a></td>
+							<td>${dto.noticeHits }</td>
+							<td>${dto.noticeEmpId }</td>
+							<td><fmt:formatDate value="${dto.noticeDate }" type="date"
+									pattern="yyyy-MM-dd  HH:mm:ss" /></td>
+						</tr>
+					</c:forEach>
 					<tr>
 						<td colspan="7" align="center"><%@include
 								file="../include/includePage.jsp"%></td>
 					</tr>
 				</table>
-
 				<!-- 공지등록은 관리자 로그인 시에만 보이게 하기 -->
-				<p align="center" bgcolor=#e0e0eb>
-					<a href="noticeRegist">공지등록 </a>
-				</p>
+				<c:if test="${!empty authinfo }">
+					<c:if test="${authinfo.grade != 1 }">
+						<input type="button" value="공지등록"
+							onclick="javascript:location.href='noticeRegist'" class="btn" />
+					</c:if>
+				</c:if>
 			</div>
 		</div>
-
 
 		<div class="footer">
 			<%@include file="../include/includeFooter.jsp"%>

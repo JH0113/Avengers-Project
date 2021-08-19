@@ -11,5 +11,7 @@
 	<bean class="service.notice.NoticeListService" />
 	<bean class="service.notice.NoticeEmpIdService" />
 	<bean class="service.notice.NoticeJoinService" />
+	<bean class="service.notice.NoticeDetailService" />
+	<bean class="service.notice.NoticeDeleteService" />
 	<bean class="repository.NoticeRepository" />
 </beans>

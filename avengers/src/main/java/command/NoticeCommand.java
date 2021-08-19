@@ -12,7 +12,14 @@ public class NoticeCommand {
 	Date noticeDate;
 	String noticeHits;
 	String noticeEmpId;
+	String noticeKind;
 
+	public String getNoticeKind() {
+		return noticeKind;
+	}
+	public void setNoticeKind(String noticeKind) {
+		this.noticeKind = noticeKind;
+	}
 	public String getNoticeNum() {
 		return noticeNum;
 	}

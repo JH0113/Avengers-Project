@@ -4,11 +4,12 @@
 <mapper namespace="mappers.noticeMapper">
 
 	<select id="noticeList" resultType="model.NoticeDTO" parameterType="model.NoticeDTO">
-	select rn, noticeNum, noticeSub, noticeContents, noticeDate, noticeHits, noticeEmpId
+	select rn, noticeNum, noticeSub, noticeContents, noticeDate, noticeHits, noticeEmpId, noticeKind
 	from (select ROWNUM rn, NOT_NUM noticeNum, NOT_SUB noticeSub, NOT_CONTENTS noticeContents, NOT_DATE noticeDate,
-	NOT_HITS noticeHits, EMP_ID noticeEmpId
+	NOT_HITS noticeHits, EMP_ID noticeEmpId, NOT_KIND noticeKind
 	from notice)
 	where rn between #{startEndPageDTO.startRow} and #{startEndPageDTO.endRow} 
+	order by noticeDate desc
 </select>
 
 <select id="count" resultType="int">
@@ -21,11 +22,29 @@
 
 <insert id="noticeInsert" parameterType="model.NoticeDTO">
 	insert into notice	
-	(NOT_NUM, NOT_SUB, NOT_CONTENTS, NOT_DATE, NOT_HITS, EMP_ID)
+	(NOT_NUM, NOT_SUB, NOT_CONTENTS, NOT_DATE, NOT_HITS, EMP_ID, NOT_KIND)
 	values	
-	((<include refid="noticeNum"/>),#{noticeSub},#{noticeContents},sysdate,0,#{noticeEmpId})
+	((<include refid="noticeNum"/>),#{noticeSub},#{noticeContents},sysdate,0,#{noticeEmpId},#{noticeKind})
 </insert>
 
+
+<update id="noticeReadCount" parameterType="string">
+	update notice
+	set NOT_HITS = NOT_HITS + 1
+	where NOT_NUM = #{noticeNum}
+</update>
+
+<select id="noticeDetail" parameterType="string" resultType="model.NoticeDTO">
+	select NOT_NUM noticeNum, NOT_SUB noticeSub, NOT_CONTENTS noticeContents, NOT_DATE noticeDate,
+	NOT_HITS noticeHits, EMP_ID noticeEmpId, NOT_KIND noticeKind
+	from notice
+	where NOT_NUM = #{noticeNum}
+</select>
+
+<delete id="noticeDelete" parameterType="string">
+	delete from notice
+	where NOT_NUM = #{noticeNum}
+</delete>
 
 
 </mapper>
