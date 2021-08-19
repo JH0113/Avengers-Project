@@ -8,6 +8,7 @@ import model.ProductDTO;
 public class ProductRepository {
 	@Autowired
 	SqlSession sqlSession;
+	
 	String namespace = "productMapper";
 	String statement;
 	

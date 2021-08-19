@@ -3,10 +3,10 @@ package command;
 public class ProductCommand {
 	String prodName;
 	String prodPrice;
+	String prodImage;
+	String prodDetail;
 	String prodLocation;
 	String prodTag;
-	String prodImage;
-	String prodContext;
 	String prodImageplus;
 	
 	public String getProdName() {
@@ -21,6 +21,18 @@ public class ProductCommand {
 	public void setProdPrice(String prodPrice) {
 		this.prodPrice = prodPrice;
 	}
+	public String getProdImage() {
+		return prodImage;
+	}
+	public void setProdImage(String prodImage) {
+		this.prodImage = prodImage;
+	}
+	public String getProdDetail() {
+		return prodDetail;
+	}
+	public void setProdDetail(String prodDetail) {
+		this.prodDetail = prodDetail;
+	}
 	public String getProdLocation() {
 		return prodLocation;
 	}
@@ -33,23 +45,12 @@ public class ProductCommand {
 	public void setProdTag(String prodTag) {
 		this.prodTag = prodTag;
 	}
-	public String getProdImage() {
-		return prodImage;
-	}
-	public void setProdImage(String prodImage) {
-		this.prodImage = prodImage;
-	}
-	public String getProdContext() {
-		return prodContext;
-	}
-	public void setProdContext(String prodContext) {
-		this.prodContext = prodContext;
-	}
 	public String getProdImageplus() {
 		return prodImageplus;
 	}
 	public void setProdImageplus(String prodImageplus) {
 		this.prodImageplus = prodImageplus;
 	}
+	
 	
 }

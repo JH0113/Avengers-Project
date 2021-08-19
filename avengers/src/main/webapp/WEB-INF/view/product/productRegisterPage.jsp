@@ -309,8 +309,8 @@ textarea {
 						class="input">
 					</span>
 					<div class="text_box">보증서</div>
-					<span> 유<input type="radio" name="prodTag"> 무<input
-						type="radio" name="prodTag">
+					<span> 유<input type="radio" name="prodTag" value="yes"> 무<input
+						type="radio" name="prodTag" value="no">
 					</span> <input type="file" id="image" accept="image/*"
 						onchange="setThumbnail(event);" style="display: none" name="prodImage"/>
 				</div>
@@ -320,7 +320,7 @@ textarea {
 			<div class="text_box">
 				<h1>상품상세설명</h1>
 			</div>
-			<textarea rows="10" cols="118" placeholder="상품에 대한 상세설명을 입력해주세요." name="prodContext"></textarea>
+			<textarea rows="10" cols="118" placeholder="상품에 대한 상세설명을 입력해주세요." name="prodDetail"></textarea>
 			추가이미지 선택 <input type="file" name="prodImageplus">
 			<input type="submit" class="btn" value="상품등록" ></input>
 		</div>
