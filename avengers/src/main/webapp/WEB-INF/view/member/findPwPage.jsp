@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Find Pw Page</title>
 </head>
 <body>
-
+	비밀번호 찾기 페이지
 </body>
 </html>

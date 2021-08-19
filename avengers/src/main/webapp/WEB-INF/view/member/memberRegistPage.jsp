@@ -237,53 +237,6 @@
 					}
 				}).open();
 	}
-	
-	function valid(x){
-	    var alphaDigit= "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
-	    
-	    //아이디의 입력 타당성 검사
-	    if (x.memId.value.length < 6 || x.memId.value.length > 15){
-	    alert("ID는 6~15자 이내여야 합니다.");
-	    x.memId.focus();
-	    return;
-	    }
-	    if (x.memId.value.indexOf(" ") >= 0) {
-	    alert("ID에는 공백이 들어가면 안됩니다.");
-	    x.memId.focus();
-	    return;
-	    }
-	    for (i=0; i<x.memId.value.length; i++) {
-	      if (alphaDigit.indexOf(x.memId.value.substring(i, i+1)) == -1) {
-	      alert("ID는 영문과 숫자의 조합만 사용할 수 있습니다.");
-	      x.memId.focus();
-	      return;
-	      }
-	    }
-	    
-	    // 비밀번호의  타당성 검사
-	    if (x.memPw.value.length < 8) {
-	    alert("비밀번호는 8자리 이상 입력하셔야 합니다.");
-	    x.memPw.value="";
-	    x.memPw.focus();
-	    return;
-	    }
-	    if (x.memPw.value.indexOf(" ") >= 0) {
-	    alert("비밀번호에는 공백이 들어가면 안됩니다.");
-	    x.memPw.value=x.memPwCon.value="";
-	    x.memPw.focus();
-	    return;
-	    }
-	    for (i=0; i<x.memPw.value.length; i++) {
-	      if (alphaDigit.indexOf(x.memPw.value.substring(i, i+1)) < 0) {
-	      alert("비밀번호는 영문과 숫자의 조합만 사용할 수 있습니다.");
-	      x.memPw.value=x.memPwCon.value="";
-	      x.memPw.focus();
-	      return;
-	      } 
-	    }
-	    alert("가입 완료.<br />환영합니다.")
-	    }
-
 </script>
 </head>
 <body>

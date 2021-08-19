@@ -30,9 +30,9 @@ public class MemberRegistController {
 		new MemberValidator().validate(memberCommand, errors);
 		if(errors.hasErrors()) {
 			System.out.println("에러1");
-			return "regist/registPage";
+			return "member/memberRegistPage";
 		}
 		memberJoinService.memjoin(memberCommand);			
-		return "redirect:/";
+		return "login/loginPage";
 	}
 }

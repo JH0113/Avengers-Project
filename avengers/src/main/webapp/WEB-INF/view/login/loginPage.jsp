@@ -183,7 +183,7 @@ a:hover {
 			</form:form>
 		</div>
 		<div class="option_container">
-			<div class="opt_text"><a href="findIdPage">아이디 찾기</a> | <a href="findPwPage">비밀번호 찾기</a> | <a href="registPage">회원가입</a></div>
+			<div class="opt_text"><a href="findIdPage">아이디 찾기</a> | <a href="findPwPage">비밀번호 찾기</a> | <a href="memberRegistPage">회원가입</a></div>
 			<div class="banner"></div>
 		</div>
 		<div class="footer">

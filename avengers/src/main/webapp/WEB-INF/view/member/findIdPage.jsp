@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Find Id Page</title>
 </head>
 <body>
-
+	아이디 찾기 페이지
 </body>
 </html>
