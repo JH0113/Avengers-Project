@@ -19,7 +19,7 @@ public class MyPageController {
 		return "myPage/myPage";
 	}
 	
-	@RequestMapping("memDetail")
+	@RequestMapping("myDetail")
 	public String myDetail(HttpSession session,Model model) {
 		memberMyInfoService.myInfo(model, session);
 		return "myPage/myDetail";
