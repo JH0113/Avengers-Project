@@ -26,7 +26,13 @@ h3 {
 	font-size: 18px;
 	color: #fff;
 }   
-
+#emp_regist {
+	color: #fff;
+}
+#emp_regist:hover {
+	font-weight: bolder;
+	font-size: 120%;
+}
 </style>
 
 
@@ -41,6 +47,7 @@ h3 {
 						<li>BUSINESS LICENSE : <span class="value">117-15-50802</span></li>
 						<li>MALL-ORDER LICENSE : <span class="value">제2021-서울서초-1111호</span>
 						</li>
+						<li><a id="emp_regist" href="empRegistPage">직원등록</a></li>
 					</ul>
 					<ul>
 						<li></li>

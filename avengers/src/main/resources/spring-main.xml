@@ -6,5 +6,6 @@
 			http://www.springframework.org/schema/beans/spring-beans.xsd
 			"
 >
-	<bean class="controller.main.MainController" />	
+	<bean class="controller.main.MainController" />
+	<bean class="controller.employee.EmpRegistController" />
 </beans>
