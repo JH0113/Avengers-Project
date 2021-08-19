@@ -223,7 +223,7 @@ tr.border_bottom_th {
 							<c:if test="${empty authinfo }">
 								<ul class="nav">
 									<li><a href="loginPage">LOGIN</a></li>
-									<li><a href="registPage">REGIST</a></li>
+									<li><a href="memberRegistPage">REGIST</a></li>
 									<li><a href="noticePage">NOTICE</a></li>
 								</ul>
 							</c:if>
@@ -256,12 +256,12 @@ tr.border_bottom_th {
 			<div class="noticeContents">
 				<table>
 					<tr class="border_bottom_th">
-						<th>글번호</th>
-						<th>종류</th>
-						<th>제목</th>
-						<th>조회수</th>
-						<th>글쓴이</th>
-						<th>게시일</th>
+						<th width="88px">글번호</th>
+						<th width="143px">종류</th>
+						<th width="590px">제목</th>
+						<th width="88px">조회수</th>
+						<th width="88px">글쓴이</th>
+						<th width="203px">게시일</th>
 					</tr>
 					<c:forEach items="${noticePage }" var="dto">
 						<tr class="border_bottom">

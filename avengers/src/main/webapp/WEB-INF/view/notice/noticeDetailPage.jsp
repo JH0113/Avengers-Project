@@ -204,10 +204,8 @@ tr.border_bottom_th {
 }
 </style>
 
-
 </head>
 <body>
-
 	<div class="web">
 		<div class="body">
 			<div class="left_bar">
@@ -283,7 +281,7 @@ tr.border_bottom_th {
 					<c:if test="${!empty authinfo }">
 						<c:if test="${authinfo.grade != 1 }">
 							<p align="center">
-								<input type="button" class="btn" value="수정" onclick="javascript:location.href='noticeModifyPage?noticeNum=${noticeCommand.noticeNum }'" style="display: inline-block" />
+								<input type="button" class="btn" value="수정" onclick="javascript:location.href='noticeModifyPage?noticeNum=${noticeCommand.noticeNum }'" style="display: inline-block"/>
 								<input type="button" class="btn" value="삭제" onclick="javascript:location.href='noticeDelete?noticeNum=${noticeCommand.noticeNum }'" style="display: inline-block"/>
 							</p>
 						</c:if>
@@ -296,8 +294,7 @@ tr.border_bottom_th {
 				<%@include file="../include/includeFooter.jsp"%>
 			</div>
 	</div>
-
-
+ 
 
 </body>
 </html>

@@ -306,8 +306,8 @@ select::-ms-expand {
 						</select>
 					</div>
 					<div class="text_box">* 제목</div>
-					<span class="input_box"> <input type="text" name="noticeSub" class="input" /></span>
-
+					<span class="input_box">
+					 <input type="text" name="noticeSub" class="input"/></span>
 					<div class="error_box">
 						<form:errors id="error_text" path="noticeSub" />
 					</div>
@@ -320,9 +320,7 @@ select::-ms-expand {
 					</div>
 
 					<div class="text_box">글쓴이</div>
-					<span class="input_box"> <input type="text"
-						name="noticeEmpId" value="${noticeEmpId }" class="input"
-						readonly="readonly" /></span>
+					<span class="input_box"> <input type="text" name="noticeEmpId" value="${noticeEmpId }" class="input" readonly="readonly" /></span>
 				</div>
 		</div>
 		<div class="foot" align="center">

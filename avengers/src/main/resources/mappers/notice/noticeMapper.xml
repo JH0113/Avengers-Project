@@ -5,11 +5,11 @@
 
 	<select id="noticeList" resultType="model.NoticeDTO" parameterType="model.NoticeDTO">
 	select rn, noticeNum, noticeSub, noticeContents, noticeDate, noticeHits, noticeEmpId, noticeKind
-	from (select ROWNUM rn, NOT_NUM noticeNum, NOT_SUB noticeSub, NOT_CONTENTS noticeContents, NOT_DATE noticeDate,
-	NOT_HITS noticeHits, EMP_ID noticeEmpId, NOT_KIND noticeKind
-	from notice)
+	from 	
+		(select ROWNUM rn, NOT_NUM noticeNum, NOT_SUB noticeSub, NOT_CONTENTS noticeContents, NOT_DATE noticeDate,
+		NOT_HITS noticeHits, EMP_ID noticeEmpId, NOT_KIND noticeKind from (select * from notice order by NOT_DATE desc))		
 	where rn between #{startEndPageDTO.startRow} and #{startEndPageDTO.endRow} 
-	order by noticeDate desc
+	
 </select>
 
 <select id="count" resultType="int">

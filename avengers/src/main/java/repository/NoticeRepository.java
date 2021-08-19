@@ -21,12 +21,10 @@ public class NoticeRepository {
 		statement = nameSpace + ".count";
 		return sqlSession.selectOne(statement);
 	}
-	
 	public void noticeInsert(NoticeDTO dto) {
 		statement = nameSpace + ".noticeInsert";
 		sqlSession.insert(statement,dto);
-	}
-	
+	}	
 	public void noticeReadCount(String noticeNum) {
 		statement = nameSpace + ".noticeReadCount";
 		sqlSession.update(statement, noticeNum);
