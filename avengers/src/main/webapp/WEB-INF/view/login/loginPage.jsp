@@ -162,7 +162,7 @@ a:hover {
 				modelAttribute="loginDTO">
 				<div class="form_box">
 					<div class="input_box">
-						<input class="input" type="text" name="userId" placeholder="아이디">
+						<input class="input" type="text" name="userId" value="${registInfo.memId}" placeholder="아이디">
 					</div>
 					<div class="error_box">
 						<form:errors id="error_text" path="userId" />

@@ -2,6 +2,7 @@ package service.join;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.ui.Model;
 
 import command.MemberCommand;
 import model.MemberDTO;
@@ -13,7 +14,7 @@ public class MemberJoinService {
 	@Autowired
 	BCryptPasswordEncoder bcryptPasswordEncoder;
 
-	public void memjoin(MemberCommand memberCommand) {
+	public void memjoin(MemberCommand memberCommand, Model model) {
 		MemberDTO dto = new MemberDTO();
 		dto.setMemId(memberCommand.getMemId());
 		dto.setMemNick(memberCommand.getMemNick());
@@ -24,6 +25,7 @@ public class MemberJoinService {
 		dto.setMemDetailAdd(memberCommand.getMemDetailAdd());
 		dto.setMemPhone(memberCommand.getMemPhone());
 		memberRepository.memjoin(dto);
+		model.addAttribute("registInfo", dto);
 		
 	}
 	

@@ -26,13 +26,13 @@ public class MemberRegistController {
 	@Autowired
 	LoginService loginService;
 	@RequestMapping(value="memjoin",method = RequestMethod.POST )
-	public String memJoin(MemberCommand memberCommand,Errors errors) {
+	public String memJoin(MemberCommand memberCommand,Errors errors, Model model) {
 		new MemberValidator().validate(memberCommand, errors);
 		if(errors.hasErrors()) {
 			System.out.println("에러1");
 			return "member/memberRegistPage";
 		}
-		memberJoinService.memjoin(memberCommand);			
+		memberJoinService.memjoin(memberCommand, model);		
 		return "login/loginPage";
 	}
 }
