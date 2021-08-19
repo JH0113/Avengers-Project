@@ -280,7 +280,7 @@ table {
 						<c:if test="${empty authinfo }">
 							<ul class="nav">
 								<li><a href="loginPage">LOGIN</a></li>
-								<li><a href="registPage">REGIST</a></li>
+								<li><a href="memberRegistPage">REGIST</a></li>
 								<li><a href="noticePage">NOTICE</a></li>
 							</ul>
 						</c:if>

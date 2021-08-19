@@ -16,9 +16,9 @@ import validator.MemberValidator;
 
 @Controller
 public class MemberRegistController {
-	@RequestMapping("registPage")
+	@RequestMapping("memberRegistPage")
 	public String registPage(@ModelAttribute(value="memberCommand") MemberCommand memberCommand, Model model) {
-		return "regist/registPage";
+		return "member/memberRegistPage";
 	}
 	
 	@Autowired
