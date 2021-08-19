@@ -29,7 +29,7 @@ public class MemberRegistController {
 	public String memJoin(MemberCommand memberCommand,Errors errors, Model model) {
 		new MemberValidator().validate(memberCommand, errors);
 		if(errors.hasErrors()) {
-			System.out.println("에러1");
+			memberJoinService.registInfo(memberCommand, model);
 			return "member/memberRegistPage";
 		}
 		memberJoinService.memjoin(memberCommand, model);		

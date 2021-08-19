@@ -28,5 +28,8 @@ public class MemberJoinService {
 		model.addAttribute("registInfo", dto);
 		
 	}
+	public void registInfo(MemberCommand memberCommand, Model model) {
+		model.addAttribute("registInfo", memberCommand);
+	}
 	
 }

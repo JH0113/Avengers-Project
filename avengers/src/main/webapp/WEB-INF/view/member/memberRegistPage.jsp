@@ -268,7 +268,7 @@
 					</div>
 
 					<span class="input_box">
-						<input type="text" name="memId" class="input" placeholder=" 영문과 숫자 조합 6~15자 이내">
+						<input type="text" name="memId" class="input" value="${registInfo.memId }" placeholder=" 영문과 숫자 조합 6~15자 이내">
 					</span>
 
 					<div class="box1">
@@ -278,7 +278,7 @@
 						</div>
 					</div>
 					<span class="input_box"> <input type="password" name="memPw"
-						class="input" placeholder=" 영문과 숫자 조합 8자리 이상">
+						class="input" value="${registInfo.memPw }" placeholder=" 영문과 숫자 조합 8자리 이상">
 					</span>
 
 					<div class="box1">
@@ -288,7 +288,7 @@
 						</div>
 					</div>
 					<span class="input_box"> <input type="password"
-						name="memPwCon" class="input" >
+						name="memPwCon" class="input" value="${registInfo.memPwCon }" >
 					</span>
 					<div class="box1">
 						<div class="text_box">이름</div>
@@ -297,7 +297,7 @@
 						</div>
 					</div>
 					<span class="input_box"> <input type="text" name="memName"
-						class="input">
+						class="input" value="${registInfo.memName }">
 					</span>
 					<div class="box1">
 						<div class="text_box">닉네임</div>
@@ -306,7 +306,7 @@
 						</div>
 					</div>
 					<span class="input_box"> <input type="text" name="memNick"
-						class="input">
+						class="input" value="${registInfo.memNick }">
 					</span>
 					<div class="box1">
 						<div class="text_box">우편번호</div>
@@ -317,7 +317,7 @@
 					<div class="box_local">
 						<span class="input_box_locals"> <input type="text"
 							name="memPostNumber" id="sample4_postcode" readonly="readonly"
-							class="input_Post" placeholder="주소를 검색해주세요">
+							class="input_Post" value="${registInfo.memPostNumber }" placeholder="주소를 검색해주세요">
 						</span> <input type="button" class="localbtn" value="주소검색"
 							onclick="avascript:sample4_execDaumPostcode()" />
 					</div>
@@ -329,13 +329,13 @@
 						</div>
 					</div>
 					<span class="input_box"> <input type="text" name="memAddr"
-						class="input" id="sample4_roadAddress" placeholder="주소를 검색해주세요">
+						class="input" id="sample4_roadAddress" value="${registInfo.memAddr }" placeholder="주소를 검색해주세요">
 
 					</span>
 
 					<div class="text_box">상세주소</div>
 					<span class="input_box"> <input type="text"
-						name="memDetailAdd" class="input" placeholder="상세주소 입력">
+						name="memDetailAdd" class="input" value="${registInfo.memDetailAdd }" placeholder="상세주소 입력">
 					</span>
 					<div class="box1">
 						<div class="text_box">핸드폰</div>
@@ -344,7 +344,7 @@
 						</div>
 					</div>
 					<span class="input_box"> <input type="text" name="memPhone"
-						class="input">
+						class="input" value="${registInfo.memPhone }">
 					</span>
 
 					<div class="btn_box">
