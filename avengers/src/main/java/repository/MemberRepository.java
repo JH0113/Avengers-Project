@@ -19,5 +19,8 @@ public class MemberRepository {
 		statement = namespace + ".myInfo";
 		return sqlSession.selectOne(statement, memId);
 	}
-	
+	public void memUpdate(MemberDTO dto) {
+		statement = namespace + ".memUpdate";
+		sqlSession.update(statement, dto);
+	}
 }
