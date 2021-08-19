@@ -14,7 +14,6 @@ public class MemberMyInfoService {
 	MemberRepository memberRepository;
 	public void myInfo(Model model, HttpSession session) {
 		AuthinfoDTO authinfo = (AuthinfoDTO)session.getAttribute("authinfo");
-		System.out.println(authinfo.getUserId());
 		String memId = authinfo.getUserId();
 		MemberDTO dto = memberRepository.myInfo(memId);
 		model.addAttribute("memberCommand", dto);
