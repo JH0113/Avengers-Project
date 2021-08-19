@@ -19,6 +19,17 @@
 	color: #000;
 }
 
+.error_box {
+	font-size: 60%;
+	margin-bottom: 8px;
+	margin-left: 5px;
+	margin-top: 20px;
+}
+
+#error_text {
+	color: red;
+}
+
 .web {
 	width: 100%;
 	height: 100%;
@@ -30,11 +41,6 @@
 	height: 1300px;
 	margin: auto;
 	top: 0px;
-}
-
-.localbtn {
-	position: absolute;
-	padding: 15px 0 15px;
 }
 
 .logo {
@@ -64,10 +70,44 @@
 	vertical-align: top;
 }
 
+.box_local {
+	text-align: center;
+	position: relative;
+	width: 100%;
+	height: 51px;
+	border: solid 1px #dadada;
+	padding: 10px 40px 10px 14px;
+	background: #fff;
+	box-sizing: border-box;
+	vertical-align: top;
+	justify-content: flex-end;
+}
+
 .input {
 	display: block;
 	position: relative;
+	float: left;
 	width: 100%;
+	height: 29px;
+	padding-right: 25px;
+	line-height: 29px;
+	border: none;
+	background: #fff;
+	font-size: 15px;
+	box-sizing: border-box;
+	z-index: 10;
+	*position: absolute;
+	*top: 0;
+	*left: 0;
+	apperance: none;
+	-webkit-apperance: none;
+	width: 100%;
+}
+
+.input_Post {
+	display: block;
+	position: relative;
+	width: 90%;
 	height: 29px;
 	padding-right: 25px;
 	line-height: 29px;
@@ -91,16 +131,36 @@
 
 .btn {
 	display: block;
-	width: 100%;
+	width: 50%;
 	padding: 15px 0 15px;
 	font-size: 18px;
 	font-weight: 700;
 	text-align: center;
 	cursor: pointer;
 	box-sizing: border-box;
-	margin-top: 30px;
+	margin-top: 20px;
 	background-color: #000;
 	color: #fff;
+}
+
+.btn_box {
+	width: 100%;
+	height: 80px;
+	line-height: 29px;
+	border: none;
+	text-align: center;
+	display: flex;
+	position: relative;
+	justify-content: flex-end;
+	float: left;
+}
+
+.localbtn {
+	display: inline-block;
+	float: right;
+	position: absolute;
+	top: 13px;
+	right: 20px;
 }
 
 .footer {
@@ -114,6 +174,10 @@
 
 #copyright {
 	font-family: none;
+}
+
+.box1 {
+	display: flex;
 }
 </style>
 <script
@@ -184,54 +248,99 @@
 					<a href="main">2nd shop</a>
 				</div>
 				<div class="regist_box">
-					<div class="text_box">아이디</div>
-					<span class="input_box"> <input type="text" name="memId"
-						class="input"> <form:errors path="memId" />
-					</span>
-					<div>
-						<form:errors path="memId" />
+
+					<div class="box1">
+						<div class="text_box">아이디</div>
+						<div class="error_box">
+							<form:errors id="error_text" path="memId" />
+						</div>
 					</div>
-					<div class="text_box">비밀번호</div>
+
+					<span class="input_box"> <input type="text" name="memId"
+						class="input">
+					</span>
+
+					<div class="box1">
+						<div class="text_box">비밀번호</div>
+						<div class="error_box">
+							<form:errors id="error_text" path="memPw" />
+						</div>
+					</div>
 					<span class="input_box"> <input type="password" name="memPw"
 						class="input">
 					</span>
-					<div class="text_box">비밀번호 확인</div>
+
+					<div class="box1">
+						<div class="text_box">비밀번호 확인</div>
+						<div class="error_box">
+							<form:errors id="error_text" path="memPwCon" />
+						</div>
+					</div>
 					<span class="input_box"> <input type="password"
 						name="memPwCon" class="input">
 					</span>
-					<div class="text_box">이름</div>
+					<div class="box1">
+						<div class="text_box">이름</div>
+						<div class="error_box">
+							<form:errors id="error_text" path="memName" />
+						</div>
+					</div>
 					<span class="input_box"> <input type="text" name="memName"
 						class="input">
 					</span>
-					<div class="text_box">닉네임</div>
+					<div class="box1">
+						<div class="text_box">닉네임</div>
+						<div class="error_box">
+							<form:errors id="error_text" path="memNick" />
+						</div>
+					</div>
 					<span class="input_box"> <input type="text" name="memNick"
 						class="input">
 					</span>
-					<div class="text_box">우편번호</div>
-					<span class="input_box"> <input type="text"
-						name="memPostNumber" id="sample4_postcode" readonly="readonly"
-						class="input"> <input type="button" class="localbtn"
-						value="주소검색" onclick="avascript:sample4_execDaumPostcode()" />
-					</span>
+					<div class="box1">
+						<div class="text_box">우편번호</div>
+						<div class="error_box">
+							<form:errors id="error_text" path="memPostNumber" />
+						</div>
+					</div>
+					<div class="box_local">
+						<span class="input_box_locals"> <input type="text"
+							name="memPostNumber" id="sample4_postcode" readonly="readonly"
+							class="input_Post">
+						</span> <input type="button" class="localbtn" value="주소검색"
+							onclick="avascript:sample4_execDaumPostcode()" />
+					</div>
 
-					<div class="text_box">주소</div>
+					<div class="box1">
+						<div class="text_box">주소</div>
+						<div class="error_box">
+							<form:errors id="error_text" path="memAddr" />
+						</div>
+					</div>
 					<span class="input_box"> <input type="text" name="memAddr"
 						class="input" id="sample4_roadAddress">
 
 					</span>
+
 					<div class="text_box">상세주소</div>
 					<span class="input_box"> <input type="text"
 						name="memDetailAdd" class="input">
 					</span>
-					<div class="text_box">핸드폰</div>
+					<div class="box1">
+						<div class="text_box">핸드폰</div>
+						<div class="error_box">
+							<form:errors id="error_text" path="memPhone" />
+						</div>
+					</div>
 					<span class="input_box"> <input type="text" name="memPhone"
 						class="input">
 					</span>
 
-					<button type="submit" class="btn">가입 완료</button>
-					<input type="button" class="btn" value="가입 취소"
-						onclick="javascript:location.href='main'" />
-
+					<div class="btn_box">
+						<input type="button" class="btn" value="가입 취소"
+							onclick="javascript:location.href='main'" />
+						<button type="submit" class="btn">가입 완료</button>
+					</div>
 					<div class="footer">
 						<span id="copyright">Copyright © 2nd shop All Rights
 							Reserved.</span>
