@@ -15,4 +15,5 @@
 	
 	<bean id = "memberJoinService" class="service.join.MemberJoinService" />
 	<bean id = "memberMyInfoService" class="service.member.MemberMyInfoService" />
+	<bean id = "memberModifyService" class="service.member.MemberModifyService" />
 </beans>
