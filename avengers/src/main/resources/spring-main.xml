@@ -7,5 +7,4 @@
 			"
 >
 	<bean class="controller.main.MainController" />
-	<bean class="controller.employee.EmpRegistController" />
 </beans>

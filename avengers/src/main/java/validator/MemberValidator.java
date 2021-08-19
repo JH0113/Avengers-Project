@@ -18,7 +18,7 @@ public class MemberValidator implements Validator {
 			if (!memberCommand.PwCk()) {
 				errors.rejectValue("memPwCon", "nomatchPwCon");
 			}			
-		}	
+		}
 		ValidationUtils.rejectIfEmpty(errors, "memId", "required");
 		ValidationUtils.rejectIfEmpty(errors, "memNick", "required");
 		ValidationUtils.rejectIfEmpty(errors, "memPw", "required");
