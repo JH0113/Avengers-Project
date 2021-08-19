@@ -12,7 +12,7 @@ import service.product.ProductRegistService;
 public class ProductRegisterController {
 	@RequestMapping("productRegisterPage")
 	public String ProductRegist() {
-		return "product/productRegisterPage2";
+		return "product/productRegisterPage";
 	}
 	@Autowired
 	ProductRegistService productRegistService;

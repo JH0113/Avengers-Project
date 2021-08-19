@@ -139,7 +139,7 @@
 	cursor: pointer;
 	box-sizing: border-box;
 	margin-top: 20px;
-	background-color: #000;
+	background-color: #404040;
 	color: #fff;
 }
 

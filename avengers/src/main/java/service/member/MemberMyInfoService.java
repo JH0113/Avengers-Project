@@ -13,8 +13,9 @@ public class MemberMyInfoService {
 	@Autowired
 	MemberRepository memberRepository;
 	public void myInfo(Model model, HttpSession session) {
-		AuthinfoDTO authInfo = (AuthinfoDTO)session.getAttribute("authInfo");
-		String memId = authInfo.getUserId();
+		AuthinfoDTO authinfo = (AuthinfoDTO)session.getAttribute("authinfo");
+		System.out.println(authinfo.getUserId());
+		String memId = authinfo.getUserId();
 		MemberDTO dto = memberRepository.myInfo(memId);
 		model.addAttribute("memberCommand", dto);
 	}
