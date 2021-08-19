@@ -37,32 +37,33 @@ public class NoticeController {
 		noticeListService.noticeList(page,model);
 		return "notice/noticePage";
 	}
-	@RequestMapping("noticeRegist")
+	@RequestMapping("noticeRegistPage")
 	public String noticeRegist(@ModelAttribute(value = "noticeCommand") NoticeCommand noticeCommand ,Model model, HttpSession session) {	    
 		noticeEmpIdService.noticeEmpId(model,session);
-	    return "notice/noticeRegist";
+	    return "notice/noticeRegistPage";
 	}
-	@RequestMapping(value = "noticeJoin", method = RequestMethod.POST)
+	@RequestMapping(value = "noticeRegist", method = RequestMethod.POST)
 	public String noticeJoin(NoticeCommand noticeCommand, Errors errors, HttpSession session) {
 		new NoticeValidator().validate(noticeCommand, errors);
 		if(errors.hasErrors()) {
-			return "notice/noticeRegist";
+			return "notice/noticeRegistPage";
 		}
 		noticeJoinService.noticeInsert(noticeCommand, session);
 		return "redirect:noticePage";
 	}	
-	@RequestMapping("noticeDetail")
+	@RequestMapping("noticeDetailPage")
 	public String noticeDetail(@RequestParam(value = "noticeNum") String noticeNum, Model model) {
 		noticeDetailService.noticeDetail(noticeNum,model);
-		return "notice/noticeDetail";
+		return "notice/noticeDetailPage";
 	}
-	@RequestMapping("noticeModify")
+	@RequestMapping("noticeModifyPage")
 	public String noticeModify(@RequestParam(value = "noticeNum") String noticeNum, NoticeCommand noticeCommand, Model model) {
 		noticeDetailService.noticeDetail(noticeNum,model);
-		return "notice/noticeModify";
+		return "notice/noticeModifyPage";
 	}
+	
 	@RequestMapping("noticeDelete")
-	public String noticeDel(@RequestParam (value = "noticeNum") String noticeNum) {
+	public String noticeDelete(@RequestParam (value = "noticeNum") String noticeNum) {
 		noticeDeleteService.noticeDelete(noticeNum);
 		return "redirect:/noticePage";
 	}

@@ -267,7 +267,7 @@ tr.border_bottom_th {
 						<tr class="border_bottom">
 							<td>${dto.noticeNum }</td>
 							<td>${dto.noticeKind }</td>
-							<td><a href="noticeDetail?noticeNum=${dto.noticeNum }">${dto.noticeSub }</a></td>
+							<td><a href="noticeDetailPage?noticeNum=${dto.noticeNum }">${dto.noticeSub }</a></td>
 							<td>${dto.noticeHits }</td>
 							<td>${dto.noticeEmpId }</td>
 							<td><fmt:formatDate value="${dto.noticeDate }" type="date"
@@ -283,7 +283,7 @@ tr.border_bottom_th {
 				<c:if test="${!empty authinfo }">
 					<c:if test="${authinfo.grade != 1 }">
 						<input type="button" value="공지등록"
-							onclick="javascript:location.href='noticeRegist'" class="btn" />
+							onclick="javascript:location.href='noticeRegistPage'" class="btn" />
 					</c:if>
 				</c:if>
 			</div>

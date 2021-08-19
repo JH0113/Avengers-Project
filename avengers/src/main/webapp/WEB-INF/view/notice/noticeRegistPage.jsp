@@ -224,8 +224,9 @@ textarea {
 	box-sizing: border-box;
 	border: solid 2px #dadada;
 	border-radius: 5px;
-	font-size: 16px;
+	font-size: 15px;
 	resize: none;
+	font-family: 'Montserrat', sans-serif;
 }
 
 select {
@@ -293,7 +294,7 @@ select::-ms-expand {
 			</div>
 		</div>
 		
-		<form:form action="noticeJoin" name="frm" method="post" modelAttribute="noticeCommand">
+		<form:form action="noticeRegist" name="frm" method="post" modelAttribute="noticeCommand">
 		<div class="leg">
 				<div class="regist_box">
 					<div class="text_box">공지종류</div>
