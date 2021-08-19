@@ -30,10 +30,10 @@ public class NoticeListService {
 		
 		List<NoticeDTO> list = noticeRepository.noticeList(dto);
 		int count = noticeRepository.count();
-		model.addAttribute("noticeList",list);
+		model.addAttribute("noticePage",list);
 		model.addAttribute("count",count);
 		
 		PageAction pageAction = new PageAction();
-		pageAction.page(count, limit, limitPage, page, "noticeList", model);
+		pageAction.page(count, limit, limitPage, page, "noticePage", model);
 	}
 }

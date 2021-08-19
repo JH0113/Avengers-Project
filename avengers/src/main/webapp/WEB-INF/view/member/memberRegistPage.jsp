@@ -156,11 +156,22 @@
 }
 
 .localbtn {
-	display: inline-block;
-	float: right;
-	position: absolute;
-	top: 13px;
-	right: 20px;
+   display: inline-block;
+   float: right;
+   position: absolute;
+   top: 13px;
+   right: 20px;
+   border-radius: 3px;
+   width:60px;
+    background-color: #404040;
+    border: none;
+    color:#fff; 
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    padding: 2px;
+    margin: 4px;
+    cursor: pointer;
 }
 
 .footer {

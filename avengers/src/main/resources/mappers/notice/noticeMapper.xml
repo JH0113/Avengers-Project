@@ -41,6 +41,12 @@
 	where NOT_NUM = #{noticeNum}
 </select>
 
+<update id="noticeModify" parameterType="model.NoticeDTO">
+	update notice 
+	set NOT_SUB =#{noticeSub},NOT_CONTENTS=#{noticeContents},NOT_KIND=#{noticeKind}, EMP_ID=#{noticeEmpId}
+ 	where NOT_NUM = #{noticeNum}
+</update>
+
 <delete id="noticeDelete" parameterType="string">
 	delete from notice
 	where NOT_NUM = #{noticeNum}

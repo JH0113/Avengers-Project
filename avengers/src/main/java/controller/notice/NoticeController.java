@@ -17,6 +17,7 @@ import service.notice.NoticeDetailService;
 import service.notice.NoticeEmpIdService;
 import service.notice.NoticeJoinService;
 import service.notice.NoticeListService;
+import service.notice.NoticeModifyService;
 import validator.NoticeValidator;
 
 @Controller
@@ -29,6 +30,8 @@ public class NoticeController {
 	NoticeJoinService noticeJoinService;
 	@Autowired
 	NoticeDetailService noticeDetailService;
+	@Autowired
+	NoticeModifyService noticeModifyService;
 	@Autowired
 	NoticeDeleteService noticeDeleteService;
 	
@@ -43,7 +46,7 @@ public class NoticeController {
 	    return "notice/noticeRegistPage";
 	}
 	@RequestMapping(value = "noticeRegist", method = RequestMethod.POST)
-	public String noticeJoin(NoticeCommand noticeCommand, Errors errors, HttpSession session) {
+	public String noticeRegist(NoticeCommand noticeCommand, Errors errors, HttpSession session) {
 		new NoticeValidator().validate(noticeCommand, errors);
 		if(errors.hasErrors()) {
 			return "notice/noticeRegistPage";
@@ -52,14 +55,19 @@ public class NoticeController {
 		return "redirect:noticePage";
 	}	
 	@RequestMapping("noticeDetailPage")
-	public String noticeDetail(@RequestParam(value = "noticeNum") String noticeNum, Model model) {
+	public String noticeDetailPage(@RequestParam(value = "noticeNum") String noticeNum, Model model) {
 		noticeDetailService.noticeDetail(noticeNum,model);
 		return "notice/noticeDetailPage";
 	}
 	@RequestMapping("noticeModifyPage")
-	public String noticeModify(@RequestParam(value = "noticeNum") String noticeNum, NoticeCommand noticeCommand, Model model) {
+	public String noticeModifyPage(@RequestParam(value = "noticeNum") String noticeNum, NoticeCommand noticeCommand, Model model) {
 		noticeDetailService.noticeDetail(noticeNum,model);
 		return "notice/noticeModifyPage";
+	}
+	@RequestMapping("noticeModify")
+	public String noticeModify(NoticeCommand noticeCommand, HttpSession session) {
+		noticeModifyService.noticeModify(noticeCommand, session);
+		return "redirect:noticePage";
 	}
 	
 	@RequestMapping("noticeDelete")

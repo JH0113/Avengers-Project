@@ -35,6 +35,10 @@ public class NoticeRepository {
 		statement = nameSpace + ".noticeDetail";
 		return sqlSession.selectOne(statement, noticeNum);
 	}
+	public void noticeModify(NoticeDTO dto) {
+		statement = nameSpace + ".noticeModify";
+		sqlSession.update(statement, dto); 
+	}
 	public void noticeDelete(String noticeNum) {
 		statement = nameSpace + ".noticeDelete";
 		sqlSession.delete(statement, noticeNum);

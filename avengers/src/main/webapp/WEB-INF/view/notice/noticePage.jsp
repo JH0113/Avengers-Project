@@ -263,7 +263,7 @@ tr.border_bottom_th {
 						<th>글쓴이</th>
 						<th>게시일</th>
 					</tr>
-					<c:forEach items="${noticeList }" var="dto">
+					<c:forEach items="${noticePage }" var="dto">
 						<tr class="border_bottom">
 							<td>${dto.noticeNum }</td>
 							<td>${dto.noticeKind }</td>
@@ -275,15 +275,14 @@ tr.border_bottom_th {
 						</tr>
 					</c:forEach>
 					<tr>
-						<td colspan="7" align="center"><%@include
-								file="../include/includePage.jsp"%></td>
+						<td colspan="7" align="center">
+						<%@include file="../include/includePage.jsp"%></td>
 					</tr>
 				</table>
 				<!-- 공지등록은 관리자 로그인 시에만 보이게 하기 -->
 				<c:if test="${!empty authinfo }">
 					<c:if test="${authinfo.grade != 1 }">
-						<input type="button" value="공지등록"
-							onclick="javascript:location.href='noticeRegistPage'" class="btn" />
+						<input type="button" value="공지등록" onclick="javascript:location.href='noticeRegistPage'" class="btn" />
 					</c:if>
 				</c:if>
 			</div>

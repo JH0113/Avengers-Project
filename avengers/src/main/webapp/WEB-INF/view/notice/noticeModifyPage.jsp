@@ -295,21 +295,19 @@ select::-ms-expand {
 			</div>
 		</div>
 
-		<form:form action="noticeModify" name="frm" method="post"
-			modelAttribute="noticeCommand">
-			<input type="hidden" name="noticeNum"
-				value="${noticeCommand.noticeNum }">
+		<form:form action="noticeModify" name="frm" method="post" modelAttribute="noticeCommand">
+			<input type="hidden" name="noticeNum" value="${noticeCommand.noticeNum }">
 
 			<div class="leg">
 				<div class="regist_box">
 					<div class="text_box">공지종류</div>
-					<div class="selectbox">
-						<select name="noticeKind">
-							<option>일반공지</option>
-							<option>정책변경공지</option>
-							<option>방침변경공지</option>
-						</select>
-					</div>
+						<div class="selectbox">
+							<select name="noticeKind">
+								<option>일반공지</option>
+								<option>정책변경공지</option>
+								<option>방침변경공지</option>
+							</select>
+						</div>
 					<div class="text_box">* 제목</div>
 					<span class="input_box"> <input type="text" name="noticeSub"
 						class="input" value="${noticeCommand.noticeSub }" /></span>
@@ -331,13 +329,13 @@ select::-ms-expand {
 						class="input" readonly="readonly" /></span>
 				</div>
 			</div>
+			
 			<div class="foot" align="center">
-				<input type="submit" value="수정완료" class="btn"
-					style="display: inline-block"> <input type="button"
-					value="수정취소" class="btn" style="display: inline-block"
-					onclick="javascript:location.href='noticeDetailPage?noticeNum=${noticeCommand.noticeNum }'">
+				<input type="submit" value="수정완료" class="btn" style="display: inline-block"> 
+				<input type="button" value="수정취소" class="btn" style="display: inline-block" onclick="javascript:location.href='noticeDetailPage?noticeNum=${noticeCommand.noticeNum }'">
 			</div>
 		</form:form>
+		
 		<div class="footer">
 			<%@include file="../include/includeFooter.jsp"%>
 		</div>
