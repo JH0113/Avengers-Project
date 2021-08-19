@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>my page</title>
+<title>내 정보</title>
 <link rel="stylesheet" href="style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -219,31 +219,17 @@ li a {
 		</div>
 
 		<div class="leg">
-			<div class="navigation">
-				<div class="my_menu">
-					<a href="myDetail"> <img src="images/profile.png" width="40"
-						height="40">
-						<p>회원정보</p>
-					</a>
-				</div>
-				<div class="my_menu">
-					<a href="#"> <img src="images/shopping-bag.png" width="40"
-						height="40">
-						<p>구매내역</p>
-					</a>
-				</div>
-				<div class="my_menu">
-					<a href="#"> <img src="images/list.png" width="40" height="40">
-						<p>판매내역</p>
-					</a>
-				</div>
-				<div class="my_menu">
-					<a href="#"> <img src="images/wishlist.png" width="40"
-						height="40">
-						<p>관심목록</p>
-					</a>
-				</div>
-			</div>
+			<table border = 1 align="center">
+				<tr><td>아이디</td> <td>${memberCommand.memId }</td> </tr>
+				<tr><td>이름</td> <td>${memberCommand.memName }</td> </tr>
+				<tr><td>닉네임</td> <td>${memberCommand.memNick }</td> </tr>
+				<tr><td>우편번호</td> <td>${memberCommand.memPostNumber }</td> </tr>
+				<tr><td>주소</td> <td>${memberCommand.memAddr }</td> </tr>
+				<tr><td>상세주소</td> <td>${memberCommand.memDetailAdd }</td> </tr>
+				<tr><td>연락처</td> <td>${memberCommand.memPhone }</td> </tr>
+				<tr><td colspan="2" align="center"><a href="mySujung">수정</a></td></tr>
+			</table>
+		</div>
 		</div>
 		<div class="banner"></div>
 		<div class="footer">

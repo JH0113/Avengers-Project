@@ -15,6 +15,9 @@ public class MemberRepository {
 		statement = namespace + ".memjoin";
 		sqlSession.insert(statement, dto);
 	}
-	
+	public MemberDTO myInfo(String memId) {
+		statement = namespace + ".myInfo";
+		return sqlSession.selectOne(statement, memId);
+	}
 	
 }

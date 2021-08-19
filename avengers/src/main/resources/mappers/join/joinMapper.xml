@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.joinMapper">
-	<insert id="memjoin" parameterType="model.MemberDTO">
+<insert id="memjoin" parameterType="model.MemberDTO">
 	insert into member(
 	MEM_ID , MEM_NICK , MEM_PW , 
 	MEM_NAME, MEM_ADDR, MEM_POSTNUMBER,
@@ -16,4 +16,10 @@
 	,#{memPhone},0
 	)
 </insert>
+<select id="myInfo" parameterType="string" resultType="model.MemberDTO">
+	select MEM_ID memId, MEM_PW memPw, MEM_NAME memName, MEM_NICK memNick, MEM_ADDR memAddr, 
+	 	   MEM_POSTNUMBER memPostNumber, MEM_DETAILADD memDetailAdd, MEM_PHONE memPhone
+	from member
+	where MEM_ID = #{memId}
+</select>
 </mapper>

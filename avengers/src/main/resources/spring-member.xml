@@ -8,6 +8,8 @@
 >
 	<bean class="controller.member.MemberRegistController" />
 	<bean class="controller.member.MyPageController" />
-	<bean class="repository.MemberRepository" />
-	<bean class="service.join.MemberJoinService" />
+	<bean id = "memberRepository" class="repository.MemberRepository" />
+	<bean id = "memberJoinService" class="service.join.MemberJoinService" />
+	
+	<bean id = "memberMyInfoService" class="service.member.MemberMyInfoService" />
 </beans>
