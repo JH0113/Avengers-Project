@@ -242,13 +242,8 @@
 	    var alphaDigit= "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
 	    
 	    //아이디의 입력 타당성 검사
-	    if (x.memId.value=="") {
-	    alert("ID를 입력해 주세요.");
-	    x.memId.focus();
-	    return; 
-	    }
-	    if (x.memId.value.length < 4 || x.memId.value.length > 15){
-	    alert("ID는 4~15자 이내여야 합니다.");
+	    if (x.memId.value.length < 6 || x.memId.value.length > 15){
+	    alert("ID는 6~15자 이내여야 합니다.");
 	    x.memId.focus();
 	    return;
 	    }
@@ -266,28 +261,12 @@
 	    }
 	    
 	    // 비밀번호의  타당성 검사
-	    if (x.memPw.value=="") {
-	    alert("비밀번호를 입력하셔야 합니다.")
-	    x.memPw.focus();
-	    return;
-	    }
-	    if (x.memPw.value.length < 4) {
-	    alert("비밀번호는 4자리 이상 입력하셔야 합니다.");
+	    if (x.memPw.value.length < 8) {
+	    alert("비밀번호는 8자리 이상 입력하셔야 합니다.");
 	    x.memPw.value="";
 	    x.memPw.focus();
 	    return;
 	    }
-	    if (x.memPwCon.value==""){
-	    alert("비밀번호를 확인 입력해 주셔야 합니다.")
-	    x.memPwCon.focus();
-	    return;
-	    }
-	    if (x.memPw.value != x.memPwCon.value) {
-	    alert("비밀번호가 서로 일치하지 않습니다.");
-	    x.memPw.value=x.memPwCon.value="";
-	    x.memPw.focus();
-	    return;
-	    } 
 	    if (x.memPw.value.indexOf(" ") >= 0) {
 	    alert("비밀번호에는 공백이 들어가면 안됩니다.");
 	    x.memPw.value=x.memPwCon.value="";
@@ -302,7 +281,7 @@
 	      return;
 	      } 
 	    }
-	    alert("잘 입력하셨습니다.")
+	    alert("가입 완료.<br />환영합니다.")
 	    }
 
 </script>
@@ -324,8 +303,8 @@
 						</div>
 					</div>
 
-					<span class="input_box"> <input type="text" name="memId"
-						class="input">
+					<span class="input_box">
+						<input type="text" name="memId" class="input" placeholder=" 영문과 숫자 조합 6~15자 이내">
 					</span>
 
 					<div class="box1">
@@ -335,7 +314,7 @@
 						</div>
 					</div>
 					<span class="input_box"> <input type="password" name="memPw"
-						class="input">
+						class="input" placeholder=" 영문과 숫자 조합 8자리 이상">
 					</span>
 
 					<div class="box1">
@@ -345,7 +324,7 @@
 						</div>
 					</div>
 					<span class="input_box"> <input type="password"
-						name="memPwCon" class="input">
+						name="memPwCon" class="input" >
 					</span>
 					<div class="box1">
 						<div class="text_box">이름</div>
@@ -374,7 +353,7 @@
 					<div class="box_local">
 						<span class="input_box_locals"> <input type="text"
 							name="memPostNumber" id="sample4_postcode" readonly="readonly"
-							class="input_Post">
+							class="input_Post" placeholder="주소를 검색해주세요">
 						</span> <input type="button" class="localbtn" value="주소검색"
 							onclick="avascript:sample4_execDaumPostcode()" />
 					</div>
@@ -386,13 +365,13 @@
 						</div>
 					</div>
 					<span class="input_box"> <input type="text" name="memAddr"
-						class="input" id="sample4_roadAddress">
+						class="input" id="sample4_roadAddress" placeholder="주소를 검색해주세요">
 
 					</span>
 
 					<div class="text_box">상세주소</div>
 					<span class="input_box"> <input type="text"
-						name="memDetailAdd" class="input">
+						name="memDetailAdd" class="input" placeholder="상세주소 입력">
 					</span>
 					<div class="box1">
 						<div class="text_box">핸드폰</div>

@@ -26,10 +26,12 @@ public class LoginController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String login(LoginDTO loginDTO , HttpSession httpSession, Errors errors) {
 		new LoginDtoValidator().validate(loginDTO, errors);
+		//서비스 가기전 유효성 검사.
 		if (errors.hasErrors()) {
 			return "login/loginPage";
 		}
 		loginService.login(loginDTO, httpSession, errors);
+		//서비스에서 비밀번호가 일치하는지 확인 후 유효성 검사.
 		if (errors.hasErrors()) {
 			return "login/loginPage";
 		}
