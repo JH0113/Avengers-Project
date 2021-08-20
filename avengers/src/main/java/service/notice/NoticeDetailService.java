@@ -3,6 +3,7 @@ package service.notice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 
+import command.NoticeCommand;
 import model.NoticeDTO;
 import repository.NoticeRepository;
 
@@ -14,4 +15,5 @@ public class NoticeDetailService {
 		NoticeDTO dto = noticeRepository.noticeDetail(noticeNum);		
 		model.addAttribute("noticeCommand", dto);
 	}
+	
 }

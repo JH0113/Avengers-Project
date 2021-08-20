@@ -26,8 +26,7 @@ public class NoticeListService {
 		
 		NoticeDTO dto = new NoticeDTO();
 		dto.setStartEndPageDTO(sep);
-		
-		
+				
 		List<NoticeDTO> list = noticeRepository.noticeList(dto);
 		int count = noticeRepository.count();
 		model.addAttribute("noticePage",list);

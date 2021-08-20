@@ -9,8 +9,8 @@
 		(select ROWNUM rn, NOT_NUM noticeNum, NOT_SUB noticeSub, NOT_CONTENTS noticeContents, NOT_DATE noticeDate,
 		NOT_HITS noticeHits, EMP_ID noticeEmpId, NOT_KIND noticeKind from (select * from notice order by NOT_DATE desc))		
 	where rn between #{startEndPageDTO.startRow} and #{startEndPageDTO.endRow} 
-	
-</select>
+	</select>
+
 
 <select id="count" resultType="int">
 	select count(*) from notice

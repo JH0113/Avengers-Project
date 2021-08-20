@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import command.NoticeCommand; 
 import service.notice.NoticeDeleteService;
 import service.notice.NoticeDetailService;
-//import service.notice.NoticeEmpIdService;
 import service.notice.NoticeJoinService;
 import service.notice.NoticeListService;
 import service.notice.NoticeModifyService;
@@ -24,8 +23,6 @@ import validator.NoticeValidator;
 public class NoticeController {
 	@Autowired
 	NoticeListService noticeListService;
-//	@Autowired
-//	NoticeEmpIdService noticeEmpIdService;
 	@Autowired
 	NoticeJoinService noticeJoinService;
 	@Autowired
@@ -36,13 +33,12 @@ public class NoticeController {
 	NoticeDeleteService noticeDeleteService;
 	
 	@RequestMapping("noticePage")
-	public String noticePage(@RequestParam(value = "page",defaultValue = "1") int page, Model model) {
+	public String noticePage(@RequestParam(value = "page", defaultValue = "1") int page, Model model) {
 		noticeListService.noticeList(page,model);
 		return "notice/noticePage";
 	}
 	@RequestMapping("noticeRegistPage")
 	public String noticeRegist(@ModelAttribute(value = "noticeCommand") NoticeCommand noticeCommand ,Model model, HttpSession session) {	    
-//		noticeEmpIdService.noticeEmpId(model,session);
 	    return "notice/noticeRegistPage";
 	}
 	@RequestMapping(value = "noticeRegist", method = RequestMethod.POST)

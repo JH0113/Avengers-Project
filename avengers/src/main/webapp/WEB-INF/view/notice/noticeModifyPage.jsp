@@ -295,7 +295,7 @@ select::-ms-expand {
 			</div>
 		</div>
 
-		<form:form action="noticeModify" name="frm" method="post" modelAttribute="noticeCommand">
+		<form:form action="noticeModify" name="frm" method="post" modelAttribute="noticeCommand" onsubmit="return confirm('수정ㅇㅋ?')">
 			<input type="hidden" name="noticeNum" value="${noticeCommand.noticeNum }">
 
 			<div class="leg">
@@ -331,7 +331,7 @@ select::-ms-expand {
 			</div>
 			
 			<div class="foot" align="center">
-				<input type="submit" value="수정완료" class="btn" style="display: inline-block" onclick="ModifyConfirm();"> 
+				<input type="submit" value="수정완료" class="btn" style="display: inline-block" onsubmit="return confirm('수정할래?')"> 
 				<input type="button" value="수정취소" class="btn" style="display: inline-block" onclick="javascript:location.href='noticeDetailPage?noticeNum=${noticeCommand.noticeNum }'">
 			</div>
 		</form:form>
@@ -343,12 +343,5 @@ select::-ms-expand {
 
 </body>
 
-<script type="text/javascript" >  
-		function ModifyConfirm(){
-		    if (confirm("정말로 수정하시겠습니까?")){
-		     location.href="noticeModify?noticeNum=${noticeCommand.noticeNum}";
-		     alert('${noticeCommand.noticeNum}번 글 "${noticeCommand.noticeSub}"의 수정이 완료되었습니다.');
-		    }
-		 }			
-</script>
+
 </html>
