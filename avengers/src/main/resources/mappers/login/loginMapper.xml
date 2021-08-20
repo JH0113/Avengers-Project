@@ -3,11 +3,11 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="aaa">
 	<select id="login" resultType="authinfo.AuthinfoDTO">
-		select MEM_ID userId, MEM_PW userPw,MEM_PHONE userPhone, 1 grade
+		select MEM_ID userId, MEM_PW userPw,MEM_NICK userNick, 1 grade
 		from member
 		where MEM_ID = #{userId}
 		union
-		select EMP_ID, EMP_PW,'',0
+		select EMP_ID, EMP_PW,EMP_NICK,0
 		from employees
 		where EMP_ID = #{userId}
 	</select>

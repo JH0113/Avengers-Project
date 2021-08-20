@@ -238,7 +238,7 @@ li a {
 					</a>
 				</div>
 				<div class="my_menu">
-					<a href="#"> <img src="images/wishlist.png" width="40"
+					<a href="wishlistPage"> <img src="images/wishlist.png" width="40"
 						height="40">
 						<p>관심목록</p>
 					</a>

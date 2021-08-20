@@ -3,7 +3,14 @@ package authinfo;
 public class AuthinfoDTO {
 	String userId;
 	String userPw;
+	String userNick;
 	String grade;
+	public String getUserNick() {
+		return userNick;
+	}
+	public void setUserNick(String userNick) {
+		this.userNick = userNick;
+	}
 	public String getUserId() {
 		return userId;
 	}
