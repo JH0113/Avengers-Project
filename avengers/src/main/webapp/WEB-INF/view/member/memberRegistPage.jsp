@@ -268,7 +268,7 @@
 					</div>
 
 					<span class="input_box">
-						<input type="text" name="memId" class="input" value="${registInfo.memId }" placeholder=" 영문과 숫자 조합 6~15자 이내">
+						<input type="text" name="memId" class="input" value="${registInfo.memId }" placeholder="시작은 영문으로만,영문, 숫자로만 이루어진 5 ~ 12자">
 					</span>
 
 					<div class="box1">
@@ -278,7 +278,7 @@
 						</div>
 					</div>
 					<span class="input_box"> <input type="password" name="memPw"
-						class="input" value="${registInfo.memPw }" placeholder=" 영문과 숫자 조합 8자리 이상">
+						class="input" value="${registInfo.memPw }" placeholder="숫자, 문자, 특수문자 포함 8~15자리 이내">
 					</span>
 
 					<div class="box1">
@@ -302,11 +302,11 @@
 					<div class="box1">
 						<div class="text_box">닉네임</div>
 						<div class="error_box">
-							<form:errors id="error_text" path="memNick" />
+							<form:errors id="error_text" path="memNick"/>
 						</div>
 					</div>
 					<span class="input_box"> <input type="text" name="memNick"
-						class="input" value="${registInfo.memNick }">
+						class="input" value="${registInfo.memNick }" placeholder="2 ~ 10자">
 					</span>
 					<div class="box1">
 						<div class="text_box">우편번호</div>
