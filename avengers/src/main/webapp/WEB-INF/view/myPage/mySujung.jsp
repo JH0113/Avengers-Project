@@ -138,9 +138,8 @@ li a {
 }
 
 .leg {
-	background-color: rgb(231, 231, 231);
 	width: 1200px;
-	height: 250px;
+	height: 700px;
 	margin: auto;
 	padding-top: 40px;
 	border-radius: 10px;
@@ -177,6 +176,83 @@ li a {
    margin-top: 50px;
    margin-bottom: 100px;
 }
+.memModify-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border-top: 2px solid #969696;
+    font-family: 돋움, Dotum, sans-serif;
+    font-size: 100%;
+    display: table;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-color: grey;
+}
+.memModify-table th {
+    display: table-cell;
+    vertical-align: inherit;
+    font-weight: bold;
+    width: 100px;
+    background-color: #eef1f8;
+    text-align: left;
+    white-space: nowrap;
+}
+.memModify-table th, .memModify-table td {
+    padding: 14px 30px;
+    border-bottom: 1px solid #ddd;
+    margin: 0;
+}
+.memModify-foot {
+    margin-top: 30px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+.memModify-addr, .memModify-submit, .memModify-cancel{
+    min-width: 40px;
+    padding: 7px 12px;
+    border-radius: 2px;
+    font-size: 14px;
+    line-height: 14px;
+    display: inline-block;
+    box-sizing: border-box;
+    border: 1px solid #0085da;
+    text-decoration: none;
+    vertical-align: middle;
+    text-align: center;
+    margin: 3px 4px;
+}
+.memModify-addr{
+	position:absolute;
+	right:725px;
+	top:725px;
+}
+.input_box {
+	position: relative;
+	width: 354px;
+	height: 29px;
+	margin-bottom: 8px;
+	padding: 7px 35px 10px 11px;
+	border: solid 1px #dadada;
+	background: #fff;
+	margin-bottom: 8px;
+	height: 29px;
+	display: flex;
+}
+.input {
+	font-size: 14px;
+	line-height: 16px;
+	position: relative;
+	z-index: 9;
+	width: 80%;
+	height: 16px;
+	padding: 8px 0 6px;
+	color: #000;
+	border: none;
+	background: #fff;
+	-webkit-appearance: none;
+}
+
 </style>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
@@ -245,7 +321,8 @@ li a {
 					<div class="search">
 						<div class="search_area">
 							<form>
-								<input type="search" placeholder="search"> <span>검색</span>
+								<input type="search" placeholder="search"> 
+								<span>검색</span>
 							</form>
 						</div>
 					</div>
@@ -277,33 +354,64 @@ li a {
 			<form:form action="mySujungOk" method="post" name="frm" modelAttribute="memberCommand">
 			<form:hidden path="memId" />
 			<form:hidden path="memName" />
-			<table border = 1 align="center">
-					<tr><td>아이디</td>
-						<td> ${memberCommand.memId } </td></tr>
-					<tr><td>비밀번호</td>
-						<td><input type="password" name="memPw" />
-						<form:errors path = "memPw"/>
-					</td></tr>
-					<tr><td>이름</td>
-						<td> ${memberCommand.memName }  </td></tr>
-					<tr><td>닉네임</td>
-						<td> ${memberCommand.memNick }  </td></tr>
-					<tr><td>우편번호</td>
-						<td><form:input path="memPostNumber" id="sample4_postcode" readonly="readonly" /></td></tr>
-					<tr><td>주소</td>
-						<td><form:input path ="memAddr" 
-							id="sample4_roadAddress"  size="30"  readonly="readonly" />
-							<a href="javascript:sample4_execDaumPostcode();">주소 검색</a>
-						</td></tr>
-					<tr><td>상세주소</td>
-						<td><form:input path="memDetailAdd" /></td></tr>
-					<tr><td>연락처</td>
-						<td><form:input path="memPhone" /></td></tr>
-					<tr><td colspan="2" align="center">
-						<input type="submit" value="수정 완료" />
-						<input type="button"  value="수정 안함" onclick="javascript:history.back();" />
-					</td></tr>
-			</table>
+                <h1 class="memModify-title">회원정보 수정</h1>
+                    <table class="memModify-table">
+                        <tbody>
+                            <tr>
+                                <th scope="row">아이디</th>
+                                <td>${memberCommand.memId }</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">이름</th>
+                                <td>${memberCommand.memName }</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">닉네임</th>
+                                <td>
+                                <div class="input_box">
+                                	<form:input class="input" path="memNick"/>
+                            	</div>
+                            	</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">우편번호</th>
+                                <td>
+                                <div class="input_box">
+                                	<form:input class="input" path="memPostNumber" id="sample4_postcode" readonly="readonly" />
+                            	</div>
+                            	</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">주소</th>
+                                <td>
+                                	<div class="input_box">
+                                    	<form:input class="input" path ="memAddr" id="sample4_roadAddress"  size="30"  readonly="readonly" />
+                                    </div>
+                                    <button type="button" class="memModify-addr" onclick="javascript:sample4_execDaumPostcode();">주소 검색</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">상세주소</th>
+                                <td>
+                                <div class="input_box">
+                                	<form:input class="input" path="memDetailAdd" />
+                                </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">연락처</th>
+                                <td>
+                                <div class="input_box">
+                                	<form:input class="input" path="memPhone" />
+                                </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="memModify-foot">
+                        <button type="submit" class="memModify-submit">수정 완료</button>
+                        <button type="button" class="memModify-cancel" onclick="javascript:history.back();">취소</button>
+                    </div>
 		</form:form>
 		</div>
 		</div>

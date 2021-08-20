@@ -26,4 +26,12 @@
     		#{prodTag},'image3'
     		)
 	</insert>
+	
+	<select id="memProdNum" parameterType="string" resultType="string">
+		select prod_num 
+		from heart
+		where SELLER_ID = #{memId}
+	</select>
+
+	
 </mapper>

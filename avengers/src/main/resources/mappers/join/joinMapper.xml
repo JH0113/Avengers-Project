@@ -24,7 +24,7 @@
 </select>
 <update id="memUpdate" parameterType="model.MemberDTO">
 	update member
-	set MEM_POSTNUMBER = #{memPostNumber}, MEM_ADDR=#{memAddr}, 
+	set MEM_NICK = #{memNick}, MEM_POSTNUMBER = #{memPostNumber}, MEM_ADDR=#{memAddr}, 
 		MEM_DETAILADD = #{memDetailAdd}, MEM_PHONE = #{memPhone}
 	where mem_id = #{memId}
 </update>

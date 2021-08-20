@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import command.MemberCommand;
 import service.member.MemberModifyService;
 import service.member.MemberMyInfoService;
+import validator.LoginDtoValidator;
+import validator.MemberValidator;
 
 @Controller
 public class MyPageController {
@@ -44,4 +46,19 @@ public class MyPageController {
 		}
 		return "redirect:myDetail";
 	}
+	@RequestMapping("myCheck")
+	public String myCheck(HttpSession session,Model model, @ModelAttribute MemberCommand memberCommand) {
+		memberMyInfoService.myInfo(model, session);
+		return "myPage/myCheck";
+	}
+	@RequestMapping("myCheckOk")
+	public String myCheck(MemberCommand memberCommand, Errors errors, HttpSession session,Model model) {
+		memberModifyService.myCheck(session, memberCommand, errors);
+		if(errors.hasErrors()) {
+			memberMyInfoService.myInfo(model, session);
+			return "myPage/myCheck";
+		}
+		return "redirect:myDetail";
+	}
+	
 }

@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class ProductListController {
-	@RequestMapping("productListPage")
-	public String productPage() {
-		return "product/productListPage";
-	}
+   @RequestMapping("productListPage")
+   public String productPage() {
+      return "product/productListPage";
+   }
 }

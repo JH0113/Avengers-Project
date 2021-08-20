@@ -19,18 +19,27 @@ public class MemberModifyService {
 	public void memUpdate(HttpSession session, MemberCommand memberCommand, Errors errors) {
 		AuthinfoDTO authinfo = (AuthinfoDTO)session.getAttribute("authinfo");
 		String memId = authinfo.getUserId(); 
+			
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO.setMemNick(memberCommand.getMemNick());
+		memberDTO.setMemDetailAdd(memberCommand.getMemDetailAdd());
+		memberDTO.setMemAddr(memberCommand.getMemAddr());
+		memberDTO.setMemPhone(memberCommand.getMemPhone());
+		memberDTO.setMemPostNumber(memberCommand.getMemPostNumber());
+		memberDTO.setMemId(memId);
+		memberRepository.memUpdate(memberDTO);
+		
+	}
+	
+	public void myCheck(HttpSession session, MemberCommand memberCommand, Errors errors) {
+		AuthinfoDTO authinfo = (AuthinfoDTO)session.getAttribute("authinfo");
+		String memId = authinfo.getUserId(); 
 		
 		if(bcryptPasswordEncoder.matches(memberCommand.getMemPw(), authinfo.getUserPw())) {
-//		if(memberCommand.getMemPw().equals(authinfo.getUserPw())) {
 			MemberDTO memberDTO = new MemberDTO();
-			memberDTO.setMemDetailAdd(memberCommand.getMemDetailAdd());
-			memberDTO.setMemAddr(memberCommand.getMemAddr());
-			memberDTO.setMemPhone(memberCommand.getMemPhone());
-			memberDTO.setMemPostNumber(memberCommand.getMemPostNumber());
 			memberDTO.setMemId(memId);
-			memberRepository.memUpdate(memberDTO);
 		}else {
-			errors.rejectValue("memPw", "notPw");
+			errors.rejectValue("memPw", "InconsistencyPw");
 		}
 	}
 }

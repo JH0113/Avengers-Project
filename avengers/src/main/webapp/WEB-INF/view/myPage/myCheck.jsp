@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>my page</title>
+<title>내 정보</title>
 <link rel="stylesheet" href="style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -136,9 +138,8 @@ li a {
 }
 
 .leg {
-	background-color: rgb(231, 231, 231);
 	width: 1200px;
-	height: 250px;
+	height: 400px;
 	margin: auto;
 	padding-top: 40px;
 	border-radius: 10px;
@@ -174,6 +175,86 @@ li a {
    background-size: 1200px 400px;
    margin-top: 50px;
    margin-bottom: 100px;
+}
+
+.memModify-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border-top: 2px solid #969696;
+    font-family: 돋움, Dotum, sans-serif;
+    font-size: 100%;
+    display: table;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-color: grey;
+}
+.memModify-table th {
+    display: table-cell;
+    vertical-align: inherit;
+    font-weight: bold;
+    width: 100px;
+    background-color: #eef1f8;
+    text-align: left;
+    white-space: nowrap;
+}
+.memModify-table th, .memModify-table td {
+    padding: 14px 30px;
+    border-bottom: 1px solid #ddd;
+    margin: 0;
+}
+.memModify-foot {
+    margin-top: 30px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+.memModify-submit, .memModify-cancel{
+    min-width: 40px;
+    padding: 7px 12px;
+    border-radius: 2px;
+    font-size: 14px;
+    line-height: 14px;
+    display: inline-block;
+    box-sizing: border-box;
+    border: 1px solid #0085da;
+    text-decoration: none;
+    vertical-align: middle;
+    text-align: center;
+    margin: 3px 4px;
+}
+.input_box {
+	position: relative;
+	width: 354px;
+	height: 29px;
+	margin-bottom: 8px;
+	padding: 7px 35px 10px 11px;
+	border: solid 1px #dadada;
+	background: #fff;
+	margin-bottom: 8px;
+	height: 29px;
+	display: flex;
+}
+.input {
+	font-size: 14px;
+	line-height: 16px;
+	position: relative;
+	z-index: 9;
+	width: 80%;
+	height: 16px;
+	padding: 8px 0 6px;
+	color: #000;
+	border: none;
+	background: #fff;
+	-webkit-appearance: none;
+}
+#error_text {
+	color: red;
+}
+.error_box {
+	font-size: 60%;
+	margin-bottom: 8px;
+	margin-left: 10px;
 }
 </style>
 </head>
@@ -219,31 +300,35 @@ li a {
 		</div>
 
 		<div class="leg">
-			<div class="navigation">
-				<div class="my_menu">
-					<a href="myCheck"> <img src="images/profile.png" width="40"
-						height="40">
-						<p>회원정보</p>
-					</a>
-				</div>
-				<div class="my_menu">
-					<a href="mybuy"> <img src="images/shopping-bag.png" width="40"
-						height="40">s
-						<p>구매내역</p>
-					</a>
-				</div>
-				<div class="my_menu">
-					<a href="mysell"> <img src="images/list.png" width="40" height="40">
-						<p>판매내역</p>
-					</a>
-				</div>
-				<div class="my_menu">
-					<a href="wishlistPage"> <img src="images/wishlist.png" width="40"
-						height="40">
-						<p>관심목록</p>
-					</a>
-				</div>
-			</div>
+		<form:form action="myCheckOk" method="post" name="frm" modelAttribute="memberCommand">
+		<form:hidden path="memId" />
+			<h1 class="memModify-title">회원정보확인</h1>
+                <p class="memModify-msg">회원님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 확인 합니다.</p>
+                    <table class="memModify-table">
+                        <tbody>
+                            <tr>
+                                <th scope="row">아이디</th>
+                                <td>${memberCommand.memId }</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">비밀번호</th>
+                                <td>
+                                <div class="input_box">
+                                    <input class="input" type="password" name="memPw" />
+                                    <div class="error_box">
+										<form:errors id="error_text" path = "memPw"/>
+									</div>
+								</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="memModify-foot">
+                        <button type="submit" class="memModify-submit">확인</button>
+                        <button type="button" class="memModify-cancel" onclick="javascript:history.back();">취소</button>
+                    </div>
+        </form:form>
+		</div>
 		</div>
 		<div class="banner"></div>
 		<div class="footer">
