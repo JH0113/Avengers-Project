@@ -139,7 +139,7 @@ li a {
 
 .leg {
 	width: 1200px;
-	height: 860px;
+	height: 760px;
 	margin: auto;
 }
 
@@ -292,7 +292,7 @@ select::-ms-expand {
 				</div>
 
 			</div>
-		</div>
+		</div>	
 		
 		<form:form action="noticeRegist" name="frm" method="post" modelAttribute="noticeCommand">
 		<div class="leg">
@@ -307,20 +307,15 @@ select::-ms-expand {
 					</div>
 					<div class="text_box">* 제목</div>
 					<span class="input_box">
-					 <input type="text" name="noticeSub" class="input"/></span>
+					 <input type="text" name="noticeSub" class="input" value="${registInfo.noticeSub }"/></span>
 					<div class="error_box">
-						<form:errors id="error_text" path="noticeSub" />
+						<form:errors id="error_text" path="noticeSub"/>
 					</div>
-
 					<div class="text_box">* 내용</div>
-					<textarea rows="20" cols="100" name="noticeContents"></textarea>
-
+					<textarea rows="20" cols="100" name="noticeContents">${registInfo.noticeContents }</textarea>
 					<div class="error_box">
 						<form:errors id="error_text" path="noticeContents" />
 					</div>
-
-					<div class="text_box">글쓴이</div>
-					<span class="input_box"> <input type="text" name="noticeEmpId" value="${noticeEmpId }" class="input" readonly="readonly" /></span>
 				</div>
 		</div>
 		<div class="foot" align="center">
@@ -328,9 +323,11 @@ select::-ms-expand {
 			<input type="button" value="취소" class="btn" style="display: inline-block" onclick="javascript:location.href='noticePage'">
 		</div>
 		</form:form>
+		
 		<div class="footer">
 			<%@include file="../include/includeFooter.jsp"%>
 		</div>
+		
 	</div>
 </body>
 </html>

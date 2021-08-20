@@ -11,8 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
-	href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
-	rel="stylesheet">
+	href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 <style type="text/css">
 * {
 	list-style: none;
@@ -57,28 +56,23 @@ li {
 	font-family: 'Montserrat', sans-serif;
 	font-size: 130%;
 }
-
 li a {
 	display: block;
 }
-
 .right_bar {
 	height: 240px;
 	width: 950px;
 }
-
 .header {
 	height: 240px;
 	width: 100%;
 }
-
 .top_menu {
 	display: flex;
 	width: 100%;
 	margin: auto;
 	height: 86px;
 }
-
 .nav {
 	width: 950px;
 	height: 96px;
@@ -204,6 +198,8 @@ tr.border_bottom_th {
 }
 </style>
 
+
+
 </head>
 <body>
 	<div class="web">
@@ -281,8 +277,8 @@ tr.border_bottom_th {
 					<c:if test="${!empty authinfo }">
 						<c:if test="${authinfo.grade != 1 }">
 							<p align="center">
-								<input type="button" class="btn" value="수정" onclick="javascript:location.href='noticeModifyPage?noticeNum=${noticeCommand.noticeNum }'" style="display: inline-block"/>
-								<input type="button" class="btn" value="삭제" onclick="javascript:location.href='noticeDelete?noticeNum=${noticeCommand.noticeNum }'" style="display: inline-block"/>
+								<input type="button" class="btn" value="수정" onclick="javascript:location.href='noticeModifyPage?noticeNum=${noticeCommand.noticeNum }'" style="display: inline-block"/>							
+								<input type="button" class="btn" value="삭제" style="display: inline-block" onclick="deleteConfirm();"/>
 							</p>
 						</c:if>
 					</c:if>
@@ -294,7 +290,20 @@ tr.border_bottom_th {
 				<%@include file="../include/includeFooter.jsp"%>
 			</div>
 	</div>
- 
+
+	 
 
 </body>
+
+<script type="text/javascript" >  
+		function deleteConfirm(){
+		    if (confirm("정말로 삭제하시겠습니까?")){
+		     location.href="noticeDelete?noticeNum=${noticeCommand.noticeNum}";
+		     alert('${noticeCommand.noticeNum}번 글 "${noticeCommand.noticeSub}"의 삭제가 완료되었습니다.');
+		    }
+		 }			
+</script>
+
 </html>
+
+ 	

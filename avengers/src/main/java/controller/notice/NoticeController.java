@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import command.NoticeCommand;
+import command.NoticeCommand; 
 import service.notice.NoticeDeleteService;
 import service.notice.NoticeDetailService;
-import service.notice.NoticeEmpIdService;
+//import service.notice.NoticeEmpIdService;
 import service.notice.NoticeJoinService;
 import service.notice.NoticeListService;
 import service.notice.NoticeModifyService;
@@ -24,8 +24,8 @@ import validator.NoticeValidator;
 public class NoticeController {
 	@Autowired
 	NoticeListService noticeListService;
-	@Autowired
-	NoticeEmpIdService noticeEmpIdService;
+//	@Autowired
+//	NoticeEmpIdService noticeEmpIdService;
 	@Autowired
 	NoticeJoinService noticeJoinService;
 	@Autowired
@@ -42,18 +42,19 @@ public class NoticeController {
 	}
 	@RequestMapping("noticeRegistPage")
 	public String noticeRegist(@ModelAttribute(value = "noticeCommand") NoticeCommand noticeCommand ,Model model, HttpSession session) {	    
-		noticeEmpIdService.noticeEmpId(model,session);
+//		noticeEmpIdService.noticeEmpId(model,session);
 	    return "notice/noticeRegistPage";
 	}
 	@RequestMapping(value = "noticeRegist", method = RequestMethod.POST)
-	public String noticeRegist(NoticeCommand noticeCommand, Errors errors, HttpSession session) {
+	public String noticeRegist(NoticeCommand noticeCommand, Errors errors, HttpSession session, Model model) {
 		new NoticeValidator().validate(noticeCommand, errors);
 		if(errors.hasErrors()) {
+			noticeJoinService.registInfo(noticeCommand, model);
 			return "notice/noticeRegistPage";
 		}
-		noticeJoinService.noticeInsert(noticeCommand, session);
+		noticeJoinService.noticeInsert(noticeCommand, session, model);
 		return "redirect:noticePage";
-	}	
+	}
 	@RequestMapping("noticeDetailPage")
 	public String noticeDetailPage(@RequestParam(value = "noticeNum") String noticeNum, Model model) {
 		noticeDetailService.noticeDetail(noticeNum,model);
@@ -64,12 +65,11 @@ public class NoticeController {
 		noticeDetailService.noticeDetail(noticeNum,model);
 		return "notice/noticeModifyPage";
 	}
-	@RequestMapping("noticeModify")
+	@RequestMapping(value = "noticeModify", method = RequestMethod.POST)
 	public String noticeModify(NoticeCommand noticeCommand, HttpSession session) {
 		noticeModifyService.noticeModify(noticeCommand, session);
 		return "redirect:noticePage";
 	}
-	
 	@RequestMapping("noticeDelete")
 	public String noticeDelete(@RequestParam (value = "noticeNum") String noticeNum) {
 		noticeDeleteService.noticeDelete(noticeNum);
