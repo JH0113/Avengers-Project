@@ -227,13 +227,13 @@ li a {
 					</a>
 				</div>
 				<div class="my_menu">
-					<a href="#"> <img src="images/shopping-bag.png" width="40"
+					<a href="mybuy"> <img src="images/shopping-bag.png" width="40"
 						height="40">
 						<p>구매내역</p>
 					</a>
 				</div>
 				<div class="my_menu">
-					<a href="#"> <img src="images/list.png" width="40" height="40">
+					<a href="mysell"> <img src="images/list.png" width="40" height="40">
 						<p>판매내역</p>
 					</a>
 				</div>

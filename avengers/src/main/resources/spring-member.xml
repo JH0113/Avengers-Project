@@ -10,6 +10,7 @@
 	<bean class="controller.member.MyPageController" />
 	<bean class="controller.member.FindIdController" />
 	<bean class="controller.member.FindPwController" />
+	<bean class="controller.member.MysellbuyController" />
 	
 	<bean id = "memberRepository" class="repository.MemberRepository" />
 	
