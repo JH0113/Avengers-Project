@@ -34,8 +34,6 @@ h3 {
 	font-size: 120%;
 }
 </style>
-
-
     			<ul>
 				<li class="companyInfo">
 					<h3>COMPANY INFORMATION</h3>

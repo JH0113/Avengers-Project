@@ -10,6 +10,15 @@ public class MemberDTO {
 	String memDetailAdd;
 	String memPhone;
 	String memReportedCount;
+	StartEndPageDTO startEndPageDTO;
+	
+	
+	public StartEndPageDTO getStartEndPageDTO() {
+		return startEndPageDTO;
+	}
+	public void setStartEndPageDTO(StartEndPageDTO startEndPageDTO) {
+		this.startEndPageDTO = startEndPageDTO;
+	}
 	public String getMemId() {
 		return memId;
 	}

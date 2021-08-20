@@ -295,7 +295,7 @@ table {
 							</c:if>
 							<c:if test="${authinfo.grade != 1 }">
 							<ul class="nav">
-								<li><a href="#">MEMBER LIST</a></li>
+								<li><a href="memberListPage">MEMBER LIST</a></li>
 								<li><a href="#">REPORT</a></li>
 								<li><a href="noticePage">NOTICE</a></li>
 								<li><a href="login/logout">LOGOUT</a></li>

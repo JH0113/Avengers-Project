@@ -110,8 +110,30 @@ li a {
 
 .leg {
 	width: 1200px;
-	height: 760px;
+	height: auto;
 	margin: auto;
+}
+/*
+.banner {
+	width: 100%;
+	height: 400px;
+	background-image: url("images/noticeBanner.png");
+	background-size: 100% 400px;
+}
+*/
+
+.noticeContents {
+	font-family: 'Montserrat', sans-serif;
+	width: 100%;
+	height: 600px;
+}
+
+td, th {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 15px;
+	padding-right: 15px;
+	text-align: center;
 }
 
 table {
@@ -124,60 +146,20 @@ table {
 	border-collapse: collapse;
 }
 
-.text_box {
-	margin: 19px 0 8px;
-	font-size: 16px;
-	font-weight: 700;
+tr.border_bottom td {
+	border-bottom: 1px solid #e6e6e6;
 }
 
-.input {
-	display: block;
-	position: relative;
-	width: 100%;
-	height: 29px;
-	padding-right: 25px;
-	line-height: 29px;
-	border: none;
-	background: #fff;
-	font-size: 15px;
-	box-sizing: border-box;
-	z-index: 10;
-	*position: absolute;
-	*top: 0;
-	*left: 0;
-	apperance: none;
-	-webkit-apperance: none;
-}
-
-.input_box {
-	display: block;
-	position: relative;
-	width: 50%;
-	height: 50px;
-	border: solid 1px #dadada;
-	padding: 10px 110px 10px 14px;
-	background: #fff;
-	box-sizing: border-box;
-	vertical-align: top;
-}
-
-.regist_box {
-	height: 450px;
-	width: 1000px;
-	margin: auto;
-}
-
-.foot {
-	width: 1000px;
-	height: 150px;
-	margin: auto;
+tr.border_bottom_th {
+	border-bottom: 3px solid #1a1a1a;
 }
 
 .btn {
 	display: block;
-	width: 200px;
+	width: 400px;
+	margin: auto;
 	padding: 15px 0 15px;
-	font-size: 15px;
+	font-size: 18px;
 	font-family: 'Montserrat', sans-serif;
 	text-align: center;
 	cursor: pointer;
@@ -187,41 +169,7 @@ table {
 	color: #ffffff;
 	padding: 15px 0 15px;
 }
-
-textarea {
-	width: 100%;
-	height: 500px;
-	padding: 10px;
-	box-sizing: border-box;
-	border: solid 2px #dadada;
-	border-radius: 5px;
-	font-size: 15px;
-	resize: none;
-	font-family: 'Montserrat', sans-serif;
-}
-
-select {
-	width: 200px;
-	height: 50px;
-	padding: .8em .5em;
-	border: solid 1px #dadada;
-	font-size: 15px;
-	font-family: 'Montserrat', sans-serif;
-}
-
-select::-ms-expand {
-	display: none;
-}
-.error_box {
-	font-size: 60%;
-	margin-bottom: 8px;
-	margin-left: 10px;
-}
-#error_text {
-	color: red;
-}
 </style>
-
 </head>
 <body>
 	<div class="web">
@@ -241,48 +189,51 @@ select::-ms-expand {
 							</form>
 						</div>
 					</div>
-					<div class="headmenu">
-						<%@include file="../include/includeTopMenu.jsp"%>		
+					<div class="headmenu">				
+						<%@include file="../include/includeTopMenu.jsp"%>						
 					</div>
 				</div>
 
 			</div>
-		</div>	
-		
-		<form:form action="noticeRegist" name="frm" method="post" modelAttribute="noticeCommand">
+		</div>
 		<div class="leg">
-				<div class="regist_box">
-					<div class="text_box">공지종류</div>
-					<div class="selectbox">
-						<select name="noticeKind">
-							<option>일반공지</option>
-							<option>정책변경공지</option>
-							<option>방침변경공지</option>
-						</select>
-					</div>
-					<div class="text_box">* 제목</div>
-					<span class="input_box">
-					 <input type="text" name="noticeSub" class="input" value="${registInfo.noticeSub }"/></span>
-					<div class="error_box">
-						<form:errors id="error_text" path="noticeSub"/>
-					</div>
-					<div class="text_box">* 내용</div>
-					<textarea rows="20" cols="100" name="noticeContents">${registInfo.noticeContents }</textarea>
-					<div class="error_box">
-						<form:errors id="error_text" path="noticeContents" />
-					</div>
-				</div>
+			<div class="banner"></div>
+			<div class="noticeContents">
+				<table>
+					<tr class="border_bottom_th">
+						<th width="150px">회원아이디</th>
+						<th width="150px">닉네임</th>
+						<th width="150px">이름</th>
+						<th width="150px">우편번호</th>
+						<th width="150px">주소</th>
+						<th width="150px">상세주소</th>
+						<th width="150px">전화번호</th>					
+						<th width="150px">신고누적횟수</th>
+					</tr>
+					<c:forEach items="${memberListPage }" var="dto">
+						<tr class="border_bottom">
+							<td>${dto.memId }</td>
+							<td>${dto.memNick }</td>
+							<td>${dto.memName }</td>
+							<td>${dto.memPostNumber }</td>
+							<td>${dto.memDetailAdd }</td>
+							<td>${dto.memPhone }</td>
+							<td>${dto.memReportedCount }</td>
+							<td></td>
+						</tr>
+					</c:forEach>
+					<tr>
+						<td colspan="7" align="center">
+						<%@include file="../include/includePage.jsp"%></td>
+					</tr>
+				</table>
+
+			</div>
 		</div>
-		<div class="foot" align="center">
-			<input type="submit" value="공지사항 등록" class="btn" style="display: inline-block"> 
-			<input type="button" value="취소" class="btn" style="display: inline-block" onclick="javascript:location.href='noticePage'">
-		</div>
-		</form:form>
-		
+
 		<div class="footer">
 			<%@include file="../include/includeFooter.jsp"%>
 		</div>
-		
 	</div>
 </body>
 </html>

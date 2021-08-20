@@ -20,24 +20,20 @@
 	margin: 0;
 	padding: 0;
 }
-
 .web {
 	width: 100%;
 	height: 100%;
 }
-
 .body {
 	max-width: 1200px;
 	display: flex;
 	height: 240px;
 	margin: auto;
 }
-
 .left_bar {
 	height: 240px;
 	width: 250px;
 }
-
 .logo {
 	background-color: #fff;
 	height: 150px;
@@ -67,33 +63,6 @@ li a {
 	height: 240px;
 	width: 100%;
 }
-.top_menu {
-	display: flex;
-	width: 100%;
-	margin: auto;
-	height: 86px;
-}
-.nav {
-	width: 950px;
-	height: 96px;
-	display: flex;
-	justify-content: flex-end;
-	line-height: 86px;
-	background-color: #fff;
-}
-
-.nav li {
-	margin-left: 84px;
-}
-
-.nav li a:hover {
-	font-weight: bolder;
-}
-
-.nav li a {
-	color: #000;
-}
-
 .search {
 	width: 100%;
 	height: 120px;
@@ -220,23 +189,7 @@ tr.border_bottom_th {
 						</div>
 					</div>
 					<div class="headmenu">
-						<div class="top_menu">
-							<c:if test="${empty authinfo }">
-								<ul class="nav">
-									<li><a href="loginPage">LOGIN</a></li>
-									<li><a href="registPage">REGIST</a></li>
-									<li><a href="noticePage">NOTICE</a></li>
-								</ul>
-							</c:if>
-							<c:if test="${!empty authinfo }">
-								<ul class="nav">
-									<li><a href="myPage">MYPAGE</a></li>
-									<li><a href="productRegisterPage">SELL ITEMS</a></li>
-									<li><a href="noticePage">NOTICE</a></li>
-									<li><a href="login/logout">LOGOUT</a></li>
-								</ul>
-							</c:if>
-						</div>
+						<%@include file="../include/includeTopMenu.jsp"%>		
 					</div>
 				</div>
 

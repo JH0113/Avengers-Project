@@ -33,6 +33,7 @@
 				classpath:spring-notice.xml
 				classpath:spring-product.xml
 				classpath:spring-employee.xml
+				classpath:spring-memberList.xml
 			</param-value>
 		</init-param>
 	</servlet>

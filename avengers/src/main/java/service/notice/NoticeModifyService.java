@@ -15,8 +15,7 @@ public class NoticeModifyService {
 	public void noticeModify(NoticeCommand noticeCommand, HttpSession session) {
 		NoticeDTO dto = new NoticeDTO();
 		AuthinfoDTO authinfo = (AuthinfoDTO)session.getAttribute("authinfo");
-		String empId=authinfo.getUserId();
-		// Id말고 nick가져와야하는데....  authinfo에 추가해줘야함
+		String empId=authinfo.getUserNick(); 
 		
 		dto.setNoticeContents(noticeCommand.getNoticeContents());
 		dto.setNoticeSub(noticeCommand.getNoticeSub());

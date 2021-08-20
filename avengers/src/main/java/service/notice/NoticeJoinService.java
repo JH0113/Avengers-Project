@@ -18,7 +18,7 @@ public class NoticeJoinService {
 	public void noticeInsert(NoticeCommand noticeCommand, HttpSession session, Model model) {
 		NoticeDTO dto = new NoticeDTO();
 		AuthinfoDTO authinfo = (AuthinfoDTO)session.getAttribute("authinfo");
-		String empId=authinfo.getUserId();		// Id말고 nick가져와야하는데....  authinfo에 추가해줘야함 
+		String empId=authinfo.getUserNick();
 		dto.setNoticeEmpId(empId);
 		dto.setNoticeContents(noticeCommand.getNoticeContents());
 		dto.setNoticeSub(noticeCommand.getNoticeSub());	
