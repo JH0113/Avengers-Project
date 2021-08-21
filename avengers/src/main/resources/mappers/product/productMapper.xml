@@ -13,25 +13,22 @@
 		    prod_price,prod_image,prod_detail,
 		    prod_date,prod_hits,prod_method,
 		    prod_state,prod_heart_count,prod_location,
-		    btgr_id,stgr_id,brand_ctgr_id,
+		    ctgr_id,brand_ctgr_id,
 		    prod_tag,prod_image_plus
 		    )
     		values
     		(
     		(<include refid="prodNum"/>),#{memId},#{prodName},
-    		#{prodPrice},'image1',#{prodDetail},
+    		#{prodPrice},
+    		<if test="prodImage != null">#{prodImage}</if>
+			<if test="prodImage == null">null</if>,
+			#{prodDetail},
     		sysdate,0,'meet',
     		'0',0,#{prodLocation},
-    		0,0,0,
-    		#{prodTag},'image3'
+    		0,0,
+    		#{prodTag},
+    		<if test="prodImageplus != null">#{prodImageplus}</if>
+			<if test="prodImageplus == null">null</if>
     		)
 	</insert>
-	
-	<select id="memProdNum" parameterType="string" resultType="string">
-		select prod_num 
-		from heart
-		where SELLER_ID = #{memId}
-	</select>
-
-	
 </mapper>

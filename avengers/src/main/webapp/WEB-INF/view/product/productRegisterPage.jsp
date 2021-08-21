@@ -289,7 +289,7 @@ textarea {
 				</div>
 			</div>
 		</div>
-		<form action="productRegister" method="post">
+		<form action="productRegister" method="post" enctype="multipart/form-data">
 		<div class="leg">
 			<div class="leg_left" onclick="onclick=document.all.image.click()">
 				<div id="image_container"></div>
@@ -312,7 +312,7 @@ textarea {
 					<span> 유<input type="radio" name="prodTag" value="yes"> 무<input
 						type="radio" name="prodTag" value="no">
 					</span> <input type="file" id="image" accept="image/*"
-						onchange="setThumbnail(event);" style="display: none" name="prodImage"/>
+						onchange="setThumbnail(event);" style="display: none" name="prodImage" multiple="multiple"/>
 				</div>
 			</div>
 		</div>
@@ -321,7 +321,7 @@ textarea {
 				<h1>상품상세설명</h1>
 			</div>
 			<textarea rows="10" cols="118" placeholder="상품에 대한 상세설명을 입력해주세요." name="prodDetail"></textarea>
-			추가이미지 선택 <input type="file" name="prodImageplus">
+			추가이미지 선택 <input type="file" name="prodImageplus" multiple="multiple">
 			<input type="submit" class="btn" value="상품등록" ></input>
 		</div>
 		</form>

@@ -1,13 +1,15 @@
 package command;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class ProductCommand {
 	String prodName;
 	String prodPrice;
-	String prodImage;
+	MultipartFile [] prodImage;
 	String prodDetail;
 	String prodLocation;
 	String prodTag;
-	String prodImageplus;
+	MultipartFile [] prodImageplus;
 	
 	public String getProdName() {
 		return prodName;
@@ -21,10 +23,10 @@ public class ProductCommand {
 	public void setProdPrice(String prodPrice) {
 		this.prodPrice = prodPrice;
 	}
-	public String getProdImage() {
+	public MultipartFile[] getProdImage() {
 		return prodImage;
 	}
-	public void setProdImage(String prodImage) {
+	public void setProdImage(MultipartFile[] prodImage) {
 		this.prodImage = prodImage;
 	}
 	public String getProdDetail() {
@@ -45,10 +47,10 @@ public class ProductCommand {
 	public void setProdTag(String prodTag) {
 		this.prodTag = prodTag;
 	}
-	public String getProdImageplus() {
+	public MultipartFile[] getProdImageplus() {
 		return prodImageplus;
 	}
-	public void setProdImageplus(String prodImageplus) {
+	public void setProdImageplus(MultipartFile[] prodImageplus) {
 		this.prodImageplus = prodImageplus;
 	}
 	

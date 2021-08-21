@@ -15,12 +15,10 @@ public class ProductDTO {
 	String prodState;
 	String prodHeartCount;
 	String prodLocation;
-	String btgrId;
-	String stgrId;
+	String ctgrId;
 	String brandCtgrId;
 	String prodTag;
 	String prodImageplus;
-	
 	public String getProdNum() {
 		return prodNum;
 	}
@@ -93,17 +91,11 @@ public class ProductDTO {
 	public void setProdLocation(String prodLocation) {
 		this.prodLocation = prodLocation;
 	}
-	public String getBtgrId() {
-		return btgrId;
+	public String getCtgrId() {
+		return ctgrId;
 	}
-	public void setBtgrId(String btgrId) {
-		this.btgrId = btgrId;
-	}
-	public String getStgrId() {
-		return stgrId;
-	}
-	public void setStgrId(String stgrId) {
-		this.stgrId = stgrId;
+	public void setCtgrId(String ctgrId) {
+		this.ctgrId = ctgrId;
 	}
 	public String getBrandCtgrId() {
 		return brandCtgrId;
@@ -123,6 +115,7 @@ public class ProductDTO {
 	public void setProdImageplus(String prodImageplus) {
 		this.prodImageplus = prodImageplus;
 	}
+	
 	
 	
 }
