@@ -224,7 +224,7 @@ li a {
 }
 .memModify-addr{
 	position:absolute;
-	right:725px;
+	right:724px;
 	top:725px;
 }
 .input_box {
