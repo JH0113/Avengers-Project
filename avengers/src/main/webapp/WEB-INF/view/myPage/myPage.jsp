@@ -221,7 +221,7 @@ li a {
 		<div class="leg">
 			<div class="navigation">
 				<div class="my_menu">
-					<a href="myCheck"> <img src="images/profile.png" width="40"
+					<a href="memPwCheckPage"> <img src="images/profile.png" width="40"
 						height="40">
 						<p>회원정보</p>
 					</a>
