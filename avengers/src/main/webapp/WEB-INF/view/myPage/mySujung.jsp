@@ -224,8 +224,8 @@ li a {
 }
 .memModify-addr{
 	position:absolute;
-	right:724px;
-	top:725px;
+	right:10px;
+	top:6px;
 }
 .input_box {
 	position: relative;
@@ -386,8 +386,9 @@ li a {
                                 <td>
                                 	<div class="input_box">
                                     	<form:input class="input" path ="memAddr" id="sample4_roadAddress"  size="30"  readonly="readonly" />
+                                    	<button type="button" class="memModify-addr" onclick="javascript:sample4_execDaumPostcode();">주소 검색</button>
                                     </div>
-                                    <button type="button" class="memModify-addr" onclick="javascript:sample4_execDaumPostcode();">주소 검색</button>
+                                    
                                 </td>
                             </tr>
                             <tr>
