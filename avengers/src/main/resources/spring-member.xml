@@ -12,10 +12,14 @@
 	<bean class="controller.member.FindPwController" />
 	<bean class="controller.member.MysellbuyController" />
 	
+
+
+	<bean id = "sellpageRepository" class="repository.SellPageRepository" />
 	<bean id = "memberRepository" class="repository.MemberRepository" />
 	
 	<bean id = "memberJoinService" class="service.join.MemberJoinService" />
 	<bean id = "memberMyInfoService" class="service.member.MemberMyInfoService" />
 	<bean id = "memberModifyService" class="service.member.MemberModifyService" />
 	<bean id = "memImageModifyService" class="service.member.MemImageModifyService" />
+		<bean id = "memberSellService" class="service.memberPage.SellPageService" />
 </beans>

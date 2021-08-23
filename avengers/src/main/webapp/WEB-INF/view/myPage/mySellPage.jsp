@@ -369,6 +369,7 @@ li a {
             <div class="buys">
                <table class="buy_table">
                   <%--                <c:forEach> --%>
+                  <c:forEach items="${mySell }" var="dto">
                   <tr>
                      <td rowspan="4" id="td_image"><c:if
                            test="${productDTO.prodImage != null }">
@@ -376,43 +377,20 @@ li a {
                               src="member/profile/${productDTO.prodImage.split(',')[0] }" />
                         </c:if> <c:if test="${productDTO.prodImage == null }">
                            <img width="200" height="200" src="images/noimage.png" />
+             
                         </c:if></td>
-                     <td id="td_text">등록일</td>
+                     <td id="td_text">작성 날짜:${dto.prodDate}</td>
                   </tr>
                   <tr>
-                     <td>제목</td>
+                     <td>제 목:${dto.prodName}</td>
                   </tr>
                   <tr>
-                     <td>가격</td>
+                     <td>가 격:${dto.prodPrice}</td>
                   </tr>
                   <tr>
-                     <td>판매현황</td>
+                     <td>현 황:${dto.prodState }</td>
                   </tr>
-                  <!--                   아래 데이터는 포이치문을 쓰기전 가비지 데이터 -->
-                  <tr>
-                     <td rowspan="4" id="td_image"><c:if
-                           test="${productDTO.prodImage != null }">
-                           <img width="200" height="200"
-                              src="member/profile/${productDTO.prodImage.split(',')[0] }" />
-                        </c:if> <c:if test="${productDTO.prodImage == null }">
-                           <img width="200" height="200" src="images/noimage.png" />
-                        </c:if></td>
-                     <td id="td_text">등록일</td>
-                  </tr>
-                  <tr>
-                     <td>제목</td>
-                  </tr>
-                  <tr>
-                     <td>가격</td>
-                  </tr>
-                  <tr>
-                     <td>판매현황</td>
-                  </tr>
-                  <%--                   </c:forEach> --%>
-                  <tr>
-                     <td rowspan="4" colspan="2" align="center"><%@include
-                           file="../include/includePage.jsp"%></td>
-                  </tr>
+                  </c:forEach>
                </table>
             </div>
          </div>

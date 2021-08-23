@@ -19,6 +19,26 @@ public class ProductDTO {
 	String brandCtgrId;
 	String prodTag;
 	String prodImageplus;
+	StartEndPageDTO startEndPageDTO;
+	
+	
+	String userId;
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	
+	public StartEndPageDTO getStartEndPageDTO() {
+		return startEndPageDTO;
+	}
+	public void setStartEndPageDTO(StartEndPageDTO startEndPageDTO) {
+		this.startEndPageDTO = startEndPageDTO;
+	}
+	
+	
+	
 	public String getProdNum() {
 		return prodNum;
 	}
