@@ -390,7 +390,7 @@ table {
                         </tbody>
                     </table>
                     <div class="memModify-foot">
-                        <button type="button" class="memModify-submit" onclick="location.href='mySujung'">수정</button>
+                        <button type="button" class="memModify-submit" onclick="location.href='memModifyPage'">수정</button>
                     </div>
             </div>
          </div>

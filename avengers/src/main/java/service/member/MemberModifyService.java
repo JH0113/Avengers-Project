@@ -20,7 +20,7 @@ public class MemberModifyService {
 	BCryptPasswordEncoder bcryptPasswordEncoder;
 	@Autowired
 	LoginRepository loginRepository;
-	public void memUpdate(HttpSession session, MemberCommand memberCommand, Errors errors) {
+	public void memModifyUpdate(HttpSession session, MemberCommand memberCommand, Errors errors) {
 		AuthinfoDTO authinfo = (AuthinfoDTO)session.getAttribute("authinfo");
 		String memId = authinfo.getUserId(); 
 			

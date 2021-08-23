@@ -359,7 +359,7 @@ li a {
 		</div>
 
 		<div class="leg">
-			<form:form action="mySujungOk" method="post" name="frm" modelAttribute="memberCommand">
+			<form:form action="memModify" method="post" name="frm" modelAttribute="memberCommand">
 			<form:hidden path="memId" />
 			<form:hidden path="memName" />
                 <h1 class="memModify-title">회원정보 수정</h1>

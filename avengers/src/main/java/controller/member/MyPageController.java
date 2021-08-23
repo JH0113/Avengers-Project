@@ -32,7 +32,7 @@ public class MyPageController {
 	
 	@RequestMapping("memPwCheckPage") // 내 정보 보기 전 비번 체크 페이지
 	public String memPwCheckPage(HttpSession session,Model model, @ModelAttribute MemberCommand memberCommand) {
-		memberMyInfoService.myInfo(model, session);
+		memberMyInfoService.memMyInfo(model, session);
 		return "myPage/memPwCheckPage";
 	}
 	
@@ -47,32 +47,32 @@ public class MyPageController {
 				return "myPage/memPwCheckPage";
 			}	
 		}
-		memberMyInfoService.myInfo(model, session);
-		return "redirect:myDetail";
+		memberMyInfoService.memMyInfo(model, session);
+		return "redirect:memMyInfoDetailPage";
 	}
 	
-	@RequestMapping("myDetail") // 내 정보 확인
-	public String myDetail(HttpSession session,Model model) {
-		memberMyInfoService.myInfo(model, session);
-		return "myPage/myDetail";
+	@RequestMapping("memMyInfoDetailPage") // 내 정보 확인
+	public String memMyInfoDetailPage(HttpSession session,Model model) {
+		memberMyInfoService.memMyInfo(model, session);
+		return "myPage/memMyInfoDetailPage";
 	}
-	@RequestMapping("mySujung") // 내 정보 수정페이지
-	public String mySujung(HttpSession session,Model model, @ModelAttribute MemberCommand memberCommand) {
-		memberMyInfoService.myInfo(model, session);
-		return "myPage/mySujung";
+	@RequestMapping("memModifyPage") // 내 정보 수정페이지
+	public String memModifyPage(HttpSession session,Model model, @ModelAttribute MemberCommand memberCommand) {
+		memberMyInfoService.memMyInfo(model, session);
+		return "myPage/memModifyPage";
 	}
-	@RequestMapping(value="mySujungOk", method = RequestMethod.POST) // 내 정보 수정
-	public String myUpdate(MemberCommand memberCommand, Errors errors, HttpSession session) {
+	@RequestMapping(value="memModify", method = RequestMethod.POST) // 내 정보 수정
+	public String memModifyUpdate(MemberCommand memberCommand, Errors errors, HttpSession session) {
 		new MyInfoValidator().validate(memberCommand, errors);
 		if (errors.hasErrors()) {
-			return "myPage/mySujung";
+			return "myPage/memModifyPage";
 		}
 		
-		memberModifyService.memUpdate(session, memberCommand, errors);
+		memberModifyService.memModifyUpdate(session, memberCommand, errors);
 		if(errors.hasErrors()) {
-			return "myPage/mySujung";
+			return "myPage/memModifyPage";
 		}
-		return "redirect:myDetail";
+		return "redirect:memMyInfoDetailPage";
 	}
 	
 }
