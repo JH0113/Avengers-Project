@@ -53,7 +53,7 @@
 			<c:if test="${authinfo.grade != 1 }">
 				<ul class="nav">
 					<li><a href="memberListPage">MEMBER LIST</a></li>
-					<li><a href="#">REPORT</a></li>
+					<li><a href="reportPage">REPORT</a></li>
 					<li><a href="noticePage">NOTICE</a></li>
 					<li><a href="login/logout">LOGOUT</a></li>
 				</ul>

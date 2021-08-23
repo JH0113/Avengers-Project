@@ -29,4 +29,16 @@ public class MemberListRepository {
 		statement = namespace + ".memberSearchList";
 		return sqlSession.selectList(statement,keyword);
 	}
+	
+	public MemberDTO memberInfo(String memId) {
+		statement = namespace + ".memberInfo";
+		return sqlSession.selectOne(statement, memId);
+	}
+	
+	public void memberDelete(String memId) {
+		statement=namespace+".memberDelete";
+		sqlSession.delete(statement,memId);
+	}
+
+
 }

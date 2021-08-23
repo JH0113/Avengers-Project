@@ -33,4 +33,17 @@
 		where memId like '%'||#{keyword}||'%' or memNick like '%'||#{keyword}||'%'	
 </select>	 
 
+<select id="memberInfo" parameterType="string"	resultType="model.MemberDTO">
+		select MEM_ID memId, MEM_PW memPw, MEM_NAME memName, MEM_NICK memNick,
+		MEM_ADDR memAddr, MEM_POSTNUMBER memPostNumber, MEM_DETAILADD memDetailAdd, 
+		MEM_PHONE memPhone
+		from member
+		where MEM_ID = #{memId}
+</select>
+
+<delete id="memberDelete" parameterType="string">
+	delete from member
+	where MEM_ID = #{memId}
+</delete>
+
 </mapper>

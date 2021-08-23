@@ -34,6 +34,7 @@
 				classpath:spring-product.xml
 				classpath:spring-employee.xml
 				classpath:spring-memberList.xml
+				classpath:spring-report.xml
 			</param-value>
 		</init-param>
 	</servlet>

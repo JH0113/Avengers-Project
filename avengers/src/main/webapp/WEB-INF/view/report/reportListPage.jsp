@@ -144,7 +144,6 @@ table {
 	border-left: none;
 	border-right: none;
 	border-collapse: collapse;
-	vertical-align: center;
 
 }
 
@@ -160,9 +159,9 @@ tr.border_bottom_th {
 
 .btn {
 	display: block;
-	width: 200px;
+	width: 80px;
 	margin: auto;
-	padding: 5px 0 5px;
+	padding: 4px 0 4px;
 	font-size: 14px;
 	font-family: 'Montserrat', sans-serif;
 	text-align: center;
@@ -185,15 +184,19 @@ tr.border_bottom_th {
 	padding: 5px;
 	width: 250px;
 }
-
 </style>
 
 <script type="text/javascript" >  
-		function deleteConfirm(){
-		    if (confirm("정말로 '${memberCommand.memId }' 회원을 강퇴하시겠습니까?")){
-		     location.href="memberDelete?memId=${memberCommand.memId}";
+function checkSubmitValue(frm) {
+	var e = frm.elements;
+	  for ( var i = 0; i < e.length; i++ ) {
+		    if ( e[i].tagName == 'INPUT'  && e[i].value == '' ) {
+		      alert('검색할 값을 입력해주세요.');
+		      return false;
 		    }
-		 }			
+		  }
+		  return true;
+		}
 </script>
 
 </head>
@@ -224,38 +227,52 @@ tr.border_bottom_th {
 		</div>
 		<div class="leg">
 			<div class="banner"></div>		
+			
+			
+			
+			<form action="memListSearch" method="get" id=frm onsubmit='return checkSubmitValue(this)'>
+				 <div class=list_search_area>				 
+					    <input type="text" placeholder="아이디 또는 닉네임을 입력해주세요." id="listSearch" name="keyword">			    
+					    <button id="searchBtn" class="btn">검색</button>					
+				 </div>
+			 </form>
+			 
 			<div class="contents">
-				<table border=1>
-					<tr class="border_bottom_th">					
-						<td colspan="4"><h2>${memberCommand.memId }의 정보</h2></td>
-					</tr> 
+			
+				<h1>리포트 입니다~~~~~~~~수정할꺼~~~~~~~~~~~~~~~~~~~~~~~</h1>
+				<table>
+					<tr class="border_bottom_th">
+						<th width="120px">신고자ID</th>
+						<th width="130px">피신고자ID</th>
+						<th width="130px">신고사유</th>
+						<th width="120px">상세사유</th>
+						<th width="260px">주소</th>
+						<th width="170px">상세주소</th>
+						<th width="150px">전화번호</th>					
+						<th width="120px">신고누적</th>
+					</tr>
+					<c:forEach items="${memberListPage }" var="dto">
+						<tr class="border_bottom">
+							<td>
+								<a href="memberInfoPage?memId=${dto.memId }">${dto.memId }</a>
+							</td>
+							<td>${dto.memNick }</td>
+							<td>${dto.memName }</td>
+							<td>${dto.memPostNumber }</td>
+							<td>${dto.memAddr }</td>
+							<td>${dto.memDetailAdd }</td>
+							<td>${dto.memPhone }</td>
+							<td>${dto.memReportedCount }</td>
+							<td></td>
+						</tr>
+					</c:forEach>
 					<tr>
-					   <td rowspan="4"><img width="200" height="200" src="images/noimage.png" /></td>
-                       <th>이름</th>
-                        	<td colspan="2">${memberCommand.memName }</td>
-                       <tr><th>닉네임</th>
-                        	<td colspan="2">${memberCommand.memNick }</td></tr>
-                       <tr><th>전화번호</th>
-                        	<td colspan="2">${memberCommand.memPhone }</td> </tr>
-                       <tr><th>주소</th>
-                        	<td colspan="2">${memberCommand.memAddr }, ${memberCommand.memDetailAdd }</td> </tr> 
-                          
-                              
-					<tr><th>구매내역</th>
-					<td colspan="3"> ex) 2021-08-01 / 판매자 '○○'과의 거래 / 거래상품 '프라다 가방' (클릭 시 이동)</td></tr>
-					
-					<tr><th>판매내역</th>
-					<td colspan="3"> ex) 2020-05-13 / 구매자 '☆☆☆'과의 거래 / 거래상품 '발렌티노 목걸이' (클릭 시 이동)</td></tr>
-					
-					<tr><th>신고누적횟수 (누르면 신고데이터 볼수있음)</th>
-						<td colspan="3"> '${memberCommand.memId }' 님의 신고된 데이터 보기 </td></tr>
-					
-					<tr><td colspan="4">
-						<input type="button" class="btn" value="${memberCommand.memId } 회원 강제 탈퇴" onclick="deleteConfirm();">			
-					</td></tr>	
+						<td colspan="7" align="center">
+						<%@include file="../include/includePage.jsp"%></td>
+					</tr>
 				</table>
-  
 			</div>
+			
 		</div>
 
 		<div class="footer">

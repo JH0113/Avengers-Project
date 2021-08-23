@@ -7,11 +7,6 @@
 			"
 >
 
-
-	<bean class="controller.member.MemberListController" />	
-	<bean class="service.member.MemberListService" />	
-	<bean class="service.member.MemberInfoService" />	
-	<bean class="service.member.MemberDeleteService" />	
-	<bean class="repository.MemberListRepository" />
+	<bean class="controller.report.ReportController" />	 
 	
 </beans>
