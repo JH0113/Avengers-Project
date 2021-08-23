@@ -8,14 +8,18 @@ import org.springframework.validation.Errors;
 
 import authinfo.AuthinfoDTO;
 import command.MemberCommand;
+import model.LoginDTO;
 import model.MemberDTO;
+import repository.LoginRepository;
 import repository.MemberRepository;
 
 public class MemberModifyService {
 	@Autowired
 	MemberRepository memberRepository; 
 	@Autowired
-	BCryptPasswordEncoder bcryptPasswordEncoder; 
+	BCryptPasswordEncoder bcryptPasswordEncoder;
+	@Autowired
+	LoginRepository loginRepository;
 	public void memUpdate(HttpSession session, MemberCommand memberCommand, Errors errors) {
 		AuthinfoDTO authinfo = (AuthinfoDTO)session.getAttribute("authinfo");
 		String memId = authinfo.getUserId(); 
@@ -42,4 +46,5 @@ public class MemberModifyService {
 			errors.rejectValue("memPw", "InconsistencyPw");
 		}
 	}
+	
 }

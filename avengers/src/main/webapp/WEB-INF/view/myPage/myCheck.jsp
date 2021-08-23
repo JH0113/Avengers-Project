@@ -315,10 +315,10 @@ li a {
                                 <td>
                                 <div class="input_box">
                                     <input class="input" type="password" name="memPw" />
-                                    <div class="error_box">
+								</div>
+								<div class="error_box">
 										<form:errors id="error_text" path = "memPw"/>
 									</div>
-								</div>
                                 </td>
                             </tr>
                         </tbody>

@@ -58,7 +58,6 @@ public class MemberValidator implements Validator {
 				}
 			}
 		}
-		
 		//휴대폰번호 유효성
 		if(memberCommand.getMemPhone().isEmpty()==false) {
 			Matcher matcher_phone=pattern_phone.matcher(memberCommand.getMemPhone());
