@@ -318,7 +318,7 @@ li a {
 								</div>
 								<div class="error_box">
 										<form:errors id="error_text" path = "memPw"/>
-									</div>
+								</div>
                                 </td>
                             </tr>
                         </tbody>

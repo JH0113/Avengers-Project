@@ -15,6 +15,7 @@ import service.member.MemberModifyService;
 import service.member.MemberMyInfoService;
 import validator.LoginDtoValidator;
 import validator.MemberValidator;
+import validator.MyInfoValidator;
 import validator.MyPageValidator;
 
 @Controller
@@ -41,6 +42,11 @@ public class MyPageController {
 	}
 	@RequestMapping(value="mySujungOk", method = RequestMethod.POST) // 내 정보 수정
 	public String myUpdate(MemberCommand memberCommand, Errors errors, HttpSession session) {
+		new MyInfoValidator().validate(memberCommand, errors);
+		if (errors.hasErrors()) {
+			return "myPage/mySujung";
+		}
+		
 		memberModifyService.memUpdate(session, memberCommand, errors);
 		if(errors.hasErrors()) {
 			return "myPage/mySujung";

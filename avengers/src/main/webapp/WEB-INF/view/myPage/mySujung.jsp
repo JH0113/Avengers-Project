@@ -252,6 +252,14 @@ li a {
 	background: #fff;
 	-webkit-appearance: none;
 }
+#error_text {
+	color: red;
+}
+.error_box {
+	font-size: 60%;
+	margin-bottom: 8px;
+	margin-left: 10px;
+}
 
 </style>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -371,6 +379,9 @@ li a {
                                 <div class="input_box">
                                 	<form:input class="input" path="memNick"/>
                             	</div>
+                            	<div class="error_box">
+									<form:errors id="error_text" path = "memNick"/>
+								</div>
                             	</td>
                             </tr>
                             <tr>
@@ -379,6 +390,9 @@ li a {
                                 <div class="input_box">
                                 	<form:input class="input" path="memPostNumber" id="sample4_postcode" readonly="readonly" />
                             	</div>
+                            	<div class="error_box">
+									<form:errors id="error_text" path = "memPostNumber"/>
+								</div>
                             	</td>
                             </tr>
                             <tr>
@@ -388,7 +402,9 @@ li a {
                                     	<form:input class="input" path ="memAddr" id="sample4_roadAddress"  size="30"  readonly="readonly" />
                                     	<button type="button" class="memModify-addr" onclick="javascript:sample4_execDaumPostcode();">주소 검색</button>
                                     </div>
-                                    
+                                    <div class="error_box">
+										<form:errors id="error_text" path = "memAddr"/>
+									</div>
                                 </td>
                             </tr>
                             <tr>
@@ -397,6 +413,9 @@ li a {
                                 <div class="input_box">
                                 	<form:input class="input" path="memDetailAdd" />
                                 </div>
+                                <div class="error_box">
+									<form:errors id="error_text" path = "memDetailAdd"/>
+								</div>
                                 </td>
                             </tr>
                             <tr>
@@ -405,6 +424,9 @@ li a {
                                 <div class="input_box">
                                 	<form:input class="input" path="memPhone" />
                                 </div>
+                                <div class="error_box">
+									<form:errors id="error_text" path = "memPhone"/>
+								</div>
                                 </td>
                             </tr>
                         </tbody>
