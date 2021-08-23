@@ -30,6 +30,27 @@ public class MyPageController {
 		return "myPage/myPage";
 	}
 	
+	@RequestMapping("memPwCheckPage") // 내 정보 보기 전 비번 체크 페이지
+	public String memPwCheckPage(HttpSession session,Model model, @ModelAttribute MemberCommand memberCommand) {
+		memberMyInfoService.myInfo(model, session);
+		return "myPage/memPwCheckPage";
+	}
+	
+	@RequestMapping("memPwCheck") // 비번 체크
+	public String memPwCheck(MemberCommand memberCommand, Errors errors, HttpSession session,Model model) {
+		new MyPageValidator().validate(memberCommand, errors);
+		if (errors.hasErrors()) {
+			return "myPage/memPwCheckPage";
+		}
+		if(!memberModifyService.memPwCheck(session, memberCommand, errors)) {
+			if (errors.hasErrors()) {
+				return "myPage/memPwCheckPage";
+			}	
+		}
+		memberMyInfoService.myInfo(model, session);
+		return "redirect:myDetail";
+	}
+	
 	@RequestMapping("myDetail") // 내 정보 확인
 	public String myDetail(HttpSession session,Model model) {
 		memberMyInfoService.myInfo(model, session);
@@ -50,25 +71,6 @@ public class MyPageController {
 		memberModifyService.memUpdate(session, memberCommand, errors);
 		if(errors.hasErrors()) {
 			return "myPage/mySujung";
-		}
-		return "redirect:myDetail";
-	}
-	@RequestMapping("myCheck") // 내 정보 보기 전 비번 체크 페이지
-	public String myCheck(HttpSession session,Model model, @ModelAttribute MemberCommand memberCommand) {
-		memberMyInfoService.myInfo(model, session);
-		return "myPage/myCheck";
-	}
-	@RequestMapping("myCheckOk") // 비번 체크
-	public String myCheck(MemberCommand memberCommand, Errors errors, HttpSession session,Model model) {
-		new MyPageValidator().validate(memberCommand, errors);
-		if (errors.hasErrors()) {
-			return "myPage/myCheck";
-		}
-		
-		memberModifyService.myCheck(session, memberCommand, errors);
-		if(errors.hasErrors()) {
-			memberMyInfoService.myInfo(model, session);
-			return "myPage/myCheck";
 		}
 		return "redirect:myDetail";
 	}

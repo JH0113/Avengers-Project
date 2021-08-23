@@ -35,16 +35,15 @@ public class MemberModifyService {
 		
 	}
 	
-	public void myCheck(HttpSession session, MemberCommand memberCommand, Errors errors) {
+	public boolean memPwCheck(HttpSession session, MemberCommand memberCommand, Errors errors) {
 		AuthinfoDTO authinfo = (AuthinfoDTO)session.getAttribute("authinfo");
-		String memId = authinfo.getUserId(); 
 		
 		if(bcryptPasswordEncoder.matches(memberCommand.getMemPw(), authinfo.getUserPw())) {
-			MemberDTO memberDTO = new MemberDTO();
-			memberDTO.setMemId(memId);
+			return true;
 		}else {
 			errors.rejectValue("memPw", "InconsistencyPw");
 		}
+		return false;
 	}
 	
 }

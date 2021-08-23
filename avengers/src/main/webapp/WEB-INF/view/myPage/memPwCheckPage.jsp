@@ -300,7 +300,7 @@ li a {
 		</div>
 
 		<div class="leg">
-		<form:form action="myCheckOk" method="post" name="frm" modelAttribute="memberCommand">
+		<form:form action="memPwCheck" method="post" name="frm" modelAttribute="memberCommand">
 		<form:hidden path="memId" />
 			<h1 class="memModify-title">회원정보확인</h1>
                 <p class="memModify-msg">회원님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 확인 합니다.</p>
