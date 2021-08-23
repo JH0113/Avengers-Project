@@ -23,8 +23,10 @@ public class MemberListRepository {
 		statement = namespace + ".count";
 		return sqlSession.selectOne(statement);
 	}
-	
-	
-	
-	
+ 
+
+	public List<MemberDTO> memberSearchList(String keyword) {
+		statement = namespace + ".memberSearchList";
+		return sqlSession.selectList(statement,keyword);
+	}
 }

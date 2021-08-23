@@ -184,21 +184,8 @@ tr.border_bottom_th {
 	padding: 5px;
 	width: 250px;
 }
+
 </style>
-
-<script type="text/javascript" >  
-function checkSubmitValue(frm) {
-	var e = frm.elements;
-	  for ( var i = 0; i < e.length; i++ ) {
-		    if ( e[i].tagName == 'INPUT'  && e[i].value == '' ) {
-		      alert('검색할 값을 입력해주세요.');
-		      return false;
-		    }
-		  }
-		  return true;
-		}
-</script>
-
 </head>
 <body>
 	<div class="web">
@@ -228,49 +215,34 @@ function checkSubmitValue(frm) {
 		<div class="leg">
 			<div class="banner"></div>		
 			
-			
-			
-			<form action="memListSearch" method="get" id=frm onsubmit='return checkSubmitValue(this)'>
-				 <div class=list_search_area>				 
-					    <input type="text" placeholder="아이디 또는 닉네임을 입력해주세요." id="listSearch" name="keyword">			    
-					    <button id="searchBtn" class="btn">검색</button>					
-				 </div>
-			 </form>
+ 
 			 
 			<div class="contents">
 				<table>
 					<tr class="border_bottom_th">
-						<th width="120px">회원아이디</th>
-						<th width="130px">닉네임</th>
-						<th width="130px">이름</th>
-						<th width="120px">우편번호</th>
-						<th width="260px">주소</th>
-						<th width="170px">상세주소</th>
-						<th width="150px">전화번호</th>					
-						<th width="120px">신고누적</th>
-					</tr>
-					<c:forEach items="${memberListPage }" var="dto">
-						<tr class="border_bottom">
-							<td>
-								<a href="memberInfoPage?memId=${dto.memId }">${dto.memId }</a>
-							</td>
-							<td>${dto.memNick }</td>
-							<td>${dto.memName }</td>
-							<td>${dto.memPostNumber }</td>
-							<td>${dto.memAddr }</td>
-							<td>${dto.memDetailAdd }</td>
-							<td>${dto.memPhone }</td>
-							<td>${dto.memReportedCount }</td>
-							<td></td>
-						</tr>
-					</c:forEach>
-					<tr>
-						<td colspan="7" align="center">
-						<%@include file="../include/includePage.jsp"%></td>
-					</tr>
+						
+					<td colspan="4">'회원아이디'의 정보</td>
+					</tr> 
+					<tr><td>프로필 사진</td><td> <img width="200" height="200"
+                              src="images/noimage.png" /></td>
+                              <td>다른 일반 정보 넣어주기</td></tr>
+                              
+					<tr><td>구매내역</td><td>ex) 2021-08-01 / 판매자 '○○'과의 거래 / 거래상품 '프라다 가방' (클릭 시 이동)</td></tr>
+					
+					<tr><td>판매내역</td></tr>
+					
+					<tr><td>신고누적횟수 (누르면 신고데이터 볼수있음)</td></tr>
+					
+					
+					<tr><td>강제탈퇴 > 버튼으로 변경 
+					
+					</br>(관리자 비번 확인, confirm)</td></tr>
+					
+					
 				</table>
+  
 			</div>
-			
+			s 
 		</div>
 
 		<div class="footer">

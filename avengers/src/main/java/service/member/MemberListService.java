@@ -15,7 +15,7 @@ public class MemberListService {
 	MemberListRepository memberListRepository;
 
 	public void memberList(Integer page, Model model) {
-		int limit = 5;
+		int limit = 10;
 		int limitPage = 10;
 
 		MemberDTO dto = new MemberDTO();
@@ -35,8 +35,12 @@ public class MemberListService {
 		
 		if (page != null) {
 			PageAction pageAction = new PageAction();
-			pageAction.page(count, limit, limitPage, page, "memList", model);
+			pageAction.page(count, limit, limitPage, page, "memberListPage", model);
 		}
 	}
-
+	
+	public void memberListSearch(String keyword, Model model) {
+		List<MemberDTO> dtoList = memberListRepository.memberSearchList(keyword);
+		model.addAttribute("memberListSearchPage",dtoList);
+	}
 }

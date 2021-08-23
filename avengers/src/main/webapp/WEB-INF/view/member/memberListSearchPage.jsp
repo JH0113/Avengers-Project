@@ -76,6 +76,7 @@ li a {
 	width: 950px;
 	height: 120px;
 }
+
 .search {
 	width: 100%;
 	height: 120px;
@@ -121,7 +122,6 @@ li a {
 	background-size: 100% 400px;
 }
 */
-
 .contents {
 	font-family: 'Montserrat', sans-serif;
 	width: 100%;
@@ -144,7 +144,6 @@ table {
 	border-left: none;
 	border-right: none;
 	border-collapse: collapse;
-
 }
 
 tr.border_bottom td {
@@ -155,8 +154,6 @@ tr.border_bottom td {
 tr.border_bottom_th {
 	border-bottom: 3px solid #1a1a1a;
 }
-
-
 .btn {
 	display: block;
 	width: 80px;
@@ -185,6 +182,7 @@ tr.border_bottom_th {
 	width: 250px;
 }
 </style>
+
 
 <script type="text/javascript" >  
 function checkSubmitValue(frm) {
@@ -218,25 +216,21 @@ function checkSubmitValue(frm) {
 							</form>
 						</div>
 					</div>
-					<div class="headmenu">				
-						<%@include file="../include/includeTopMenu.jsp"%>						
+					<div class="headmenu">
+						<%@include file="../include/includeTopMenu.jsp"%>
 					</div>
 				</div>
 
 			</div>
 		</div>
 		<div class="leg">
-			<div class="banner"></div>		
-			
-			
-			
-			<form action="memListSearch" method="get" id=frm onsubmit='return checkSubmitValue(this)'>
+			<div class="banner"></div>
+				<form action="memListSearch" method="get" id=frm onsubmit='return checkSubmitValue(this)'>
 				 <div class=list_search_area>				 
 					    <input type="text" placeholder="아이디 또는 닉네임을 입력해주세요." id="listSearch" name="keyword">			    
 					    <button id="searchBtn" class="btn">검색</button>					
 				 </div>
 			 </form>
-			 
 			<div class="contents">
 				<table>
 					<tr class="border_bottom_th">
@@ -246,14 +240,12 @@ function checkSubmitValue(frm) {
 						<th width="120px">우편번호</th>
 						<th width="260px">주소</th>
 						<th width="170px">상세주소</th>
-						<th width="150px">전화번호</th>					
+						<th width="150px">전화번호</th>
 						<th width="120px">신고누적</th>
 					</tr>
-					<c:forEach items="${memberListPage }" var="dto">
+					<c:forEach items="${memberListSearchPage }" var="dto">
 						<tr class="border_bottom">
-							<td>
-								<a href="memberInfoPage?memId=${dto.memId }">${dto.memId }</a>
-							</td>
+							<td><a href="memberInfoPage?memId=${dto.memId }">${dto.memId }</a></td>
 							<td>${dto.memNick }</td>
 							<td>${dto.memName }</td>
 							<td>${dto.memPostNumber }</td>
@@ -264,18 +256,27 @@ function checkSubmitValue(frm) {
 							<td></td>
 						</tr>
 					</c:forEach>
-					<tr>
-						<td colspan="7" align="center">
-						<%@include file="../include/includePage.jsp"%></td>
+	
+				<!-- 	<tr>
+						<td colspan="7" align="center"><%@include file="../include/includePage.jsp"%></td>
 					</tr>
+				 -->
+				
 				</table>
+
+				</div>
+
 			</div>
-			
+
 		</div>
 
 		<div class="footer">
 			<%@include file="../include/includeFooter.jsp"%>
 		</div>
-	</div>
+	
 </body>
+
+
+
+
 </html>
