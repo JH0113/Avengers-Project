@@ -4,7 +4,15 @@ public class AuthinfoDTO {
 	String userId;
 	String userPw;
 	String userNick;
+	String memImage;
 	String grade;
+	
+	public String getMemImage() {
+		return memImage;
+	}
+	public void setMemImage(String memImage) {
+		this.memImage = memImage;
+	}
 	public String getUserNick() {
 		return userNick;
 	}

@@ -3,6 +3,7 @@ package repository;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import authinfo.AuthinfoDTO;
 import model.MemberDTO;
 
 public class MemberRepository {
@@ -22,5 +23,14 @@ public class MemberRepository {
 	public void memUpdate(MemberDTO dto) {
 		statement = namespace + ".memUpdate";
 		sqlSession.update(statement, dto);
+	}
+	public void memImageRegist(MemberDTO dto) {
+		statement = namespace + ".memImageRegist";
+		sqlSession.update(statement, dto);
+	}
+	public AuthinfoDTO relogin(MemberDTO dto) {
+		statement = namespace + ".relogin";
+		AuthinfoDTO authinfoDTO = sqlSession.selectOne(statement, dto);
+		return authinfoDTO;
 	}
 }

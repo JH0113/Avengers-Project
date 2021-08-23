@@ -10,9 +10,15 @@ public class MemberDTO {
 	String memDetailAdd;
 	String memPhone;
 	String memReportedCount;
+	String memImage;
 	StartEndPageDTO startEndPageDTO;
 	
-	
+	public String getMemImage() {
+		return memImage;
+	}
+	public void setMemImage(String memImage) {
+		this.memImage = memImage;
+	}
 	public StartEndPageDTO getStartEndPageDTO() {
 		return startEndPageDTO;
 	}
