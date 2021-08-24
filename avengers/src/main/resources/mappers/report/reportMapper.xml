@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.reportMapper">
+
+<select id="countProd" resultType="int">
+	select count(*) from PROD_REPORTED
+</select>
+
+
+<select id="countMem" resultType="int">
+	select count(*) from MEM_REPORTED
+</select>
+
+
+<select id="reportList" resultType="model.ReportDTO" parameterType="model.ReportDTO">
+	select rn, reportedNum, reporter, memId, reportedReason, reportedReasonDetail, prodNum, reportDate
+    from
+    (select rownum rn, reportedNum, reporter, memId, reportedReason, reportedReasonDetail, prodNum, reportDate 
+	from
+		(select 1, REPORTED_NUM reportedNum, REPORTER reporter, MEM_ID memId, REPORTED_REASON reportedReason, 
+				   REPORTED_REASON_DETAIL reportedReasonDetail, PROD_NUM prodNum, REPORTDATE reportDate
+		from PROD_REPORTED
+	union
+		select 1, REPORTED_NUM, REPORTER, MEM_ID, REPORTED_REASON, REPORTED_REASON_DETAIL, 0, REPORTDATE reportDate
+		from mem_reported ))
+	where rn between #{startEndPageDTO.startRow} and #{startEndPageDTO.endRow}  		
+</select>
+
+
+</mapper>

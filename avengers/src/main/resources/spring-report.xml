@@ -8,5 +8,6 @@
 >
 
 	<bean class="controller.report.ReportController" />	 
-	
+	<bean class="service.report.ReportListService" />
+	<bean class="repository.ReportRepository" />
 </beans>

@@ -148,7 +148,7 @@ table {
 }
 
 tr.border_bottom td {
-	font-size: 13px;
+	font-size: 14px;
 	border-bottom: 1px solid #e6e6e6;
 }
 
@@ -184,9 +184,40 @@ tr.border_bottom_th {
 	padding: 5px;
 	width: 250px;
 }
-</style>
+#detail{
+	text-decoration: underline;}
+	
+    .black_overlay{
+        display: none;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        z-index:1001;
+        -moz-opacity: 0.8;
+        opacity:.80;
+        filter: alpha(opacity=80);
+    }
+    .white_content {
+        display: none;
+        position: absolute;
+        top: 25%;
+        left: 25%;
+        width: 50%;
+        height: 50%;
+        padding: 16px;
+        border: 1px solid orange;
+        background-color: white;
+        z-index:1002;
+        overflow: auto;
+    }
 
-<script type="text/javascript" >  
+ 
+
+</style> 
+<script type="text/javascript">  
 function checkSubmitValue(frm) {
 	var e = frm.elements;
 	  for ( var i = 0; i < e.length; i++ ) {
@@ -197,6 +228,8 @@ function checkSubmitValue(frm) {
 		  }
 		  return true;
 		}
+
+
 </script>
 
 </head>
@@ -225,44 +258,51 @@ function checkSubmitValue(frm) {
 
 			</div>
 		</div>
+		
 		<div class="leg">
 			<div class="banner"></div>		
 			
 			
 			
-			<form action="memListSearch" method="get" id=frm onsubmit='return checkSubmitValue(this)'>
+			<form action="reportSearch" method="get" id=frm onsubmit='return checkSubmitValue(this)'>
 				 <div class=list_search_area>				 
-					    <input type="text" placeholder="아이디 또는 닉네임을 입력해주세요." id="listSearch" name="keyword">			    
+					    <input type="text" placeholder="신고번호로 검색" id="reportSearch" name="keyword">			    
 					    <button id="searchBtn" class="btn">검색</button>					
 				 </div>
 			 </form>
 			 
 			<div class="contents">
-			
-				<h1>리포트 입니다~~~~~~~~수정할꺼~~~~~~~~~~~~~~~~~~~~~~~</h1>
+			 
 				<table>
 					<tr class="border_bottom_th">
-						<th width="120px">신고자ID</th>
-						<th width="130px">피신고자ID</th>
-						<th width="130px">신고사유</th>
-						<th width="120px">상세사유</th>
-						<th width="260px">주소</th>
-						<th width="170px">상세주소</th>
-						<th width="150px">전화번호</th>					
-						<th width="120px">신고누적</th>
+						<th width="120px">신고번호</th>
+						<th width="100px">신고자ID</th>
+						<th width="100px">피신고자ID</th>
+						<th width="300px">신고사유</th>
+						<th width="140px">상품번호</th> 	
+						<th width="180px">신고일</th> 			
+						<th width="260px">신고상태</th> 
 					</tr>
-					<c:forEach items="${memberListPage }" var="dto">
+					<c:forEach items="${reportPage }" var="dto">
 						<tr class="border_bottom">
+							<td>${dto.reportedNum }</td>
+							<td><a href="memberInfoPage?memId=${dto.reporter }"><span id="detail">${dto.reporter }</span></a></td>
+							<td><a href="memberInfoPage?memId=${dto.memId }"><span id="detail">${dto.memId }</span></a></td>
+							<td>[${dto.reportedReason }]&nbsp;&nbsp;&nbsp;<a href="reportDetailPage?reportedNum=${dto.reportedNum }"><span id="detail">상세사유보기</span></a>
+						 	</td>
+						 
 							<td>
-								<a href="memberInfoPage?memId=${dto.memId }">${dto.memId }</a>
-							</td>
-							<td>${dto.memNick }</td>
-							<td>${dto.memName }</td>
-							<td>${dto.memPostNumber }</td>
-							<td>${dto.memAddr }</td>
-							<td>${dto.memDetailAdd }</td>
-							<td>${dto.memPhone }</td>
-							<td>${dto.memReportedCount }</td>
+							<c:if test="${dto.prodNum == 0}">
+								해당없음
+							</c:if>
+							<c:if test="${dto.prodNum != 0}">
+								${dto.prodNum }
+							</c:if>
+							</td> 
+							
+							<td><fmt:formatDate value="${dto.reportDate }" type="date" pattern="yyyy-MM-dd  HH:mm:ss" /></td> 		
+							<td><a href="reportFinish"><span id="detail">신고접수</span></a>
+								<a href="reportCancel"><span id="detail">신고반려</span></a></td> 
 							<td></td>
 						</tr>
 					</c:forEach>
@@ -271,6 +311,11 @@ function checkSubmitValue(frm) {
 						<%@include file="../include/includePage.jsp"%></td>
 					</tr>
 				</table>
+				
+				  
+
+ 
+
 			</div>
 			
 		</div>
@@ -279,5 +324,11 @@ function checkSubmitValue(frm) {
 			<%@include file="../include/includeFooter.jsp"%>
 		</div>
 	</div>
+    
+                
+	 
+	
+
+ 
 </body>
 </html>

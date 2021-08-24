@@ -227,20 +227,23 @@ tr.border_bottom_th {
 			<div class="contents">
 				<table border=1>
 					<tr class="border_bottom_th">					
-						<td colspan="4"><h2>${memberCommand.memId }의 정보</h2></td>
+						<td colspan="4"><h2>'${memberCommand.memNick }'님의 정보</h2></td>
 					</tr> 
 					<tr>
-					   <td rowspan="4"><img width="200" height="200" src="images/noimage.png" /></td>
+					   <td rowspan="5"><img width="200" height="200" src="images/noimage.png" /></td>
                        <th>이름</th>
                         	<td colspan="2">${memberCommand.memName }</td>
                        <tr><th>닉네임</th>
                         	<td colspan="2">${memberCommand.memNick }</td></tr>
+                        	
+                       <tr><th>아이디</th>
+                      		<td colspan="2">${memberCommand.memId }</td> </tr>    
+                              
                        <tr><th>전화번호</th>
                         	<td colspan="2">${memberCommand.memPhone }</td> </tr>
                        <tr><th>주소</th>
                         	<td colspan="2">${memberCommand.memAddr }, ${memberCommand.memDetailAdd }</td> </tr> 
-                          
-                              
+                     
 					<tr><th>구매내역</th>
 					<td colspan="3"> ex) 2021-08-01 / 판매자 '○○'과의 거래 / 거래상품 '프라다 가방' (클릭 시 이동)</td></tr>
 					

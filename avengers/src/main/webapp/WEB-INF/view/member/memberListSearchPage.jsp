@@ -147,7 +147,7 @@ table {
 }
 
 tr.border_bottom td {
-	font-size: 13px;
+	font-size: 14px;
 	border-bottom: 1px solid #e6e6e6;
 }
 
@@ -238,10 +238,10 @@ function checkSubmitValue(frm) {
 						<th width="130px">닉네임</th>
 						<th width="130px">이름</th>
 						<th width="120px">우편번호</th>
-						<th width="260px">주소</th>
+						<th width="270px">주소</th>
 						<th width="170px">상세주소</th>
 						<th width="150px">전화번호</th>
-						<th width="120px">신고누적</th>
+						<th width="110px">신고누적</th>
 					</tr>
 					<c:forEach items="${memberListSearchPage }" var="dto">
 						<tr class="border_bottom">
