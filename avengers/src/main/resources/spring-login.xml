@@ -9,4 +9,6 @@
 	<bean class="controller.login.LoginPageController" />
 	<bean class="service.login.LoginService" />
 	<bean class="repository.LoginRepository" />
+	<bean class="controller.login.FindIdController" />
+	<bean class="controller.login.FindPwController" />
 </beans>

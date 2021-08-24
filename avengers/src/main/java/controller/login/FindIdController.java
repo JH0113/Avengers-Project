@@ -1,4 +1,4 @@
-package controller.member;
+package controller.login;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class FindIdController {
 	@RequestMapping("findIdPage")
 	public String findIdPage() {
-		return "member/findIdPage";
+		return "login/findIdPage";
 	}
 }
