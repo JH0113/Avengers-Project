@@ -9,63 +9,46 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 
 import authinfo.AuthinfoDTO;
-import command.ProductCommand;
+import command.ProductCommandDTO;
 import model.ProductDTO;
 import repository.ProductRepository;
 
 public class ProductRegistService {
 	@Autowired
 	ProductRepository productRepository;
-	public void productRegist(ProductCommand productCommand,HttpSession session) {
+	public void productRegist(ProductCommandDTO productCommandDTO,HttpSession httpSession) {
 		ProductDTO productDTO = new ProductDTO();
-		AuthinfoDTO authinfo = (AuthinfoDTO)session.getAttribute("authinfo"); 
+		AuthinfoDTO authinfo = (AuthinfoDTO)httpSession.getAttribute("authinfo"); 
 		String memId = authinfo.getUserId();
-		productDTO.setProdName(productCommand.getProdName());
-		productDTO.setProdPrice(productCommand.getProdPrice());
-		productDTO.setProdLocation(productCommand.getProdLocation());
-		productDTO.setProdDetail(productCommand.getProdDetail());
-		productDTO.setProdTag(productCommand.getProdTag());
 		productDTO.setMemId(memId);
-
-		String prodImageStore= "";
-		if(!productCommand.getProdImage()[0].getOriginalFilename().equals("")) {
-			for(MultipartFile mf : productCommand.getProdImage()) {
+		productDTO.setProdName(productCommandDTO.getProdName());
+		productDTO.setProdPrice(productCommandDTO.getProdPrice());
+		productDTO.setProdDetail(productCommandDTO.getProdDetail());
+		productDTO.setProdBrand(productCommandDTO.getProdBrand());
+		productDTO.setProdKind(productCommandDTO.getProdKind());
+		productDTO.setProdMethod(productCommandDTO.getProdMethod());
+		productDTO.setProdLocation(productCommandDTO.getProdLocation());
+		productDTO.setProdGuarantee(productCommandDTO.getProdGuarantee());
+		productDTO.setProdState(productCommandDTO.getProdState());
+		productDTO.setProdQuantity(productCommandDTO.getProdQuantity());
+		
+		String prodImage = "";
+		if (!productCommandDTO.getProdImage()[0].getOriginalFilename().equals("")) {
+			for (MultipartFile mf : productCommandDTO.getProdImage()) {
 				String original = mf.getOriginalFilename();
-				String originalExt = 
-						original.substring(original.lastIndexOf("."));
-				String store = 
-						UUID.randomUUID().toString().replace("-","")
-						+originalExt;
-				prodImageStore += store + ",";
-				String realPath = 
-						session.getServletContext()
-						       .getRealPath("WEB-INF/view/product/upload");
+				String originalExt = original.substring(original.lastIndexOf("."));
+				String store = UUID.randomUUID().toString().replace("-", "") + originalExt;
+				prodImage += store + ",";
+				String realPath = httpSession.getServletContext().getRealPath("WEB-INF/view/product/productImage");
 				File file = new File(realPath + "/" + store);
-				try {mf.transferTo(file);} 
-				catch (Exception e) {e.printStackTrace();} 
+				try {
+					mf.transferTo(file);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
-			productDTO.setProdImage(prodImageStore);
-		}
-		String prodImageStorePlus= "";
-		if(!productCommand.getProdImageplus()[0].getOriginalFilename().equals("")) {
-			for(MultipartFile mf : productCommand.getProdImageplus()) {
-				String original = mf.getOriginalFilename();
-				String originalExt = 
-						original.substring(original.lastIndexOf("."));
-				String store = 
-						UUID.randomUUID().toString().replace("-","")
-						+originalExt;
-				prodImageStorePlus += store + ",";
-				String realPath = 
-						session.getServletContext()
-						       .getRealPath("WEB-INF/view/product/upload");
-				File file = new File(realPath + "/" + store);
-				try {mf.transferTo(file);} 
-				catch (Exception e) {e.printStackTrace();} 
-			}
-			productDTO.setProdImageplus(prodImageStorePlus);
+			productDTO.setProdImage(prodImage);
 		}
 		productRepository.productRegist(productDTO);
-		
 	}
 }

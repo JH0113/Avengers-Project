@@ -4,11 +4,23 @@ public class AuthinfoDTO {
 	String userId;
 	String userPw;
 	String userNick;
-	String userName;
-	String userPhone;
 	String memImage;
+	String memAddr;
 	String grade;
+	String userPhone;
 	
+	public String getUserPhone() {
+		return userPhone;
+	}
+	public void setUserPhone(String userPhone) {
+		this.userPhone = userPhone;
+	}
+	public String getMemAddr() {
+		return memAddr;
+	}
+	public void setMemAddr(String memAddr) {
+		this.memAddr = memAddr;
+	}
 	public String getMemImage() {
 		return memImage;
 	}
@@ -18,20 +30,8 @@ public class AuthinfoDTO {
 	public String getUserNick() {
 		return userNick;
 	}
-	public void setUserNick(String userName) {
+	public void setUserNick(String userNick) {
 		this.userNick = userNick;
-	}
-	public String getUserName() {
-		return userName;
-	}
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-	public String getUserPhone() {
-		return userPhone;
-	}
-	public void setUserPhone(String userPhone) {
-		this.userPhone = userPhone;
 	}
 	public String getUserId() {
 		return userId;

@@ -4,23 +4,25 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import command.ProductCommand;
+import command.ProductCommandDTO;
 import service.product.ProductRegistService;
 
 @Controller
 public class ProductRegisterController {
-	@RequestMapping("productRegisterPage")
-	public String ProductRegistPage() {
-		return "product/productRegisterPage";
-	}
 	@Autowired
 	ProductRegistService productRegistService;
-	@RequestMapping(value = "productRegister",method = RequestMethod.POST )
-	public String productRegist(ProductCommand productCommand,HttpSession session) {
-		productRegistService.productRegist(productCommand,session);
-		return "redirect:main";
+	
+	@RequestMapping("productRegisterPage")
+	public String ProductRegistPage(Model model, HttpSession httpSession) {
+		return "product/productRegisterPage";
+	}
+	@RequestMapping(value = "productRegist",method = RequestMethod.POST )
+	public String productRegist(ProductCommandDTO productCommandDTO, HttpSession session) {
+		productRegistService.productRegist(productCommandDTO, session);
+		return "redirect:/";
 	}
 }

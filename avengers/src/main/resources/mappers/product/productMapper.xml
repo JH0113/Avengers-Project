@@ -4,31 +4,25 @@
   
 <mapper namespace="productMapper">
 	<sql id="prodNum">
-   		select nvl(max(PROD_NUM),0) + 1 from PRODUCTS
+   		select nvl(max(PROD_NUM),100000) + 1 from PRODUCTS
 	</sql>
 	<insert id="productRegist" parameterType="model.ProductDTO">
 		    insert into products
 		    (
-		    prod_num,mem_id,prod_name,
-		    prod_price,prod_image,prod_detail,
-		    prod_date,prod_hits,prod_method,
-		    prod_state,prod_heart_count,prod_location,
-		    ctgr_id,brand_ctgr_id,
-		    prod_tag,prod_image_plus
+		    PROD_NUM,MEM_ID,PROD_NAME,PROD_PRICE,
+		    PROD_IMAGE,PROD_DETAIL,
+		    PROD_BRAND,PROD_KIND,PROD_LOCATION,PROD_GUARANTEE,
+		    PROD_DATE,PROD_METHOD,PROD_STATE,PROD_QUANTITY
 		    )
     		values
     		(
-    		(<include refid="prodNum"/>),#{memId},#{prodName},
-    		#{prodPrice},
+    		(<include refid="prodNum"/>),#{memId},#{prodName},#{prodPrice},
     		<if test="prodImage != null">#{prodImage}</if>
 			<if test="prodImage == null">null</if>,
-			#{prodDetail},
-    		sysdate,0,'meet',
-    		'0',0,#{prodLocation},
-    		0,0,
-    		#{prodTag},
-    		<if test="prodImageplus != null">#{prodImageplus}</if>
-			<if test="prodImageplus == null">null</if>
+    		<if test="prodDetail != null">#{prodDetail}</if>
+			<if test="prodDetail == null">null</if>,
+    		#{prodBrand},#{prodKind},#{prodLocation},#{prodGuarantee},
+    		sysdate,#{prodMethod},#{prodState},#{prodQuantity}
     		)
 	</insert>
 </mapper>

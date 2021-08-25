@@ -1,14 +1,11 @@
-package model;
-
-import java.util.Date;
+package command;
 
 import org.springframework.web.multipart.MultipartFile;
 
-public class ProductDTO {
-	String memId;
+public class ProductCommandDTO {
 	String prodName;
 	int prodPrice;
-	String prodImage;
+	MultipartFile[] prodImage;
 	String prodDetail;
 	String prodBrand;
 	String prodKind;
@@ -24,12 +21,6 @@ public class ProductDTO {
 	public void setProdMethod(String prodMethod) {
 		this.prodMethod = prodMethod;
 	}
-	public String getMemId() {
-		return memId;
-	}
-	public void setMemId(String memId) {
-		this.memId = memId;
-	}
 	public String getProdName() {
 		return prodName;
 	}
@@ -42,10 +33,10 @@ public class ProductDTO {
 	public void setProdPrice(int prodPrice) {
 		this.prodPrice = prodPrice;
 	}
-	public String getProdImage() {
+	public MultipartFile[] getProdImage() {
 		return prodImage;
 	}
-	public void setProdImage(String prodImage) {
+	public void setProdImage(MultipartFile[] prodImage) {
 		this.prodImage = prodImage;
 	}
 	public String getProdDetail() {
