@@ -6,6 +6,8 @@ public class ProductCommandDTO {
 	String prodName;
 	int prodPrice;
 	MultipartFile[] prodImage;
+	MultipartFile[] prodImage2;
+	MultipartFile[] prodImage3;
 	String prodDetail;
 	String prodBrand;
 	String prodKind;
@@ -15,6 +17,18 @@ public class ProductCommandDTO {
 	String prodState;
 	int prodQuantity;
 	
+	public MultipartFile[] getProdImage2() {
+		return prodImage2;
+	}
+	public void setProdImage2(MultipartFile[] prodImage2) {
+		this.prodImage2 = prodImage2;
+	}
+	public MultipartFile[] getProdImage3() {
+		return prodImage3;
+	}
+	public void setProdImage3(MultipartFile[] prodImage3) {
+		this.prodImage3 = prodImage3;
+	}
 	public String getProdMethod() {
 		return prodMethod;
 	}

@@ -9,6 +9,8 @@ public class ProductDTO {
 	String prodName;
 	int prodPrice;
 	String prodImage;
+	String prodImage2;
+	String prodImage3;
 	String prodDetail;
 	String prodBrand;
 	String prodKind;
@@ -18,6 +20,18 @@ public class ProductDTO {
 	String prodState;
 	int prodQuantity;
 	
+	public String getProdImage2() {
+		return prodImage2;
+	}
+	public void setProdImage2(String prodImage2) {
+		this.prodImage2 = prodImage2;
+	}
+	public String getProdImage3() {
+		return prodImage3;
+	}
+	public void setProdImage3(String prodImage3) {
+		this.prodImage3 = prodImage3;
+	}
 	public String getProdMethod() {
 		return prodMethod;
 	}

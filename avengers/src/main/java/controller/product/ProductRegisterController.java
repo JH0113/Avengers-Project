@@ -23,6 +23,9 @@ public class ProductRegisterController {
 	@RequestMapping(value = "productRegist",method = RequestMethod.POST )
 	public String productRegist(ProductCommandDTO productCommandDTO, HttpSession session) {
 		productRegistService.productRegist(productCommandDTO, session);
+		System.out.println(productCommandDTO.getProdImage());
+		System.out.println(productCommandDTO.getProdImage2());
+		System.out.println(productCommandDTO.getProdImage3());
 		return "redirect:/";
 	}
 }

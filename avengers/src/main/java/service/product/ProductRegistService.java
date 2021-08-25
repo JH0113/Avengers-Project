@@ -49,6 +49,40 @@ public class ProductRegistService {
 			}
 			productDTO.setProdImage(prodImage);
 		}
+		String prodImage2 = "";
+		if (!productCommandDTO.getProdImage2()[0].getOriginalFilename().equals("")) {
+			for (MultipartFile mf : productCommandDTO.getProdImage2()) {
+				String original = mf.getOriginalFilename();
+				String originalExt = original.substring(original.lastIndexOf("."));
+				String store = UUID.randomUUID().toString().replace("-", "") + originalExt;
+				prodImage2 += store + ",";
+				String realPath = httpSession.getServletContext().getRealPath("WEB-INF/view/product/productImage");
+				File file = new File(realPath + "/" + store);
+				try {
+					mf.transferTo(file);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			productDTO.setProdImage2(prodImage2);
+		}
+		String prodImage3 = "";
+		if (!productCommandDTO.getProdImage3()[0].getOriginalFilename().equals("")) {
+			for (MultipartFile mf : productCommandDTO.getProdImage3()) {
+				String original = mf.getOriginalFilename();
+				String originalExt = original.substring(original.lastIndexOf("."));
+				String store = UUID.randomUUID().toString().replace("-", "") + originalExt;
+				prodImage3 += store + ",";
+				String realPath = httpSession.getServletContext().getRealPath("WEB-INF/view/product/productImage");
+				File file = new File(realPath + "/" + store);
+				try {
+					mf.transferTo(file);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			productDTO.setProdImage3(prodImage3);
+		}
 		productRepository.productRegist(productDTO);
 	}
 }

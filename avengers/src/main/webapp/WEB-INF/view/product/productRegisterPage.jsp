@@ -330,6 +330,12 @@ textarea {
 							이미지 : <input type="file"
 							id="image" accept="image/*" onchange="setThumbnail(event);"
 							name="prodImage" multiple="multiple" /><br />
+							이미지 : <input type="file"
+							id="image" accept="image/*" onchange="setThumbnail(event);"
+							name="prodImage2" multiple="multiple" /><br />
+							이미지 : <input type="file"
+							id="image" accept="image/*" onchange="setThumbnail(event);"
+							name="prodImage3" multiple="multiple" /><br />
 						<br />
 						<br />
 							<h5>

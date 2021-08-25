@@ -10,7 +10,7 @@
 		    insert into products
 		    (
 		    PROD_NUM,MEM_ID,PROD_NAME,PROD_PRICE,
-		    PROD_IMAGE,PROD_DETAIL,
+		    PROD_IMAGE,PROD_IMAGE2,PROD_IMAGE3,PROD_DETAIL,
 		    PROD_BRAND,PROD_KIND,PROD_LOCATION,PROD_GUARANTEE,
 		    PROD_DATE,PROD_METHOD,PROD_STATE,PROD_QUANTITY
 		    )
@@ -19,6 +19,10 @@
     		(<include refid="prodNum"/>),#{memId},#{prodName},#{prodPrice},
     		<if test="prodImage != null">#{prodImage}</if>
 			<if test="prodImage == null">null</if>,
+    		<if test="prodImage2 != null">#{prodImage2}</if>
+			<if test="prodImage2 == null">null</if>,
+    		<if test="prodImage3 != null">#{prodImage3}</if>
+			<if test="prodImage3 == null">null</if>,
     		<if test="prodDetail != null">#{prodDetail}</if>
 			<if test="prodDetail == null">null</if>,
     		#{prodBrand},#{prodKind},#{prodLocation},#{prodGuarantee},
