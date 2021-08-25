@@ -158,9 +158,9 @@ tr.border_bottom_th {
 
 .btn {
 	display: block;
-	width: 80px;
+	width: 100px;
 	margin: auto;
-	padding: 5px 0 5px;
+	padding: 10px 0 10px;
 	font-size: 14px;
 	font-family: 'Montserrat', sans-serif;
 	text-align: center;
@@ -186,6 +186,9 @@ tr.border_bottom_th {
 #detail{
 	text-decoration: underline;
 }
+#button_table{
+	width: 200px;
+}	
 	
  
 </style>  
@@ -222,12 +225,6 @@ tr.border_bottom_th {
 		<input type="hidden" name="reportedReason" value="${reportCommand.reportedReason }">
 		<input type="hidden" name="reportedReasonDetail" value="${reportCommand.reportedReasonDetail }">
 		<input type="hidden" name="prodNum" value="${reportCommand.prodNum }">
-		
-	 					
-		
-		
-		
-		
 		<input type="hidden" name="reportState" value="${reportCommand.reportState }"> 
 			
 		<div class="leg">
@@ -274,19 +271,38 @@ tr.border_bottom_th {
 								<c:if test="${reportCommand.reportState != 0}">
 									처리 완료
 								</c:if></td> </tr> 
-					 
+					 </table>
   
-					
-					<tr><td colspan="4">
-						<input type="submit" value="신고접수" class="btn" style="display: inline-block" > 
-						<input type="button" value="반려하기" class="btn" style="display: inline-block" onclick="del()">
+  					<c:if test="${reportCommand.reportState == 0}">
+					<table id="button_table">
+					<tr><td colspan="2">
+						<input type="submit" value="신고접수" class="btn" > 
+					</c:if>
+						</form:form>
+							 <td colspan="2">
+						<form:form action="reportCancel" method="post" name="frm" modelAttribute="reportCommand" onsubmit="return confirm('반려하시겠습니까?')">	
+							<input type="hidden" name="reportedNum" value="${reportCommand.reportedNum }">
+							<input type="hidden" name="reporter" value="${reportCommand.reporter }">
+							<input type="hidden" name="memId" value="${reportCommand.memId }">
+							<input type="hidden" name="reportedReason" value="${reportCommand.reportedReason }">
+							<input type="hidden" name="reportedReasonDetail" value="${reportCommand.reportedReasonDetail }">
+							<input type="hidden" name="prodNum" value="${reportCommand.prodNum }">
+							<input type="hidden" name="reportState" value="${reportCommand.reportState }"> 
+						<c:if test="${reportCommand.reportState == 0}">
+						<input type="submit" value="반려하기" class="btn" >
+						</c:if>
+						</form:form>
 						
 					</td></tr>	
-				</table>
+				   </table>
+			
+				   
+				   
+				   
   
 			</div> 
 		</div>
-	</form:form>
+
 		<div class="footer">
 			<%@include file="../include/includeFooter.jsp"%>
 		</div>
@@ -294,13 +310,5 @@ tr.border_bottom_th {
      
  
 </body>
-<script type="text/javascript">
-function del(){
-	if(!confirm ('반려됩니다.')){
-		return false;
-	}else{
-		location.href="reportCancel?reportedNum=${reportCommand.reportedNum}";
-	}
-}
-</script>
+
 </html>

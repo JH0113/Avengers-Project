@@ -184,6 +184,12 @@ tr.border_bottom_th {
 	padding: 5px;
 	width: 250px;
 }
+
+#mem_regist:hover{
+	font-weight: bolder;
+	border-bottom: 1px solid;
+}
+
 </style>
 
 <script type="text/javascript" >  
@@ -252,8 +258,9 @@ function checkSubmitValue(frm) {
 					<c:forEach items="${memberListPage }" var="dto">
 						<tr class="border_bottom">
 							<td>
-								<a href="memberInfoPage?memId=${dto.memId }">${dto.memId }</a>
+								<a id="mem_regist" href="memberInfoPage?memId=${dto.memId }">${dto.memId }</a>
 							</td>
+							
 							<td>${dto.memNick }</td>
 							<td>${dto.memName }</td>
 							<td>${dto.memPostNumber }</td>

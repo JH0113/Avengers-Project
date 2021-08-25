@@ -18,13 +18,11 @@ public class ReportRepository {
 	public List<ReportDTO> reportList(ReportDTO dto){
 		statement = namespace + ".reportList";
 		return sqlSession.selectList(statement,dto);
-	}
-	
+	}	
 	public Integer countProd() {
 		statement = namespace + ".countProd";
 		return sqlSession.selectOne(statement);
-	}
-	
+	}	
 	public Integer countMem() {
 		statement = namespace + ".countMem";
 		return sqlSession.selectOne(statement);
@@ -37,12 +35,10 @@ public class ReportRepository {
 		statement = namespace + ".reportFinishInsert";
 		sqlSession.insert(statement,dto);
 	}
-
 	public void reportMemberCountUp(String memId) {
 		statement = namespace + ".reportMemberCountUp";
 		sqlSession.update(statement,memId);
 	}
- 
 	public void reportCompletedMember(String reportedNum) {
 		statement = namespace + ".reportCompletedMember";
 		sqlSession.update(statement,reportedNum);
@@ -51,7 +47,14 @@ public class ReportRepository {
 		statement = namespace + ".reportCompletedProd";
 		sqlSession.update(statement,reportedNum);
 	}
-	
+	public void reportCancelInsert(ReportFinishDTO dto) {
+		statement = namespace + ".reportCancelInsert";
+		sqlSession.update(statement,dto);
+	}
+	public ReportFinishDTO reportFinishDetail(String reportNum) {
+		statement = namespace + ".reportFinishDetail";
+		return sqlSession.selectOne(statement, reportNum);
+	}
 	
 	
 }

@@ -76,6 +76,7 @@ li a {
 	width: 950px;
 	height: 120px;
 }
+
 .search {
 	width: 100%;
 	height: 120px;
@@ -147,6 +148,7 @@ table {
 
 tr.border_bottom td {
 	border-bottom: 1px solid #e6e6e6;
+	font-size: 14px;
 }
 
 tr.border_bottom_th {

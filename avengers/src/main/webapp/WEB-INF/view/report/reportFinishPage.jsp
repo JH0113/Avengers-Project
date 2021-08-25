@@ -116,8 +116,8 @@ li a {
 
 .banner {
 	width: 100%;
-	height: 100px;
-	background-size: 100% 100px;
+	height: 50px;
+	background-size: 100% 50px;
 }
 
 
@@ -218,15 +218,47 @@ tr.border_bottom_th {
 	 
 		<input type="hidden" name="reportedNum" value="${reportCommand.reportedNum }"> 
 		 
-			
+		<form:form modelAttribute="reportFinish">	
 		<div class="leg">
 			<div class="banner"></div>		 
 			<div class="contents">
 			  	<table border=1>
 					<tr class="border_bottom_th">					
-						<td colspan="4"><h2>신고번호 [${reportCommand.reportedNum }]의 신고처리가 완료되었습니다.</h2></td>
+						<td colspan="4"><h2>신고번호 [${reportCommand.reportedNum }]</h2></td>
 					</tr> 
-										
+					   <tr><th>신고자ID</th>
+                        	<td colspan="2">${reportCommand.reporter }</td></tr>
+                       <tr><th>피신고자ID</th>
+                        	<td colspan="2">${reportCommand.memId }</td></tr>
+                       <tr><th>상품번호</th>
+                     	  <td colspan="2"><c:if test="${reportCommand.prodNum == 0}">
+								해당없음
+							</c:if>
+							<c:if test="${reportCommand.prodNum != 0}">
+								${reportCommand.prodNum }
+							</c:if> 
+                        	 </td></tr>	                        	
+                       <tr><th>신고사유</th>
+                      		<td colspan="2">${reportCommand.reportedReason }</td></tr>    
+                       <tr><th>신고 상세 사유</th>
+                        	<td colspan="2">${reportCommand.reportedReasonDetail }</td></tr>	
+                       <tr><th>신고일</th>
+                        	<td colspan="2">
+                        	<fmt:formatDate value="${reportCommand.reportDate }" type="date" pattern="yyyy-MM-dd  HH:mm:ss" /></td></tr>	
+                       <tr><th>신고 처리일</th>
+                        	<td colspan="2">
+                        	<fmt:formatDate value="${reportCommand.reportFinishDate }" type="date" pattern="yyyy-MM-dd  HH:mm:ss" /></td></tr>	
+                       <tr><th>신고 처리자</th>
+                        	<td colspan="2">${reportCommand.empId }</td></tr>	
+                       <tr><th>신고 결과</th>
+                       <td colspan="2" style="font-weight: bold;">
+                       	<c:if test="${reportCommand.reportState == 1}">
+								신고접수 완료
+						</c:if>
+                        <c:if test="${reportCommand.reportState != 1}">
+								신고 반려
+						</c:if>	 
+						</td></tr>	  
 					<tr> <td colspan="4">
 						<input type="button" value="신고리스트로 돌아가기" class="btn" style="display: inline-block" onclick="javascript:location.href='reportPage'"> 
 						
@@ -235,6 +267,7 @@ tr.border_bottom_th {
   
 			</div> 
 		</div> 
+		</form:form>
 		<div class="footer">
 			<%@include file="../include/includeFooter.jsp"%>
 		</div>
@@ -242,13 +275,4 @@ tr.border_bottom_th {
      
  
 </body>
-<script type="text/javascript">
-function del(){
-	if(!confirm ('반려됩니다.')){
-		return false;
-	}else{
-		location.href="reportCancel?reportedNum=${reportCommand.reportedNum}";
-	}
-}
-</script>
 </html>

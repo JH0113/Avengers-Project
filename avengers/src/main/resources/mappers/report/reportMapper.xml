@@ -30,7 +30,6 @@
 
 
 <select id="reportDetail" parameterType="string" resultType="model.ReportDTO">
- 
  	select reportedNum, reporter, memId, reportedReason, reportedReasonDetail, prodNum, reportDate, reportState
 	from
 		(select REPORTED_NUM reportedNum, REPORTER reporter, MEM_ID memId, REPORTED_REASON reportedReason, 
@@ -55,7 +54,7 @@
 <update id="reportMemberCountUp" parameterType="string">
 	update member 
 	set MEM_REPORTED_COUNT = MEM_REPORTED_COUNT + 1
-	where mem_id = #{memId}
+	where MEM_ID = #{memId}
 </update>
 
 <update id="reportCompletedMember" parameterType="string">
@@ -69,6 +68,25 @@
 	set REPORT_STATE = 1
 	where REPORTED_NUM = #{reportedNum}
 </update>
+
+<insert id="reportCancelInsert" parameterType="model.ReportFinishDTO">
+	insert into REPORT_FINISH
+	(REPORTED_NUM, PROD_NUM, MEM_ID, REPORTER, EMP_ID, REPORTED_REASON, REPORTED_REASON_DETAIL, REPORTDATE, REPORTFINISHDATE, REPORT_STATE)
+	values
+	(#{reportedNum},#{prodNum},#{memId},#{reporter},#{empId},#{reportedReason},#{reportedReasonDetail},
+	(select REPORTDATE from mem_reported where REPORTED_NUM=#{reportedNum}
+         union
+     select REPORTDATE from prod_reported where REPORTED_NUM=#{reportedNum}),sysdate,2)
+     		
+</insert>
+
+
+<select id="reportFinishDetail" parameterType="string" resultType="model.ReportFinishDTO">
+	select REPORTED_NUM reportedNum, PROD_NUM prodNum, MEM_ID memId, REPORTER reporter, EMP_ID empId, REPORTED_REASON reportedReason,
+		   REPORTED_REASON_DETAIL reportedReasonDetail,REPORTDATE reportDate,REPORTFINISHDATE reportFinishDate, REPORT_STATE reportState
+	from report_finish where REPORTED_NUM = #{reportNum}
+</select>
+
 
 
 </mapper>

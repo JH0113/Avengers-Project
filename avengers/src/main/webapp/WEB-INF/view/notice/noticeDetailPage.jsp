@@ -147,6 +147,7 @@ table {
 
 tr.border_bottom td {
 	border-bottom: 1px solid #e6e6e6;
+	font-size: 14px;
 }
 
 tr.border_bottom_th {

@@ -195,7 +195,7 @@ textarea {
 	box-sizing: border-box;
 	border: solid 2px #dadada;
 	border-radius: 5px;
-	font-size: 15px;
+	font-size: 14px;
 	resize: none;
 	font-family: 'Montserrat', sans-serif;
 }

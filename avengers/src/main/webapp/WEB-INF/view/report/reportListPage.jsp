@@ -184,9 +184,10 @@ tr.border_bottom_th {
 	padding: 5px;
 	width: 250px;
 }
-#detail{
-	text-decoration: underline;}
- 
+#clickText:hover{
+	font-weight: bolder;
+	border-bottom: 1px solid;
+}
  
 
 </style> 
@@ -263,9 +264,10 @@ function checkSubmitValue(frm) {
 			
 						<tr class="border_bottom">
 							<td>${dto.reportedNum }</td>
-							<td><a href="memberInfoPage?memId=${dto.reporter }"><span id="detail">${dto.reporter }</span></a></td>
-							<td><a href="memberInfoPage?memId=${dto.memId }"><span id="detail">${dto.memId }</span></a></td>
-							<td>[${dto.reportedReason }]&nbsp;&nbsp;&nbsp;<a href="reportDetailPage?reportedNum=${dto.reportedNum }"><span id="detail">상세사유보기</span></a>
+							<td><a id="clickText" href="memberInfoPage?memId=${dto.reporter }"><span id="detail">${dto.reporter }</span></a></td>
+							<td><a id="clickText" href="memberInfoPage?memId=${dto.memId }"><span id="detail">${dto.memId }</span></a></td>
+							<td>[${dto.reportedReason }]&nbsp;&nbsp;&nbsp;
+								<a id="clickText" href="reportDetailPage?reportedNum=${dto.reportedNum }">신고처리하기</a>
 						 	</td>
 						 
 							<td>
@@ -275,18 +277,19 @@ function checkSubmitValue(frm) {
 							<c:if test="${dto.prodNum != 0}">
 								${dto.prodNum }
 							</c:if>
-							</td> 
-							
+							</td>  
 							<td>
 							<fmt:formatDate value="${dto.reportDate }" type="date" pattern="yyyy-MM-dd  HH:mm:ss" />
 							</td> 		
 							<td> 
+								<a id="clickText" href="reportedNumDetail?reportedNum=${dto.reportedNum }">
 								<c:if test="${dto.reportState == 0}">
 								<span style="color: red">처리 전</span>
 								</c:if>
 								<c:if test="${dto.reportState != 0}">
-								처리 완료
+								처리 완료 
 								</c:if>
+								</a>
 								</td> 
 							<td></td>
 						</tr>
