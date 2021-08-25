@@ -29,7 +29,7 @@ public class MemImageModifyService {
 				String originalExt = original.substring(original.lastIndexOf("."));
 				String store = UUID.randomUUID().toString().replace("-", "") + originalExt;
 				memImage1 += store;
-				String realPath = httpSession.getServletContext().getRealPath("WEB-INF/view/member/profile");
+				String realPath = httpSession.getServletContext().getRealPath("WEB-INF/view/images");
 				File file = new File(realPath + "/" + store);
 				try {
 					mf.transferTo(file);

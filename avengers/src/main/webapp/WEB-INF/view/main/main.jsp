@@ -210,15 +210,15 @@ table {
 						<span id="menu_text">Bags</span>
 						<div class="dropdown-content">
 							<ul>
-								<li><a href="productListPage">all</a></li>
-								<li><a href="productListPage">cross/shoulder bag</a></li>
-								<li><a href="productListPage">clutch/pouch bag</a></li>
-								<li><a href="productListPage">tote bag</a></li>
-								<li><a href="productListPage">belt bag</a></li>
-								<li><a href="productListPage">bucket bag</a></li>
-								<li><a href="productListPage">backpack</a></li>
-								<li><a href="productListPage">suitcase</a></li>
-								<li><a href="productListPage">etc</a></li>
+								<li><a href="productListPage/1">all</a></li>
+								<li><a href="productListPage/11">cross/shoulder bag</a></li>
+								<li><a href="productListPage/12">clutch/pouch bag</a></li>
+								<li><a href="productListPage/13">tote bag</a></li>
+								<li><a href="productListPage/14">belt bag</a></li>
+								<li><a href="productListPage/15">bucket bag</a></li>
+								<li><a href="productListPage/16">backpack</a></li>
+								<li><a href="productListPage/17">suitcase</a></li>
+								<li><a href="productListPage/18">etc</a></li>
 							</ul>
 						</div>
 					</div>
