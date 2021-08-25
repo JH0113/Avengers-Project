@@ -8,7 +8,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>아이디 찾기</title>
+<title>내 아이디</title>
 <link rel="stylesheet" href="style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -177,52 +177,14 @@ li a {
    margin-bottom: 100px;
 }
 
-.memIdFind-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-    border-top: 2px solid #969696;
-    font-family: 돋움, Dotum, sans-serif;
-    font-size: 100%;
-    display: table;
-    box-sizing: border-box;
-    text-indent: initial;
-    border-color: grey;
-}
-.memIdFind-table th {
-    display: table-cell;
-    vertical-align: inherit;
-    font-weight: bold;
-    width: 100px;
-    background-color: #eef1f8;
-    text-align: left;
-    white-space: nowrap;
-}
-.memIdFind-table th, .memIdFind-table td {
-    padding: 14px 30px;
-    border-bottom: 1px solid #ddd;
-    margin: 0;
-}
+
 .memIdFind-foot {
     margin-top: 30px;
     text-align: center;
     margin: 0;
     padding: 0;
 }
-.memIdFind-submit, .memFindId-Phone-submit, .memFindId-authentication-submit, .memIdFind-cancel{
-    min-width: 40px;
-    padding: 7px 12px;
-    border-radius: 2px;
-    font-size: 14px;
-    line-height: 14px;
-    display: inline-block;
-    box-sizing: border-box;
-    border: 1px solid #0085da;
-    text-decoration: none;
-    vertical-align: middle;
-    text-align: center;
-    margin: 3px 4px;
-}
+
 .input_box {
 	position: relative;
 	width: 354px;
@@ -256,6 +218,22 @@ li a {
 	margin-bottom: 8px;
 	margin-left: 10px;
 }
+
+
+.memIdFind-box{
+	padding: 50px;
+    background-color: #fafbfd;
+    border: 1px solid #dddde3;
+    color: #7a7a7a;
+    font-size: 16px;
+    line-height: 2;
+    text-align: center;
+    box-sizing: border-box;
+}
+.memIdFind-result{
+	box-sizing: border-box;
+}
+
 </style>
 </head>
 <body>
@@ -300,42 +278,17 @@ li a {
 		</div>
 
 		<div class="leg">
-		<form:form action="findIdCheck" method="post" name="frm" modelAttribute="MemberDTO">
 			<h1 class="memIdFind-title">아이디 찾기</h1>
-                <p class="memIdFind-msg">회원정보에 등록한 휴대전화 번호와 입력한 휴대전화 번호가 같게 입력해주세요.</p>
-                    <table class="memIdFind-table">
-                        <tbody>
-                            <tr>
-                                <th scope="row">이름</th>
-                                <td>
-                                <div class="input_box">
-                                    <input class="input" type="text" name="memName" />
-                                </div>
-                                <div class="error_box">
-									<form:errors id="error_text" path = "memName"/>
-								</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">전화번호</th>
-                                <td>
-                                <div class="input_box">
-                                    <input class="input" type="text" name="memPhone" />
-								</div>
-								<div class="error_box">
-									<form:errors id="error_text" path = "memPhone"/>
-								</div>
-                                
-                                </td>
-                            </tr>
-                            
-                        </tbody>
-                    </table>
-                    <div class="memIdFind-foot">
-                        <button type="submit" class="memIdFind-submit">확인</button>
-                        <button type="button" class="memIdFind-cancel" onclick="javascript:history.back();">취소</button>
+                <div class="memIdFind-box">
+                    <div class="memIdFind-result">
+                        <span class="find-id-result-name">${memberDTO.memName }</span> 회원님의 아이디입니다. <br>
+						<b>아이디 : </b>
+                        <span class="find-id-result">${memberDTO.memId }</span>
                     </div>
-		</form:form>
+                    <div class="memIdFind-foot">
+                        <a href="loginPage">로그인 하기</a>
+                    </div>
+				</div>
 		</div>
 		</div>
 		<div class="banner"></div>

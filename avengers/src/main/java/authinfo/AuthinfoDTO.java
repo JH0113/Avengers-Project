@@ -4,6 +4,8 @@ public class AuthinfoDTO {
 	String userId;
 	String userPw;
 	String userNick;
+	String userName;
+	String userPhone;
 	String memImage;
 	String grade;
 	
@@ -16,8 +18,20 @@ public class AuthinfoDTO {
 	public String getUserNick() {
 		return userNick;
 	}
-	public void setUserNick(String userNick) {
+	public void setUserNick(String userName) {
 		this.userNick = userNick;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getUserPhone() {
+		return userPhone;
+	}
+	public void setUserPhone(String userPhone) {
+		this.userPhone = userPhone;
 	}
 	public String getUserId() {
 		return userId;

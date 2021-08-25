@@ -11,4 +11,5 @@
 	<bean class="repository.LoginRepository" />
 	<bean class="controller.login.FindIdController" />
 	<bean class="controller.login.FindPwController" />
+	<bean class="service.login.FindIdService" />
 </beans>

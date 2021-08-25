@@ -11,4 +11,9 @@
 		from employees
 		where EMP_ID = #{userId}
 	</select>
+	<select id="findId" resultType="authinfo.AuthinfoDTO">
+		select MEM_ID userId
+		from member
+		where MEM_PHONE = #{userPhone}
+	</select>
 </mapper>

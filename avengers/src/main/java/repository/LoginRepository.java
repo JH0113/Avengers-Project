@@ -4,6 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import authinfo.AuthinfoDTO;
+import model.MemberDTO;
 
 public class LoginRepository {
 	String statement;
@@ -14,5 +15,10 @@ public class LoginRepository {
 		statement = namespace + ".login";
 		AuthinfoDTO dto = session.selectOne(statement, userId);
 		return dto;
+	}
+	
+	public AuthinfoDTO findIdCheck(String userPhone) {
+		statement = namespace + ".findId";
+		return session.selectOne(statement, userPhone);
 	}
 }
