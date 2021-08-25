@@ -327,13 +327,13 @@ textarea {
 						<td class="td_left">상품이미지</td>
 						<td class="td_right">
 							<div id="image_container"></div>
-							이미지 : <input type="file"
+							이미지 1 : <input type="file"
 							id="image" accept="image/*" onchange="setThumbnail(event);"
 							name="prodImage" multiple="multiple" /><br />
-							이미지 : <input type="file"
+							이미지 2 : <input type="file"
 							id="image" accept="image/*" onchange="setThumbnail(event);"
 							name="prodImage2" multiple="multiple" /><br />
-							이미지 : <input type="file"
+							이미지 3 : <input type="file"
 							id="image" accept="image/*" onchange="setThumbnail(event);"
 							name="prodImage3" multiple="multiple" /><br />
 						<br />
