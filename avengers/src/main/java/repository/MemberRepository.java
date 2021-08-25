@@ -33,4 +33,8 @@ public class MemberRepository {
 		AuthinfoDTO authinfoDTO = sqlSession.selectOne(statement, dto);
 		return authinfoDTO;
 	}
+	public AuthinfoDTO idck(String userId) {
+		statement = namespace + ".idck";
+		return sqlSession.selectOne(statement, userId);
+	}
 }

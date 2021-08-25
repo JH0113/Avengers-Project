@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import authinfo.AuthinfoDTO;
 import command.MemberCommand;
 import service.join.MemberJoinService;
 import service.login.LoginService;
@@ -38,10 +39,17 @@ public class MemberRegistController {
 	@RequestMapping(value="memjoin",method = RequestMethod.POST )
 	public String memJoin(MemberCommand memberCommand,Errors errors, Model model) {
 		new MemberValidator().validate(memberCommand, errors);
+		AuthinfoDTO authinfo=memberJoinService.idck(memberCommand.getMemId());
+		System.out.println(authinfo);
 		if(errors.hasErrors()) {
 			memberJoinService.registInfo(memberCommand, model);
+			if(authinfo !=null) {
+				errors.rejectValue("memId", "idck");
+				return "member/memberRegistPage";
+			}
 			return "member/memberRegistPage";
 		}
+		
 		memberJoinService.memjoin(memberCommand, model);		
 		return "login/loginPage";
 	}

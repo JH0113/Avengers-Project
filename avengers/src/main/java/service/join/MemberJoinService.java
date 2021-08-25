@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.ui.Model;
 
+import authinfo.AuthinfoDTO;
 import command.MemberCommand;
 import model.MemberDTO;
 import repository.MemberRepository;
@@ -30,6 +31,11 @@ public class MemberJoinService {
 	}
 	public void registInfo(MemberCommand memberCommand, Model model) {
 		model.addAttribute("registInfo", memberCommand);
+	}
+	
+	public AuthinfoDTO idck(String userId) {
+		AuthinfoDTO authInfo = memberRepository.idck(userId); 
+		return authInfo;
 	}
 	
 }

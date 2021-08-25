@@ -16,6 +16,13 @@
 		,#{memPhone},0
 		)
 	</insert>
+	
+	<select id="idck" parameterType="string" resultType="authinfo.AuthinfoDTO">
+		select MEM_ID userId
+		from member
+		where MEM_ID=#{userId}
+	</select>
+	
 	<select id="myInfo" parameterType="string"
 		resultType="model.MemberDTO">
 		select MEM_ID memId, MEM_PW memPw, MEM_NAME memName, MEM_NICK memNick,
