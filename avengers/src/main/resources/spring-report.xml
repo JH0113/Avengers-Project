@@ -9,5 +9,7 @@
 
 	<bean class="controller.report.ReportController" />	 
 	<bean class="service.report.ReportListService" />
+	<bean class="service.report.ReportDetailService" />
+	<bean class="service.report.ReportUpdateService" />
 	<bean class="repository.ReportRepository" />
 </beans>

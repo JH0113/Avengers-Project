@@ -14,18 +14,61 @@
 
 
 <select id="reportList" resultType="model.ReportDTO" parameterType="model.ReportDTO">
-	select rn, reportedNum, reporter, memId, reportedReason, reportedReasonDetail, prodNum, reportDate
+	select rn, reportedNum, reporter, memId, reportedReason, reportedReasonDetail, prodNum, reportDate, reportState
     from
-    (select rownum rn, reportedNum, reporter, memId, reportedReason, reportedReasonDetail, prodNum, reportDate 
+    (select rownum rn, reportedNum, reporter, memId, reportedReason, reportedReasonDetail, prodNum, reportDate, reportState
 	from
 		(select 1, REPORTED_NUM reportedNum, REPORTER reporter, MEM_ID memId, REPORTED_REASON reportedReason, 
-				   REPORTED_REASON_DETAIL reportedReasonDetail, PROD_NUM prodNum, REPORTDATE reportDate
+				   REPORTED_REASON_DETAIL reportedReasonDetail, PROD_NUM prodNum, REPORTDATE reportDate, REPORT_STATE reportState
 		from PROD_REPORTED
 	union
-		select 1, REPORTED_NUM, REPORTER, MEM_ID, REPORTED_REASON, REPORTED_REASON_DETAIL, 0, REPORTDATE reportDate
+		select 1, REPORTED_NUM, REPORTER, MEM_ID, REPORTED_REASON, REPORTED_REASON_DETAIL, 0, REPORTDATE reportDate, REPORT_STATE reportState
 		from mem_reported ))
 	where rn between #{startEndPageDTO.startRow} and #{startEndPageDTO.endRow}  		
 </select>
+
+
+
+<select id="reportDetail" parameterType="string" resultType="model.ReportDTO">
+ 
+ 	select reportedNum, reporter, memId, reportedReason, reportedReasonDetail, prodNum, reportDate, reportState
+	from
+		(select REPORTED_NUM reportedNum, REPORTER reporter, MEM_ID memId, REPORTED_REASON reportedReason, 
+				REPORTED_REASON_DETAIL reportedReasonDetail, PROD_NUM prodNum, REPORTDATE reportDate, REPORT_STATE reportState
+		from PROD_REPORTED
+	union
+		select REPORTED_NUM, REPORTER, MEM_ID, REPORTED_REASON, REPORTED_REASON_DETAIL, 0, REPORTDATE reportDate, REPORT_STATE reportState
+		from mem_reported )
+	where reportedNum = #{reportedNum} 
+</select>
+
+<insert id="reportFinishInsert" parameterType="model.ReportFinishDTO">
+	insert into REPORT_FINISH
+	(REPORTED_NUM, PROD_NUM, MEM_ID, REPORTER, EMP_ID, REPORTED_REASON, REPORTED_REASON_DETAIL, REPORTDATE, REPORTFINISHDATE, REPORT_STATE)
+	values
+	(#{reportedNum},#{prodNum},#{memId},#{reporter},#{empId},#{reportedReason},#{reportedReasonDetail},
+	(select REPORTDATE from mem_reported where REPORTED_NUM=#{reportedNum}
+         union
+     select REPORTDATE from prod_reported where REPORTED_NUM=#{reportedNum}),sysdate,1)
+</insert>
+
+<update id="reportMemberCountUp" parameterType="string">
+	update member 
+	set MEM_REPORTED_COUNT = MEM_REPORTED_COUNT + 1
+	where mem_id = #{memId}
+</update>
+
+<update id="reportCompletedMember" parameterType="string">
+	update mem_reported 
+	set REPORT_STATE = 1
+	where REPORTED_NUM = #{reportedNum}
+</update>
+
+<update id="reportCompletedProd" parameterType="string">
+	update prod_reported 
+	set REPORT_STATE = 1
+	where REPORTED_NUM = #{reportedNum}
+</update>
 
 
 </mapper>

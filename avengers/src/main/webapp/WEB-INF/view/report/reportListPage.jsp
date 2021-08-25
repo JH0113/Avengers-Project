@@ -186,34 +186,7 @@ tr.border_bottom_th {
 }
 #detail{
 	text-decoration: underline;}
-	
-    .black_overlay{
-        display: none;
-        position: absolute;
-        top: 0%;
-        left: 0%;
-        width: 100%;
-        height: 100%;
-        background-color: black;
-        z-index:1001;
-        -moz-opacity: 0.8;
-        opacity:.80;
-        filter: alpha(opacity=80);
-    }
-    .white_content {
-        display: none;
-        position: absolute;
-        top: 25%;
-        left: 25%;
-        width: 50%;
-        height: 50%;
-        padding: 16px;
-        border: 1px solid orange;
-        background-color: white;
-        z-index:1002;
-        overflow: auto;
-    }
-
+ 
  
 
 </style> 
@@ -228,8 +201,7 @@ function checkSubmitValue(frm) {
 		  }
 		  return true;
 		}
-
-
+  
 </script>
 
 </head>
@@ -271,6 +243,9 @@ function checkSubmitValue(frm) {
 				 </div>
 			 </form>
 			 
+			 <form:form action="reportFinish" name="frm" method="post" onsubmit="return confirm('신고를 접수하시겠습니까?')">
+ 			<input type="hidden" name="reportedNum" value="${dto.reportedNum }">
+			
 			<div class="contents">
 			 
 				<table>
@@ -284,6 +259,8 @@ function checkSubmitValue(frm) {
 						<th width="260px">신고상태</th> 
 					</tr>
 					<c:forEach items="${reportPage }" var="dto">
+					<input type="hidden" name="reportedNum" value="${dto.reportedNum }">
+			
 						<tr class="border_bottom">
 							<td>${dto.reportedNum }</td>
 							<td><a href="memberInfoPage?memId=${dto.reporter }"><span id="detail">${dto.reporter }</span></a></td>
@@ -300,9 +277,17 @@ function checkSubmitValue(frm) {
 							</c:if>
 							</td> 
 							
-							<td><fmt:formatDate value="${dto.reportDate }" type="date" pattern="yyyy-MM-dd  HH:mm:ss" /></td> 		
-							<td><a href="reportFinish"><span id="detail">신고접수</span></a>
-								<a href="reportCancel"><span id="detail">신고반려</span></a></td> 
+							<td>
+							<fmt:formatDate value="${dto.reportDate }" type="date" pattern="yyyy-MM-dd  HH:mm:ss" />
+							</td> 		
+							<td> 
+								<c:if test="${dto.reportState == 0}">
+								<span style="color: red">처리 전</span>
+								</c:if>
+								<c:if test="${dto.reportState != 0}">
+								처리 완료
+								</c:if>
+								</td> 
 							<td></td>
 						</tr>
 					</c:forEach>
@@ -312,23 +297,19 @@ function checkSubmitValue(frm) {
 					</tr>
 				</table>
 				
-				  
-
- 
-
 			</div>
-			
+			</form:form>
 		</div>
 
 		<div class="footer">
 			<%@include file="../include/includeFooter.jsp"%>
 		</div>
 	</div>
-    
-                
+     
 	 
-	
+
 
  
 </body>
+ 
 </html>

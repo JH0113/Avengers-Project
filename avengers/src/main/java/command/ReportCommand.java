@@ -1,9 +1,8 @@
-package model;
+package command;
 
 import java.util.Date;
 
-public class ReportDTO {
-
+public class ReportCommand {
 	String reportedNum;
 	String reporter;
 	String memId;
@@ -12,9 +11,6 @@ public class ReportDTO {
 	String prodNum;
 	Date reportDate;
 	String reportState;
-	
-	
-	StartEndPageDTO startEndPageDTO;
 	
 	public String getReportedNum() {
 		return reportedNum;
@@ -33,19 +29,12 @@ public class ReportDTO {
 	}
 	public void setMemId(String memId) {
 		this.memId = memId;
-	}	
-	
+	}
 	public String getReportState() {
 		return reportState;
 	}
 	public void setReportState(String reportState) {
 		this.reportState = reportState;
-	}
-	public Date getReportDate() {
-		return reportDate;
-	}
-	public void setReportDate(Date reportDate) {
-		this.reportDate = reportDate;
 	}
 	public String getReportedReason() {
 		return reportedReason;
@@ -65,12 +54,12 @@ public class ReportDTO {
 	public void setProdNum(String prodNum) {
 		this.prodNum = prodNum;
 	}
-	public StartEndPageDTO getStartEndPageDTO() {
-		return startEndPageDTO;
+	public Date getReportDate() {
+		return reportDate;
 	}
-	public void setStartEndPageDTO(StartEndPageDTO startEndPageDTO) {
-		this.startEndPageDTO = startEndPageDTO;
+	public void setReportDate(Date reportDate) {
+		this.reportDate = reportDate;
 	}
-	
-	
+ 
+ 
 }

@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import model.ReportDTO;
+import model.ReportFinishDTO;
 
 public class ReportRepository {
 	@Autowired
@@ -28,4 +29,29 @@ public class ReportRepository {
 		statement = namespace + ".countMem";
 		return sqlSession.selectOne(statement);
 	}
+	public ReportDTO reportDetail (String reportedNum) {
+		statement = namespace + ".reportDetail";
+		return sqlSession.selectOne(statement,reportedNum);
+	}
+	public void reportFinishInsert(ReportFinishDTO dto) {
+		statement = namespace + ".reportFinishInsert";
+		sqlSession.insert(statement,dto);
+	}
+
+	public void reportMemberCountUp(String memId) {
+		statement = namespace + ".reportMemberCountUp";
+		sqlSession.update(statement,memId);
+	}
+ 
+	public void reportCompletedMember(String reportedNum) {
+		statement = namespace + ".reportCompletedMember";
+		sqlSession.update(statement,reportedNum);
+	}
+	public void reportCompletedProd(String reportedNum) {
+		statement = namespace + ".reportCompletedProd";
+		sqlSession.update(statement,reportedNum);
+	}
+	
+	
+	
 }
