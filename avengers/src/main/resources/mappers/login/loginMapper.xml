@@ -17,7 +17,7 @@
 		where EMP_ID = #{userId}
 	</select>
 	<select id="findId" resultType="authinfo.AuthinfoDTO">
-		select MEM_ID userId
+		select MEM_ID userId, MEM_NAME userName
 		from member
 		where replace(MEM_PHONE,'-','') = #{userPhone}
 	</select>

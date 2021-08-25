@@ -25,6 +25,7 @@ public class FindIdController {
 	public String findIdCheck(MemberDTO memberDTO, Errors errors, HttpSession session,Model model) {
 		new FindIdValidator().validate(memberDTO, errors);
 		if (errors.hasErrors()) {
+			System.out.println("공백있네욤 from.컨트롤러");
 			return "login/findIdPage";
 		}
 		

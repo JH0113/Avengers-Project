@@ -13,7 +13,7 @@ public class FindIdService {
 	@Autowired
 	LoginRepository loginRepository;
 	public void findIdCheck(MemberDTO memberDTO , HttpSession httpSession, Errors errors) {
-
+		
 		String userPhone = memberDTO.getMemPhone();
 		if(userPhone.contains("-")) {
 			String[] phone = userPhone.split("-");
@@ -21,10 +21,16 @@ public class FindIdService {
 		}
 		AuthinfoDTO dto = loginRepository.findIdCheck(userPhone);
 		if (dto == null) {
-			errors.rejectValue("userId", "noneId");
+			errors.rejectValue("memId", "noneId");
 		}else {
-			memberDTO.setMemId(dto.getUserId());
-			memberDTO.setMemPhone(dto.getUserPhone());
+			if(memberDTO.getMemName().equals(dto.getUserName())) {
+				System.out.println("이름이랑 전화번호 잘 맞음");
+				memberDTO.setMemId(dto.getUserId());
+				memberDTO.setMemPhone(dto.getUserPhone());
+			} else {
+				System.out.println("이름이랑 전화번호랑 안 맞음");
+				errors.rejectValue("memId", "memnomatch");
+			}
 		}
 	}
 }

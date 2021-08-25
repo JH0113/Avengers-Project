@@ -15,6 +15,7 @@ public class FindIdValidator implements Validator{
 	@Override
 	public void validate(Object target, Errors errors) {
 		// TODO Auto-generated method stub
+		System.out.println("공백있네 from.벨리벨리");
 		ValidationUtils.rejectIfEmpty(errors, "memName", "required");
 		ValidationUtils.rejectIfEmpty(errors, "memPhone", "required");
 //		ValidationUtils.rejectIfEmpty(errors, "authentication", "required");
