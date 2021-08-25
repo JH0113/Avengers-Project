@@ -1,12 +1,78 @@
 package controller.login;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import command.MemberCommand;
+import model.MemberDTO;
+import service.login.FindPwService;
+import validator.MemberPwModifyValidator;
+import validator.MemberValidator;
 
 @Controller
 public class FindPwController {
-	@RequestMapping("findPwPage")
+	@Autowired
+	FindPwService findPwService;
+	@RequestMapping("findPwPage") // 본인 확인 페이지
 	public String findPwPage() {
 		return "login/findPwPage";
 	}
+	
+	@RequestMapping(value="findPwCheck",method = RequestMethod.POST) // 비번 변경 전 본인확인 체크
+	public String findPwCheck(MemberDTO memberDTO, Errors errors, HttpSession session,Model model) {
+		
+		findPwService.findPwCheck(memberDTO, session, errors);
+		if (errors.hasErrors()) {
+			return "login/findPwPage";
+		} 
+		return "login/memPwModifyPage";
+	}
+	
+	@RequestMapping("memPwModifyPage") // 비밀번호 변경 페이지
+	public String memPwModifyPage() {
+		return "login/memPwModifyPage";
+	}
+	
+	@RequestMapping(value="memPwModify",method = RequestMethod.POST) // 비밀번호 변경
+	public String memPwModify(HttpSession session, MemberCommand memberCommand,Errors errors, Model model,HttpServletResponse response) throws IOException {
+		new MemberPwModifyValidator().validate(memberCommand, errors);
+
+		findPwService.memberPwModify(session, memberCommand, errors);
+		if (errors.hasErrors()) {
+			return "login/memPwModifyPage";
+		} else {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script language='javascript'>");
+			out.println("alert('비밀번호가 변경되었습니다.')");
+			out.println("</script>");
+			out.flush();
+			
+			return "login/loginPage";
+		}
+		
+	}
+	
+	@RequestMapping("smsCheckPage") // sms 문자인증 페이지
+	public String smsCheckPage() {
+		return "login/smsCheckPage";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/smsCheck") // sms 문자인증 확인
+	public String smsCheck() {
+		return "login/memPwModifyPage";
+	}
+	
 }

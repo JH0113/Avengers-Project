@@ -8,7 +8,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>비밀번호 찾기</title>
+<title>비밀번호 변경</title>
 <link rel="stylesheet" href="style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -177,7 +177,7 @@ li a {
    margin-bottom: 100px;
 }
 
-.memPwFind-table {
+.memPwModify-table {
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
@@ -189,7 +189,7 @@ li a {
     text-indent: initial;
     border-color: grey;
 }
-.memPwFind-table th {
+.memPwModify-table th {
     display: table-cell;
     vertical-align: inherit;
     font-weight: bold;
@@ -198,18 +198,18 @@ li a {
     text-align: left;
     white-space: nowrap;
 }
-.memPwFind-table th, .memPwFind-table td {
+.memPwModify-table th, .memPwModify-table td {
     padding: 14px 30px;
     border-bottom: 1px solid #ddd;
     margin: 0;
 }
-.memPwFind-foot {
+.memPwModify-foot {
     margin-top: 30px;
     text-align: center;
     margin: 0;
     padding: 0;
 }
-.memPwFind-submit, .memPwFind-Phone-submit, .memPwFind-authentication-submit, .memPwFind-cancel{
+.memPwModify-submit, .memPwModify-cancel{
     min-width: 40px;
     padding: 7px 12px;
     border-radius: 2px;
@@ -300,40 +300,40 @@ li a {
 		</div>
 
 		<div class="leg">
-		<form:form action="findPwCheck" method="post" name="frm" modelAttribute="MemberDTO">
-			<h1 class="memPwFind-title">비밀번호 찾기</h1>
-                <p class="memPwFind-msg">비밀번호의 경우 암호화 저장되어 분실 시 찾아드릴 수 없는 정보 입니다.</p>
-                <p class="memPwFind-msg">본인 확인을 통해 비밀번호를 재설정 하실 수 있습니다.</p>
-                    <table class="memPwFind-table">
+		<form:form action="memPwModify" method="post" name="frm" modelAttribute="memberCommand">
+			<h1 class="memPwModify-title">비밀번호 변경</h1>
+                <p class="memPwModify-msg">새로운 비밀번호를 입력해주세요.</p>
+                    <table class="memPwModify-table">
                         <tbody>
                             <tr>
-                                <th scope="row">이름</th>
+                                <th scope="row">새 비밀번호</th>
                                 <td>
                                 <div class="input_box">
-                                    <input class="input" type="text" name="memName" />
+                                    <input class="input" type="password" name="memPw" placeholder="숫자, 문자, 특수문자 포함 8~15자리 이내"/>
                                 </div>
                                 <div class="error_box">
-									<form:errors id="error_text" path = "memName"/>
+									<form:errors id="error_text" path = "memPw"/>
 								</div>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row">아이디</th>
+                                <th scope="row">새 비밀번호 확인</th>
                                 <td>
                                 <div class="input_box">
-                                    <input class="input" type="text" name="memId" />
+                                    <input class="input" type="password" name="memPwCon" placeholder="숫자, 문자, 특수문자 포함 8~15자리 이내"/>
 								</div>
 								<div class="error_box">
-									<form:errors id="error_text" path = "memId"/>
+									<form:errors id="error_text" path = "memPwCon"/>
 								</div>
+                                
                                 </td>
                             </tr>
-                      
+                            
                         </tbody>
                     </table>
-                    <div class="memPwFind-foot">
-                        <button type="submit" class="memPwFind-submit">확인</button>
-                        <button type="button" class="memPwFind-cancel" onclick="javascript:history.back();">취소</button>
+                    <div class="memPwModify-foot">
+                        <button type="submit" class="memPwModify-submit">확인</button>
+                        <button type="button" class="memPwModify-cancel" onclick="javascript:history.back();">취소</button>
                     </div>
 		</form:form>
 		</div>

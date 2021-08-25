@@ -22,4 +22,15 @@ public class LoginRepository {
 		statement = namespace + ".findId";
 		return session.selectOne(statement, userPhone);
 	}
+	
+	public AuthinfoDTO findPwCheck(String userId) {
+		
+		statement = namespace + ".findPw";
+		return session.selectOne(statement, userId);
+	}
+	
+	public void memberPwModify(MemberDTO dto) {
+		statement = namespace + ".memPwModify";
+		session.update(statement, dto);
+	}
 }

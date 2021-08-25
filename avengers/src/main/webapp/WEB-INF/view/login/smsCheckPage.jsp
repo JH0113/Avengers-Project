@@ -8,7 +8,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>비밀번호 찾기</title>
+<title>sms check</title>
 <link rel="stylesheet" href="style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -300,35 +300,36 @@ li a {
 		</div>
 
 		<div class="leg">
-		<form:form action="findPwCheck" method="post" name="frm" modelAttribute="MemberDTO">
+		<form:form action="smsCheck" method="post" name="frm" modelAttribute="MemberDTO">
 			<h1 class="memPwFind-title">비밀번호 찾기</h1>
                 <p class="memPwFind-msg">비밀번호의 경우 암호화 저장되어 분실 시 찾아드릴 수 없는 정보 입니다.</p>
                 <p class="memPwFind-msg">본인 확인을 통해 비밀번호를 재설정 하실 수 있습니다.</p>
                     <table class="memPwFind-table">
                         <tbody>
-                            <tr>
-                                <th scope="row">이름</th>
+                             <tr>
+                                <th scope="row">전화번호</th>
                                 <td>
                                 <div class="input_box">
-                                    <input class="input" type="text" name="memName" />
-                                </div>
-                                <div class="error_box">
-									<form:errors id="error_text" path = "memName"/>
-								</div>
+                                    <input class="input" type="text" name="memPhone" id="memPhone"/>
+                        		</div>
+                        		<div class="error_box">
+                              		<form:errors id="error_text" path = "memPhone" />
+                        		</div>
+                                <button type="submit" class="memPwFind-Phone-submit" onclick="sendSms();">인증번호 받기</button>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row">아이디</th>
+                                <th scope="row">인증하기</th>
                                 <td>
-                                <div class="input_box">
-                                    <input class="input" type="text" name="memId" />
-								</div>
-								<div class="error_box">
-									<form:errors id="error_text" path = "memId"/>
-								</div>
+                                    <div class="input_box">
+                                        <input class="input" type="text" name="authentication" id="authentication"/>
+                                    </div>
+                                    <div class="error_box">
+                                        <form:errors id="error_text" path = "authentication"/>
+                                    </div>
+                                    <button type="submit" class="memPwFind-authentication-submit" onclick="phoneCheck();">확인</button>
                                 </td>
                             </tr>
-                      
                         </tbody>
                     </table>
                     <div class="memPwFind-foot">
@@ -343,5 +344,41 @@ li a {
 			<%@include file="../include/includeFooter.jsp" %>
 		</div>
 	</div>
+	<script>
+      function sendSms() {
+        $.ajax({
+          url: "<%=request.getContextPath()%>/sendSms",
+          data: {
+            receiver: $("#memPhone").val()
+          },
+          type: "post",
+          success: function(result) {
+            if (result == "true") {
+              console.log(result);
+            } else {
+              alert("인증번호 전송 실패");
+            }
+          }
+        });
+      }
+
+      function phoneCheck() {
+        $.ajax({
+          url: "<%=request.getContextPath()%>/smsCheck",
+          type: "post",
+          data: {
+            code: $("#authentication").val()
+          },
+          success: function(result) {
+            if (result == "ok") {
+              alert("번호 인증 성공");
+            } else {
+              alert("번호 인증 실패");
+            }
+          }
+        });
+      }
+    </script>
+	
 </body>
 </html>

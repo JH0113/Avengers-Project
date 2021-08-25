@@ -24,11 +24,11 @@ public class FindIdService {
 			errors.rejectValue("memId", "noneId");
 		}else {
 			if(memberDTO.getMemName().equals(dto.getUserName())) {
-				System.out.println("이름이랑 전화번호 잘 맞음");
+				System.out.println("이름이랑 전화번호 다 잘 맞음");
 				memberDTO.setMemId(dto.getUserId());
 				memberDTO.setMemPhone(dto.getUserPhone());
 			} else {
-				System.out.println("이름이랑 전화번호랑 안 맞음");
+				System.out.println("이름이랑 전화번호랑 다 안 맞음");
 				errors.rejectValue("memId", "memnomatch");
 			}
 		}

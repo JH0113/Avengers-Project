@@ -21,4 +21,14 @@
 		from member
 		where replace(MEM_PHONE,'-','') = #{userPhone}
 	</select>
+	<select id="findPw" resultType="authinfo.AuthinfoDTO">
+		select MEM_ID userId, MEM_NAME userName
+		from member
+		where MEM_ID = #{userId}
+	</select>
+	<update id="memPwModify" parameterType="model.MemberDTO">
+		update member
+		set MEM_PW = #{memPw}
+		where mem_id = #{memId}
+	</update>
 </mapper>
