@@ -15,13 +15,16 @@ public class FindIdService {
 	public void findIdCheck(MemberDTO memberDTO , HttpSession httpSession, Errors errors) {
 
 		String userPhone = memberDTO.getMemPhone();
+		if(userPhone.contains("-")) {
+			String[] phone = userPhone.split("-");
+			userPhone = phone[0]+phone[1]+phone[2];
+		}
 		AuthinfoDTO dto = loginRepository.findIdCheck(userPhone);
 		if (dto == null) {
 			errors.rejectValue("userId", "noneId");
 		}else {
 			memberDTO.setMemId(dto.getUserId());
 			memberDTO.setMemPhone(dto.getUserPhone());
-			
 		}
 	}
 }

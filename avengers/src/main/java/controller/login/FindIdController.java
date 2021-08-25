@@ -32,8 +32,6 @@ public class FindIdController {
 		if (errors.hasErrors()) {
 			return "login/findIdPage";
 		} 
-		
-		System.out.println("배고프군");
 		return "login/findIdResultPage";
 	}
 }

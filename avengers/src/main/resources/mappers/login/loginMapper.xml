@@ -14,6 +14,6 @@
 	<select id="findId" resultType="authinfo.AuthinfoDTO">
 		select MEM_ID userId
 		from member
-		where MEM_PHONE = #{userPhone}
+		where replace(MEM_PHONE,'-','') = #{userPhone}
 	</select>
 </mapper>

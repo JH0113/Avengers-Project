@@ -18,6 +18,7 @@ public class LoginRepository {
 	}
 	
 	public AuthinfoDTO findIdCheck(String userPhone) {
+		
 		statement = namespace + ".findId";
 		return session.selectOne(statement, userPhone);
 	}
