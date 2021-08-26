@@ -111,7 +111,7 @@ li a {
 
 .leg {
 	width: 1200px;
-	height: auto;
+	height: 920px;
 	margin: auto;
 }
 
@@ -157,19 +157,18 @@ tr.border_bottom_th {
 
 .btn {
 	display: block;
-	width: 400px;
+	width: 200px;
 	margin: auto;
-	padding: 15px 0 15px;
-	font-size: 18px;
+	padding: 5px 0 5px;
+	font-size: 14px;
 	font-family: 'Montserrat', sans-serif;
 	text-align: center;
 	cursor: pointer;
 	box-sizing: border-box;
-	margin-top: 30px;
 	background-color: #404040;
 	color: #ffffff;
-	padding: 15px 0 15px;
 }
+
 </style>
 </head>
 <body>

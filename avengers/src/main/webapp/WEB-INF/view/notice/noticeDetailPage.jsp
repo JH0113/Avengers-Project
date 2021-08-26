@@ -111,12 +111,13 @@ li a {
 	width: 100%;
 	height: auto;
 }
-
+ 
 .btn {
 	display: block;
 	width: 200px;
-	padding: 15px 0 15px;
-	font-size: 15px;
+	margin: auto;
+	padding: 5px 0 5px;
+	font-size: 14px;
 	font-family: 'Montserrat', sans-serif;
 	text-align: center;
 	cursor: pointer;
@@ -124,8 +125,8 @@ li a {
 	margin-top: 30px;
 	background-color: #404040;
 	color: #ffffff;
-	padding: 15px 0 15px;
 }
+
 
 td, th {
 	padding-top: 20px;

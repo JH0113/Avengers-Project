@@ -23,7 +23,7 @@
 		from PROD_REPORTED
 	union
 		select 1, REPORTED_NUM, REPORTER, MEM_ID, REPORTED_REASON, REPORTED_REASON_DETAIL, 0, REPORTDATE reportDate, REPORT_STATE reportState
-		from mem_reported ))
+		from mem_reported )order by reportDate desc)
 	where rn between #{startEndPageDTO.startRow} and #{startEndPageDTO.endRow}  		
 </select>
 

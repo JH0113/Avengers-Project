@@ -111,17 +111,10 @@ li a {
 
 .leg {
 	width: 1200px;
-	height: 900px;
+	height: 840px;
 	margin: auto;
 }
-/*
-.banner {
-	width: 100%;
-	height: 400px;
-	background-image: url("images/noticeBanner.png");
-	background-size: 100% 400px;
-}
-*/
+
 .contents {
 	font-family: 'Montserrat', sans-serif;
 	width: 100%;
@@ -153,12 +146,20 @@ tr.border_bottom td {
 
 tr.border_bottom_th {
 	border-bottom: 3px solid #1a1a1a;
+	}
+h2{
+	font-family: 'Montserrat', sans-serif;
+	margin: 80px;
+	}
+#mem:hover{
+	font-weight: bolder;
+	border-bottom: 1px solid;
 }
 .btn {
 	display: block;
-	width: 80px;
+	width: 200px;
 	margin: auto;
-	padding: 4px 0 4px;
+	padding: 5px 0 5px;
 	font-size: 14px;
 	font-family: 'Montserrat', sans-serif;
 	text-align: center;
@@ -166,21 +167,6 @@ tr.border_bottom_th {
 	box-sizing: border-box;
 	background-color: #404040;
 	color: #ffffff;
-}
-h1{
-	font-family: 'Montserrat', sans-serif;
-	}
-.list_search_area{
-	display: flex;
-	width: 400px;
-	height: 30px;
-	margin: 10px;	
-	padding: 10px;
-	border: 2px;
-}
-.list_search_area input {
-	padding: 5px;
-	width: 250px;
 }
 </style>
 
@@ -212,45 +198,58 @@ h1{
 			</div>
 		</div>
 		<div class="leg">
-			<div class="banner">
-			
-			
-			</div>
-
 			<div class="contents">
 			
-					<h1 align="center">검색하신 '${keyword}'에 대한 검색 결과입니다.</h1> 
+				<c:if test="${!empty list }">		
+				<h2 align="center">검색하신 '${keyword}'에 대한 검색 결과입니다.</h2> 
 				<table>
 					<tr class="border_bottom_th">
 						<th width="120px">회원아이디</th>
 						<th width="130px">닉네임</th>
 						<th width="130px">이름</th>
-						<th width="120px">우편번호</th>
 						<th width="270px">주소</th>
 						<th width="170px">상세주소</th>
 						<th width="150px">전화번호</th>
 						<th width="110px">신고누적</th>
 					</tr>
-				
 					<c:forEach items="${list }" var="dto">
 						<tr class="border_bottom">
-							<td><a href="memberInfoPage?memId=${dto.memId }">${dto.memId }</a></td>
+							<td><a id="mem" href="memberInfoPage?memId=${dto.memId }">${dto.memId }</a></td>
 							<td>${dto.memNick }</td>
 							<td>${dto.memName }</td>
-							<td>${dto.memPostNumber }</td>
 							<td>${dto.memAddr }</td>
 							<td>${dto.memDetailAdd }</td>
 							<td>${dto.memPhone }</td>
 							<td>${dto.memReportedCount }</td>
 							<td></td>
-						</tr>
-					</c:forEach> 
+						</tr>					
+					</c:forEach> 					
+					<tr><td colspan="7" align="center"><input type="button" class="btn" value="회원 리스트로 돌아가기" onclick="javascript:location.href='memberListPage'"></td></tr>
 				</table>
-
+				</c:if>
+				<c:if test="${empty list }">				
+					<h2 align="center">검색하신 '${keyword}'에 대한 검색 결과가 존재하지 않습니다.</h2> 			
+				<table>
+					<tr class="border_bottom_th">
+						<th width="120px">회원아이디</th>
+						<th width="130px">닉네임</th>
+						<th width="130px">이름</th>
+						<th width="270px">주소</th>
+						<th width="170px">상세주소</th>
+						<th width="150px">전화번호</th>
+						<th width="110px">신고누적</th>
+					</tr>
+						<tr><td></td>
+						</tr>
+						<tr><td></td>
+						</tr>
+						<tr><td></td>
+						</tr>
+					<tr><td colspan="7" align="center"><input type="button" class="btn" value="회원 리스트로 돌아가기" onclick="javascript:location.href='memberListPage'"></td></tr>
+				</table>
+				</c:if>
 				</div>
-
 			</div>
-
 		</div>
 
 		<div class="footer">
@@ -258,8 +257,5 @@ h1{
 		</div>
 	
 </body>
-
-
-
 
 </html>

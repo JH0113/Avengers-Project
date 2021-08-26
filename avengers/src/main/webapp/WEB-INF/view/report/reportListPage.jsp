@@ -110,17 +110,9 @@ li a {
 
 .leg {
 	width: 1200px;
-	height: 900px;
+	height: 910px;
 	margin: auto;
 }
-/*
-.banner {
-	width: 100%;
-	height: 400px;
-	background-image: url("images/noticeBanner.png");
-	background-size: 100% 400px;
-}
-*/
 
 .contents {
 	font-family: 'Montserrat', sans-serif;

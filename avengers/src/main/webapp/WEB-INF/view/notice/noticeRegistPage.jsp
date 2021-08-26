@@ -176,16 +176,15 @@ table {
 .btn {
 	display: block;
 	width: 200px;
-	padding: 15px 0 15px;
-	font-size: 15px;
+	margin: auto;
+	padding: 5px 0 5px;
+	font-size: 14px;
 	font-family: 'Montserrat', sans-serif;
 	text-align: center;
 	cursor: pointer;
 	box-sizing: border-box;
-	margin-top: 30px;
 	background-color: #404040;
 	color: #ffffff;
-	padding: 15px 0 15px;
 }
 
 textarea {

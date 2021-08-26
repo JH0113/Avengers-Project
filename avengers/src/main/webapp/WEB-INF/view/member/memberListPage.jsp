@@ -192,7 +192,7 @@ select {
 select::-ms-expand {
 	display: none;
 }
-#mem_regist:hover{
+#mem:hover{
 	font-weight: bolder;
 	border-bottom: 1px solid;
 }
@@ -267,26 +267,22 @@ function checkSubmitValue(frm) {
 			<div class="contents">
 				<table>
 					<tr class="border_bottom_th">
-						<th width="120px">회원아이디</th>
-						<th width="130px">닉네임</th>
-						<th width="130px">이름</th>
-						<th width="120px">우편번호</th>
-						<th width="270px">주소</th>
-						<th width="170px">상세주소</th>
+						<th width="130px">회원아이디</th>
+						<th width="160px">닉네임</th>
+						<th width="140px">이름</th>
+						<th width="510px">주소</th>
 						<th width="150px">전화번호</th>					
 						<th width="110px">신고누적</th>
 					</tr>
 					<c:forEach items="${memberListPage }" var="dto">
 						<tr class="border_bottom">
 							<td>
-								<a id="mem_regist" href="memberInfoPage?memId=${dto.memId }">${dto.memId }</a>
+								<a id="mem" href="memberInfoPage?memId=${dto.memId }">${dto.memId }</a>
 							</td>
 							
 							<td>${dto.memNick }</td>
 							<td>${dto.memName }</td>
-							<td>${dto.memPostNumber }</td>
-							<td>${dto.memAddr }</td>
-							<td>${dto.memDetailAdd }</td>
+							<td>${dto.memAddr }, ${dto.memDetailAdd }</td>
 							<td>${dto.memPhone }</td>
 							<td>${dto.memReportedCount }</td>
 							<td></td>

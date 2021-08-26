@@ -44,7 +44,7 @@
                 where ${search_option} like '%'||#{keyword}||'%'           
             </otherwise>
         </choose>
-    </sql>
+</sql>
 
 
 <select id="listAll" resultType="model.MemberDTO"> 

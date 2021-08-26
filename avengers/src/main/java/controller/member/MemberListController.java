@@ -53,8 +53,7 @@ public class MemberListController {
             mav.addObject("map", map); //ModelAndView에 map을 저장
             
             model.addAttribute("list",list); // 리스트는 model로 attribute해서 jsp파일에서 읽을수있음
-            model.addAttribute("search_option", search_option);
-            model.addAttribute("keyword",keyword);
+            model.addAttribute("keyword",keyword); // 검색 결과 노출 시 필요한 keyword
             
             return mav; 
 	}

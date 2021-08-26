@@ -16,8 +16,9 @@ public class MemberListSearchService {
 
 	public List<MemberDTO> listAll(String search_option, String keyword, Model model){
 		 Map<String,Object> map = new HashMap<>();
+		 	String trim_keyword = keyword.trim();
 	        map.put("search_option", search_option);
-	        map.put("keyword", "%"+keyword+"%"); 
+	        map.put("keyword", "%"+trim_keyword+"%"); 
 	        return memberListRepository.listAll(map);	      
 	}
 }
