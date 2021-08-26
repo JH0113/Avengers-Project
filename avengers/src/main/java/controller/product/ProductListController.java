@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ProductListController {
    @RequestMapping("productListPage/{ctgr}")
    public String productPage(@PathVariable(value = "ctgr") String ctgr) {
+	  System.out.println(ctgr);
       return "product/productListPage";
    }
 }

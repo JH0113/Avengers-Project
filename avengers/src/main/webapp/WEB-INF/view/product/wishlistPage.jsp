@@ -311,7 +311,7 @@ li a {
 					<div class="profile">
 						<c:if test="${authinfo.memImage != null }">
 							<img width="150px" height="150px"
-								src="images/${authinfo.memImage }" />
+								src="upload/${authinfo.memImage }" />
 							<br />
 						</c:if> <c:if test="${authinfo.memImage == null }">
 							<img width="150px" height="150px" src="images/profile01.png" />
