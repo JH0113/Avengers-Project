@@ -31,4 +31,13 @@
 		set MEM_PW = #{memPw}
 		where mem_id = #{memId}
 	</update>
+	<insert id="sendSms" parameterType="model.SmsDTO">
+		insert into sms(sms_num, mem_phone)
+		values(#{smsNum}, #{memPhone})
+	</insert>
+	<select id="findSmsNum" resultType="authinfo.AuthinfoDTO">
+		select sms_num
+		from sms
+		where mem_phone = #{userPhone}
+	</select>
 </mapper>

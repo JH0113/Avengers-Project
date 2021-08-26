@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import authinfo.AuthinfoDTO;
 import model.MemberDTO;
+import model.SmsDTO;
 
 public class LoginRepository {
 	String statement;
@@ -32,5 +33,15 @@ public class LoginRepository {
 	public void memberPwModify(MemberDTO dto) {
 		statement = namespace + ".memPwModify";
 		session.update(statement, dto);
+	}
+	
+	public void sendSms(SmsDTO smsDTO) {
+		statement = namespace + ".sendSms";
+		session.insert(statement, smsDTO);
+	}
+	
+	public AuthinfoDTO findSmsNum(String userPhone) {
+		statement = namespace + ".findSmsNum";
+		return session.selectOne(statement, userPhone);
 	}
 }

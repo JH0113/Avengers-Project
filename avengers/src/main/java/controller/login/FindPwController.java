@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import command.MemberCommand;
 import model.MemberDTO;
 import service.login.FindPwService;
+import validator.FindPwValidator;
 import validator.MemberPwModifyValidator;
 import validator.MemberValidator;
 
@@ -31,12 +32,13 @@ public class FindPwController {
 	
 	@RequestMapping(value="findPwCheck",method = RequestMethod.POST) // 비번 변경 전 본인확인 체크
 	public String findPwCheck(MemberDTO memberDTO, Errors errors, HttpSession session,Model model) {
+		new FindPwValidator().validate(memberDTO, errors);
 		
 		findPwService.findPwCheck(memberDTO, session, errors);
 		if (errors.hasErrors()) {
 			return "login/findPwPage";
 		} 
-		return "login/memPwModifyPage";
+		return "login/smsCheckPage";
 	}
 	
 	@RequestMapping("memPwModifyPage") // 비밀번호 변경 페이지
@@ -70,9 +72,22 @@ public class FindPwController {
 	}
 	
 	@ResponseBody
-	@RequestMapping("/smsCheck") // sms 문자인증 확인
-	public String smsCheck() {
-		return "login/memPwModifyPage";
+	@RequestMapping(value="smsCheck",method = RequestMethod.POST) // sms 문자인증 확인
+	public String smsCheck(MemberDTO memberDTO,Errors errors, HttpServletResponse response) throws IOException {
+		findPwService.sendSms(memberDTO, errors);
+		if (errors.hasErrors()) {
+			return "login/smsCheckPage";
+		} else {
+//			response.setContentType("text/html; charset=UTF-8");
+//			PrintWriter out = response.getWriter();
+//			out.println("<script language='javascript'>");
+//			out.println("alert('인증문자가 전송되었습니다.')");
+//			out.println("</script>");
+//			out.flush();
+			findPwService.smsCheck(memberDTO);
+			return "login/memPwModifyPage";
+		}
+		
 	}
 	
 }

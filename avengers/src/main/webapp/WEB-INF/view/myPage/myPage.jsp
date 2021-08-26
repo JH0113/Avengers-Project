@@ -228,7 +228,7 @@ li a {
 				</div>
 				<div class="my_menu">
 					<a href="mybuyPage"> <img src="images/shopping-bag.png" width="40"
-						height="40">s
+						height="40">
 						<p>구매내역</p>
 					</a>
 				</div>

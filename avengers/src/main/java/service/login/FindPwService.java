@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import authinfo.AuthinfoDTO;
 import command.MemberCommand;
 import model.MemberDTO;
+import model.SmsDTO;
 import repository.LoginRepository;
 import repository.MemberRepository;
 
@@ -71,12 +72,25 @@ public class FindPwService {
 	/////////////////////////////////////////////////////
 	 
 	 
-	 public String sendSms(String receiver) {
+	 public String sendSms(MemberDTO memberDTO, Errors errors) {
+		 
+		 	// sender
+		 	String sender = "01089972194";
 
 	        // 6자리 인증 코드 생성
 	        int rand = (int) (Math.random() * 899999) + 100000;
 
-	        // 인증 코드를 데이터베이스에 저장하는 코드는 생략했습니다.
+	        // 인증 코드를 데이터베이스에 저장하는 코드
+	        String memPhone = memberDTO.getMemPhone();
+	        if(memPhone.contains("-")) {
+				String[] phone = memPhone.split("-");
+				memPhone = phone[0]+phone[1]+phone[2];
+			}
+	        String smsNum = String.valueOf(rand);
+	        SmsDTO smsDTO = new SmsDTO();
+	        smsDTO.setSmsNum(smsNum);
+	        smsDTO.setMemPhone(memPhone);
+	        loginRepository.sendSms(smsDTO);
 
 	        // 문자 보내기 
 	        String hostname = "api.bluehouselab.com";
@@ -85,7 +99,7 @@ public class FindPwService {
 	        CredentialsProvider credsProvider = new BasicCredentialsProvider();
 	        credsProvider.setCredentials(new AuthScope(hostname, 443, AuthScope.ANY_REALM),
 
-	        // 청기와랩에 등록한 Application Id 와 API key 를 입력합니다.
+	        // 청기와랩에 등록한 Application Id 와 API key 를 입력
 	        new UsernamePasswordCredentials("smsService", "e1073c6c056211ec9d6d0cc47a1fcfae"));
 
 	        AuthCache authCache = new BasicAuthCache();
@@ -102,8 +116,9 @@ public class FindPwService {
 	            httpPost.setHeader("Content-type", "application/json; charset=utf-8");
 
 	            //문자에 대한 정보
-	            String json = "{\"sender\":\"보내는 사람\",\"receivers\":[\"" + receiver
-	                        + "\"],\"content\":\"문자 내용\"}";
+//	            String json = "{\"sender\":\"보내는 사람\",\"receivers\":[\"" + memPhone+ "\"],\"content\":\"문자 내용\"}";
+	            String json = "{\"sender\":\""+sender+"\",\"receivers\":[\""+memPhone+"\"],\"content\":\""+rand+"\"}";
+
 
 	            StringEntity se = new StringEntity(json, "UTF-8");
 	            httpPost.setEntity(se);
@@ -123,16 +138,19 @@ public class FindPwService {
 	            client.getConnectionManager().shutdown();
 	        }
 	        return "true";
-//	        } else {
-//	            return "false";
-//	        }
+
 	}
 	 
-	 public String smsCheck(String code) {
-
-	        String saveCode = "";//데이터베이스에 저장된 코드 불러오기
-
-	        if(code.equals(saveCode)){
+	 public String smsCheck(MemberDTO memberDTO) {
+		 
+		 	String userPhone = memberDTO.getMemPhone();
+		 	if(userPhone.contains("-")) {
+				String[] phone = userPhone.split("-");
+				userPhone = phone[0]+phone[1]+phone[2];
+			}
+			AuthinfoDTO saveCode = loginRepository.findSmsNum(userPhone);
+			
+	        if(userPhone.equals(saveCode)){
 	            return "ok";
 	        }else {
 	            return "no";

@@ -12,6 +12,7 @@ public class MemberDTO {
 	String memReportedCount;
 	String memImage;
 	StartEndPageDTO startEndPageDTO;
+	String smsNum;
 	
 	public String getMemImage() {
 		return memImage;
@@ -79,6 +80,11 @@ public class MemberDTO {
 	public void setMemReportedCount(String memReportedCount) {
 		this.memReportedCount = memReportedCount;
 	}
-	
+	public String getSmsNum() {
+		return smsNum;
+	}
+	public void setSmsNum(String smsNum) {
+		this.smsNum = smsNum;
+	}
 }
   
