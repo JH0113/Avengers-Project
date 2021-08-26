@@ -252,11 +252,11 @@ function checkSubmitValue(frm) {
 				<table>
 					<tr class="border_bottom_th">
 						<th width="120px">신고번호</th>
-						<th width="100px">신고자ID</th>
-						<th width="100px">피신고자ID</th>
-						<th width="300px">신고사유</th>
+						<th width="110px">신고자ID</th>
+						<th width="110px">피신고자ID</th>
+						<th width="250px">신고사유</th>
 						<th width="140px">상품번호</th> 	
-						<th width="180px">신고일</th> 			
+						<th width="200px">신고일</th> 			
 						<th width="260px">신고상태</th> 
 					</tr>
 					<c:forEach items="${reportPage }" var="dto">
@@ -266,8 +266,8 @@ function checkSubmitValue(frm) {
 							<td>${dto.reportedNum }</td>
 							<td><a id="clickText" href="memberInfoPage?memId=${dto.reporter }"><span id="detail">${dto.reporter }</span></a></td>
 							<td><a id="clickText" href="memberInfoPage?memId=${dto.memId }"><span id="detail">${dto.memId }</span></a></td>
-							<td>[${dto.reportedReason }]&nbsp;&nbsp;&nbsp;
-								<a id="clickText" href="reportDetailPage?reportedNum=${dto.reportedNum }">신고처리하기</a>
+							<td>
+								[${dto.reportedReason }]
 						 	</td>
 						 
 							<td>
@@ -282,14 +282,13 @@ function checkSubmitValue(frm) {
 							<fmt:formatDate value="${dto.reportDate }" type="date" pattern="yyyy-MM-dd  HH:mm:ss" />
 							</td> 		
 							<td> 
-								<a id="clickText" href="reportedNumDetail?reportedNum=${dto.reportedNum }">
 								<c:if test="${dto.reportState == 0}">
-								<span style="color: red">처리 전</span>
+								<a id="clickText" href="reportDetailPage?reportedNum=${dto.reportedNum }"><span style="color: red">처리 전</span></a>
 								</c:if>
 								<c:if test="${dto.reportState != 0}">
-								처리 완료 
+								<a id="clickText" href="reportedNumDetail?reportedNum=${dto.reportedNum }">처리 완료 </a>
 								</c:if>
-								</a>
+								
 								</td> 
 							<td></td>
 						</tr>

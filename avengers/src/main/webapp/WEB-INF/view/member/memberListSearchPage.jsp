@@ -167,9 +167,10 @@ tr.border_bottom_th {
 	background-color: #404040;
 	color: #ffffff;
 }
-
+h1{
+	font-family: 'Montserrat', sans-serif;
+	}
 .list_search_area{
-	
 	display: flex;
 	width: 400px;
 	height: 30px;
@@ -183,20 +184,7 @@ tr.border_bottom_th {
 }
 </style>
 
-
-<script type="text/javascript" >  
-function checkSubmitValue(frm) {
-	var e = frm.elements;
-	  for ( var i = 0; i < e.length; i++ ) {
-		    if ( e[i].tagName == 'INPUT'  && e[i].value == '' ) {
-		      alert('검색할 값을 입력해주세요.');
-		      return false;
-		    }
-		  }
-		  return true;
-		}
-</script>
-
+ 
 </head>
 <body>
 	<div class="web">
@@ -224,14 +212,14 @@ function checkSubmitValue(frm) {
 			</div>
 		</div>
 		<div class="leg">
-			<div class="banner"></div>
-				<form action="memListSearch" method="get" id=frm onsubmit='return checkSubmitValue(this)'>
-				 <div class=list_search_area>				 
-					    <input type="text" placeholder="아이디 또는 닉네임을 입력해주세요." id="listSearch" name="keyword">			    
-					    <button id="searchBtn" class="btn">검색</button>					
-				 </div>
-			 </form>
+			<div class="banner">
+			
+			
+			</div>
+
 			<div class="contents">
+			
+					<h1 align="center">검색하신 '${keyword}'에 대한 검색 결과입니다.</h1> 
 				<table>
 					<tr class="border_bottom_th">
 						<th width="120px">회원아이디</th>
@@ -243,7 +231,8 @@ function checkSubmitValue(frm) {
 						<th width="150px">전화번호</th>
 						<th width="110px">신고누적</th>
 					</tr>
-					<c:forEach items="${memberListSearchPage }" var="dto">
+				
+					<c:forEach items="${list }" var="dto">
 						<tr class="border_bottom">
 							<td><a href="memberInfoPage?memId=${dto.memId }">${dto.memId }</a></td>
 							<td>${dto.memNick }</td>
@@ -255,13 +244,7 @@ function checkSubmitValue(frm) {
 							<td>${dto.memReportedCount }</td>
 							<td></td>
 						</tr>
-					</c:forEach>
-	
-				<!-- 	<tr>
-						<td colspan="7" align="center"><%@include file="../include/includePage.jsp"%></td>
-					</tr>
-				 -->
-				
+					</c:forEach> 
 				</table>
 
 				</div>

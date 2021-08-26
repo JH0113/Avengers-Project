@@ -113,14 +113,6 @@ li a {
 	height: 900px;
 	margin: auto;
 }
-/*
-.banner {
-	width: 100%;
-	height: 400px;
-	background-image: url("images/noticeBanner.png");
-	background-size: 100% 400px;
-}
-*/
 
 .contents {
 	font-family: 'Montserrat', sans-serif;
@@ -156,12 +148,11 @@ tr.border_bottom_th {
 	border-bottom: 3px solid #1a1a1a;
 }
 
-
 .btn {
 	display: block;
-	width: 80px;
+	width: 90px;
 	margin: auto;
-	padding: 4px 0 4px;
+	padding: 7px;
 	font-size: 14px;
 	font-family: 'Montserrat', sans-serif;
 	text-align: center;
@@ -170,21 +161,37 @@ tr.border_bottom_th {
 	background-color: #404040;
 	color: #ffffff;
 }
-
-.list_search_area{
-	
+.list_search_area{	 
 	display: flex;
-	width: 400px;
-	height: 30px;
-	margin: 10px;	
+	width: 600px;
+	height: 40px;
+	margin: 20px;	
 	padding: 10px;
 	border: 2px;
 }
-.list_search_area input {
-	padding: 5px;
-	width: 250px;
+#keyword{
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 40px;
+	padding-left: 20px;
+	margin-right: 5px;
+	font-size: 13px;
+	box-sizing: border-box;
+	z-index: 10;
+	border: solid 1px #dadada;	
+	}
+select {
+	width: 200px;
+	height: 40px;
+	padding: .8em .5em;
+	border: solid 1px #dadada;
+	font-size: 13px;
+	font-family: 'Montserrat', sans-serif;
 }
-
+select::-ms-expand {
+	display: none;
+}
 #mem_regist:hover{
 	font-weight: bolder;
 	border-bottom: 1px solid;
@@ -236,12 +243,26 @@ function checkSubmitValue(frm) {
 			
 			
 			
-			<form action="memListSearch" method="get" id=frm onsubmit='return checkSubmitValue(this)'>
-				 <div class=list_search_area>				 
-					    <input type="text" placeholder="아이디 또는 닉네임을 입력해주세요." id="listSearch" name="keyword">			    
-					    <button id="searchBtn" class="btn">검색</button>					
-				 </div>
-			 </form>
+			<form name="frm" id=frm method="post" action="memberSearchList" onsubmit='return checkSubmitValue(this)'>  
+			 <div class=list_search_area align="center">		
+			   <div class="select">
+			   		<select name="search_option">
+			        <option value="memId"
+						<c:if test="${map.search_option == 'memId'}">selected</c:if>>아이디</option>
+			        <option value="memNick" 
+						<c:if test="${map.search_option == 'memNick'}">selected</c:if>>닉네임</option>
+			        <option value="memName" 
+						<c:if test="${map.search_option == 'memName'}">selected</c:if>>이름</option>					
+					<option value="all" 
+						<c:if test="${map.search_option == 'all'}">selected</c:if>>아이디+닉네임+이름</option>
+			    	</select>
+			    </div>
+			     
+			    <input name="keyword" value="${map.keyword}" placeholder="검색할 정보를 입력해주세요." id="keyword">
+			    <input type="submit" value="조회" class="btn" id="searchBtn">
+			    </div>
+			</form>
+
 			 
 			<div class="contents">
 				<table>

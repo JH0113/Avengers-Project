@@ -33,6 +33,33 @@
 		where memId like '%'||#{keyword}||'%' or memNick like '%'||#{keyword}||'%'	
 </select>	 
 
+<sql id="search">
+        <choose>
+            <when test="search_option == 'all' ">
+                where (memId like '%' ||#{keyword}||'%'
+                    or memNick like '%'||#{keyword}||'%'
+                    or memName like '%'||#{keyword}||'%' )           
+            </when>
+            <otherwise>
+                where ${search_option} like '%'||#{keyword}||'%'           
+            </otherwise>
+        </choose>
+    </sql>
+
+
+<select id="listAll" resultType="model.MemberDTO"> 
+      select rn, memId, memNick, memName, memAddr, memPostNumber, memDetailAdd, memPhone, memReportedCount
+		from 	
+		(select ROWNUM rn, MEM_ID memId, MEM_NICK memNick, MEM_NAME memName, MEM_ADDR memAddr,
+		MEM_POSTNUMBER memPostNumber, MEM_DETAILADD memDetailAdd, MEM_PHONE memPhone,
+		MEM_REPORTED_COUNT memReportedCount 
+		from member )  
+            <include refid="search" />   
+</select>
+
+
+
+
 <select id="memberInfo" parameterType="string"	resultType="model.MemberDTO">
 		select MEM_ID memId, MEM_PW memPw, MEM_NAME memName, MEM_NICK memNick,
 		MEM_ADDR memAddr, MEM_POSTNUMBER memPostNumber, MEM_DETAILADD memDetailAdd, 

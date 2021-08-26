@@ -13,9 +13,9 @@ import service.memberPage.SellPageService;
 public class MysellbuyController {
 	@Autowired
 	SellPageService sellPageService;
-	@RequestMapping("mybuy")
+	@RequestMapping("mybuyPage")
 	public String mybuy() {
-		return "myPage/myBuy";
+		return "myPage/myBuyPage";
 	}
 	
 	
