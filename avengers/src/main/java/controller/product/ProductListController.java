@@ -11,4 +11,8 @@ public class ProductListController {
 	  System.out.println(ctgr);
       return "product/productListPage";
    }
+   @RequestMapping("productListPage2")
+   public String productPage() {
+      return "product/prodListPage2";
+   }
 }

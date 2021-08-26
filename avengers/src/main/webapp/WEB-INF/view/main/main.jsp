@@ -21,7 +21,10 @@
 	margin: 0;
 	padding: 0;
 }
-
+.web {
+	width: 100%;
+	height: 100%;
+}
 .web {
 	width: 100%;
 	height: 100%;
@@ -211,7 +214,7 @@ table {
 						<div class="dropdown-content">
 							<ul>
 								<li><a href="productListPage/1">all</a></li>
-								<li><a href="productListPage/11">cross/shoulder bag</a></li>
+								<li><a href="productListPage2">cross/shoulder bag</a></li>
 								<li><a href="productListPage/12">clutch/pouch bag</a></li>
 								<li><a href="productListPage/13">tote bag</a></li>
 								<li><a href="productListPage/14">belt bag</a></li>
