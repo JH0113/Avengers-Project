@@ -40,8 +40,13 @@ public class LoginRepository {
 		session.insert(statement, smsDTO);
 	}
 	
-	public AuthinfoDTO findSmsNum(String userPhone) {
+	public String findSmsNum(String userPhone) {
 		statement = namespace + ".findSmsNum";
 		return session.selectOne(statement, userPhone);
+	}
+	
+	public void delSmsNum(String userPhone) {
+		statement = namespace + ".delSmsNum";
+		session.delete(statement, userPhone);
 	}
 }

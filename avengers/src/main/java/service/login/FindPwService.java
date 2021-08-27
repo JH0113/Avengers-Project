@@ -148,12 +148,20 @@ public class FindPwService {
 				String[] phone = userPhone.split("-");
 				userPhone = phone[0]+phone[1]+phone[2];
 			}
-			AuthinfoDTO saveCode = loginRepository.findSmsNum(userPhone);
+			String saveCode = loginRepository.findSmsNum(userPhone); // db에서 불러온 저장된 코드
 			
-	        if(userPhone.equals(saveCode)){
-	            return "ok";
+			SmsDTO smsDTO = new SmsDTO();
+			String smsNum = smsDTO.getSmsNum(); // 회원이 쓴 코드
+			
+	        if(smsNum.equals(saveCode)){
+	            return "ok";        
 	        }else {
-	            return "no";
+	            return "no";    
 	        }
+	        
+	        //String saveCode2 = (String) saveCode;
+	        
+	        //loginRepository.delSmsNum(saveCode);
+//	        loginRepository.delSmsNum(userPhone);
 	 }
 }

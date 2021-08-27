@@ -83,11 +83,11 @@ public class FindPwController {
 //			out.println("<script language='javascript'>");
 //			out.println("alert('인증문자가 전송되었습니다.')");
 //			out.println("</script>");
-//			out.flush();
-			findPwService.smsCheck(memberDTO);
-			return "login/memPwModifyPage";
+//			out.flush();		
 		}
-		
+		findPwService.smsCheck(memberDTO); // 유저가 인증번호 입력하고 비교해야함
+		return "login/memPwModifyPage";
 	}
+	
 	
 }

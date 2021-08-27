@@ -332,6 +332,7 @@ li a {
                             </tr>
                         </tbody>
                     </table>
+                    
                     <div class="memPwFind-foot">
                         <button type="submit" class="memPwFind-submit">확인</button>
                         <button type="button" class="memPwFind-cancel" onclick="javascript:history.back();">취소</button>
