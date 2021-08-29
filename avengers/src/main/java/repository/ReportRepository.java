@@ -1,6 +1,7 @@
 package repository;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,6 +56,9 @@ public class ReportRepository {
 		statement = namespace + ".reportFinishDetail";
 		return sqlSession.selectOne(statement, reportNum);
 	}
-	
+	public List<ReportDTO> searchList(Map<String, Object> map){   
+		statement = namespace + ".searchList";
+	    return sqlSession.selectList(statement,map); 
+	}
 	
 }

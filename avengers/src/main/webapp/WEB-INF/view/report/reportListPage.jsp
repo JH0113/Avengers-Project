@@ -151,9 +151,9 @@ tr.border_bottom_th {
 
 .btn {
 	display: block;
-	width: 80px;
+	width: 70px;
 	margin: auto;
-	padding: 4px 0 4px;
+	padding: 7px;
 	font-size: 14px;
 	font-family: 'Montserrat', sans-serif;
 	text-align: center;
@@ -164,13 +164,35 @@ tr.border_bottom_th {
 }
 
 .list_search_area{
-	
 	display: flex;
-	width: 400px;
-	height: 30px;
-	margin: 10px;	
+	width: 600px;
+	height: 40px;
+	margin: 20px;	
 	padding: 10px;
 	border: 2px;
+}
+#keyword{
+	display: block;
+	position: relative;
+	width: 800px;
+	height: 40px;
+	padding-left: 20px;
+	margin-right: 5px;
+	font-size: 13px;
+	box-sizing: border-box;
+	z-index: 10;
+	border: solid 1px #dadada;	
+	}
+select {
+	width: 200px;
+	height: 40px;
+	padding: .8em .5em;
+	border: solid 1px #dadada;
+	font-size: 13px;
+	font-family: 'Montserrat', sans-serif;
+}
+select::-ms-expand {
+	display: none;
 }
 .list_search_area input {
 	padding: 5px;
@@ -228,17 +250,27 @@ function checkSubmitValue(frm) {
 			<div class="banner"></div>		
 			
 			
+			<form name="frm" id=frm method="post" action="reportSearch" onsubmit='return checkSubmitValue(this)'>  
+			 <div class=list_search_area align="center">		
+			   <div class="select">
+			   		<select name="search_option">
+			        <option value="reportedNum"
+						<c:if test="${map.search_option == 'reportedNum'}">selected</c:if>>신고번호</option>
+			        <option value="reporter" 
+						<c:if test="${map.search_option == 'reporter'}">selected</c:if>>신고자ID</option>
+			        <option value="memId" 
+						<c:if test="${map.search_option == 'memId'}">selected</c:if>>피신고자ID</option>			
+					<option value="all" 
+						<c:if test="${map.search_option == 'all'}">selected</c:if>>신고번호+신고자ID+피신고자ID</option>
+			    	</select>
+			    </div>
+			     
+			    <input name="keyword" value="${map.keyword}" placeholder="검색할 정보를 입력해주세요." id="keyword">
+			    <input type="submit" value="조회" class="btn" id="searchBtn">
+			    </div>
+			</form>
 			
-			<form action="reportSearch" method="get" id=frm onsubmit='return checkSubmitValue(this)'>
-				 <div class=list_search_area>				 
-					    <input type="text" placeholder="신고번호로 검색" id="reportSearch" name="keyword">			    
-					    <button id="searchBtn" class="btn">검색</button>					
-				 </div>
-			 </form>
-			 
-			 <form:form action="reportFinish" name="frm" method="post" onsubmit="return confirm('신고를 접수하시겠습니까?')">
- 			<input type="hidden" name="reportedNum" value="${dto.reportedNum }">
-			
+		
 			<div class="contents">
 			 
 				<table>
@@ -290,9 +322,8 @@ function checkSubmitValue(frm) {
 						<%@include file="../include/includePage.jsp"%></td>
 					</tr>
 				</table>
-				
+		
 			</div>
-			</form:form>
 		</div>
 
 		<div class="footer">

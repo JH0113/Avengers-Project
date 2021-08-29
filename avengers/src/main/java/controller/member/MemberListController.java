@@ -36,7 +36,7 @@ public class MemberListController {
 		memberListService.memberList(page,model);
 		return "member/memberListPage";
 	}	
-	@RequestMapping("memberSearchList") // keyword를 입력받아 검색한 리스트 > 페이지 이동 시켜줄거임
+	@RequestMapping("memberSearch") // keyword를 입력받아 검색한 리스트 > 페이지 이동 시켜줄거임
 	public ModelAndView search(
 			@RequestParam(defaultValue = "") String search_option,
 			@RequestParam(defaultValue = "") String keyword, Model model) throws Exception {           

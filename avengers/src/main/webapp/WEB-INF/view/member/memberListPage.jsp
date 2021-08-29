@@ -150,7 +150,7 @@ tr.border_bottom_th {
 
 .btn {
 	display: block;
-	width: 90px;
+	width: 70px;
 	margin: auto;
 	padding: 7px;
 	font-size: 14px;
@@ -172,7 +172,7 @@ tr.border_bottom_th {
 #keyword{
 	display: block;
 	position: relative;
-	width: 100%;
+	width: 800px;
 	height: 40px;
 	padding-left: 20px;
 	margin-right: 5px;
@@ -188,6 +188,10 @@ select {
 	border: solid 1px #dadada;
 	font-size: 13px;
 	font-family: 'Montserrat', sans-serif;
+}
+.list_search_area input {
+	padding: 5px;
+	width: 250px;
 }
 select::-ms-expand {
 	display: none;
@@ -240,10 +244,8 @@ function checkSubmitValue(frm) {
 		</div>
 		<div class="leg">
 			<div class="banner"></div>		
-			
-			
-			
-			<form name="frm" id=frm method="post" action="memberSearchList" onsubmit='return checkSubmitValue(this)'>  
+			 
+			<form name="frm" id=frm method="post" action="memberSearch" onsubmit='return checkSubmitValue(this)'>  
 			 <div class=list_search_area align="center">		
 			   <div class="select">
 			   		<select name="search_option">

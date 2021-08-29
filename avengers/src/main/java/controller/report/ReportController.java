@@ -1,5 +1,8 @@
 package controller.report;
 
+import java.util.HashMap;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,12 +11,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import command.ReportCommand;
+import model.ReportDTO;
 import service.report.ReportCancelService;
 import service.report.ReportDetailService;
 import service.report.ReportFinishService;
 import service.report.ReportListService;
+import service.report.ReportSearchService;
 import service.report.ReportUpdateService;
 
 @Controller
@@ -28,11 +34,33 @@ public class ReportController {
 	ReportCancelService reportCancelService;
 	@Autowired
 	ReportFinishService reportFinishService;
+	@Autowired
+	ReportSearchService reportSearchService;
 	
 	@RequestMapping("reportPage")
 	public String reportPage(@RequestParam(value = "page", defaultValue = "1") Integer page, Model model) { // 모든 리포트를 다 가져오기
 		reportListService.reportList(page, model);
 		return "report/reportListPage";
+	}
+	@RequestMapping("reportSearch")
+	public ModelAndView reportSearchPage(@RequestParam(defaultValue = "") String search_option,
+			@RequestParam(defaultValue = "") String keyword, Model model) throws Exception {    
+			List<ReportDTO> list = reportSearchService.reportSearch(search_option,keyword,model);
+			
+			ModelAndView mav = new ModelAndView();		
+			
+			HashMap<String, Object> map = new HashMap<>();		
+			
+			map.put("list",list);
+            map.put("list", list); //map에 자료 저장
+            map.put("search_option", search_option);
+            map.put("keyword",keyword);  
+            mav.setViewName("report/reportSearchPage");
+			mav.addObject("map", map); //ModelAndView에 map을 저장	
+			model.addAttribute("list",list); 
+            model.addAttribute("keyword",keyword); 
+            return mav; 
+			
 	}
 	@RequestMapping("reportDetailPage") // 신고 상세사유 보기로 클릭해서 들어가면 상세신고사유 포함하여 상세정보 보여줌
 	public String reportDetailPage(@RequestParam(value = "reportedNum") String reportedNum, Model model) {

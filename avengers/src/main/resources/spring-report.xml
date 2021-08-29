@@ -10,6 +10,7 @@
 	<bean class="controller.report.ReportController" />	 
 	<bean class="service.report.ReportListService" />
 	<bean class="service.report.ReportDetailService" />
+	<bean class="service.report.ReportSearchService" />
 	<bean class="service.report.ReportUpdateService" />
 	<bean class="service.report.ReportCancelService" />
 	<bean class="service.report.ReportFinishService" />
