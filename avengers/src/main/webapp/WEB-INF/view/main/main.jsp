@@ -311,8 +311,8 @@ table {
 				<div class="products">
 					<table>
 						<tr>
-							<td><img width="200" height="200" alt="product image"
-								src="images/1.png">
+							<td><a href="prodDetailPage"><img width="200" height="200" alt="product image"
+								src="images/1.png"></a>
 								<p>상품명</p>
 								<p>가격</p></td>
 							<td><img width="200" height="200" alt="product image"

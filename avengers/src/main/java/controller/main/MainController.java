@@ -13,4 +13,8 @@ public class MainController {
 	public String testPage() {
 		return "main/test";
 	}
+	@RequestMapping("prodDetailPage")
+	public String productDetail() {
+		return "product/prodDetailPage";
+	}
 }
