@@ -206,7 +206,7 @@ table {
       <div class="body">
          <div class="left_bar">
             <div class="logo">
-               <span id="logo_text"><a href="main">2nd shop</a><span>
+               <span id="logo_text"><a href="main">2nd shop</a></span>
             </div>
             <div class="category">
                <div class="dropdown">
@@ -214,7 +214,7 @@ table {
                   <div class="dropdown-content">
                      <ul>
                         <li><a href="test">all</a></li>
-                        <li><a href="productListPage">cross/shoulder bag</a></li>
+                        <li><a href="productListPage=prodNum=${dfsf }">cross/shoulder bag</a></li>
                         <li><a href="#">clutch/pouch bag</a></li>
                         <li><a href="#">tote bag</a></li>
                         <li><a href="#">belt bag</a></li>

@@ -138,6 +138,7 @@ li a {
 </head>
 
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="//naver.github.io/egjs-infinitegrid/release/latest/dist/infinitegrid.pkgd.min.js"></script>
 <script>
 	$(document).ready(function(event) {
 
@@ -153,7 +154,7 @@ li a {
 
 				for (var i = 0; i < 10; i++) {
 
-					$('<h1>Infinity Scroll11</h1>').appendTo('table');
+					$('<h1>박건희 바보</h1>').appendTo('table');
 
 				}
 
