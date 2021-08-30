@@ -18,8 +18,16 @@ public class ProductDTO {
 	String prodLocation;
 	String prodGuarantee;
 	String prodState;
+	String prodDate;
 	int prodQuantity;
 	
+	
+	public String getProdDate() {
+		return prodDate;
+	}
+	public void setProdDate(String prodDate) {
+		this.prodDate = prodDate;
+	}
 	public String getProdImage2() {
 		return prodImage2;
 	}
