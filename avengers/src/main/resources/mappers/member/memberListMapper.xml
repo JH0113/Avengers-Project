@@ -23,15 +23,7 @@
 </select>	 
 
 
-<select id="memberSearchList" resultType="model.MemberDTO" parameterType="string">
-	select rn, memId, memNick, memName, memAddr, memPostNumber, memDetailAdd, memPhone, memReportedCount
-	from 	
-		(select ROWNUM rn, MEM_ID memId, MEM_NICK memNick, MEM_NAME memName, MEM_ADDR memAddr,
-		MEM_POSTNUMBER memPostNumber, MEM_DETAILADD memDetailAdd, MEM_PHONE memPhone,
-		MEM_REPORTED_COUNT memReportedCount 
-		from member )  
-		where memId like '%'||#{keyword}||'%' or memNick like '%'||#{keyword}||'%'	
-</select>	 
+
 
 <sql id="search">
         <choose>

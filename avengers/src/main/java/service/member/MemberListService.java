@@ -39,8 +39,8 @@ public class MemberListService {
 		}
 	}
 	
-	public void memberListSearch(String keyword, Model model) {
-		List<MemberDTO> dtoList = memberListRepository.memberSearchList(keyword);
-		model.addAttribute("memberListSearchPage",dtoList);
-	}
+//	public void memberListSearch(String keyword, Model model) {
+//		List<MemberDTO> dtoList = memberListRepository.memberSearchList(keyword);
+//		model.addAttribute("memberListSearchPage",dtoList);
+//	}
 }
