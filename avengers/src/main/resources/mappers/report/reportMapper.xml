@@ -26,6 +26,37 @@
 		from mem_reported )order by reportDate desc)
 	where rn between #{startEndPageDTO.startRow} and #{startEndPageDTO.endRow}  		
 </select>
+ 
+
+<sql id="search">
+        <choose>
+            <when test="search_option == 'all' ">
+                where (reportedNum like '%' ||#{keyword}||'%'
+                    or reporter like '%'||#{keyword}||'%'
+                    or memId like '%'||#{keyword}||'%' )           
+            </when>
+            <otherwise>
+                where ${search_option} like '%'||#{keyword}||'%'           
+            </otherwise>
+        </choose>
+</sql>
+
+
+<select id="searchList" resultType="model.ReportDTO"> 
+     
+     select rn, reportedNum, reporter, memId, reportedReason, reportedReasonDetail, prodNum, reportDate, reportState
+    from
+    (select rownum rn, reportedNum, reporter, memId, reportedReason, reportedReasonDetail, prodNum, reportDate, reportState
+	from
+		(select 1, REPORTED_NUM reportedNum, REPORTER reporter, MEM_ID memId, REPORTED_REASON reportedReason, 
+				   REPORTED_REASON_DETAIL reportedReasonDetail, PROD_NUM prodNum, REPORTDATE reportDate, REPORT_STATE reportState
+		from PROD_REPORTED
+	union
+		select 1, REPORTED_NUM, REPORTER, MEM_ID, REPORTED_REASON, REPORTED_REASON_DETAIL, 0, REPORTDATE reportDate, REPORT_STATE reportState
+		from mem_reported )order by reportDate desc)
+	<include refid="search" />  
+</select>
+
 
 
 

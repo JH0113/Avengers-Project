@@ -25,11 +25,11 @@ public class MemberListRepository {
 		return sqlSession.selectOne(statement);
 	}
 
-	public List<MemberDTO> memberSearchList(String keyword) {
-		statement = namespace + ".memberSearchList";
-		return sqlSession.selectList(statement,keyword);
-	}
-	
+//	public List<MemberDTO> memberSearchList(String keyword) {
+//		statement = namespace + ".memberSearchList";
+//		return sqlSession.selectList(statement,keyword);
+//	}
+//	
 	public MemberDTO memberInfo(String memId) {
 		statement = namespace + ".memberInfo";
 		return sqlSession.selectOne(statement, memId);
