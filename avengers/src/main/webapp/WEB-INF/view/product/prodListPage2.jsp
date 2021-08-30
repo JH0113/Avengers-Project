@@ -24,8 +24,6 @@
 	padding: 0;
 }
 
-
-
 td {
 	padding: 10px;
 	text-align: center;
@@ -33,12 +31,19 @@ td {
 
 table {
 	margin: auto;
+	border: 1px solid;
+}
+
+td {
+	margin: auto;
+	border: 1px solid;
 }
 
 .web {
 	width: 100%;
-	height:100%;
+	height: 100%;
 }
+
 .body {
 	background-color: white;
 	position: fixed;
@@ -50,15 +55,15 @@ table {
 	height: 240px;
 	margin: auto;
 }
-.null{
+
+.null {
 	height: 240px;
 }
+
 .products {
 	width: 100%;
 	height: auto;
 }
-
-
 
 .left_bar {
 	height: 240px;
@@ -138,31 +143,39 @@ li a {
 </head>
 
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="//naver.github.io/egjs-infinitegrid/release/latest/dist/infinitegrid.pkgd.min.js"></script>
 <script>
-	$(document).ready(function(event) {
+	$(document)
+			.ready(
+					function(event) {
 
-		$(window).scroll(function() {
+						$(window)
+								.scroll(
+										function() {
 
-			var scrollHeight = $(window).scrollTop() + $(window).height();
+											var scrollHeight = $(window)
+													.scrollTop()
+													+ $(window).height();
 
-			var documentHeight = $(document).height();
+											var documentHeight = $(document)
+													.height();
 
-			//스크롤이 맨아래로 갔는지 아닌지 확인하는 if문
+											//스크롤이 맨아래로 갔는지 아닌지 확인하는 if문
 
-			if (scrollHeight == documentHeight) {
+											if (scrollHeight == documentHeight) {
 
-				for (var i = 0; i < 10; i++) {
+												for (var i = 0; i < 10; i++) {
 
-					$('<h1>박건희 바보</h1>').appendTo('table');
+													$('#mytable > tbody:last')
+															.append(
+																	'<tr><td>HELLO world</td><td>안녕</td><td>안녕</td><td>안녕</td></tr>');
 
-				}
+												}
 
-			}
+											}
 
-		});
+										});
 
-	});
+					});
 </script>
 
 <body>
@@ -193,101 +206,62 @@ li a {
 		</div>
 		<div class="null"></div>
 		<div class="products">
-			<table>
+			<table id="mytable">
 				<tr>
 					<td><img width="200" height="200" alt="product image"
 						src="images/1.png">
-						<p>상품명</p>
-						<p>가격</p></td>
 					<td><img width="200" height="200" alt="product image"
 						src="images/2.png">
-						<p>상품명</p>
-						<p>가격</p></td>
 					<td><img width="200" height="200" alt="product image"
 						src="images/3.png">
-						<p>상품명</p>
-						<p>가격</p></td>
 					<td><img width="200" height="200" alt="product image"
 						src="images/4.png">
-						<p>상품명</p>
-						<p>가격</p></td>
 				</tr>
 				<tr>
 					<td><img width="200" height="200" alt="product image"
 						src="images/1.png">
-						<p>상품명</p>
-						<p>가격</p></td>
 					<td><img width="200" height="200" alt="product image"
 						src="images/2.png">
-						<p>상품명</p>
-						<p>가격</p></td>
 					<td><img width="200" height="200" alt="product image"
 						src="images/3.png">
-						<p>상품명</p>
-						<p>가격</p></td>
 					<td><img width="200" height="200" alt="product image"
 						src="images/4.png">
-						<p>상품명</p>
-						<p>가격</p></td>
 				</tr>
 				<tr>
 					<td><img width="200" height="200" alt="product image"
 						src="images/1.png">
-						<p>상품명</p>
-						<p>가격</p></td>
 					<td><img width="200" height="200" alt="product image"
 						src="images/2.png">
-						<p>상품명</p>
-						<p>가격</p></td>
 					<td><img width="200" height="200" alt="product image"
 						src="images/3.png">
-						<p>상품명</p>
-						<p>가격</p></td>
 					<td><img width="200" height="200" alt="product image"
 						src="images/4.png">
-						<p>상품명</p>
-						<p>가격</p></td>
 				</tr>
 				<tr>
 					<td><img width="200" height="200" alt="product image"
 						src="images/1.png">
-						<p>상품명</p>
-						<p>가격</p></td>
 					<td><img width="200" height="200" alt="product image"
 						src="images/2.png">
-						<p>상품명</p>
-						<p>가격</p></td>
 					<td><img width="200" height="200" alt="product image"
 						src="images/3.png">
-						<p>상품명</p>
-						<p>가격</p></td>
 					<td><img width="200" height="200" alt="product image"
 						src="images/4.png">
-						<p>상품명</p>
-						<p>가격</p></td>
 				</tr>
 				<tr>
 					<td><img width="200" height="200" alt="product image"
 						src="images/1.png">
-						<p>상품명</p>
-						<p>가격</p></td>
 					<td><img width="200" height="200" alt="product image"
 						src="images/2.png">
-						<p>상품명</p>
-						<p>가격</p></td>
 					<td><img width="200" height="200" alt="product image"
 						src="images/3.png">
-						<p>상품명</p>
-						<p>가격</p></td>
 					<td><img width="200" height="200" alt="product image"
 						src="images/4.png">
-						<p>상품명</p>
-						<p>가격</p></td>
 				</tr>
+				<tbody></tbody>
 			</table>
 
 		</div>
 	</div>
-	
+
 </body>
 </html>
