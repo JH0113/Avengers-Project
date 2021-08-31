@@ -50,8 +50,7 @@ public class ReportController {
 			ModelAndView mav = new ModelAndView();		
 			
 			HashMap<String, Object> map = new HashMap<>();		
-			
-			map.put("list",list);
+
             map.put("list", list); //map에 자료 저장
             map.put("search_option", search_option);
             map.put("keyword",keyword);  

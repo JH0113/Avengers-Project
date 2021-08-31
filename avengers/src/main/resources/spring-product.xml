@@ -11,6 +11,7 @@
 	<bean class="controller.product.WishlistController" />
 	
 	<bean class="service.product.ProductRegistService" />
+	<bean class="service.product.ProductListService" />
 	
 	<bean class="repository.ProductRepository" />
 	

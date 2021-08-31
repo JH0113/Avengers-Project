@@ -20,8 +20,15 @@ public class ProductDTO {
 	String prodState;
 	String prodDate;
 	int prodQuantity;
+	String prodNum;
 	
 	
+	public String getProdNum() {
+		return prodNum;
+	}
+	public void setProdNum(String prodNum) {
+		this.prodNum = prodNum;
+	}
 	public String getProdDate() {
 		return prodDate;
 	}

@@ -29,4 +29,17 @@
     		sysdate,#{prodMethod},#{prodState},#{prodQuantity}
     		)
 	</insert>
+	
+	
+	<select id="productList" resultType="model.ProductDTO" parameterType="model.ProductDTO">
+		select PROD_NUM prodNum, MEM_ID memId, PROD_NAME prodName, PROD_PRICE prodPrice, 
+			PROD_IMAGE prodImage, PROD_DETAIL prodDetail,
+			PROD_BRAND prodBrand, PROD_KIND prodKind, PROD_LOCATION prodLocation,
+			PROD_GUARANTEE prodGuarantee, PROD_DATE prodDate, PROD_METHOD prodMethod,
+			PROD_STATE prodState, PROD_QUANTITY prodQuantity, PROD_IMAGE prodImage,
+			PROD_IMAGE2 prodImage2, PROD_IMAGE3 prodImage3
+			from products
+	</select>
+	 
+	
 </mapper>

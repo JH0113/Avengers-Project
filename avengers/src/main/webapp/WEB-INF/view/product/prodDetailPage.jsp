@@ -205,23 +205,26 @@ tr.border_bottom_th {
 		<div class="leg">
 			<div class="main">
 				<div class="noticeContents">
-
-					<table border="3" bordercolor="blue" width="1200" height = "300" align = "center">
-						<tr class="mainDetail" bgcolor="blue" align="center">
+					<table border="1" width="1200" height = "300" align = "center">
+						<tr class="mainDetail" bgcolor="lightgrey" align="center">
 							<td align="center" rowspan="6" width="60%">${productdto.prodImage }이미지</td>
 							<td width="40%">${productdto.prodName }제목</td>
 						</tr>
-						<tr ><td >${productdto.prodPrice }가격</td></tr>
-						<tr ><td>${productdto.prodMethod }거래방법</td></tr>
+						<tr><td >${productdto.prodPrice }가격</td></tr>
+						<tr><td>${productdto.prodMethod }거래방법</td></tr>
 						<tr><td>${productdto.prodBrand }브랜드</td></tr>
-						<tr ><td>${productdto.prodKind }카테고리</td></tr>
-						<tr ><td>${productdto.prodState }판매상태</td></tr>
+						<tr><td>${productdto.prodKind }카테고리</td></tr>
+						<tr><td>${productdto.prodState }판매상태</td></tr>
 					</table>
 					<table border="1" width="1200">
 						<tr><td width="70%">게시일</td><td rowspan="2" width="20%">이미지</td><td>직원 닉네임</td></tr>
-						<tr><td>갯수</td>                                                   <td>직원 아이디</td></tr>	
-						<tr><td >내용</td>                <td colspan=2></td></tr>						
+						<tr><td>갯수</td><td>직원 아이디</td></tr>	
+						<tr><td >내용</td><td colspan=2></td></tr>						
 					</table>
+					
+					
+					
+					
 					<!-- 
 					<table border="3" bordercolor="blue" width="500" height = "300" align = "center">					
 						<tr class="mainContext">

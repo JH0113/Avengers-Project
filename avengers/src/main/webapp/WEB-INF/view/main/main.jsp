@@ -183,21 +183,27 @@ li a {
 	background-image: url("images/2nd.png");
 	background-size: 100% 400px;
 }
-
 .products {
-	width: 100%;
+	width: 950px;
 	height: 600px;
 }
-
 td {
 	padding: 10px;
-	text-align: center;
+	text-align: center; 
 }
 
-table {
-	margin: auto;
+.ellipsis_multi {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 15px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	display:-webkit-box;
+	-webkit-line-clamp:2; /* 라인수 */
+	-webkit-box-orient:vertical;
+	word-wrap:break-word;
+	line-height:18px;
+	height:36px; /* height = line-height * 줄수 : 비wekkit 계열 */
 }
-
 
 </style>
 </head>
@@ -309,45 +315,25 @@ table {
 				</div>
 				<div class="banner"></div>
 				<div class="products">
-					<table>
+					<table width="950">
 						<tr>
-							<td><a href="prodDetailPage"><img width="200" height="200" alt="product image"
-								src="images/1.png"></a>
-								<p>상품명</p>
-								<p>가격</p></td>
-							<td><img width="200" height="200" alt="product image"
-								src="images/2.png">
-								<p>상품명</p>
-								<p>가격</p></td>
-							<td><img width="200" height="200" alt="product image"
-								src="images/3.png">
-								<p>상품명</p>
-								<p>가격</p></td>
-							<td><img width="200" height="200" alt="product image"
-								src="images/4.png">
-								<p>상품명</p>
-								<p>가격</p></td>
-						</tr>
-						<tr>
-							<td><img width="200" height="200" alt="product image"
-								src="images/1.png">
-								<p>상품명</p>
-								<p>가격</p></td>
-							<td><img width="200" height="200" alt="product image"
-								src="images/2.png">
-								<p>상품명</p>
-								<p>가격</p></td>
-							<td><img width="200" height="200" alt="product image"
-								src="images/3.png">
-								<p>상품명</p>
-								<p>가격</p></td>
-							<td><img width="200" height="200" alt="product image"
-								src="images/4.png">
-								<p>상품명</p>
-								<p>가격</p></td>
-						</tr>
-						<tr>
-
+							<c:forEach items="${productsList }" var="dto" varStatus="cnt">
+								
+								<td width="200px">
+									<a href="prodDetailPage?prodNum=${dto.prodNum }">  
+									<c:if test="${dto.prodImage != null }">
+									<img width="200" height="200" src="upload/${dto.prodImage }" /><br/>
+									</c:if>
+									
+									<p class="ellipsis_multi">${dto.prodName }</p><br/>
+									<p class="ellipsis_multi">${dto.prodPrice }원</p></a>
+									 
+								</td>
+								<c:if test="${cnt.count % 4 == 0 }">
+									</tr><tr>
+								</c:if>
+								
+							</c:forEach>
 						</tr>
 					</table>
 				</div>
