@@ -163,26 +163,21 @@ li a {
 
 											var documentHeight = $(document)
 													.height();
-
 											//스크롤이 맨아래로 갔는지 아닌지 확인하는 if문
-
 											if (scrollHeight == documentHeight) {
-
-												for (var i = 0; i < 10; i++) {
-
+												for (var i = 0; i < 3; i++) {
 													$('#mytable > tbody:last')
 															.append(
 																	'<tr><td><img width="200" height="200" src="images/1.png"></td>'
-																	+'<td><img width="200" height="200" src="images/1.png"></td>'
-																	+'<td><img width="200" height="200" src="images/1.png"></td>'
-																	+'<td><img width="200" height="200" src="images/1.png"></td></tr>');
+																			+ '<td><img width="200" height="200" src="images/1.png"></td>'
+																			+ '<td><img width="200" height="200" src="images/1.png"></td>'
+																			+ '<td><img width="200" height="200" src="images/1.png"></td></tr>');
 
 												}
 
 											}
 
 										});
-
 					});
 </script>
 
@@ -215,57 +210,39 @@ li a {
 		<div class="null"></div>
 		<div class="products">
 			<table id="mytable">
+				<c:forEach items="${productsList }" var="dto" varStatus="cnt">
+
+					<td width="200px">
+					<a href="prodDetailPage?prodNum=${dto.prodNum }"> 
+					<c:if test="${dto.prodImage != null }">
+								<img width="200" height="200" src="upload/${dto.prodImage }" />
+							</c:if></td>
+					<c:if test="${cnt.count % 4 == 0 }">
+						</tr>
+						<tr>
+					</c:if>
+
+				</c:forEach>
 				<tr>
-					<td><img width="200" height="200" alt="product image"
-						src="images/1.png">
-					<td><img width="200" height="200" alt="product image"
-						src="images/2.png">
-					<td><img width="200" height="200" alt="product image"
-						src="images/3.png">
-					<td><img width="200" height="200" alt="product image"
-						src="images/4.png">
-				</tr>
-				<tr>
-					<td><img width="200" height="200" alt="product image"
-						src="images/1.png">
-					<td><img width="200" height="200" alt="product image"
-						src="images/2.png">
-					<td><img width="200" height="200" alt="product image"
-						src="images/3.png">
-					<td><img width="200" height="200" alt="product image"
-						src="images/4.png">
-				</tr>
-				<tr>
-					<td><img width="200" height="200" alt="product image"
-						src="images/1.png">
-					<td><img width="200" height="200" alt="product image"
-						src="images/2.png">
-					<td><img width="200" height="200" alt="product image"
-						src="images/3.png">
-					<td><img width="200" height="200" alt="product image"
-						src="images/4.png">
-				</tr>
-				<tr>
-					<td><img width="200" height="200" alt="product image"
-						src="images/1.png">
-					<td><img width="200" height="200" alt="product image"
-						src="images/2.png">
-					<td><img width="200" height="200" alt="product image"
-						src="images/3.png">
-					<td><img width="200" height="200" alt="product image"
-						src="images/4.png">
-				</tr>
-				<tr>
-					<td><img width="200" height="200" alt="product image"
-						src="images/1.png">
-					<td><img width="200" height="200" alt="product image"
-						src="images/2.png">
-					<td><img width="200" height="200" alt="product image"
-						src="images/3.png">
-					<td><img width="200" height="200" alt="product image"
-						src="images/4.png">
-				</tr>
+                     <td><img width="200" height="200" alt="product image"
+                        src="images/1.png">
+                        <p>상품명</p>
+                        <p>가격</p></td>
+                     <td><img width="200" height="200" alt="product image"
+                        src="images/2.png">
+                        <p>상품명</p>
+                        <p>가격</p></td>
+                     <td><img width="200" height="200" alt="product image"
+                        src="images/3.png">
+                        <p>상품명</p>
+                        <p>가격</p></td>
+                     <td><img width="200" height="200" alt="product image"
+                        src="images/4.png">
+                        <p>상품명</p>
+                        <p>가격</p></td>
+                  </tr>
 				<tbody></tbody>
+
 			</table>
 
 		</div>
