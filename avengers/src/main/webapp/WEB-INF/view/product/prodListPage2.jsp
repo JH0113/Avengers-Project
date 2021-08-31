@@ -123,6 +123,11 @@ li a {
 	margin-top: 24px;
 }
 
+.img {
+	width: 200px;
+	height: 200px;
+}
+
 .search_area form input {
 	border: none;
 	border-bottom: solid 1px;
@@ -167,7 +172,10 @@ li a {
 
 													$('#mytable > tbody:last')
 															.append(
-																	'<tr><td>HELLO world</td><td>안녕</td><td>안녕</td><td>안녕</td></tr>');
+																	'<tr><td><img width="200" height="200" src="images/1.png"></td>'
+																	+'<td><img width="200" height="200" src="images/1.png"></td>'
+																	+'<td><img width="200" height="200" src="images/1.png"></td>'
+																	+'<td><img width="200" height="200" src="images/1.png"></td></tr>');
 
 												}
 
