@@ -1,7 +1,9 @@
 package command;
 
+import org.springframework.web.bind.annotation.RequestParam;
+
 public class MemberCommand {
-	String memId;
+	String memId;  
 	String memNick;
 	String memPw;
 	String memPwCon;

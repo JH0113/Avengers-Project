@@ -361,13 +361,14 @@ textarea {
 							name="prodBrand">
 								<option value="a">SAINT LAURENT</option>
 								<option value="b">PRADA</option>
-								<option value="v">GUCCI</option>
-								<option value="d">MAISON MARGIELA</option>
-								<option value="e">BOTTEGA VENETA</option>
-								<option value="f">VALENTINO</option>
-								<option value="g">BALENCIAGA</option>
-								<option value="h">LOUIS VUITTON</option>
-								<option value="i">others</option>
+								<option value="c">BURBERRY</option>
+								<option value="d">GUCCI</option>
+								<option value="e">MAISON MARGIELA</option>
+								<option value="f">BOTTEGA VENETA</option>
+								<option value="g">VALENTINO</option>
+								<option value="h">BALENCIAGA</option>
+								<option value="i">LOUIS VUITTON</option>
+								<option value="j">others</option>
 						</select> <span id="select_text">KINDS :</span> <select name="prodKind">
 								<optgroup label="Bags">
 									<option value="11">cross/shoulder bag</option>

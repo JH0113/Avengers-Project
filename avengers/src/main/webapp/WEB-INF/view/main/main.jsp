@@ -219,15 +219,15 @@ td {
 						<span id="menu_text">Bags</span>
 						<div class="dropdown-content">
 							<ul>
-								<li><a href="productListPage/1">all</a></li>
-								<li><a href="productListPage2">cross/shoulder bag</a></li>
-								<li><a href="productListPage/12">clutch/pouch bag</a></li>
-								<li><a href="productListPage/13">tote bag</a></li>
-								<li><a href="productListPage/14">belt bag</a></li>
-								<li><a href="productListPage/15">bucket bag</a></li>
-								<li><a href="productListPage/16">backpack</a></li>
-								<li><a href="productListPage/17">suitcase</a></li>
-								<li><a href="productListPage/18">etc</a></li>
+								<li><a href="productListPage?prodKind=10">all</a></li>
+								<li><a href="productListPage?prodKind=11">cross/shoulder bag</a></li>
+								<li><a href="productListPage2">clutch/pouch bag</a></li>
+								<li><a href="productListPage?prodKind=13">tote bag</a></li>
+								<li><a href="productListPage?prodKind=14">belt bag</a></li>
+								<li><a href="productListPage?prodKind=15">bucket bag</a></li>
+								<li><a href="productListPage?prodKind=16">backpack</a></li>
+								<li><a href="productListPage?prodKind=17">suitcase</a></li>
+								<li><a href="productListPage?prodKind=18">etc</a></li>
 							</ul>
 						</div>
 					</div>
@@ -235,13 +235,13 @@ td {
 						<span id="menu_text">Shoes</span>
 						<div class="dropdown-content">
 							<ul>
-								<li><a href="productListPage">all</a></li>
-								<li><a href="productListPage">heels</a></li>
-								<li><a href="productListPage">flat</a></li>
-								<li><a href="productListPage">sandal/slippers</a></li>
-								<li><a href="productListPage">boots</a></li>
-								<li><a href="productListPage">loafer</a></li>
-								<li><a href="productListPage">dress shoes</a></li>
+								<li><a href="productListPage?prodKind=20">all</a></li>
+								<li><a href="productListPage?prodKind=21">heels</a></li>
+								<li><a href="productListPage?prodKind=22">flat</a></li>
+								<li><a href="productListPage?prodKind=23">sandal/slippers</a></li>
+								<li><a href="productListPage?prodKind=24">boots</a></li>
+								<li><a href="productListPage?prodKind=25">loafer</a></li>
+								<li><a href="productListPage?prodKind=26">dress shoes</a></li>
 							</ul>
 						</div>
 					</div>
@@ -249,12 +249,12 @@ td {
 						<span id="menu_text">Jewelry</span>
 						<div class="dropdown-content">
 							<ul>
-								<li><a href="productListPage">all</a></li>
-								<li><a href="productListPage">bracelet</a></li>
-								<li><a href="productListPage">brooch/pin</a></li>
-								<li><a href="productListPage">earring</a></li>
-								<li><a href="productListPage">necklace</a></li>
-								<li><a href="productListPage">ring</a></li>
+								<li><a href="productListPage?prodKind=30">all</a></li>
+								<li><a href="productListPage?prodKind=31">bracelet</a></li>
+								<li><a href="productListPage?prodKind=32">brooch/pin</a></li>
+								<li><a href="productListPage?prodKind=33">earring</a></li>
+								<li><a href="productListPage?prodKind=34">necklace</a></li>
+								<li><a href="productListPage?prodKind=35">ring</a></li>
 							</ul>
 						</div>
 					</div>
@@ -262,15 +262,16 @@ td {
 						<span id="menu_text">BRAND</span>
 						<div class="dropdown-content">
 							<ul>
-								<li><a href="productListPage">SAINT LAURENT</a></li>
-								<li><a href="productListPage">PRADA</a></li>
-								<li><a href="productListPage">BURBERRY</a></li>
-								<li><a href="productListPage">GUCCI</a></li>
-								<li><a href="productListPage">MAISON MARGIELA</a></li>
-								<li><a href="productListPage">BOTTEGA VENETA</a></li>
-								<li><a href="productListPage">VALENTINO</a></li>
-								<li><a href="productListPage">BALENCIAGA</a></li>
-								<li><a href="productListPage">LOUIS VUITTON</a></li>
+								<li><a href="productListPage?prodKind=a">SAINT LAURENT</a></li>
+								<li><a href="productListPage?prodKind=b">PRADA</a></li>
+								<li><a href="productListPage?prodKind=c">BURBERRY</a></li>
+								<li><a href="productListPage?prodKind=d">GUCCI</a></li>
+								<li><a href="productListPage?prodKind=e">MAISON MARGIELA</a></li>
+								<li><a href="productListPage?prodKind=f">BOTTEGA VENETA</a></li>
+								<li><a href="productListPage?prodKind=g">VALENTINO</a></li>
+								<li><a href="productListPage?prodKind=h">BALENCIAGA</a></li>
+								<li><a href="productListPage?prodKind=i">LOUIS VUITTON</a></li>
+								<li><a href="productListPage?prodKind=j">athers..</a></li>
 							</ul>
 						</div>
 					</div>

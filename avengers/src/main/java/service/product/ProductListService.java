@@ -12,20 +12,19 @@ import repository.ProductRepository;
 public class ProductListService {
 	@Autowired
 	ProductRepository productRepository;
-	public void productList(Model model) {
-		
-		ProductDTO dto = new ProductDTO();
-		
-		List<ProductDTO> list = productRepository.productList(dto);
-		model.addAttribute("productsList",list);
-		
+
+	public void productList(String ctgr, Model model) {
+		model.addAttribute("ctgr", ctgr);
+		List<ProductDTO> list = productRepository.productList(ctgr);
+		model.addAttribute("list", list);
 	}
-	public void productListAll(Model model) {
+
+	public void productListMain(Model model) {
 		ProductDTO dto = new ProductDTO();
-		
-		List<ProductDTO> list = productRepository.productList(dto);
+
+		List<ProductDTO> list = productRepository.productListMain(dto);
 		Collections.shuffle(list);
-		model.addAttribute("productsList",list);
-		
+		model.addAttribute("productsList", list);
+
 	}
 }

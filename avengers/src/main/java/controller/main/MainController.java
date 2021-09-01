@@ -13,7 +13,7 @@ public class MainController {
 	ProductListService productListService;
 	@RequestMapping("main")
 	public String mainPage(Model model) {
-		productListService.productList(model);
+		productListService.productListMain(model);
 		return "main/main";
 	}
 	@RequestMapping("test")

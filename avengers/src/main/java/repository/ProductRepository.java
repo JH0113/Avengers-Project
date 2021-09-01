@@ -10,16 +10,22 @@ import model.ProductDTO;
 public class ProductRepository {
 	@Autowired
 	SqlSession sqlSession;
-	
+
 	String namespace = "productMapper";
 	String statement;
-	
+
 	public void productRegist(ProductDTO productDTO) {
 		statement = namespace + ".productRegist";
 		sqlSession.insert(statement, productDTO);
 	}
-	public List<ProductDTO> productList(ProductDTO dto){
+
+	public List<ProductDTO> productList(String ctgr) {
 		statement = namespace + ".productList";
-		return sqlSession.selectList(statement,dto);
+		return sqlSession.selectList(statement, ctgr);
+	}
+
+	public List<ProductDTO> productListMain(ProductDTO dto) {
+		statement = namespace + ".productListMain";
+		return sqlSession.selectList(statement, dto);
 	}
 }
