@@ -351,11 +351,9 @@ td {
 								<td width="200px"><a
 									href="prodDetailPage?prodNum=${dto.prodNum }"> <c:if
 											test="${dto.prodImage == null }">
-											<img width="200" height="200" alt="product image"
-												src="images/noimage.png">
+											<img width="200" height="200" src="images/noimage.png">
 										</c:if> <c:if test="${dto.prodImage != null }">
-											<img width="200" height="200" alt="product image"
-												src="upload/${dto.prodImage }">
+											<img width="200" height="200" src="upload/${dto.prodImage }">
 										</c:if>
 
 										<p class="ellipsis_multi">${dto.prodName }</p> <br />
