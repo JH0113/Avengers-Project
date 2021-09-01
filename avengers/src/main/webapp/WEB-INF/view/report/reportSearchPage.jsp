@@ -168,6 +168,10 @@ h2{
 	background-color: #404040;
 	color: #ffffff;
 }
+#clickText:hover{
+	font-weight: bolder;
+	border-bottom: 1px solid;
+}
 </style>
 
  
@@ -215,13 +219,17 @@ h2{
 					<c:forEach items="${list }" var="dto">
 						<tr class="border_bottom">
 							<td>${dto.reportedNum }</td>
-							<td>${dto.reporter }</td>
-							<td>${dto.memId }</td>
-							<td>${dto.reportedReason }</td>
-							<td>${dto.reportedReasonDetail }</td>
+							<td><a id="clickText" href="memberInfoPage?memId=${dto.reporter }"><span id="detail">${dto.reporter }</span></a></td>
+							<td><a id="clickText" href="memberInfoPage?memId=${dto.memId }"><span id="detail">${dto.memId }</span></a></td>
+							<td>[${dto.reportedReason }]</td> 
 							<td>${dto.prodNum }</td>
-							<td>${dto.reportDate }</td>
-							<td>${dto.reportState }</td>
+							<td><fmt:formatDate value="${dto.reportDate }" type="date" pattern="yyyy-MM-dd  HH:mm:ss" /></td>
+							<td><c:if test="${dto.reportState == 0}">
+								<a id="clickText" href="reportDetailPage?reportedNum=${dto.reportedNum }"><span style="color: red">처리 전</span></a>
+								</c:if>
+								<c:if test="${dto.reportState != 0}">
+								<a id="clickText" href="reportedNumDetail?reportedNum=${dto.reportedNum }">처리 완료 </a>
+								</c:if></td>
 						</tr>					
 					</c:forEach> 					
 					<tr><td colspan="7" align="center"><input type="button" class="btn" value="회원 리스트로 돌아가기" onclick="javascript:location.href='memberListPage'"></td></tr>
