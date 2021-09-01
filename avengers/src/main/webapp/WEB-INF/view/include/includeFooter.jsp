@@ -48,7 +48,7 @@ h3 {
 						<li><a id="emp_regist" href="empRegistPage">직원등록</a></li>
 					</ul>
 					<ul>
-						<li></li>
+						<li>고객센터 : 010-3265-7411</li>
 					</ul>
 					<ul>
 						<li>Copyright © 2nd shop All Rights Reserved.</li>
