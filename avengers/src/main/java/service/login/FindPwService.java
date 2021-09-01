@@ -72,7 +72,7 @@ public class FindPwService {
 	/////////////////////////////////////////////////////
 	 
 	 
-	 public String sendSms(MemberDTO memberDTO, Errors errors) {
+	 public String sendSms(MemberDTO memberDTO, HttpSession session, Errors errors) {
 		 
 		 	// sender
 		 	String sender = "01089972194";
@@ -91,6 +91,7 @@ public class FindPwService {
 	        smsDTO.setSmsNum(smsNum);
 	        smsDTO.setMemPhone(memPhone);
 	        loginRepository.sendSms(smsDTO);
+	        session.setAttribute("dto", smsDTO);
 
 	        // 문자 보내기 
 	        String hostname = "api.bluehouselab.com";
@@ -116,7 +117,6 @@ public class FindPwService {
 	            httpPost.setHeader("Content-type", "application/json; charset=utf-8");
 
 	            //문자에 대한 정보
-//	            String json = "{\"sender\":\"보내는 사람\",\"receivers\":[\"" + memPhone+ "\"],\"content\":\"문자 내용\"}";
 	            String json = "{\"sender\":\""+sender+"\",\"receivers\":[\""+memPhone+"\"],\"content\":\""+rand+"\"}";
 
 
@@ -140,28 +140,5 @@ public class FindPwService {
 	        return "true";
 
 	}
-	 
-	 public String smsCheck(MemberDTO memberDTO) {
-		 
-		 	String userPhone = memberDTO.getMemPhone();
-		 	if(userPhone.contains("-")) {
-				String[] phone = userPhone.split("-");
-				userPhone = phone[0]+phone[1]+phone[2];
-			}
-			String saveCode = loginRepository.findSmsNum(userPhone); // db에서 불러온 저장된 코드
-			
-			SmsDTO smsDTO = new SmsDTO();
-			String smsNum = smsDTO.getSmsNum(); // 회원이 쓴 코드
-			
-	        if(smsNum.equals(saveCode)){
-	            return "ok";        
-	        }else {
-	            return "no";    
-	        }
-	        
-	        //String saveCode2 = (String) saveCode;
-	        
-	        //loginRepository.delSmsNum(saveCode);
-//	        loginRepository.delSmsNum(userPhone);
-	 }
+
 }

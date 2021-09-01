@@ -8,7 +8,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>sms check</title>
+<title>sms check2</title>
 <link rel="stylesheet" href="style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -257,26 +257,6 @@ li a {
 	margin-left: 10px;
 }
 </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.js"></script>
-<script>
-function sendSms() {
-    $.ajax({
-      url: "<%=request.getContextPath()%>/sendSms",
-      data: {
-        receiver: $("#memPhone").val()
-      },
-      type: "post",
-      success: function(result) {
-        if (result == "true") {
-          console.log(result); 
-        } else {
-          alert("인증번호 전송 실패");
-        }
-      }
-    });
-  }
-
-</script>
 </head>
 <body>
 	<div class="web">
@@ -320,28 +300,25 @@ function sendSms() {
 		</div>
 
 		<div class="leg">
-		<form:form action="smsCheck" method="post" name="frm" modelAttribute="MemberDTO">
-			<h1 class="memPwFind-title">비밀번호 찾기</h1>
-                <p class="memPwFind-msg">비밀번호의 경우 암호화 저장되어 분실 시 찾아드릴 수 없는 정보 입니다.</p>
-                <p class="memPwFind-msg">본인 확인을 통해 비밀번호를 재설정 하실 수 있습니다.</p>
+		<form:form action="smsCheck2" method="post" name="frm" modelAttribute="MemberDTO">
+			<h1 class="memPwFind-title">인증번호 입력</h1>
+                <p class="memPwFind-msg">인증번호를 입력해주세요.</p>
                     <table class="memPwFind-table">
                         <tbody>
-                             <tr>
-                                <th scope="row">전화번호</th>
+                            <tr>
+                                <th scope="row">인증하기</th>
                                 <td>
-                                <div class="input_box">
-                                    <input class="input" type="text" name="memPhone" id="memPhone"/>
-                        		</div>
-                        		<div class="error_box">
-                              		<form:errors id="error_text" path = "memPhone" />
-                        		</div>
-                                <button type="submit" class="memPwFind-Phone-submit" onclick="sendSms();">인증번호 받기</button>
+                                    <div class="input_box">
+                                        <input class="input" type="text" name="smsNum" id="smsNum"/>
+                                    </div>
+                                    <div class="error_box">
+                                        <form:errors id="error_text" path = "smsNum"/>
+                                    </div>
+                                    <button type="submit" class="memPwFind-authentication-submit" onclick="phoneCheck();">확인</button>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                    
-                    
 		</form:form>
 		</div>
 		</div>
@@ -350,6 +327,25 @@ function sendSms() {
 			<%@include file="../include/includeFooter.jsp" %>
 		</div>
 	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.js"></script>
+	<script>
 
+    function phoneCheck() {
+      $.ajax({
+        url: "<%=request.getContextPath()%>/smsCheck",
+        type: "post",
+        data: {
+          code: $("#smsNum").val()
+        },
+        success: function(result) {
+          if (result == "ok") {
+            alert("번호 인증 성공");
+          } else {
+            alert("번호 인증 실패");
+          }
+        }
+      });
+    }
+	</script>
 </body>
 </html>

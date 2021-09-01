@@ -40,7 +40,7 @@
 	<select id="findSmsNum" resultType="string">
 		select sms_num
 		from sms
-		where mem_phone = #{userPhone}
+		where mem_phone = #{phoneNum}
 	</select>
 	
 	<delete id="delSmsNum" parameterType="string">

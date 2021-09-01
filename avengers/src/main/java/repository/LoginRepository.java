@@ -40,9 +40,9 @@ public class LoginRepository {
 		session.insert(statement, smsDTO);
 	}
 	
-	public String findSmsNum(String userPhone) {
+	public String findSmsNum(String phoneNum) {
 		statement = namespace + ".findSmsNum";
-		return session.selectOne(statement, userPhone);
+		return session.selectOne(statement, phoneNum);
 	}
 	
 	public void delSmsNum(String userPhone) {

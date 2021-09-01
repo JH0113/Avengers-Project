@@ -13,4 +13,5 @@
 	<bean class="controller.login.FindPwController" />
 	<bean class="service.login.FindIdService" />
 	<bean class="service.login.FindPwService" />
+	<bean class="service.login.SmsCheckService" />
 </beans>

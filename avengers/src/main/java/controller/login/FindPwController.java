@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import command.MemberCommand;
 import model.MemberDTO;
+import model.SmsDTO;
 import service.login.FindPwService;
+import service.login.SmsCheckService;
 import validator.FindPwValidator;
 import validator.MemberPwModifyValidator;
 import validator.MemberValidator;
@@ -25,6 +27,8 @@ import validator.MemberValidator;
 public class FindPwController {
 	@Autowired
 	FindPwService findPwService;
+	@Autowired
+	SmsCheckService smsCheckService;
 	@RequestMapping("findPwPage") // 본인 확인 페이지
 	public String findPwPage() {
 		return "login/findPwPage";
@@ -63,7 +67,6 @@ public class FindPwController {
 			
 			return "login/loginPage";
 		}
-		
 	}
 	
 	@RequestMapping("smsCheckPage") // sms 문자인증 페이지
@@ -71,10 +74,11 @@ public class FindPwController {
 		return "login/smsCheckPage";
 	}
 	
-	@ResponseBody
+
 	@RequestMapping(value="smsCheck",method = RequestMethod.POST) // sms 문자인증 확인
-	public String smsCheck(MemberDTO memberDTO,Errors errors, HttpServletResponse response) throws IOException {
-		findPwService.sendSms(memberDTO, errors);
+	public String smsCheck(MemberDTO memberDTO,Errors errors, HttpSession session, HttpServletResponse response){
+		System.out.println(memberDTO.getMemPhone());
+		findPwService.sendSms(memberDTO, session,  errors);
 		if (errors.hasErrors()) {
 			return "login/smsCheckPage";
 		} else {
@@ -85,7 +89,21 @@ public class FindPwController {
 //			out.println("</script>");
 //			out.flush();		
 		}
-		findPwService.smsCheck(memberDTO); // 유저가 인증번호 입력하고 비교해야함
+		
+		return "login/smsNumPage";
+	}
+	
+	@RequestMapping("smsNumPage")
+	public String smsNumPage() {
+		return "login/smsNumPage";
+	}
+	
+	@RequestMapping(value="smsCheck2",method = RequestMethod.POST)
+	public String smsNumCheck(MemberDTO memberDTO, Errors errors, HttpSession session) {
+		smsCheckService.smsCheck(memberDTO, session, errors); // 유저가 인증번호 입력하고 비교해야함
+		if (errors.hasErrors()) {
+			return "login/smsNumPage";
+		}
 		return "login/memPwModifyPage";
 	}
 	
