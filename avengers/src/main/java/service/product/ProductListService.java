@@ -14,6 +14,7 @@ public class ProductListService {
 	ProductRepository productRepository;
 
 	public void productList(String ctgr, Model model) {
+		System.out.println(ctgr);
 		model.addAttribute("ctgr", ctgr);
 		List<ProductDTO> list = productRepository.productList(ctgr);
 		model.addAttribute("list", list);

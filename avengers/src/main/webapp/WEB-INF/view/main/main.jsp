@@ -318,7 +318,7 @@ td {
 				<div class="products">
 					<table width="950">
 						<tr>
-							<c:forEach items="${productsList }" var="dto" varStatus="cnt">
+							<c:forEach items="${productsList }" var="dto" varStatus="cnt" end="7">
 								
 								<td width="200px">
 									<a href="prodDetailPage?prodNum=${dto.prodNum }">  
