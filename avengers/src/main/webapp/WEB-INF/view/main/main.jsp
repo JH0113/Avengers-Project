@@ -21,10 +21,12 @@
 	margin: 0;
 	padding: 0;
 }
+
 .web {
 	width: 100%;
 	height: 100%;
 }
+
 .web {
 	width: 100%;
 	height: 100%;
@@ -183,29 +185,38 @@ li a {
 	background-image: url("images/2nd.png");
 	background-size: 100% 400px;
 }
+
 .products {
 	width: 950px;
 	height: 600px;
 }
+
 td {
 	padding: 10px;
-	text-align: center; 
+	text-align: center;
 }
 
 .ellipsis_multi {
 	font-family: 'Montserrat', sans-serif;
 	font-size: 15px;
-	overflow:hidden;
-	text-overflow:ellipsis;
-	display:-webkit-box;
-	-webkit-line-clamp:2; /* 라인수 */
-	-webkit-box-orient:vertical;
-	word-wrap:break-word;
-	line-height:18px;
-	height:36px; /* height = line-height * 줄수 : 비wekkit 계열 */
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2; /* 라인수 */
+	-webkit-box-orient: vertical;
+	word-wrap: break-word;
+	line-height: 18px;
+	height: 36px; /* height = line-height * 줄수 : 비wekkit 계열 */
 }
-
 </style>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#search").click(function(){
+			$("#frm").submit();
+		});
+	});
+</script>
 </head>
 <body>
 	<div class="">
@@ -220,7 +231,8 @@ td {
 						<div class="dropdown-content">
 							<ul>
 								<li><a href="productListPage?prodKind=10">all</a></li>
-								<li><a href="productListPage?prodKind=11">cross/shoulder bag</a></li>
+								<li><a href="productListPage?prodKind=11">cross/shoulder
+										bag</a></li>
 								<li><a href="productListPage2">clutch/pouch bag</a></li>
 								<li><a href="productListPage?prodKind=13">tote bag</a></li>
 								<li><a href="productListPage?prodKind=14">belt bag</a></li>
@@ -266,7 +278,8 @@ td {
 								<li><a href="productListPage?prodKind=b">PRADA</a></li>
 								<li><a href="productListPage?prodKind=c">BURBERRY</a></li>
 								<li><a href="productListPage?prodKind=d">GUCCI</a></li>
-								<li><a href="productListPage?prodKind=e">MAISON MARGIELA</a></li>
+								<li><a href="productListPage?prodKind=e">MAISON
+										MARGIELA</a></li>
 								<li><a href="productListPage?prodKind=f">BOTTEGA VENETA</a></li>
 								<li><a href="productListPage?prodKind=g">VALENTINO</a></li>
 								<li><a href="productListPage?prodKind=h">BALENCIAGA</a></li>
@@ -281,8 +294,9 @@ td {
 				<div class="header">
 					<div class="search">
 						<div class="search_area">
-							<form>
-								<input type="search" placeholder="search"> <span>검색</span>
+							<form action="search" method="get" name="frm" id = "frm">
+								<input name="searchName" type="search" placeholder="search">
+								<span id="search">검색</span>
 							</form>
 						</div>
 					</div>
@@ -296,20 +310,20 @@ td {
 						</c:if>
 						<c:if test="${!empty authinfo }">
 							<c:if test="${authinfo.grade == 1 }">
-							<ul class="nav">
-								<li><a href="myPage">MYPAGE</a></li>
-								<li><a href="productRegisterPage">SELL ITEMS</a></li>
-								<li><a href="noticePage">NOTICE</a></li>
-								<li><a href="login/logout">LOGOUT</a></li>
-							</ul>
+								<ul class="nav">
+									<li><a href="myPage">MYPAGE</a></li>
+									<li><a href="productRegisterPage">SELL ITEMS</a></li>
+									<li><a href="noticePage">NOTICE</a></li>
+									<li><a href="login/logout">LOGOUT</a></li>
+								</ul>
 							</c:if>
 							<c:if test="${authinfo.grade != 1 }">
-							<ul class="nav">
-								<li><a href="memberListPage">MEMBER LIST</a></li>
-								<li><a href="reportPage">REPORT</a></li>
-								<li><a href="noticePage">NOTICE</a></li>
-								<li><a href="login/logout">LOGOUT</a></li>
-							</ul>
+								<ul class="nav">
+									<li><a href="memberListPage">MEMBER LIST</a></li>
+									<li><a href="reportPage">REPORT</a></li>
+									<li><a href="noticePage">NOTICE</a></li>
+									<li><a href="login/logout">LOGOUT</a></li>
+								</ul>
 							</c:if>
 						</c:if>
 					</div>
@@ -318,22 +332,23 @@ td {
 				<div class="products">
 					<table width="950">
 						<tr>
-							<c:forEach items="${productsList }" var="dto" varStatus="cnt" end="7">
-								
-								<td width="200px">
-									<a href="prodDetailPage?prodNum=${dto.prodNum }">  
-									<c:if test="${dto.prodImage != null }">
-									<img width="200" height="200" src="upload/${dto.prodImage }" /><br/>
-									</c:if>
-									
-									<p class="ellipsis_multi">${dto.prodName }</p><br/>
-									<p class="ellipsis_multi">${dto.prodPrice }원</p></a>
-									 
-								</td>
+							<c:forEach items="${productsList }" var="dto" varStatus="cnt"
+								end="7">
+
+								<td width="200px"><a
+									href="prodDetailPage?prodNum=${dto.prodNum }"> <c:if
+											test="${dto.prodImage != null }">
+											<img width="200" height="200" src="upload/${dto.prodImage }" />
+											<br />
+										</c:if>
+
+										<p class="ellipsis_multi">${dto.prodName }</p> <br />
+										<p class="ellipsis_multi">${dto.prodPrice }원</p></a></td>
 								<c:if test="${cnt.count % 4 == 0 }">
-									</tr><tr>
-								</c:if>
-								
+						</tr>
+						<tr>
+							</c:if>
+
 							</c:forEach>
 						</tr>
 					</table>
@@ -341,7 +356,7 @@ td {
 			</div>
 		</div>
 		<div class="footer">
-			<%@include file="../include/includeFooter.jsp" %>
+			<%@include file="../include/includeFooter.jsp"%>
 		</div>
 	</div>
 </body>

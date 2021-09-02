@@ -24,6 +24,11 @@ public class ProductRepository {
 		return sqlSession.selectList(statement, ctgr);
 	}
 
+	public List<ProductDTO> searchProduct(String searchName) {
+		statement = namespace + ".searchProduct";
+		return sqlSession.selectList(statement, searchName);
+	}
+
 	public List<ProductDTO> productListMain(ProductDTO dto) {
 		statement = namespace + ".productListMain";
 		return sqlSession.selectList(statement, dto);

@@ -308,43 +308,12 @@ td {
 						</c:if>
 					</div>
 				</div>
-				<div class="kategorie_top">
-					<c:choose>
-						<c:when test="${ctgr eq '11' }">cross/shoulder bag</c:when>
-						<c:when test="${ctgr eq '12' }">clutch/pouch bag</c:when>
-						<c:when test="${ctgr eq '13' }">tote bag</c:when>
-						<c:when test="${ctgr eq '14' }">belt bag</c:when>
-						<c:when test="${ctgr eq '15' }">bucket bag</c:when>
-						<c:when test="${ctgr eq '16' }">backpack</c:when>
-						<c:when test="${ctgr eq '17' }">suitcase</c:when>
-						<c:when test="${ctgr eq '18' }">etc</c:when>
-						<c:when test="${ctgr eq '21' }">heels</c:when>
-						<c:when test="${ctgr eq '22' }">flat</c:when>
-						<c:when test="${ctgr eq '23' }">sandal/slippers</c:when>
-						<c:when test="${ctgr eq '24' }">boots</c:when>
-						<c:when test="${ctgr eq '25' }">loafer</c:when>
-						<c:when test="${ctgr eq '26' }">dress shoes</c:when>
-						<c:when test="${ctgr eq '31' }">bracelet</c:when>
-						<c:when test="${ctgr eq '32' }">brooch/pin</c:when>
-						<c:when test="${ctgr eq '33' }">earring</c:when>
-						<c:when test="${ctgr eq '34' }">necklace</c:when>
-						<c:when test="${ctgr eq '35' }">ring</c:when>
-						<c:when test="${ctgr eq 'a' }">SAINT LAURENT</c:when>
-						<c:when test="${ctgr eq 'b' }">PRADA</c:when>
-						<c:when test="${ctgr eq 'c' }">BURBERRY</c:when>
-						<c:when test="${ctgr eq 'd' }">GUCCI</c:when>
-						<c:when test="${ctgr eq 'e' }">MAISON MARGIELA</c:when>
-						<c:when test="${ctgr eq 'f' }">BOTTEGA VENETA</c:when>
-						<c:when test="${ctgr eq 'g' }">VALENTINO</c:when>
-						<c:when test="${ctgr eq 'h' }">BALENCIAGA</c:when>
-						<c:when test="${ctgr eq 'i' }">LOUIS VUITTON</c:when>
-						<c:when test="${ctgr eq 'j' }">athers..</c:when>
-					</c:choose>
-				</div>
+				<div class="kategorie_top">'${searchText }'에 대한 검색 결과입니다.</div>
 				<div class="products">
 					<table width="950">
 						<tr>
-							<c:forEach items="${list }" var="dto" varStatus="cnt">
+						<c:if test="${!empty searchProduct }">
+							<c:forEach items="${searchProduct }" var="dto" varStatus="cnt">
 
 								<td width="200px"><a
 									href="prodDetailPage?prodNum=${dto.prodNum }"> <c:if
@@ -361,6 +330,8 @@ td {
 						<tr>
 							</c:if>
 							</c:forEach>
+							</c:if>
+							<c:if test="${empty searchProduct }">검색 결과가 없습니다.</c:if>
 						</tr>
 					</table>
 				</div>

@@ -26,6 +26,10 @@ public class ProductListService {
 		List<ProductDTO> list = productRepository.productListMain(dto);
 		Collections.shuffle(list);
 		model.addAttribute("productsList", list);
-
+	}
+	
+	public void searchProduct(String searchName, Model model) {
+		List<ProductDTO> list = productRepository.searchProduct(searchName);
+		model.addAttribute("searchProduct", list);
 	}
 }

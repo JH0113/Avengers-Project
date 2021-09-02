@@ -52,6 +52,13 @@
 		from products
 		where PROD_KIND = #{ctgr} or PROD_BRAND = #{ctgr}
 	</select>
+	<select id="searchProduct" parameterType="string"
+		resultType="model.ProductDTO">
+		select
+		<include refid="asterisk" />
+		from products
+		where PROD_NAME like '%'||#{searchName}||'%'  
+	</select>
 	<select id="productListMain" resultType="model.ProductDTO"
 		parameterType="model.ProductDTO">
 		select
