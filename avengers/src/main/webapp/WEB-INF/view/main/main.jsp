@@ -314,6 +314,7 @@ td {
 									<li><a href="myPage">MYPAGE</a></li>
 									<li><a href="productRegisterPage">SELL ITEMS</a></li>
 									<li><a href="noticePage">NOTICE</a></li>
+									<li><a href="chat">chat</a></li>
 									<li><a href="login/logout">LOGOUT</a></li>
 								</ul>
 							</c:if>
