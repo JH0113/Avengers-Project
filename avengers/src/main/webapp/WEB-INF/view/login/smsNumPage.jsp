@@ -257,7 +257,34 @@ li a {
 	margin-left: 10px;
 }
 </style>
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.js"></script>
+	<script>
+
+    function phoneCheck() {
+      $.ajax({
+        url: "<c:url value='/smsCheck2'/>",
+        type: "post",
+        data: {
+          "smsNum" : $("#smsNum").val()
+        },
+        success: function(result) {
+          if (result.trim() == "ok") {
+            alert("번호 인증 성공");
+            location.href="memPwModifyPage"
+          } else {
+            alert("번호 인증 실패");
+            location.href="smsCheckPage"
+          }
+        },
+        error:function(){
+        	alert("접속오류입니다.")
+        }
+      });
+    }
+	</script>
 </head>
+
 <body>
 	<div class="web">
 		<div class="body">
@@ -300,7 +327,7 @@ li a {
 		</div>
 
 		<div class="leg">
-		<form:form action="smsCheck2" method="post" name="frm" modelAttribute="MemberDTO">
+		<form:form action="smsCheck2" method="post" name="frm" modelAttribute="MemberDTO" onsubmit="return phoneCheck();">
 			<h1 class="memPwFind-title">인증번호 입력</h1>
                 <p class="memPwFind-msg">인증번호를 입력해주세요.</p>
                     <table class="memPwFind-table">
@@ -314,7 +341,7 @@ li a {
                                     <div class="error_box">
                                         <form:errors id="error_text" path = "smsNum"/>
                                     </div>
-                                    <button type="submit" class="memPwFind-authentication-submit" onclick="phoneCheck();">확인</button>
+                                    <button type="submit" class="memPwFind-authentication-submit">확인</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -327,25 +354,6 @@ li a {
 			<%@include file="../include/includeFooter.jsp" %>
 		</div>
 	</div>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.js"></script>
-	<script>
 
-    function phoneCheck() {
-      $.ajax({
-        url: "<%=request.getContextPath()%>/smsCheck",
-        type: "post",
-        data: {
-          code: $("#smsNum").val()
-        },
-        success: function(result) {
-          if (result == "ok") {
-            alert("번호 인증 성공");
-          } else {
-            alert("번호 인증 실패");
-          }
-        }
-      });
-    }
-	</script>
 </body>
 </html>

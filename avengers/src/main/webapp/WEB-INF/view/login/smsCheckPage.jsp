@@ -257,26 +257,6 @@ li a {
 	margin-left: 10px;
 }
 </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.js"></script>
-<script>
-function sendSms() {
-    $.ajax({
-      url: "<%=request.getContextPath()%>/sendSms",
-      data: {
-        receiver: $("#memPhone").val()
-      },
-      type: "post",
-      success: function(result) {
-        if (result == "true") {
-          console.log(result); 
-        } else {
-          alert("인증번호 전송 실패");
-        }
-      }
-    });
-  }
-
-</script>
 </head>
 <body>
 	<div class="web">

@@ -54,34 +54,22 @@ public class FindPwController {
 
 	@RequestMapping(value="smsCheck",method = RequestMethod.POST) // sms 문자 전송
 	public String smsCheck(MemberDTO memberDTO,Errors errors, HttpSession session, HttpServletResponse response){
-		System.out.println(memberDTO.getMemPhone());
 		findPwService.sendSms(memberDTO, session,  errors);
 		if (errors.hasErrors()) {
 			return "login/smsCheckPage";
-		} else {
-//			response.setContentType("text/html; charset=UTF-8");
-//			PrintWriter out = response.getWriter();
-//			out.println("<script language='javascript'>");
-//			out.println("alert('인증문자가 전송되었습니다.')");
-//			out.println("</script>");
-//			out.flush();		
-		}
-		
+		} 
 		return "login/smsNumPage";
 	}
 	
-	@RequestMapping("smsNumPage")
+	@RequestMapping("smsNumPage") // 인증번호 입력 페이지
 	public String smsNumPage() {
 		return "login/smsNumPage";
 	}
 	
-	@RequestMapping(value="smsCheck2",method = RequestMethod.POST)
-	public String smsNumCheck(MemberDTO memberDTO, Errors errors, HttpSession session) {
-		smsCheckService.smsCheck(memberDTO, session, errors); // 유저가 인증번호 입력하고 비교해야함
-		if (errors.hasErrors()) {
-			return "login/smsNumPage";
-		}
-		return "login/memPwModifyPage";
+	@RequestMapping(value="smsCheck2",method = RequestMethod.POST) // 인증번호 확인
+	public String smsNumCheck(MemberDTO memberDTO, Errors errors, HttpSession session, Model model) {
+		smsCheckService.smsCheck(memberDTO, session, errors, model); // 유저가 인증번호 입력하고 비교해야함
+		return "login/chkOk";
 	}
 	
 	@RequestMapping("memPwModifyPage") // 비밀번호 변경 페이지
