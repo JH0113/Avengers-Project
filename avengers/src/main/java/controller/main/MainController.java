@@ -13,21 +13,18 @@ import service.product.ProductListService;
 public class MainController {
 	@Autowired
 	ProductListService productListService;
-	
+
 	@RequestMapping("main")
 	public String mainPage(Model model) {
 		productListService.productListMain(model);
 		return "main/main";
 	}
+
 	@RequestMapping("test")
 	public String testPage() {
 		return "main/test";
 	}
-<<<<<<< HEAD
-	@RequestMapping("prodDetailPage")
-	public String productDetail() {
-		return "product/prodDetailPage";
-	}
+
 	@RequestMapping(value = "search", method = RequestMethod.GET)
 	public String search(@RequestParam(value = "searchName") String searchName, Model model) {
 		System.out.println(searchName);
@@ -35,10 +32,5 @@ public class MainController {
 		productListService.searchProduct(searchName, model);
 		return "main/searchResultPage";
 	}
-=======
-//	@RequestMapping("prodDetailPage")
-//	public String productDetail() {
-//		return "product/prodDetailPage";
-//	}
->>>>>>> branch 'master' of https://github.com/JH0113/Avengers-Project.git
+
 }

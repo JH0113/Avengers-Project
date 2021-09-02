@@ -12,8 +12,9 @@ import service.product.ProductDetailService;
 public class ProductDetailController {
 	@Autowired
 	ProductDetailService productDetailService;
+
 	@RequestMapping("prodDetailPage")
-	public String productDetail(@RequestParam(value = "prodNum")String prodNum,Model model) {
+	public String productDetail(@RequestParam(value = "prodNum") String prodNum, Model model) {
 		productDetailService.ProductDetail(prodNum, model);
 		return "product/prodDetailPage";
 	}
