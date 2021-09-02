@@ -14,10 +14,10 @@ public class MemberListService {
 	@Autowired
 	MemberListRepository memberListRepository;
 
-	public void memberList(Integer page, Model model) {
+	public void memberList(Integer page, Model model, String search_option, String keyword) {
 		int limit = 10;
 		int limitPage = 10;
-
+		
 		MemberDTO dto = new MemberDTO();
 		if (page != null) {
 			Long startRow = ((long) page - 1) * limit + 1;
@@ -26,21 +26,21 @@ public class MemberListService {
 			sep.setStartRow(startRow);
 			sep.setEndRow(endRow);
 			dto.setStartEndPageDTO(sep);
+			dto.setKeyword(keyword);
+			dto.setSearch_option(search_option);
 		}
 
 		List<MemberDTO> list = memberListRepository.memberList(dto);
 		Integer count = memberListRepository.count();
 		model.addAttribute("memberListPage",list);
 		model.addAttribute("count",count);
+		model.addAttribute("search_option", search_option);
+		model.addAttribute("keyword",keyword); 
 		
 		if (page != null) {
 			PageAction pageAction = new PageAction();
 			pageAction.page(count, limit, limitPage, page, "memberListPage", model);
 		}
 	}
-	
-//	public void memberListSearch(String keyword, Model model) {
-//		List<MemberDTO> dtoList = memberListRepository.memberSearchList(keyword);
-//		model.addAttribute("memberListSearchPage",dtoList);
-//	}
+ 
 }

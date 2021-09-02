@@ -245,22 +245,22 @@ function checkSubmitValue(frm) {
 		<div class="leg">
 			<div class="banner"></div>		
 			 
-			<form name="frm" id=frm method="post" action="memberSearch" onsubmit='return checkSubmitValue(this)'>  
+			<form name="frm" id=frm method="post" action="memberListPage" onsubmit='return checkSubmitValue(this)'>  
 			 <div class=list_search_area align="center">		
 			   <div class="select">
 			   		<select name="search_option">
-			        <option value="memId"
-						<c:if test="${map.search_option == 'memId'}">selected</c:if>>아이디</option>
-			        <option value="memNick" 
-						<c:if test="${map.search_option == 'memNick'}">selected</c:if>>닉네임</option>
-			        <option value="memName" 
-						<c:if test="${map.search_option == 'memName'}">selected</c:if>>이름</option>					
-					<option value="all" 
-						<c:if test="${map.search_option == 'all'}">selected</c:if>>아이디+닉네임+이름</option>
+			        <option value="mem_Id"
+						<c:if test="${search_option == 'memId'}">selected</c:if>>아이디</option>
+			        <option value="mem_Nick" 
+						<c:if test="${search_option == 'memNick'}">selected</c:if>>닉네임</option>
+			        <option value="mem_Name" 
+						<c:if test="${search_option == 'memName'}">selected</c:if>>이름</option>					
+					<option value="" 
+						<c:if test="${search_option == ''}">selected</c:if>>아이디+닉네임+이름</option>
 			    	</select>
 			    </div>
 			     
-			    <input name="keyword" value="${map.keyword}" placeholder="검색할 정보를 입력해주세요." id="keyword">
+			    <input name="keyword" value="${keyword}" placeholder="검색할 정보를 입력해주세요." id="keyword">
 			    <input type="submit" value="조회" class="btn" id="searchBtn">
 			    </div>
 			</form>

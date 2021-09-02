@@ -24,12 +24,7 @@ public class MemberListRepository {
 		statement = namespace + ".count";
 		return sqlSession.selectOne(statement);
 	}
-
-//	public List<MemberDTO> memberSearchList(String keyword) {
-//		statement = namespace + ".memberSearchList";
-//		return sqlSession.selectList(statement,keyword);
-//	}
-//	
+ 
 	public MemberDTO memberInfo(String memId) {
 		statement = namespace + ".memberInfo";
 		return sqlSession.selectOne(statement, memId);
@@ -38,11 +33,6 @@ public class MemberListRepository {
 	public void memberDelete(String memId) {
 		statement=namespace+".memberDelete";
 		sqlSession.delete(statement,memId);
-	}
-
-	public List<MemberDTO> listAll(Map<String, Object> map){   
-		statement = namespace + ".listAll";
-	    return sqlSession.selectList(statement,map); 
 	}
  
 
