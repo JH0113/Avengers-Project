@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -207,14 +208,14 @@ tr.border_bottom_th {
 				<div class="noticeContents">
 					<table border="1" width="1200" height = "300" align = "center">
 						<tr class="mainDetail" bgcolor="lightgrey" align="center">
-							<td align="center" rowspan="6" width="60%">${productdto.prodImage }이미지</td>
-							<td width="40%">${productdto.prodName }제목</td>
+							<td align="center" rowspan="6" width="60%">${list.prodImage }이미지</td>
+							<td width="40%">${list.prodName }제목</td>
 						</tr>
-						<tr><td >${productdto.prodPrice }가격</td></tr>
-						<tr><td>${productdto.prodMethod }거래방법</td></tr>
-						<tr><td>${productdto.prodBrand }브랜드</td></tr>
-						<tr><td>${productdto.prodKind }카테고리</td></tr>
-						<tr><td>${productdto.prodState }판매상태</td></tr>
+						<tr><td >${list.prodPrice }가격</td></tr>
+						<tr><td>${list.prodMethod }거래방법</td></tr>
+						<tr><td>${list.prodBrand }브랜드</td></tr>
+						<tr><td>${list.prodKind }카테고리</td></tr>
+						<tr><td>${list.prodState }판매상태</td></tr>
 					</table>
 					<table border="1" width="1200">
 						<tr><td width="70%">게시일</td><td rowspan="2" width="20%">이미지</td><td>직원 닉네임</td></tr>

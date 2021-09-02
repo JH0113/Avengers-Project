@@ -23,6 +23,7 @@ public class MainController {
 	public String testPage() {
 		return "main/test";
 	}
+<<<<<<< HEAD
 	@RequestMapping("prodDetailPage")
 	public String productDetail() {
 		return "product/prodDetailPage";
@@ -34,4 +35,10 @@ public class MainController {
 		productListService.searchProduct(searchName, model);
 		return "main/searchResultPage";
 	}
+=======
+//	@RequestMapping("prodDetailPage")
+//	public String productDetail() {
+//		return "product/prodDetailPage";
+//	}
+>>>>>>> branch 'master' of https://github.com/JH0113/Avengers-Project.git
 }
