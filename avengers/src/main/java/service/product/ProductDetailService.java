@@ -13,8 +13,5 @@ public class ProductDetailService {
 	ProductRepository productRepository;
 	
 	public void ProductDetail(String prodNum,Model model) {
-		model.addAttribute("prodNum", prodNum);
-		List<ProductDTO> list = productRepository.productList(prodNum);
-		model.addAttribute("list", list);
 	}
 }

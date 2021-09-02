@@ -17,6 +17,8 @@
 </style>
 </head>
 <body>
-	detail page
+	<c:forEach items="${list }" var="list">
+	${list.prodName }
+	</c:forEach>
 </body>
 </html>
