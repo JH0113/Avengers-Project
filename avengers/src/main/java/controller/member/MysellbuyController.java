@@ -17,8 +17,7 @@ public class MysellbuyController {
 	public String mybuy() {
 		return "myPage/myBuyPage";
 	}
-	
-	
+	 
 	@RequestMapping("mysellPage")
 	public String mysellPage(Model model,HttpSession session) {
 		sellPageService.sellPage(model,session);
