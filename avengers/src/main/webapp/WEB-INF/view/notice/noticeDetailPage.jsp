@@ -194,10 +194,8 @@ tr.border_bottom_th {
 						<%@include file="../include/includeTopMenu.jsp"%>		
 					</div>
 				</div>
-
 			</div>
 		</div>
-
 
 		<form:form method="post" name="frm" modelAttribute="noticeCommand">
 			<input type="hidden" name="noticeNum" value="${noticeCommand.noticeNum }">

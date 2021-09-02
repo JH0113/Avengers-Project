@@ -13,5 +13,7 @@ public class ProductDetailService {
 	ProductRepository productRepository;
 	
 	public void ProductDetail(String prodNum,Model model) {
+		ProductDTO dto = productRepository.productDetail(prodNum);
+		model.addAttribute("productdto", dto);
 	}
 }

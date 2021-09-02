@@ -33,4 +33,8 @@ public class ProductRepository {
 		statement = namespace + ".productListMain";
 		return sqlSession.selectList(statement, dto);
 	}
+	public ProductDTO productDetail(String prodNum) {
+		statement = namespace + ".productDetail";
+		return sqlSession.selectOne(statement, prodNum);
+	}
 }

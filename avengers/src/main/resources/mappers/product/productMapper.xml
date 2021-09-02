@@ -65,6 +65,11 @@
 		<include refid="asterisk" />
 		from products
 	</select>
-
+	<select id="productDetail" parameterType="string" resultType="model.ProductDTO">
+		select 
+		<include refid="asterisk" />
+		from products
+		where PROD_NUM = #{prodNum}
+	</select>
 
 </mapper>
