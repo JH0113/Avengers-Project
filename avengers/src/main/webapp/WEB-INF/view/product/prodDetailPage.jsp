@@ -224,7 +224,6 @@ tr.border_bottom_th {
 					
 					
 					
-					
 					<!-- 
 					<table border="3" bordercolor="blue" width="500" height = "300" align = "center">					
 						<tr class="mainContext">
