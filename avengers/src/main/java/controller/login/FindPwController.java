@@ -45,37 +45,14 @@ public class FindPwController {
 		return "login/smsCheckPage";
 	}
 	
-	@RequestMapping("memPwModifyPage") // 비밀번호 변경 페이지
-	public String memPwModifyPage() {
-		return "login/memPwModifyPage";
-	}
 	
-	@RequestMapping(value="memPwModify",method = RequestMethod.POST) // 비밀번호 변경
-	public String memPwModify(HttpSession session, MemberCommand memberCommand,Errors errors, Model model,HttpServletResponse response) throws IOException {
-		new MemberPwModifyValidator().validate(memberCommand, errors);
-
-		findPwService.memberPwModify(session, memberCommand, errors);
-		if (errors.hasErrors()) {
-			return "login/memPwModifyPage";
-		} else {
-			response.setContentType("text/html; charset=UTF-8");
-			PrintWriter out = response.getWriter();
-			out.println("<script language='javascript'>");
-			out.println("alert('비밀번호가 변경되었습니다.')");
-			out.println("</script>");
-			out.flush();
-			
-			return "login/loginPage";
-		}
-	}
-	
-	@RequestMapping("smsCheckPage") // sms 문자인증 페이지
+	@RequestMapping("smsCheckPage") // 전화번호 입력 페이지
 	public String smsCheckPage() {
 		return "login/smsCheckPage";
 	}
 	
 
-	@RequestMapping(value="smsCheck",method = RequestMethod.POST) // sms 문자인증 확인
+	@RequestMapping(value="smsCheck",method = RequestMethod.POST) // sms 문자 전송
 	public String smsCheck(MemberDTO memberDTO,Errors errors, HttpSession session, HttpServletResponse response){
 		System.out.println(memberDTO.getMemPhone());
 		findPwService.sendSms(memberDTO, session,  errors);
@@ -105,6 +82,30 @@ public class FindPwController {
 			return "login/smsNumPage";
 		}
 		return "login/memPwModifyPage";
+	}
+	
+	@RequestMapping("memPwModifyPage") // 비밀번호 변경 페이지
+	public String memPwModifyPage() {
+		return "login/memPwModifyPage";
+	}
+	
+	@RequestMapping(value="memPwModify",method = RequestMethod.POST) // 비밀번호 변경
+	public String memPwModify(HttpSession session, MemberCommand memberCommand,Errors errors, Model model,HttpServletResponse response) throws IOException {
+		new MemberPwModifyValidator().validate(memberCommand, errors);
+
+		findPwService.memberPwModify(session, memberCommand, errors);
+		if (errors.hasErrors()) {
+			return "login/memPwModifyPage";
+		} else {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script language='javascript'>");
+			out.println("alert('비밀번호가 변경되었습니다.')");
+			out.println("</script>");
+			out.flush();
+			
+			return "login/loginPage";
+		}
 	}
 	
 	

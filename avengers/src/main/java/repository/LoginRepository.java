@@ -45,8 +45,8 @@ public class LoginRepository {
 		return session.selectOne(statement, phoneNum);
 	}
 	
-	public void delSmsNum(String userPhone) {
+	public void delSmsNum(String phoneNum) {
 		statement = namespace + ".delSmsNum";
-		session.delete(statement, userPhone);
+		session.delete(statement, phoneNum);
 	}
 }

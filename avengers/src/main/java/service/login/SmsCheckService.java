@@ -25,10 +25,15 @@ public class SmsCheckService {
 		System.out.println("saveCode : " + saveCode);
 		
         if(smsNum.equals(saveCode)){
-            return "ok";        
+        	loginRepository.delSmsNum(phoneNum); // db에 저장된 인증번호 삭제
+            return "ok";
         }else {
+        	loginRepository.delSmsNum(phoneNum); // db에 저장된 인증번호 삭제2
             return "no";    
         }
         
- }
+	}
+	
+
+	
 }

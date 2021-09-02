@@ -45,6 +45,6 @@
 	
 	<delete id="delSmsNum" parameterType="string">
 		delete from sms
-		where mem_phone= #{userPhone}
+		where mem_phone= #{phoneNum}
 	</delete>
 </mapper>
