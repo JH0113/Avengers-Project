@@ -13,6 +13,7 @@
 	
 	<bean class="service.product.ProductRegistService" />
 	<bean class="service.product.ProductListService" />
+	<bean class="service.product.ProductDetailService" />
 	
 	<bean class="repository.ProductRepository" />
 	
