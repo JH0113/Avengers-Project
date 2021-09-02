@@ -101,6 +101,14 @@ li a {
 	width: 100%;
 	height: 120px;
 }
+.subject {
+	text-align: center;
+	border-bottom: solid 2px;
+	padding: 20px;
+	font-size: 200%;
+	font-weight: 400;
+	
+}
 
 .leg {
 	width: 1200px;
@@ -108,7 +116,7 @@ li a {
 	margin: auto;
 }
 
-.noticeContents {
+.productContents {
 	font-family: 'Montserrat', sans-serif;
 	width: 100%;
 	height: auto;
@@ -199,28 +207,16 @@ tr.border_bottom_th {
 		<div class="leg">
 			<div class="productContents">
 				<table>
+					<tr>
+						<td colspan="4" class="subject">상품 상세 정보</td>
+					</tr>
 					<tr class="border_bottom">
-						<th width="150">상품이미지</th>
-						<td width="700">
+						<th width="150" rowspan=7>상품이미지</th>
+						<td width="700" rowspan=7>
 						<img src="upload/${productdto.prodImage }"></td>
-						<th width="150">상품명</th>
-						<td width="300">${productdto.prodName }</td>
-					</tr>
-					<tr class="border_bottom">
-						<th>가격</th>
-						<td>${productdto.prodPrice }원</td>
-						<th>게시날짜</th>
-						<td>
-							<fmt:parseDate var="parseRegDate" value="${productdto.prodDate }" pattern="yyyy-MM-dd HH:mm"/>
-							<fmt:formatDate var="resultRegDt" value="${parseRegDate}" pattern="yyyy-MM-dd HH:mm"/>
-							${resultRegDt}
-						</td>
-						<th>글쓴이</th>
-						<td>${productdto.memId }</td>
-					</tr>
-					<tr class="border_bottom">
-						<th>브랜드</th>
-						<td colspan="4">
+					<th width="150">브랜드</th>
+						<td width="300">
+
 						<c:set var="productdto.prodBrand" value="a" />
 							<c:choose>
 							    <c:when test="${productdto.prodBrand eq 'a'}">
@@ -253,12 +249,13 @@ tr.border_bottom_th {
 							    <c:when test="${productdto.prodBrand eq 'j'}">
 							        others..
 							    </c:when>
-							</c:choose>
+							</c:choose>						
+
 						</td>
 					</tr>
 					<tr class="border_bottom">
 						<th>카테고리</th>
-						<td colspan="4">
+						<td width="300">
 						<c:set var="productdto.prodKind" value="10" />
 							<c:choose>
 							    <c:when test="${productdto.prodKind eq '10'}">
@@ -327,43 +324,13 @@ tr.border_bottom_th {
 							    <c:when test="${productdto.prodKind eq '35'}">
 							        반지
 							    </c:when>
-							</c:choose></td>
-					</tr>
-					<tr class="border_bottom">
-						<th>거래 방법</th>
-						<td colspan="4">
-						<c:set var="productdto.prodMethod" value="J" />
-							<c:choose>
-							    <c:when test="${productdto.prodMethod eq 'J'}">
-							        	직거래
-							    </c:when>
-							    <c:when test="${productdto.prodMethod eq 'T'}">
-							        	택배거래
-							    </c:when>
 							</c:choose>
-						</td>
-					</tr>
-					<tr class="border_bottom">
-						<th>판매자 거래 장소</th>
-						<td colspan="4">${productdto.prodLocation }</td>
-					</tr>
-					<tr class="border_bottom">
-						<th>보증서 유무</th>
-						<td colspan="4">
-						<c:set var="productdto.prodGuarantee" value="Y" />
-							<c:choose>
-							    <c:when test="${productdto.prodGuarantee eq 'Y'}">
-							        	유
-							    </c:when>
-							    <c:when test="${productdto.prodGuarantee eq 'N'}">
-							        	무
-							    </c:when>
-							</c:choose>
-						</td>
+						</td>					
+
 					</tr>
 					<tr class="border_bottom">
 						<th>상품 상태</th>
-						<td colspan="4">
+						<td colspan="1">
 						<c:set var="productdto.prodState" value="O" />
 							<c:choose>
 							    <c:when test="${productdto.prodState eq 'O'}">
@@ -373,17 +340,67 @@ tr.border_bottom_th {
 							        	새상품
 							    </c:when>
 							</c:choose>
-						
-						</td>
+							</td>
+					</tr>
+					<tr class="border_bottom">
+						<th>게시날짜</th>
+						<td>
+							<fmt:parseDate var="parseRegDate" value="${productdto.prodDate }" pattern="yyyy-MM-dd HH:mm"/>
+							<fmt:formatDate var="resultRegDt" value="${parseRegDate}" pattern="yyyy-MM-dd HH:mm"/>
+							${resultRegDt}
+						</td>						
+
+					</tr>
+					<tr class="border_bottom">
+						<th>거래 방법</th>
+						<td colspan="1">
+						<c:set var="productdto.prodMethod" value="J" />
+							<c:choose>
+							    <c:when test="${productdto.prodMethod eq 'J'}">
+							        	직거래
+							    </c:when>
+							    <c:when test="${productdto.prodMethod eq 'T'}">
+							        	택배거래
+							    </c:when>
+							</c:choose>
+						</td>					
+					</tr>
+					<tr class="border_bottom">
+						<th>보증서 유무</th>
+						<td colspan="1">
+						<c:set var="productdto.prodGuarantee" value="Y" />
+							<c:choose>
+							    <c:when test="${productdto.prodGuarantee eq 'Y'}">
+							        	유
+							    </c:when>
+							    <c:when test="${productdto.prodGuarantee eq 'N'}">
+							        	무
+							    </c:when>
+							</c:choose>						
+						</td>				
 					</tr>
 					<tr class="border_bottom">
 						<th>상품 갯수</th>
-						<td colspan="4">${productdto.prodQuantity }</td>
+						<td colspan="1">${productdto.prodQuantity }</td>
+					</tr>
+					<tr class="border_bottom">
+						<th >상품명</th>
+						<td colspan="3">${productdto.prodName }</td>						
+					</tr>
+					<tr class="border_bottom">
+						<th>가격</th>
+						<td colspan="3">${productdto.prodPrice }원</td>						
+					</tr>
+					<tr class="border_bottom">
+						<th>판매자 거래 장소</th>
+						<td colspan="3">${productdto.prodLocation }</td>					
+					
+
 					</tr>
 
-					<tr class="border_bottom" height="600">
+					<tr class="border_bottom" height=200>
 						<th>내용</th>
-						<td colspan="4"><p>${productdto.prodDetail }</p></td>
+						<td colspan="3"><p>${productdto.prodDetail }</p></td>
 					</tr>
 				</table>
 			</div>
