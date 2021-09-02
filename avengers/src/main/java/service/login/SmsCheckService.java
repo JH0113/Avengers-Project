@@ -28,11 +28,11 @@ public class SmsCheckService {
 		
 		if(saveCode != null) {
 			if(smsNum.equals(saveCode)){
-	        	System.out.println("트루마즘?"+smsNum.equals(saveCode));
+	        	System.out.println("true 마즘?"+smsNum.equals(saveCode));
 	        	loginRepository.delSmsNum(phoneNum); // db에 저장된 인증번호 삭제
 	        	ck="ok";
 			}else{
-				System.out.println("풜스 마즘?"+smsNum.equals(saveCode));
+				System.out.println("false 마즘?"+smsNum.equals(saveCode));
 	        	loginRepository.delSmsNum(phoneNum); // db에 저장된 인증번호 삭제2
 	        	ck="no";
 			}
