@@ -168,7 +168,10 @@ tr.border_bottom_th {
 	background-color: #404040;
 	color: #ffffff;
 }
-
+#clickText:hover{
+	font-weight: bolder;
+	border-bottom: 1px solid;
+}
 </style>
 </head>
 <body>
@@ -210,9 +213,9 @@ tr.border_bottom_th {
 					</tr>
 					<c:forEach items="${noticePage }" var="dto">
 						<tr class="border_bottom">
-							<td>${dto.noticeNum }</td>
+							<td><a id="clickText" href="noticeDetailPage?noticeNum=${dto.noticeNum }"><span id="detail">${dto.noticeNum }</span></a></td>
 							<td>${dto.noticeKind }</td>
-							<td><a href="noticeDetailPage?noticeNum=${dto.noticeNum }">${dto.noticeSub }</a></td>
+							<td><a id="clickText" href="noticeDetailPage?noticeNum=${dto.noticeNum }"><span id="detail">${dto.noticeSub }</span></a></td>
 							<td>${dto.noticeHits }</td>
 							<td>${dto.noticeEmpId }</td>
 							<td><fmt:formatDate value="${dto.noticeDate }" type="date"

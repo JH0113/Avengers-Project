@@ -35,6 +35,7 @@
 				classpath:spring-employee.xml
 				classpath:spring-memberList.xml
 				classpath:spring-report.xml
+				classpath:spring-chat.xml
 			</param-value>
 		</init-param>
 	</servlet>
