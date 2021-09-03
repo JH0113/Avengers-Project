@@ -71,5 +71,12 @@
 		from products
 		where PROD_NUM = #{prodNum}
 	</select>
+	<select id="memberDetail" parameterType="string" resultType="model.MemberDTO">
+		select MEM_NICK memNick, MEM_IMAGE memImage 
+		from member
+		where mem_id = 
+		(select mem_id from products
+		where PROD_NUM = #{prodNum})
+	</select>
 
 </mapper>

@@ -165,6 +165,11 @@ tr.border_bottom_th {
 	border-bottom: 3px solid #1a1a1a;
 }
 
+#main_point {
+	font-weight: bolder;
+	
+}
+
 .footer {
 	clear: both;
 	width: 100%;
@@ -207,18 +212,18 @@ tr.border_bottom_th {
 		<div class="leg">
 			<div class="productContents">
 				//임시버튼태그//
-				<input type="button" value="게시글 신고" class="btn" style="display: inline-block" onclick="javascript:location.href='prodReport'">
+				<input type="button" value="게시글 신고" class="btn" style="display: inline-block" onclick="javascript:location.href='prodReportForm?prodNum=${productdto.prodNum}'">
 				<input type="button" value="채팅" class="btn" style="display: inline-block" onclick="javascript:location.href='chat'">
 				<input type="button" value="etc" class="btn" style="display: inline-block" onclick="javascript:location.href='etc'">
 				
-				<table>
+				<table border="1">
 					<tr>
 						<td colspan="4" class="subject">상품 상세 정보</td>
 					</tr>
 
 					<tr class="border_bottom">
-						<th width="150" rowspan=7>상품이미지</th>
-						<td width="700" rowspan=7>
+						<th width="150" rowspan=9>상품이미지</th>
+						<td width="700" rowspan=9>
 						<img src="upload/${productdto.prodImage }"></td>
 					<th width="150">브랜드</th>
 						<td width="300">
@@ -390,23 +395,29 @@ tr.border_bottom_th {
 						<td colspan="1">${productdto.prodQuantity }</td>
 					</tr>
 					<tr class="border_bottom">
+						<th rowspan="4">회원 프로필</th>
+						<td colspan="1" rowspan="4"><img src="upload/${memberdto.memImage }"></td>
+					</tr>
+					<tr class="border_bottom" >
+						<th rowspan="3">회원 닉네임</th>
+						<td colspan="1" rowspan="3">${memberdto.memNick }</td>
+					</tr>
+					<tr class="border_bottom" >
 						<th >상품명</th>
-						<td colspan="3">${productdto.prodName }</td>						
+						<td colspan="1.5"><span id="main_point">${productdto.prodName }</span></td>
 					</tr>
-					<tr class="border_bottom">
+					<tr class="border_bottom" >
 						<th>가격</th>
-						<td colspan="3">${productdto.prodPrice }원</td>						
+						<td colspan="1.5"><span id="main_point">${productdto.prodPrice }원</span></td>
 					</tr>
-					<tr class="border_bottom">
+					<tr class="border_bottom" >
 						<th>판매자 거래 장소</th>
-						<td colspan="3">${productdto.prodLocation }</td>					
-					
-
+						<td colspan="1.5"><span id="main_point">${productdto.prodLocation }</span></td>					
 					</tr>
 
-					<tr class="border_bottom" height=200>
+					<tr class="border_bottom" height=100>
 						<th>내용</th>
-						<td colspan="3"><p>${productdto.prodDetail }</p></td>
+						<td colspan="1.5"><p>${productdto.prodDetail }</p></td>
 					</tr>
 				</table>
 			</div>

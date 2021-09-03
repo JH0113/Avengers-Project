@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import model.MemberDTO;
 import model.ProductDTO;
 
 public class ProductRepository {
@@ -35,6 +36,10 @@ public class ProductRepository {
 	}
 	public ProductDTO productDetail(String prodNum) {
 		statement = namespace + ".productDetail";
+		return sqlSession.selectOne(statement, prodNum);
+	}
+	public MemberDTO memberDetail(String prodNum) {
+		statement = namespace + ".memberDetail";
 		return sqlSession.selectOne(statement, prodNum);
 	}
 }
