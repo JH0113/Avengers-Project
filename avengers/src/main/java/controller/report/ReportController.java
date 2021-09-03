@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import authinfo.AuthinfoDTO;
 import command.ReportCommand;
 import model.ReportDTO;
+import service.report.ProdReportService;
 import service.report.ReportCancelService;
 import service.report.ReportDetailService;
 import service.report.ReportFinishService;
@@ -36,7 +38,9 @@ public class ReportController {
 	ReportFinishService reportFinishService;
 	@Autowired
 	ReportSearchService reportSearchService;
-	
+	@Autowired
+	ProdReportService prodReportService;
+ 
 	@RequestMapping("reportPage")
 	public String reportPage(@RequestParam(value = "page", defaultValue = "1") Integer page, Model model) { // 모든 리포트를 다 가져오기
 		reportListService.reportList(page, model);
@@ -84,9 +88,22 @@ public class ReportController {
 		return "report/reportFinishPage";
 	}
 	
-	@RequestMapping("prodReport") // 상품page에서 신고 눌렀을 때
-	public String prodReport() {
+	@RequestMapping("prodReportForm") // 상품page에서 신고 눌렀을 때
+	public String prodReportForm(@RequestParam(value = "prodNum") String prodNum, 
+									@RequestParam(value = "memId") String memId, Model model, HttpSession session) {
+		
+		model.addAttribute("prodNum",prodNum); 
+		AuthinfoDTO authinfo = (AuthinfoDTO)session.getAttribute("authinfo"); 
+		String reporter = authinfo.getUserId();		
+		model.addAttribute("reporter",reporter);
+		model.addAttribute("memId",memId);
 		return "report/prodReportRegistPage";
+	}
+	@RequestMapping(value = "prodReportAct", method = RequestMethod.POST) // 신고 완료 (찐 신고)
+	public String prodReportAct(@RequestParam(value = "prodNum") String prodNum, 
+								@RequestParam(value = "memId") String memId, Model model, HttpSession session) {
+		prodReportService.prodReportInsert(prodNum, memId, model, session);
+		return "";
 	}
 	
 }

@@ -212,7 +212,7 @@ tr.border_bottom_th {
 		<div class="leg">
 			<div class="productContents">
 				//임시버튼태그//
-				<input type="button" value="게시글 신고" class="btn" style="display: inline-block" onclick="javascript:location.href='prodReportForm?prodNum=${productdto.prodNum}'">
+				<input type="button" value="게시글 신고" class="btn" style="display: inline-block" onclick="javascript:location.href='prodReportForm?prodNum=${productdto.prodNum}&memId=${memberdto.memId }'">
 				<input type="button" value="채팅" class="btn" style="display: inline-block" onclick="javascript:location.href='chat'">
 				<input type="button" value="etc" class="btn" style="display: inline-block" onclick="javascript:location.href='etc'">
 				
@@ -412,7 +412,8 @@ tr.border_bottom_th {
 					</tr>
 					<tr class="border_bottom" >
 						<th>판매자 거래 장소</th>
-						<td colspan="1.5"><span id="main_point">${productdto.prodLocation }</span></td>					
+						<td colspan="1.5"><span id="main_point">${productdto.prodLocation }</span></td>		
+						 			
 					</tr>
 
 					<tr class="border_bottom" height=100>

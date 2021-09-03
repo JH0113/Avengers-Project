@@ -226,7 +226,6 @@ select::-ms-expand {
 		</div>
 
 		<form:form action="noticeModify" name="frm" method="post" modelAttribute="noticeCommand" onsubmit="return confirm('수정ㅇㅋ?')">
-			<input type="hidden" name="noticeNum" value="${noticeCommand.noticeNum }">
 
 			<div class="leg">
 				<div class="regist_box">

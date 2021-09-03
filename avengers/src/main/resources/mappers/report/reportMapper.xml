@@ -118,6 +118,11 @@
 	from report_finish where REPORTED_NUM = #{reportNum}
 </select>
 
-
-
+<!-- 
+<select id="getMemId" parameterType="string" resultType="string">
+	select mem_id
+	from products
+	where PROD_NUM=#{prodNum}
+</select>
+ -->
 </mapper>

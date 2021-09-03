@@ -60,5 +60,6 @@ public class ReportRepository {
 		statement = namespace + ".searchList";
 	    return sqlSession.selectList(statement,map); 
 	}
+ 
 	
 }
