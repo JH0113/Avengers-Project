@@ -209,6 +209,16 @@ select {
 select::-ms-expand {
 	display: none;
 }
+#reportInput{
+	width: 200px;
+	height: 12px;
+	padding: .8em .5em;
+	border: solid 2px #dadada;
+	border-radius: 5px;
+	font-size: 13px;
+	font-family: 'Montserrat', sans-serif;
+}
+
  
 </style>  
 </head>
@@ -242,18 +252,19 @@ select::-ms-expand {
 		<div class="leg">
 			<div class="banner"></div>		 
 			<div class="contents">
-			  	<form action="prodReportAct" method="post">
+			   
+		
+			  	<form:form action="prodReportAct" method="post" name="frm" modelAttribute="reportCommand">
+			  	<input type="hidden" value="${prodNum }" name="prodNum"/>
 			  	<table border=1>
 					<tr class="border_bottom_th">					
 						<td colspan="4"><h2>상품번호 ${prodNum } 신고하기</h2></td>
 					</tr> 
 					   <tr><th>신고자</th>
-                        	<td colspan="2">${reporter }</td></tr>
+                        	<td colspan="2"><input id="reportInput" type="text" value="${reporter }" name="reporter" readonly="readonly"></td></tr>
                        <tr><th>피신고자</th>
-                        	<td colspan="2">${memId } </td></tr>
-                       <tr><th>상품번호</th>
-                     	  <td colspan="2">${prodNum }</td></tr>	                        	
-                       <tr><th>신고사유</th>
+                        	<td colspan="2"><input id="reportInput" type="text" value="${memId }" name="memId" readonly="readonly"></td></tr>
+                        <tr><th>신고사유</th>
                       		<td colspan="2">
                       			<select name="reportedReason">
 									<option>사기 행위</option>
@@ -268,10 +279,10 @@ select::-ms-expand {
   
 					<tr> <td colspan="4">
 						<input type="button" value="상품 상세페이지로 돌아가기" class="btn" style="display: inline-block" onclick="javascript:history.back()"> 
-						<input type="submit" value="신고하기" class="btn" style="display: inline-block"> 
+						<input type="submit" value="신고하기" class="btn" style="display: inline-block" onsubmit="return confirm('정말 신고하시겠습니까?')"> 
 					</td></tr>	
 				</table>
-  				</form>
+  				</form:form>
 			</div> 
 		</div>  
 		

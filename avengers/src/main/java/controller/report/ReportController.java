@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -89,7 +90,8 @@ public class ReportController {
 	}
 	
 	@RequestMapping("prodReportForm") // 상품page에서 신고 눌렀을 때
-	public String prodReportForm(@RequestParam(value = "prodNum") String prodNum, 
+	public String prodReportForm(@ModelAttribute(value = "reportCommand") ReportCommand reportCommand,
+									@RequestParam(value = "prodNum") String prodNum, 
 									@RequestParam(value = "memId") String memId, Model model, HttpSession session) {
 		
 		model.addAttribute("prodNum",prodNum); 
@@ -100,10 +102,11 @@ public class ReportController {
 		return "report/prodReportRegistPage";
 	}
 	@RequestMapping(value = "prodReportAct", method = RequestMethod.POST) // 신고 완료 (찐 신고)
-	public String prodReportAct(@RequestParam(value = "prodNum") String prodNum, 
+	public String prodReportAct(ReportCommand reportCommand, 
+								@RequestParam(value = "prodNum") String prodNum, 
 								@RequestParam(value = "memId") String memId, Model model, HttpSession session) {
-		prodReportService.prodReportInsert(prodNum, memId, model, session);
-		return "";
+		prodReportService.prodReportInsert(reportCommand, prodNum, memId, model, session);
+		return "report/prodReportFinish";
 	}
 	
 }

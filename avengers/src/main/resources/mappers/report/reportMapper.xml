@@ -118,11 +118,16 @@
 	from report_finish where REPORTED_NUM = #{reportNum}
 </select>
 
-<!-- 
-<select id="getMemId" parameterType="string" resultType="string">
-	select mem_id
-	from products
-	where PROD_NUM=#{prodNum}
-</select>
- -->
+	<sql id="reportedNum">
+		select 'P-'||(nvl(max(substr(REPORTED_NUM,3,6)),100000) + 1) from prod_reported
+	</sql>
+	
+<insert id="prodReportInsert" parameterType="model.ReportDTO">
+	insert into prod_reported
+	(REPORTED_NUM, PROD_NUM, MEM_ID, REPORTER, REPORTED_REASON, REPORTED_REASON_DETAIL, REPORTDATE, REPORT_STATE)
+	values
+	((<include refid="reportedNum" />),#{prodNum},#{memId},#{reporter},#{reportedReason},#{reportedReasonDetail},sysdate,0)
+</insert>
+
+
 </mapper>

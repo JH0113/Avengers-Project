@@ -60,6 +60,10 @@ public class ReportRepository {
 		statement = namespace + ".searchList";
 	    return sqlSession.selectList(statement,map); 
 	}
+	public void prodReportInsert(ReportDTO dto) {
+		statement = namespace + ".prodReportInsert";
+		sqlSession.insert(statement,dto);
+	}
  
 	
 }
