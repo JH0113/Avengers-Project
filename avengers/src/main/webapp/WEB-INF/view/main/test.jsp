@@ -8,8 +8,6 @@
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-	<div id="a">
-	<a href="#">안녕하세요</a>
-	</div>
+	<%@include file="../include/includeSearch.jsp"%>
 </body>
 </html>
