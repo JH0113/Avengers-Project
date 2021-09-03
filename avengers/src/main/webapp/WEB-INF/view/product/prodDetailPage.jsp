@@ -207,7 +207,7 @@ tr.border_bottom_th {
 		<div class="leg">
 			<div class="productContents">
 				//임시버튼태그//
-				<input type="button" value="게시글 신고" class="btn" style="display: inline-block" onclick="javascript:location.href='report'">
+				<input type="button" value="게시글 신고" class="btn" style="display: inline-block" onclick="javascript:location.href='prodReport'">
 				<input type="button" value="채팅" class="btn" style="display: inline-block" onclick="javascript:location.href='chat'">
 				<input type="button" value="etc" class="btn" style="display: inline-block" onclick="javascript:location.href='etc'">
 				

@@ -83,4 +83,10 @@ public class ReportController {
 		reportFinishService.reportFinishDetail(reportCommand, model);
 		return "report/reportFinishPage";
 	}
+	
+	@RequestMapping("prodReport") // 상품page에서 신고 눌렀을 때
+	public String prodReport() {
+		return "report/prodReportRegistPage";
+	}
+	
 }
