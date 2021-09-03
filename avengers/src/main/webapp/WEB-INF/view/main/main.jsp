@@ -179,14 +179,20 @@ li a {
 	cursor: pointer;
 }
 
-.banner {
-	width: 100%;
-	height: 400px;
-	background-image: url("images/2nd.png");
-	background-size: 100% 400px;
+/* .banner { */
+/* 	width: 100%; */
+/* 	height: 400px; */
+/* 	background-image: url("images/2nd.png"); */
+/* 	background-size: 100% 400px; */
+/* } */
+.products {
+	position: absolute;
+	top: 660px;
+	width: 950px;
+	height: 600px;
 }
 
-.products {
+.product_box {
 	width: 950px;
 	height: 600px;
 }
@@ -211,8 +217,8 @@ td {
 </style>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
-	$(function(){
-		$("#search").click(function(){
+	$(function() {
+		$("#search").click(function() {
 			$("#frm").submit();
 		});
 	});
@@ -294,7 +300,7 @@ td {
 				<div class="header">
 					<div class="search">
 						<div class="search_area">
-							<form action="search" method="get" name="frm" id = "frm">
+							<form action="search" method="get" name="frm" id="frm">
 								<input name="searchName" type="search" placeholder="search">
 								<span id="search">검색</span>
 							</form>
@@ -329,9 +335,9 @@ td {
 						</c:if>
 					</div>
 				</div>
-				<div class="banner"></div>
+				<%@include file="../include/includeBanner.jsp"%>
 				<div class="products">
-					<table width="950">
+					<table class="product_box">
 						<tr>
 							<c:forEach items="${productsList }" var="dto" varStatus="cnt"
 								end="7">
