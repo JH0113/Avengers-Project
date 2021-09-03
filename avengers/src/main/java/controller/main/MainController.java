@@ -32,5 +32,4 @@ public class MainController {
 		productListService.searchProduct(searchName, model);
 		return "main/searchResultPage";
 	}
-
 }

@@ -142,38 +142,6 @@ li a {
 	color: #000;
 }
 
-.search {
-	width: 100%;
-	height: 120px;
-	padding-top: 20px;
-}
-
-.search_area {
-	float: right;
-	width: 300px;
-	height: 40px;
-	background: rgba(0.0 .0 .0 .5);
-	border-radius: 5px;
-	margin-top: 24px;
-}
-
-.search_area form input {
-	border: none;
-	border-bottom: solid 1px;
-	background: rgba(0, 0, 0, 0.0);
-	width: 250px;
-	height: 40px;
-	color: #000;
-	padding-left: 15px;
-}
-
-.search_area form span {
-	width: 50px;
-	color: #000;
-	font-weight: bold;
-	cursor: pointer;
-}
-
 .kategorie_top {
 	width: 100%;
 	height: 100px;
@@ -283,13 +251,7 @@ td {
 			</div>
 			<div class="right_bar">
 				<div class="header">
-					<div class="search">
-						<div class="search_area">
-							<form>
-								<input type="search" placeholder="search"> <span>검색</span>
-							</form>
-						</div>
-					</div>
+					<%@include file="../include/includeSearch.jsp"%>
 					<div class="headmenu">
 						<c:if test="${empty authinfo }">
 							<ul class="nav">
