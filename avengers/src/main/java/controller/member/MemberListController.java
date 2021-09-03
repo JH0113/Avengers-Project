@@ -25,7 +25,7 @@ public class MemberListController {
 	MemberListRepository memberListRepository;
 	
 
-	@RequestMapping("memberListPage") // keyword를 입력받아 검색한 리스트 > 페이지 이동 시켜줄거임
+	@RequestMapping("memberListPage")  
 	public String search(
 			@RequestParam(value="search_option",defaultValue = "") String search_option,
 			@RequestParam(value="keyword",defaultValue = "") String keyword,
@@ -36,11 +36,11 @@ public class MemberListController {
             return "member/memberListPage";
 	}
 	@RequestMapping("memberInfoPage") // 멤버의 아이디를 클릭했을 때 보이는 상세정보, memberMyInfo랑 다른거임   
-	public String memberInfoPage(@RequestParam(value = "memId")String memId, Model model) {
+	public String memberInfoPage(@RequestParam(value = "memId") String memId, Model model) {
 		memberInfoService.memberInfo(memId, model);
 		return "member/memberInfoPage";
 	}
-	@RequestMapping("memberDelete") // 멤버 강제 탈퇴 시키기
+	@RequestMapping("memberDelete") // 멤버 강제 탈퇴 시키기f
 	public String memberDelete(@RequestParam(value = "memId")String memId, Model model) {
 		memberDeleteService.memberDelete(memId);
 		return "redirect:memberListPage";

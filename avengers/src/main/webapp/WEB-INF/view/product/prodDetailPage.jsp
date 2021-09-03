@@ -124,7 +124,7 @@ li a {
  
 .btn {
 	display: block;
-	width: 200px;
+	width: 100px;
 	margin: auto;
 	padding: 5px 0 5px;
 	font-size: 14px;
@@ -206,10 +206,16 @@ tr.border_bottom_th {
 		</div>
 		<div class="leg">
 			<div class="productContents">
+				//임시버튼태그//
+				<input type="button" value="게시글 신고" class="btn" style="display: inline-block" onclick="javascript:location.href='report'">
+				<input type="button" value="채팅" class="btn" style="display: inline-block" onclick="javascript:location.href='chat'">
+				<input type="button" value="etc" class="btn" style="display: inline-block" onclick="javascript:location.href='etc'">
+				
 				<table>
 					<tr>
 						<td colspan="4" class="subject">상품 상세 정보</td>
 					</tr>
+
 					<tr class="border_bottom">
 						<th width="150" rowspan=7>상품이미지</th>
 						<td width="700" rowspan=7>
@@ -337,7 +343,7 @@ tr.border_bottom_th {
 							        	중고상품
 							    </c:when>
 							    <c:when test="${productdto.prodState eq 'N'}">
-							        	새상품
+							        	새상품 
 							    </c:when>
 							</c:choose>
 							</td>
