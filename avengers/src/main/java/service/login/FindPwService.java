@@ -48,7 +48,7 @@ public class FindPwService {
 			if(memberDTO.getMemName().equals(dto.getUserName())) {
 				memberDTO.setMemId(dto.getUserId());
 				memberDTO.setMemName(dto.getUserName());
-				httpSession.setAttribute("authinfo", dto);
+				httpSession.setAttribute("memberDTO", dto);
 			} else {
 				errors.rejectValue("memId", "memnomatch");
 			}
@@ -58,7 +58,7 @@ public class FindPwService {
 	
 	// 비밀번호 변경 메소드
 	public void memberPwModify(HttpSession session, MemberCommand memberCommand, Errors errors) {
-		AuthinfoDTO authinfo = (AuthinfoDTO)session.getAttribute("authinfo");
+		AuthinfoDTO authinfo = (AuthinfoDTO)session.getAttribute("memberDTO");
 		String memId = authinfo.getUserId(); 
 		
 		MemberDTO memberDTO = new MemberDTO();
