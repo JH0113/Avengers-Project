@@ -33,7 +33,7 @@
 }
 
 .body {
-	max-width: 1200px;
+	max-width: 1280px;
 	display: flex;
 	height: 1300px;
 	margin: auto;
@@ -41,7 +41,7 @@
 
 .left_bar {
 	height: 1200px;
-	width: 250px;
+	width: 300px;
 }
 
 .logo {
@@ -179,12 +179,6 @@ li a {
 	cursor: pointer;
 }
 
-/* .banner { */
-/* 	width: 100%; */
-/* 	height: 400px; */
-/* 	background-image: url("images/2nd.png"); */
-/* 	background-size: 100% 400px; */
-/* } */
 .products {
 	position: absolute;
 	top: 660px;
