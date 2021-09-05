@@ -215,8 +215,9 @@ tr.border_bottom_th {
 				<input type="button" value="게시글 신고" class="btn" style="display: inline-block" onclick="javascript:location.href='prodReportForm?prodNum=${productdto.prodNum}&memId=${memberdto.memId }'">
 				<input type="button" value="채팅" class="btn" style="display: inline-block" onclick="javascript:location.href='chat'">
 				<input type="button" value="etc" class="btn" style="display: inline-block" onclick="javascript:location.href='etc'">
+				<input type="button" value="찜" class="btn" style="display: inline-block" onclick="javascript:location.href='heart'">
 				
-				<table border="1">
+				<table>
 					<tr>
 						<td colspan="4" class="subject">상품 상세 정보</td>
 					</tr>
@@ -398,10 +399,12 @@ tr.border_bottom_th {
 						<th rowspan="4">회원 프로필</th>
 						<td colspan="1" rowspan="4"><img src="upload/${memberdto.memImage }"></td>
 					</tr>
+					
+					<!-- 여기 부분 지우면 안됨.-->
 					<tr class="border_bottom" >
-						<th rowspan="3">회원 닉네임</th>
-						<td colspan="1" rowspan="3">${memberdto.memNick }</td>
 					</tr>
+					<!-- 여기 부분 지우면 안됨.-->
+					
 					<tr class="border_bottom" >
 						<th >상품명</th>
 						<td colspan="1.5"><span id="main_point">${productdto.prodName }</span></td>
@@ -413,7 +416,8 @@ tr.border_bottom_th {
 					<tr class="border_bottom" >
 						<th>판매자 거래 장소</th>
 						<td colspan="1.5"><span id="main_point">${productdto.prodLocation }</span></td>		
-						 			
+						<th>회원 닉네임</th>
+						<td>${memberdto.memNick }</td>						 
 					</tr>
 
 					<tr class="border_bottom" height=100>
