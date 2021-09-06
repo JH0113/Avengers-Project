@@ -340,31 +340,8 @@ li a {
 						</div>
 					</div>
 					<div class="headmenu">
-						<c:if test="${empty authinfo }">
-							<ul class="nav">
-								<li><a href="loginPage">LOGIN</a></li>
-								<li><a href="memberRegistPage">REGIST</a></li>
-								<li><a href="noticePage">NOTICE</a></li>
-							</ul>
-						</c:if>
-						<c:if test="${!empty authinfo }">
-							<c:if test="${authinfo.grade == 1 }">
-								<ul class="nav">
-									<li><a href="myPage">MYPAGE</a></li>
-									<li><a href="productRegisterPage">SELL ITEMS</a></li>
-									<li><a href="noticePage">NOTICE</a></li>
-									<li><a href="login/logout">LOGOUT</a></li>
-								</ul>
-							</c:if>
-							<c:if test="${authinfo.grade != 1 }">
-								<ul class="nav">
-									<li><a href="#">MEMBER LIST</a></li>
-									<li><a href="#">REPORT</a></li>
-									<li><a href="noticePage">NOTICE</a></li>
-									<li><a href="login/logout">LOGOUT</a></li>
-								</ul>
-							</c:if>
-						</c:if>
+					
+                 		<%@include file="../include/includeTopMenu.jsp"%>
 					</div>
 				</div>
 				<div class="kategorie_top">판매 상품</div>

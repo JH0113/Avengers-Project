@@ -211,21 +211,29 @@ tr.border_bottom_th {
 			</div>
 		</div>
 		<div class="leg">
-			<div class="productContents">
-				 
-				 <table>
-				 <tr>
-					<td><a href="prodList">판매중인상품보기</a></td></tr>
-				 <tr>
-				    <td><a href="productRegisterPage">상품판매하기</a></td></tr>
-				 </table>
-				 
-				 
+			<div class="productContents">					
+			<div class="navigation">
+				<div class="my_menu">
+					<a href="prodList"> 
+						판매중인상품리스트보기
+					</a>
+				</div>
+				<div class="my_menu">
+					<a href="productRegisterPage"> 
+						상품판매하기
+					</a>
+				</div>
+				
+	
+				</div>
 			</div>
-		</div>
+		</div>  
+				 
+				  
+
 		<div class="footer">
 			<%@include file="../include/includeFooter.jsp"%>
 		</div>
-	</div>
+	 
 </body>
 </html>

@@ -321,7 +321,7 @@ li a {
 		<div class="body">
 			<div class="left_bar">
 				<div class="logo">
-					<span id="logo_text"><a href="main">2nd shop</a><span>
+					<span id="logo_text"><a href="main">2nd shop</a></span>
 				</div>
 			</div>
 			<div class="right_bar">
@@ -335,23 +335,7 @@ li a {
 						</div>
 					</div>
 					<div class="headmenu">
-						<div class="top_menu">
-							<c:if test="${empty authinfo }">
-								<ul class="nav">
-									<li><a href="loginPage">LOGIN</a></li>
-									<li><a href="registPage">REGIST</a></li>
-									<li><a href="noticePage">NOTICE</a></li>
-								</ul>
-							</c:if>
-							<c:if test="${!empty authinfo }">
-								<ul class="nav">
-								<li><a href="myPage">MYPAGE</a></li>
-								<li><a href="productRegisterPage">SELL ITEMS</a></li>
-								<li><a href="noticePage">NOTICE</a></li>
-								<li><a href="login/logout">LOGOUT</a></li>
-								</ul>
-							</c:if>
-						</div>
+						<%@include file="../include/includeTopMenu.jsp"%>
 					</div>
 				</div>
 
