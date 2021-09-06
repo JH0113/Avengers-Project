@@ -15,6 +15,11 @@ import service.product.ProductRegistService;
 public class ProductRegisterController {
 	@Autowired
 	ProductRegistService productRegistService;
+
+	@RequestMapping("myItem")
+	public String myItem() {
+		return "product/myItemPage";
+	}
 	
 	@RequestMapping("productRegisterPage")
 	public String ProductRegistPage(Model model, HttpSession httpSession) {
@@ -22,10 +27,7 @@ public class ProductRegisterController {
 	}
 	@RequestMapping(value = "productRegist",method = RequestMethod.POST )
 	public String productRegist(ProductCommandDTO productCommandDTO, HttpSession session) {
-		productRegistService.productRegist(productCommandDTO, session);
-		System.out.println(productCommandDTO.getProdImage());
-		System.out.println(productCommandDTO.getProdImage2());
-		System.out.println(productCommandDTO.getProdImage3());
+		productRegistService.productRegist(productCommandDTO, session); 
 		return "redirect:/";
 	}
 }

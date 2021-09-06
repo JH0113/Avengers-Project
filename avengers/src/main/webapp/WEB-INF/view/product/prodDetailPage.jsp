@@ -101,6 +101,7 @@ li a {
 	width: 100%;
 	height: 120px;
 }
+
 .subject {
 	text-align: center;
 	border-bottom: solid 2px;
@@ -112,7 +113,7 @@ li a {
 
 .leg {
 	width: 1200px;
-	height: 1000px;
+	height: 1200px;
 	margin: auto;
 }
 
@@ -225,7 +226,7 @@ tr.border_bottom_th {
 					<tr class="border_bottom">
 						<th width="150" rowspan=9>상품이미지</th>
 						<td width="700" rowspan=9>
-						<img src="upload/${productdto.prodImage }" width="600"></td>
+						<img src="upload/${productdto.prodImage }" width="500"></td>
 					<th width="150">브랜드</th>
 						<td width="300">
 
