@@ -225,7 +225,7 @@ tr.border_bottom_th {
 					<tr class="border_bottom">
 						<th width="150" rowspan=9>상품이미지</th>
 						<td width="700" rowspan=9>
-						<img src="upload/${productdto.prodImage }"></td>
+						<img src="upload/${productdto.prodImage }" width="600"></td>
 					<th width="150">브랜드</th>
 						<td width="300">
 
@@ -397,7 +397,7 @@ tr.border_bottom_th {
 					</tr>
 					<tr class="border_bottom">
 						<th rowspan="4">회원 프로필</th>
-						<td colspan="1" rowspan="4"><img src="upload/${memberdto.memImage }"></td>
+						<td colspan="1" rowspan="4"><img src="upload/${memberdto.memImage }" width="100" style="border-radius: 20px"></td>
 					</tr>
 					
 					<!-- 여기 부분 지우면 안됨.-->
@@ -411,10 +411,11 @@ tr.border_bottom_th {
 					</tr>
 					<tr class="border_bottom" >
 						<th>가격</th>
-						<td colspan="1.5"><span id="main_point">${productdto.prodPrice }원</span></td>
+						<td colspan="1.5"><span id="main_point"> 
+						${productdto.prodPrice }원</span></td>
 					</tr>
 					<tr class="border_bottom" >
-						<th>판매자 거래 장소</th>
+						<th>거래 장소</th>
 						<td colspan="1.5"><span id="main_point">${productdto.prodLocation }</span></td>		
 						<th>회원 닉네임</th>
 						<td>${memberdto.memNick }</td>						 
@@ -422,7 +423,7 @@ tr.border_bottom_th {
 
 					<tr class="border_bottom" height=100>
 						<th>내용</th>
-						<td colspan="1.5"><p>${productdto.prodDetail }</p></td>
+						<td colspan="3"><p>${productdto.prodDetail }</p></td>
 					</tr>
 				</table>
 			</div>
