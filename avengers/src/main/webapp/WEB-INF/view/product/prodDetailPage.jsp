@@ -397,7 +397,7 @@ tr.border_bottom_th {
 						<td colspan="1">${productdto.prodQuantity }</td>
 					</tr>
 					<tr class="border_bottom">
-						<th rowspan="4">회원 프로필</th>
+						<th rowspan="4">판매자 프로필</th>
 						<td colspan="1" rowspan="4"><img src="upload/${memberdto.memImage }" width="100" style="border-radius: 20px"></td>
 					</tr>
 					
@@ -418,7 +418,7 @@ tr.border_bottom_th {
 					<tr class="border_bottom" >
 						<th>거래 장소</th>
 						<td colspan="1.5"><span id="main_point">${productdto.prodLocation }</span></td>		
-						<th>회원 닉네임</th>
+						<th>판매자 닉네임</th>
 						<td>${memberdto.memNick }</td>						 
 					</tr>
 
