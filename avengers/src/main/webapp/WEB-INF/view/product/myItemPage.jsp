@@ -219,9 +219,7 @@ tr.border_bottom_th {
 					</a>
 				</div>
 				<div class="my_menu">
-					<a href="productRegisterPage"> 
-						상품판매하기
-					</a>
+			 
 				</div>
 				
 	
@@ -234,6 +232,6 @@ tr.border_bottom_th {
 		<div class="footer">
 			<%@include file="../include/includeFooter.jsp"%>
 		</div>
-	 
+	 </div>
 </body>
 </html>

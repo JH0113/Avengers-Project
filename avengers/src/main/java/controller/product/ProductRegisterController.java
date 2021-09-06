@@ -15,12 +15,7 @@ import service.product.ProductRegistService;
 public class ProductRegisterController {
 	@Autowired
 	ProductRegistService productRegistService;
-
-	@RequestMapping("myItem")
-	public String myItem() {
-		return "product/myItemPage";
-	}
-	
+ 
 	@RequestMapping("productRegisterPage")
 	public String ProductRegistPage(Model model, HttpSession httpSession) {
 		return "product/productRegisterPage";
