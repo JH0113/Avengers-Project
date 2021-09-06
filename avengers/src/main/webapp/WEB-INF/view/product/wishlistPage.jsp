@@ -52,44 +52,6 @@
 	font-size: 300%;
 }
 
-.profile_box {
-	width: 250px;
-	height: 300px;
-	border-radius: 10%;
-	padding-top: 30px;
-	background-color: #bbbfc3;
-	border-radius: 10%;
-}
-
-.profile {
-	width: 150px;
-	height: 150px;
-	margin: auto;
-	border-radius: 70%;
-	background-color: #fff;
-}
-
-.profile_btn {
-	text-align: center;
-	margin-top: 20px;
-}
-.profile_btn a {
-	color: #fff;
-}
-.profile_btn a:hover {
-	font-weight: bolder;
-}
-
-.nick_box {
-	width: 250px;
-	height: 100px;
-	color: #fff;
-	text-align: center;
-	font-size: 130%;
-	font-weight: bolder;
-	padding-top: 30px;
-}
-
 .category {
 	width: 100%;
 	height: 500px;
@@ -307,21 +269,7 @@ li a {
 				<div class="logo">
 					<span id="logo_text"><a href="main">2nd shop</a></span>
 				</div>
-				<div class="profile_box">
-					<div class="profile">
-						<c:if test="${authinfo.memImage != null }">
-							<img width="150px" height="150px"
-								src="upload/${authinfo.memImage }" />
-							<br />
-						</c:if> <c:if test="${authinfo.memImage == null }">
-							<img width="150px" height="150px" src="images/profile01.png" />
-						</c:if>
-					</div>
-					<div class="profile_btn">
-						<a href="#" id="intro" onclick="intro()">사진 변경</a>
-					</div>
-					<div class="nick_box">닉네임 : ${authinfo.userNick }</div>
-				</div>
+				<%@include file="../include/includeProfile.jsp"%>
 				<div class="category">
 					<div class="dropdown">
 						<span id="menu_text">관심상품</span>
@@ -365,9 +313,9 @@ li a {
 						</div>
 					</div>
 					<div class="headmenu">
-						 
-						
-                 	<%@include file="../include/includeTopMenu.jsp"%>
+
+
+						<%@include file="../include/includeTopMenu.jsp"%>
 					</div>
 				</div>
 				<div class="kategorie_top">찜한 상품</div>
@@ -430,7 +378,8 @@ li a {
 		<div class="popup">
 			<div class="pupup_btn">x</div>
 			<h1 id="popup_intro">사진 등록</h1>
-			<form action="memImageRegist" name="frm" method="post" enctype="multipart/form-data">
+			<form action="memImageRegist" name="frm" method="post"
+				enctype="multipart/form-data">
 				<div class="image_form">
 					<input type="file" name="memImage" />
 				</div>
