@@ -23,9 +23,8 @@
 			value="로그인" />
 		<div id="monitor" contentEditable="true"></div>
 		<div>
-			메시지 : <input id="msg" type="text" /> <input type="button" value="전송"
-				onClick="sendMsg()" /> <input type="button" value="나가기"
-				onClick="disConn()" />
+			메시지 : <input id="msg" type="text" /> <input type="button" value="전송" onClick="sendMsg()" />
+				    <input type="button" value="나가기" onClick="disConn()" />
 		</div>
 	</form>
 </body>
@@ -43,14 +42,12 @@
 		webSocket.onopen = function(e) {
 			console.log(e);
 		}
-
 		//웹소켓 끊겼을 때(client <- server)
 		webSocket.onclose = function(e) {
 			if (e.type == "close") {
 				monitor.innerHTML += "접속이 종료 되었습니다.<br/>";
 			}
 		}
-
 		//메시지 수신(client <- server)
 		webSocket.onmessage = function(e) {
 			console.log(e);
@@ -58,12 +55,10 @@
 		}
 
 	});
-
 	//웹소켓 종료(client -> server)
 	function disConn() {
 		webSocket.close();
 	}
-
 	//메시지 전송(client -> server)
 	function sendMsg() {
 		webSocket.send($("#nick").val() + "> " + $("#msg").val());
