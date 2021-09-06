@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xsi:schemaLocation="
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
 			http://www.springframework.org/schema/beans
 			http://www.springframework.org/schema/beans/spring-beans.xsd
-			"
->
+			">
 	<bean class="controller.member.MemberRegistController" />
 	<bean class="controller.member.MyPageController" />
-	
+
 	<bean class="controller.member.MysellbuyController" />
-	
 
 
-	<bean id = "sellpageRepository" class="repository.SellPageRepository" />
-	<bean id = "memberRepository" class="repository.MemberRepository" />
-	
-	<bean id = "memberJoinService" class="service.join.MemberJoinService" />
-	<bean id = "memberMyInfoService" class="service.member.MemberMyInfoService" />
-	<bean id = "memberModifyService" class="service.member.MemberModifyService" />
-	<bean id = "memImageModifyService" class="service.member.MemImageModifyService" />
-		<bean id = "memberSellService" class="service.memberPage.SellPageService" />
+
+	<bean id="sellpageRepository"
+		class="repository.SellPageRepository" />
+	<bean id="memberRepository" class="repository.MemberRepository" />
+
+	<bean id="memberJoinService"
+		class="service.join.MemberJoinService" />
+	<bean id="memberMyInfoService"
+		class="service.member.MemberMyInfoService" />
+	<bean id="memberModifyService"
+		class="service.member.MemberModifyService" />
+	<bean id="memImageModifyService"
+		class="service.member.MemImageModifyService" />
+	<bean id="memberSellService"
+		class="service.memberPage.SellPageService" />
 </beans>
