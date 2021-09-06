@@ -398,7 +398,7 @@ tr.border_bottom_th {
 					</tr>
 					<tr class="border_bottom">
 						<th rowspan="4">회원 프로필</th>
-						<td colspan="1" rowspan="4"><img src="upload/${memberdto.memImage }" width="100" style="border-radius: 20px"></td>
+						<td colspan="1" rowspan="4"><img src="upload/${authinfo.memImage }" width="100" style="border-radius: 20px"></td>
 					</tr>
 					
 					<!-- 여기 부분 지우면 안됨.-->
