@@ -51,7 +51,6 @@ public class WebSocketController {
 				broadCast(key + "님께서 나가셨습니다.    현재 접속자(" + userList.size() + ")");
 			}
 		}
-
 	}
 
 	// 메시지 수신시

@@ -38,7 +38,7 @@ public class ProductRegistService {
 				String original = mf.getOriginalFilename();
 				String originalExt = original.substring(original.lastIndexOf("."));
 				String store = UUID.randomUUID().toString().replace("-", "") + originalExt;
-				prodImage += store + ",";
+				prodImage += store;
 				String realPath = httpSession.getServletContext().getRealPath("WEB-INF/view/upload");
 				File file = new File(realPath + "/" + store);
 				try {
@@ -55,7 +55,7 @@ public class ProductRegistService {
 				String original = mf.getOriginalFilename();
 				String originalExt = original.substring(original.lastIndexOf("."));
 				String store = UUID.randomUUID().toString().replace("-", "") + originalExt;
-				prodImage2 += store + ",";
+				prodImage2 += store;
 				String realPath = httpSession.getServletContext().getRealPath("WEB-INF/view/upload/");
 				File file = new File(realPath + "/" + store);
 				try {
@@ -72,8 +72,8 @@ public class ProductRegistService {
 				String original = mf.getOriginalFilename();
 				String originalExt = original.substring(original.lastIndexOf("."));
 				String store = UUID.randomUUID().toString().replace("-", "") + originalExt;
-				prodImage3 += store + ",";
-				String realPath = httpSession.getServletContext().getRealPath("WEB-INF/view/product/productImage");
+				prodImage3 += store;
+				String realPath = httpSession.getServletContext().getRealPath("WEB-INF/view/upload");
 				File file = new File(realPath + "/" + store);
 				try {
 					mf.transferTo(file);
