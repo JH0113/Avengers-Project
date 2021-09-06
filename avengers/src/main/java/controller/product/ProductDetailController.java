@@ -18,4 +18,8 @@ public class ProductDetailController {
 		productDetailService.ProductDetail(prodNum, model);
 		return "product/prodDetailPage";
 	}
+	@RequestMapping("productDetailTest")
+	public String productDetail() {
+		return "product/productDetailTest";
+	}
 }
