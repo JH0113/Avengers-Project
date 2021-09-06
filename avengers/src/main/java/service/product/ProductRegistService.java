@@ -32,6 +32,9 @@ public class ProductRegistService {
 		productDTO.setProdState(productCommandDTO.getProdState());
 		productDTO.setProdQuantity(productCommandDTO.getProdQuantity());
 		
+		productDTO.setLatitude(productCommandDTO.getLatitude());
+		productDTO.setLongitude(productCommandDTO.getLongitude());
+		
 		String prodImage = "";
 		if (!productCommandDTO.getProdImage()[0].getOriginalFilename().equals("")) {
 			for (MultipartFile mf : productCommandDTO.getProdImage()) {

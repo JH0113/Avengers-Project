@@ -16,6 +16,8 @@ public class ProductCommandDTO {
 	String prodGuarantee;
 	String prodState;
 	int prodQuantity;
+	String latitude;
+	String longitude;
 	
 	public MultipartFile[] getProdImage2() {
 		return prodImage2;
@@ -34,6 +36,18 @@ public class ProductCommandDTO {
 	}
 	public void setProdMethod(String prodMethod) {
 		this.prodMethod = prodMethod;
+	}
+	public String getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
+	public String getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
 	}
 	public String getProdName() {
 		return prodName;
