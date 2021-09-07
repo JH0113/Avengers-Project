@@ -432,10 +432,9 @@ to {
 				<table>
 					<tr>
 						<td colspan="4" class="subject">상품 상세 정보
-						<c:if test="${!empty authinfo }">
 						<c:if test="${wishCk==1 }"><img width="20px" height="20" alt="heart_img" src="images/heart1.png"></c:if>
 						<c:if test="${wishCk==0 }"><img width="20px" height="20" alt="heart_img" src="images/heart0.png"></c:if>
-						</c:if></td>
+						</td>
 					</tr>
 
 					<%-- 					<tr class="border_bottom">

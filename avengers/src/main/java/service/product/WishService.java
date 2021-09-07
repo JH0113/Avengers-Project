@@ -40,10 +40,12 @@ public class WishService {
 		model.addAttribute("list", list);
 	}
 	public int wishCk(String prodNum, HttpSession httpSession) {
-		AuthinfoDTO authinfoDTO = (AuthinfoDTO) httpSession.getAttribute("authinfo");
-		String memId = wishRepository.wishCk(prodNum);
-		if (authinfoDTO.getUserId().equals(memId)) {
-			return 1;
+		if (httpSession.getAttribute("authinfo") != null) {
+			AuthinfoDTO authinfoDTO = (AuthinfoDTO) httpSession.getAttribute("authinfo");
+			String memId = wishRepository.wishCk(prodNum);
+			if (authinfoDTO.getUserId().equals(memId)) {
+				return 1;
+			}return 0;
 		}return 0;
 	}
 }
