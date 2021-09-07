@@ -7,7 +7,7 @@
 <select id="sellList" resultType="model.ProductDTO" parameterType="string">
 	select PROD_NAME prodName,PROD_PRICE prodPrice,
 	PROD_IMAGE prodImage,PROD_DATE prodDate,
-	PROD_STATE prodState
+	PROD_STATE prodState, PROD_NUM prodNum
 	from products
 	where  MEM_ID=#{userId} 	
 </select>	

@@ -256,6 +256,7 @@ li a {
 					</div>
 					<div class="nick_box">닉네임 : ${authinfo.userNick }</div>
 				</div>
+				
 				<div class="category">
 					<div class="dropdown">
 						<span id="menu_text">관심상품</span>
