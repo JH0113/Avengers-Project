@@ -3,6 +3,7 @@ package command;
 import org.springframework.web.multipart.MultipartFile;
 
 public class ProductCommandDTO {
+	String prodNum;
 	String prodName;
 	int prodPrice;
 	MultipartFile[] prodImage;
@@ -19,6 +20,15 @@ public class ProductCommandDTO {
 	String latitude;
 	String longitude;
 	
+	
+	
+	
+	public String getProdNum() {
+		return prodNum;
+	}
+	public void setProdNum(String prodNum) {
+		this.prodNum = prodNum;
+	}
 	public MultipartFile[] getProdImage2() {
 		return prodImage2;
 	}

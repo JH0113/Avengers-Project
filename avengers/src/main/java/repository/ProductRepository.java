@@ -42,4 +42,10 @@ public class ProductRepository {
 		statement = namespace + ".memberDetail";
 		return sqlSession.selectOne(statement, prodNum);
 	}
+
+	public void productModify(ProductDTO productDTO) {
+		statement = namespace + ".productModify";
+		sqlSession.update(statement, productDTO);
+		
+	}
 }

@@ -79,4 +79,27 @@
 		(select mem_id from products
 		where PROD_NUM = #{prodNum})
 	</select>
+	
+	<update id="productModify" parameterType="model.ProductDTO">
+		update products
+		set
+		PROD_NAME=#{prodName},PROD_PRICE=#{prodPrice},
+		PROD_IMAGE =
+		<if test="prodImage != null">#{prodImage}</if>
+		<if test="prodImage == null">null</if>,
+		PROD_IMAGE2 =
+		<if test="prodImage2 != null">#{prodImage2}</if>
+		<if test="prodImage2 == null">null</if>,
+		PROD_IMAGE3 =
+		<if test="prodImage3 != null">#{prodImage3}</if>
+		<if test="prodImage3 == null">null</if>,
+		PROD_DETAIL =
+		<if test="PROD_DETAIL != null">#{PROD_DETAIL}</if>
+		<if test="PROD_DETAIL == null">null</if>,
+		PROD_BRAND=#{prodBrand},PROD_KIND=#{prodKind},PROD_GUARANTEE=#{prodGuarantee},
+		PROD_METHOD=#{prodMethod},PROD_STATE=#{prodState},PROD_QUANTITY=#{prodQuantity}
+		
+		where PROD_NUM=#{prodNum} 
+	
+	</update>
 </mapper>

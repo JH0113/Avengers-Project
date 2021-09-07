@@ -431,6 +431,9 @@ textarea {
 	width: 100px;
 	text-align: center;
 }
+.hidden{
+	display: none;
+}
 </style>
 
 </head>
@@ -448,14 +451,16 @@ textarea {
 		<div class="body">
 			
 			<form:form action="productModify" method="post" name="frm" enctype="multipart/form-data" modelAttribute="productCommand">
+				<input type="hidden" name="prodNum" value="${productCommand.prodNum }">
 				<table class="prod_regist_box">
+					
 					<tr>
 						<td colspan="2" class="subject">상품판매</td>
+						
 					</tr>
 					<tr class="contents">
 						<td class="td_left">상품이미지</td>
 						<td class="td_right">
-							<div id="image_container"></div> 
 							이미지 1 : <input type="file" id="image" accept="image/*" onchange="setThumbnail(event);"	name="prodImage" multiple="multiple" /><br /> 
 							이미지 2 : <input type="file" id="image" accept="image/*" onchange="setThumbnail(event);" name="prodImage2" multiple="multiple" /><br /> 
 							이미지 3 : <input type="file" id="image" accept="image/*" onchange="setThumbnail(event);" name="prodImage3" multiple="multiple" /><br /> <br /> <br />
@@ -479,71 +484,72 @@ textarea {
 						<td class="td_left">카테고리</td>
 						<td class="td_right"><span id="select_text">BRAND :</span> <select
 							name="prodBrand">
-								<option value="a">SAINT LAURENT</option>
-								<option value="b">PRADA</option>
-								<option value="c">BURBERRY</option>
-								<option value="d">GUCCI</option>
-								<option value="e">MAISON MARGIELA</option>
-								<option value="f">BOTTEGA VENETA</option>
-								<option value="g">VALENTINO</option>
-								<option value="h">BALENCIAGA</option>
-								<option value="i">LOUIS VUITTON</option>
-								<option value="j">others</option>
+								<option value="a" <c:if test="${productCommand.prodBrand =='a'}">selected</c:if>> LAURENT</option>
+								<option value="b" <c:if test="${productCommand.prodBrand =='b'}">selected</c:if>>PRADA</option>
+								<option value="c" <c:if test="${productCommand.prodBrand =='c'}">selected</c:if>>BURBERRY</option>
+								<option value="d" <c:if test="${productCommand.prodBrand =='d'}">selected</c:if>>GUCCI</option>
+								<option value="e" <c:if test="${productCommand.prodBrand =='e'}">selected</c:if>>MAISON MARGIELA</option>
+								<option value="f" <c:if test="${productCommand.prodBrand =='f'}">selected</c:if>>BOTTEGA VENETA</option>
+								<option value="g" <c:if test="${productCommand.prodBrand =='g'}">selected</c:if>>VALENTINO</option>
+								<option value="h" <c:if test="${productCommand.prodBrand =='h'}">selected</c:if>>BALENCIAGA</option>
+								<option value="i" <c:if test="${productCommand.prodBrand =='i'}">selected</c:if>>LOUIS VUITTON</option>
+								<option value="j" <c:if test="${productCommand.prodBrand =='j'}">selected</c:if>>others</option>
 						</select> <span id="select_text">KINDS :</span> <select name="prodKind">
 								<optgroup label="Bags">
-									<option value="11">cross/shoulder bag</option>
-									<option value="12">clutch/pouch bag</option>
-									<option value="13">tote bag</option>
-									<option value="14">belt bag</option>
-									<option value="15">bucket bag</option>
-									<option value="16">backpack</option>
-									<option value="17">suitcase</option>
-									<option value="18">etc</option>
-									<option value="10">others</option>
+									<option value="11" <c:if test="${productCommand.prodKind =='11'}">selected</c:if>>cross/shoulder bag</option>
+									<option value="12" <c:if test="${productCommand.prodKind =='12'}">selected</c:if>>clutch/pouch bag</option>
+									<option value="13" <c:if test="${productCommand.prodKind =='13'}">selected</c:if>>tote bag</option>
+									<option value="14" <c:if test="${productCommand.prodKind =='14'}">selected</c:if>>belt bag</option>
+									<option value="15" <c:if test="${productCommand.prodKind =='15'}">selected</c:if>>bucket bag</option>
+									<option value="16" <c:if test="${productCommand.prodKind =='16'}">selected</c:if>>backpack</option>
+									<option value="17" <c:if test="${productCommand.prodKind =='17'}">selected</c:if>>suitcase</option>
+									<option value="18" <c:if test="${productCommand.prodKind =='18'}">selected</c:if>>etc</option>
+									<option value="10" <c:if test="${productCommand.prodKind =='10'}">selected</c:if>>others</option>
 								</optgroup>
 								<optgroup label="Shoes">
-									<option value="21">heels</option>
-									<option value="22">flat</option>
-									<option value="23">sandal/slippers</option>
-									<option value="24">boots</option>
-									<option value="25">loafer</option>
-									<option value="26">dress shoes</option>
-									<option value="27">sneaker</option>
-									<option value="20">others</option>
+									<option value="21" <c:if test="${productCommand.prodKind =='21'}">selected</c:if>>heels</option>
+									<option value="22" <c:if test="${productCommand.prodKind =='22'}">selected</c:if>>flat</option>
+									<option value="23" <c:if test="${productCommand.prodKind =='23'}">selected</c:if>>sandal/slippers</option>
+									<option value="24" <c:if test="${productCommand.prodKind =='24'}">selected</c:if>>boots</option>
+									<option value="25" <c:if test="${productCommand.prodKind =='25'}">selected</c:if>>loafer</option>
+									<option value="26" <c:if test="${productCommand.prodKind =='26'}">selected</c:if>>dress shoes</option>
+									<option value="27" <c:if test="${productCommand.prodKind =='27'}">selected</c:if>>sneaker</option>
+									<option value="20" <c:if test="${productCommand.prodKind =='28'}">selected</c:if>>others</option>
 								</optgroup>
 								<optgroup label="Jewelry">
-									<option value="31">bracelet</option>
-									<option value="32">brooch/pin</option>
-									<option value="33">earring</option>
-									<option value="34">necklace</option>
-									<option value="35">ring</option>
-									<option value="30">others</option>
+									<option value="31" <c:if test="${productCommand.prodKind =='31'}">selected</c:if>>bracelet</option>
+									<option value="32" <c:if test="${productCommand.prodKind =='32'}">selected</c:if>>brooch/pin</option>
+									<option value="33" <c:if test="${productCommand.prodKind =='33'}">selected</c:if>>earring</option>
+									<option value="34" <c:if test="${productCommand.prodKind =='34'}">selected</c:if>>necklace</option>
+									<option value="35" <c:if test="${productCommand.prodKind =='35'}">selected</c:if>>ring</option>
+									<option value="30" <c:if test="${productCommand.prodKind =='30'}">selected</c:if>>others</option>
 								</optgroup>
 						</select></td>
 					</tr>
+					
+					
 					<tr class="contents">
 						<td class="td_left">거래방법</td>
-						<td class="td_right"><input class="radio" type="radio"
-							name="prodMethod" value="J" checked="checked"><span
-							id="radio_text">직거래 희망</span> <input class="radio" type="radio"
-							name="prodMethod" value="T"><span id="radio_text">택배
-								희망</span></td>
+						<td class="td_right"><input class="radio" type="radio" name="prodMethod" value="J" <c:if test="${productCommand.prodMethod =='J'}">checked</c:if> >
+						<span id="radio_text">직거래 희망</span> 
+						<input class="radio" type="radio" name="prodMethod" value="T" <c:if test="${productCommand.prodMethod =='T'}">checked</c:if>>
+						<span id="radio_text">택배 희망</span></td>
 					</tr>
 
 					<tr class="contents">
 						<td class="td_left">상태</td>
 						<td class="td_right"><input class="radio" type="radio"
-							name="prodState" value="O" checked="checked"><span
+							name="prodState" value="O" <c:if test="${productCommand.prodState =='O'}">checked</c:if>><span
 							id="radio_text">중고상품</span> <input class="radio" type="radio"
-							name="prodState" value="N"><span id="radio_text">새상품</span>
+							name="prodState" value="N" <c:if test="${productCommand.prodState =='N'}">checked</c:if>><span id="radio_text">새상품</span>
 						</td>
 					</tr>
 					<tr class="contents">
 						<td class="td_left">보증서</td>
 						<td class="td_right"><input class="radio" type="radio"
-							name="prodGuarantee" value="Y" checked="checked"><span
+							name="prodGuarantee" value="Y" <c:if test="${productCommand.prodGuarantee =='Y'}">checked</c:if>><span
 							id="radio_text">유</span> <input class="radio" type="radio"
-							name="prodGuarantee" value="N"><span id="radio_text">무</span>
+							name="prodGuarantee" value="N" <c:if test="${productCommand.prodGuarantee =='N'}">checked</c:if>><span id="radio_text">무</span>
 						</td>
 					</tr>
 					<tr class="contents">
@@ -551,20 +557,20 @@ textarea {
 						<td class="td_right">
 							<div class="input_price_box">
 								<input class="input" type="number" name="prodPrice"
-									placeholder="숫자만 입력해주세요."><span>원</span>
+									placeholder="숫자만 입력해주세요." value="${productCommand.prodPrice }"><span>원</span>
 							</div>
 						</td>
 					</tr>
 					<tr class="contents">
 						<td class="td_left">설명</td>
 						<td class="td_right"><textarea rows="8" cols="65"
-								name="prodDetail" placeholder="상품 설명을 입력해주세요."></textarea></td>
+								name="prodDetail" placeholder="상품 설명을 입력해주세요.">${productCommand.prodDetail }</textarea></td>
 					</tr>
 					<tr class="contents">
 						<td class="td_left">수량</td>
 						<td class="td_right">
 							<div class="input_price_box">
-								<input class="input" type="number" name="prodQuantity" value="1"><span>개</span>
+								<input class="input" type="number" name="prodQuantity" value="${productCommand.prodQuantity }"><span>개</span>
 							</div>
 						</td>
 					</tr>
@@ -572,6 +578,9 @@ textarea {
 					<tr>
 						<td colspan="2" class="subject"><input type="submit" class="btn" value="상품수정"></td>
 					</tr>
+					
+			 
+					
 				</table>
 			</form:form>
 		</div>
