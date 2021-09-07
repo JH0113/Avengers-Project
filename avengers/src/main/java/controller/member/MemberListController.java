@@ -35,7 +35,6 @@ public class MemberListController {
 			@RequestParam(value = "page", defaultValue = "1") Integer page, Model model) throws Exception {     
 			
 			memberListService.memberList(page,model, search_option, keyword);
-            
             return "member/memberListPage";
 	}
 	@RequestMapping("memberInfoPage") // 멤버의 아이디를 클릭했을 때 보이는 상세정보, memberMyInfo랑 다른거임   
