@@ -427,7 +427,7 @@ textarea {
 #result {
 	font-weight: 500;
 	display: inline-block;
-	width: 100px;
+	width: 100%;
 	text-align: center;
 }
 </style>
@@ -575,31 +575,30 @@ textarea {
 					<tr class="contents">
 						<td class="td_left">거래지역</td>
 						<td class="td_right">
-							<div class="map_wrap">
-								<div id="map"
-									style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
+							<form onsubmit="searchPlaces(); return false;">
+								<div class="map_wrap">
+									<div id="map"
+										style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
 
-								<div id="menu_wrap" class="bg_white">
-									<div class="option">
-										<div>
-											<form onsubmit="searchPlaces(); return false;">
-												<input type="hidden" id="prodLocation" name="prodLocation"
-													value=""> <input type="hidden" id="latitude"
-													name="latitude" value=""> <input type="hidden"
-													id="longitude" name="longitude" value=""> 키워드 : <input
-													type="text" value="이젠아이티" id="keyword" size="15"> <input
-													type="button" id="searchBtn" onclick="searchPlaces()"
-													value="검색">
-											</form>
+									<div id="menu_wrap" class="bg_white">
+										<div class="option">
+											<div>
+												키워드 : <input type="text" value="이젠아이티" id="keyword" size="15"> 
+												
+												<input type="hidden" id="prodLocation" name="prodLocation"value=""> 
+												<input type="hidden" id="latitude" name="latitude" value=""> 
+												<input type="hidden" id="longitude" name="longitude" value="">
+												
+												<input type="button" id="searchBtn" onclick="searchPlaces()" value="검색"> 
+											</div>
 										</div>
+										<hr>
+										<ul id="placesList"></ul>
+										<div id="pagination"></div>
 									</div>
-									<hr>
-									<ul id="placesList"></ul>
-									<div id="pagination"></div>
 								</div>
-							</div>
-							<div id="result"></div>
-
+								<div id="result"></div>
+							</form>
 						</td>
 					</tr>
 					<tr>
@@ -613,6 +612,7 @@ textarea {
 			<%@include file="../include/includeFooter.jsp"%>
 		</div>
 	</div>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5921de72df8da90539ae4441abbd63ca&libraries=services"></script>
 	<script>
@@ -681,57 +681,65 @@ textarea {
 		// 검색 결과 목록과 마커를 표출하는 함수입니다
 		function displayPlaces(places) {
 
-			var listEl = document.getElementById('placesList'), menuEl = document
-					.getElementById('menu_wrap'), fragment = document
-					.createDocumentFragment(), bounds = new kakao.maps.LatLngBounds(), listStr = '';
+		    var listEl = document.getElementById('placesList'), 
+		    menuEl = document.getElementById('menu_wrap'),
+		    fragment = document.createDocumentFragment(), 
+		    bounds = new kakao.maps.LatLngBounds(), 
+		    listStr = '';
+		    
+		    // 검색 결과 목록에 추가된 항목들을 제거합니다
+		    removeAllChildNods(listEl);
 
-			// 검색 결과 목록에 추가된 항목들을 제거합니다
-			removeAllChildNods(listEl);
+		    // 지도에 표시되고 있는 마커를 제거합니다
+		    removeMarker();
+		    
+		    for ( var i=0; i<places.length; i++ ) {
 
-			// 지도에 표시되고 있는 마커를 제거합니다
-			removeMarker();
+		        // 마커를 생성하고 지도에 표시합니다
+		        var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
+		            marker = addMarker(placePosition, i), 
+		            itemEl = getListItem(i, places[i]); // 검색 결과 항목 Element를 생성합니다
+				
+		        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+		        // LatLngBounds 객체에 좌표를 추가합니다
+		        bounds.extend(placePosition);
 
-			for (var i = 0; i < places.length; i++) {
+		        // 마커와 검색결과 항목에 click 했을때
+		        // 해당 장소에 인포윈도우에 장소명을 표시합니다
+		        (function(marker, title) {
 
-				// 마커를 생성하고 지도에 표시합니다
-				var placePosition = new kakao.maps.LatLng(places[i].y,
-						places[i].x), marker = addMarker(placePosition, i), itemEl = getListItem(
-						i, places[i]); // 검색 결과 항목 Element를 생성합니다
+		         	// 마커에 클릭이벤트를 등록합니다
+		            kakao.maps.event.addListener(marker, 'click', function() {
+		            	displayInfowindow(marker, title);
+  		            		// 좌표정보를 파싱하기 위해 hidden input에 값 지정
+			                $("#latitude").val(marker.getPosition().getLat());
+			                $("#longitude").val(marker.getPosition().getLng());
+			                $("#prodLocation").val(places[0].address_name); 
+ 
+/* 			            	var message = '위치는 ' + marker.getPosition() + ' 입니다';
+			                var resultDiv = document.getElementById('result'); 
+			                resultDiv.innerHTML = message; */
+		            	
+		            });
+		
+		            itemEl.onclick =  function () {
+		                displayInfowindow(marker, title);
+		            };
+		
+		        })(marker, places[i].place_name);
 
-				// 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-				// LatLngBounds 객체에 좌표를 추가합니다
-				bounds.extend(placePosition);
+		        fragment.appendChild(itemEl);
+		    } // for문 끝
 
-				// 마커와 검색결과 항목에 mouseover 했을때
-				// 해당 장소에 인포윈도우에 장소명을 표시합니다
-				// mouseout 했을 때는 인포윈도우를 닫습니다
-				(function(marker, title) {
-					kakao.maps.event.addListener(marker, 'click', (function(
-							placePosition) {
-						displayInfowindow(marker, title);
-						return function() {
-							// 좌표정보를 파싱하기 위해 hidden input에 값 지정
-							$("#latitude").val(placePosition.La);
-							$("#longitude").val(placePosition.Ma);
-							$("#prodLocation").val(title);
-							// #result 영역에 좌표정보 출력
-							var resultDiv = document.getElementById('result');
-							resultDiv.innerHTML = '선택하신 위치는 ' + '"' + title
-									+ '"' + placePosition + ' 입니다';
-						}
-					}));
-				})
+		    // 검색결과 항목들을 검색결과 목록 Elemnet에 추가합니다
+		    listEl.appendChild(fragment);
+		    menuEl.scrollTop = 0;
 
-				fragment.appendChild(itemEl);
-			} // for문 닫히는 부분
-
-			// 검색결과 항목들을 검색결과 목록 Elemnet에 추가합니다
-			listEl.appendChild(fragment);
-			menuEl.scrollTop = 0;
-
-			// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
-			map.setBounds(bounds);
-		} // 함수 닫히는 부분
+		    // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+		    map.setBounds(bounds);
+		} // 함수 끝
+		
+		
 
 		// 검색결과 항목을 Element로 반환하는 함수입니다
 		function getListItem(index, places) {
@@ -826,6 +834,7 @@ textarea {
 
 			infowindow.setContent(content);
 			infowindow.open(map, marker);
+
 		}
 
 		// 검색결과 목록의 자식 Element를 제거하는 함수입니다
