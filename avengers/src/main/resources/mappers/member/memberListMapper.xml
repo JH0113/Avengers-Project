@@ -3,46 +3,59 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.memberListMapper">
-	
-	
+   
+   
 <select id="count" resultType="int">
-	select count(*) from member
+   select count(*) from member
 </select>
 
  
  
 <select id="memList" resultType="model.MemberDTO" parameterType="model.MemberDTO">
-	select rn, memId, memNick, memName, memAddr, memPostNumber, memDetailAdd, memPhone, memReportedCount
-	from 	
-		(select ROWNUM rn, MEM_ID memId, MEM_NICK memNick, MEM_NAME memName, MEM_ADDR memAddr,
-		MEM_POSTNUMBER memPostNumber, MEM_DETAILADD memDetailAdd, MEM_PHONE memPhone,
-		MEM_REPORTED_COUNT memReportedCount 
-		from member 
-		 <if test="search_option != ''">
-           	 where ${search_option} like '%' ||#{keyword}|| '%'
+   select rn, memId, memNick, memName, memAddr, memPostNumber, memDetailAdd, memPhone, memReportedCount
+   from    
+      (select ROWNUM rn, MEM_ID memId, MEM_NICK memNick, MEM_NAME memName, MEM_ADDR memAddr,
+      MEM_POSTNUMBER memPostNumber, MEM_DETAILADD memDetailAdd, MEM_PHONE memPhone,
+      MEM_REPORTED_COUNT memReportedCount 
+      from member 
+       <if test="search_option != ''">
+               where ${search_option} like '%' ||#{keyword}|| '%'
         </if>
         <if test="search_option == ''">
-           	 where mem_id like '%' ||#{keyword}|| '%'
-           	 	or MEM_NICK like '%' ||#{keyword}|| '%'
-           	 	or MEM_NAME like '%' ||#{keyword}|| '%'
+               where MEM_ID like '%' ||#{keyword}|| '%'
+                  or MEM_NICK like '%' ||#{keyword}|| '%'
+                  or MEM_NAME like '%' ||#{keyword}|| '%'
         </if>
-		) 
-	where rn between #{startEndPageDTO.startRow} and #{startEndPageDTO.endRow}  	
-	
-</select>	 
+      ) 
+   where rn between #{startEndPageDTO.startRow} and #{startEndPageDTO.endRow}     
+</select>    
 
 
-<select id="memberInfo" parameterType="string"	resultType="model.MemberDTO">
-		select MEM_ID memId, MEM_PW memPw, MEM_NAME memName, MEM_NICK memNick,
-		MEM_ADDR memAddr, MEM_POSTNUMBER memPostNumber, MEM_DETAILADD memDetailAdd, 
-		MEM_PHONE memPhone
-		from member
-		where MEM_ID = #{memId}
+<select id="memberInfo" parameterType="string"   resultType="model.MemberDTO">
+      select MEM_ID memId, MEM_PW memPw, MEM_NAME memName, MEM_NICK memNick,
+      MEM_ADDR memAddr, MEM_POSTNUMBER memPostNumber, MEM_DETAILADD memDetailAdd, 
+      MEM_PHONE memPhone
+      from member
+      where MEM_ID = #{memId}
 </select>
 
 <delete id="memberDelete" parameterType="string">
-	delete from member
-	where MEM_ID = #{memId}
+   delete from member
+   where MEM_ID = #{memId}
 </delete>
+
+ 
+<select id= "memberDetail" parameterType="string" resultType="model.MemberDTO">
+   SELECT MEM_ID memId, MEM_NICK memNick, MEM_IMAGE memImage, MEM_REPORTED_COUNT memReportedCount 
+   FROM MEMBER
+   WHERE MEM_ID = #{memId}
+</select>
+   
+<select id="memberProductsDetail" parameterType="string" resultType="model.ProductDTO">
+   SELECT PROD_NUM prodNum, PROD_NAME prodName, PROD_IMAGE prodImage
+   FROM PRODUCTS 
+   WHERE MEM_ID = #{memId} 
+</select> 
+   
 
 </mapper>
