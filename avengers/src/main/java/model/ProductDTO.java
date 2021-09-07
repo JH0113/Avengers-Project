@@ -2,6 +2,7 @@ package model;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 public class ProductDTO {
@@ -23,8 +24,15 @@ public class ProductDTO {
 	String prodNum;
 	String latitude;
 	String longitude;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	Date heartDate;
 	
-	
+	public Date getHeartDate() {
+		return heartDate;
+	}
+	public void setHeartDate(Date heartDate) {
+		this.heartDate = heartDate;
+	}
 	public String getLatitude() {
 		return latitude;
 	}

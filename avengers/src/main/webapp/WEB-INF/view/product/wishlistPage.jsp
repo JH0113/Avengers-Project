@@ -187,8 +187,9 @@ li a {
 
 .products {
 	width: 100%;
-	height: 600px;
+	max-height: 600px;
 	padding: 20px 20px 0px 20px;
+	overflow: auto;
 }
 
 .wish_table {
@@ -204,6 +205,24 @@ li a {
 
 #td_text {
 	width: 735px;
+}
+
+.ellipsis_multi {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 15px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 1; /* 라인수 */
+	-webkit-box-orient: vertical;
+	word-wrap: break-word;
+	line-height: 18px;
+	height: 18px; /* height = line-height * 줄수 : 비wekkit 계열 */
+}
+
+#delete_text {
+	text-decoration: underline;
+	color: red;
 }
 </style>
 </head>
@@ -266,51 +285,36 @@ li a {
 				<div class="kategorie_top">찜한 상품</div>
 				<div class="products">
 					<table class="wish_table">
-						<%-- 					<c:forEach> --%>
-						<tr>
-							<td rowspan="4" id="td_image"><c:if
-									test="${productDTO.prodImage != null }">
-									<img width="200" height="200"
-										src="member/profile/${productDTO.prodImage.split(',')[0] }" />
-								</c:if> <c:if test="${productDTO.prodImage == null }">
-									<img width="200" height="200" src="images/noimage.png" />
-								</c:if></td>
-							<td id="td_text">등록일</td>
-						</tr>
-						<tr>
-							<td>제목</td>
-						</tr>
-						<tr>
-							<td>가격</td>
-						</tr>
-						<tr>
-							<td>판매자</td>
-						</tr>
-						<!-- 						아래 데이터는 포이치문을 쓰기전 가비지 데이터 -->
-						<tr>
-							<td rowspan="4" id="td_image"><c:if
-									test="${productDTO.prodImage != null }">
-									<img width="200" height="200"
-										src="member/profile/${productDTO.prodImage.split(',')[0] }" />
-								</c:if> <c:if test="${productDTO.prodImage == null }">
-									<img width="200" height="200" src="images/noimage.png" />
-								</c:if></td>
-							<td id="td_text">등록일</td>
-						</tr>
-						<tr>
-							<td>제목</td>
-						</tr>
-						<tr>
-							<td>가격</td>
-						</tr>
-						<tr>
-							<td>판매자</td>
-						</tr>
-						<%-- 						</c:forEach> --%>
-						<tr>
-							<td rowspan="4" colspan="2" align="center"><%@include
-									file="../include/includePage.jsp"%></td>
-						</tr>
+					<c:if test="${empty list }">
+					<tr>
+						<td colspan="2">"위시리스트가 비어있습니다."</td>
+					</tr>
+					</c:if>
+					<c:if test="${!empty list }">
+						<c:forEach items="${list }" var="dto">
+							<tr>
+								<td rowspan="4" id="td_image"><c:if
+										test="${dto.prodImage != null }">
+										<img width="200" height="200" src="upload/${dto.prodImage }" />
+									</c:if> <c:if test="${dto.prodImage == null }">
+										<img width="200" height="200" src="images/noimage.png" />
+									</c:if></td>
+								<td id="td_text"><p class="ellipsis_multi">
+										제목 : ${dto.prodName } <a id="delete_text"
+											href="wishDelete?prodNum=${dto.prodNum }">삭제</a>
+									</p></td>
+							</tr>
+							<tr>
+								<td>가격 : ${dto.prodPrice }원</td>
+							</tr>
+							<tr>
+								<td>판매자 : ${dto.memId }</td>
+							</tr>
+							<tr>
+								<td>등록일 : ${dto.heartDate }</td>
+							</tr>
+						</c:forEach>
+						</c:if>
 					</table>
 				</div>
 			</div>

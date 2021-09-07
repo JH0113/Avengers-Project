@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,20 +22,24 @@
 	margin: 0;
 	padding: 0;
 }
+
 .web {
 	width: 100%;
 	height: 100%;
 }
+
 .body {
 	max-width: 1200px;
 	display: flex;
 	height: 240px;
 	margin: auto;
 }
+
 .left_bar {
 	height: 240px;
 	width: 250px;
 }
+
 .logo {
 	background-color: #fff;
 	height: 150px;
@@ -54,17 +58,21 @@ li {
 	font-family: 'Montserrat', sans-serif;
 	font-size: 130%;
 }
+
 li a {
 	display: block;
 }
+
 .right_bar {
 	height: 240px;
 	width: 950px;
 }
+
 .header {
 	height: 240px;
 	width: 100%;
 }
+
 .search {
 	width: 100%;
 	height: 120px;
@@ -108,7 +116,6 @@ li a {
 	padding: 20px;
 	font-size: 200%;
 	font-weight: 400;
-	
 }
 
 .leg {
@@ -122,7 +129,7 @@ li a {
 	width: 100%;
 	height: auto;
 }
- 
+
 .btn {
 	display: block;
 	width: 100px;
@@ -137,7 +144,6 @@ li a {
 	background-color: #404040;
 	color: #ffffff;
 }
-
 
 td, th {
 	padding-top: 20px;
@@ -168,7 +174,6 @@ tr.border_bottom_th {
 
 #main_point {
 	font-weight: bolder;
-	
 }
 
 .footer {
@@ -184,42 +189,54 @@ tr.border_bottom_th {
 	color: #fff;
 }
 
-* {box-sizing: border-box}
-body {font-family: Verdana, sans-serif; margin:0}
-.mySlides {display: none}
-img {vertical-align: middle;}
+* {
+	box-sizing: border-box
+}
+
+body {
+	font-family: Verdana, sans-serif;
+	margin: 0
+}
+
+.mySlides {
+	display: none
+}
+
+img {
+	vertical-align: middle;
+}
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 500px;
-  position: relative;
-  margin: auto;
+	max-width: 500px;
+	position: relative;
+	margin: auto;
 }
 
 /* Next & previous buttons */
 .prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	width: auto;
+	padding: 16px;
+	margin-top: -22px;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	transition: 0.6s ease;
+	border-radius: 0 3px 3px 0;
 }
 
 /* Position the "next button" to the right */
 .next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
+	right: 0;
+	border-radius: 3px 0 0 3px;
 }
 
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+	background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Caption text */
@@ -235,80 +252,96 @@ img {vertical-align: middle;}
 
 /* Number text (1/3 etc) */
 .numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
+	color: #f2f2f2;
+	font-size: 12px;
+	padding: 8px 12px;
+	position: absolute;
+	top: 0;
 }
 
 /* The dots/bullets/indicators */
 .dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
+	cursor: pointer;
+	height: 15px;
+	width: 15px;
+	margin: 0 2px;
+	background-color: #bbb;
+	border-radius: 50%;
+	display: inline-block;
+	transition: background-color 0.6s ease;
 }
 
 .active, .dot:hover {
-  background-color: #717171;
+	background-color: #717171;
 }
 
 /* Fading animation */
 .fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
+	-webkit-animation-name: fade;
+	-webkit-animation-duration: 1.5s;
+	animation-name: fade;
+	animation-duration: 1.5s;
 }
 
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+@
+-webkit-keyframes fade {
+	from {opacity: .4
 }
 
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+to {
+	opacity: 1
+}
+
+}
+@
+keyframes fade {
+	from {opacity: .4
+}
+
+to {
+	opacity: 1
+}
+
 }
 
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
+	.prev, .next, .text {
+		font-size: 11px
+	}
 }
-
 </style>
 
 <script type="text/javascript">
 	var slideIndex = 1;
 	showSlides(slideIndex);
-	
+
 	function plusSlides(n) {
-	  showSlides(slideIndex += n);
+		showSlides(slideIndex += n);
 	}
-	
+
 	function currentSlide(n) {
-	  showSlides(slideIndex = n);
+		showSlides(slideIndex = n);
 	}
-	
+
 	function showSlides(n) {
-	  var i;
-	  var slides = document.getElementsByClassName("mySlides");
-	  var dots = document.getElementsByClassName("dot");
-	  if (n > slides.length) {slideIndex = 1}    
-	  if (n < 1) {slideIndex = slides.length}
-	  for (i = 0; i < slides.length; i++) {
-	      slides[i].style.display = "none";  
-	  }
-	  for (i = 0; i < dots.length; i++) {
-	      dots[i].className = dots[i].className.replace(" active", "");
-	  }
-	  slides[slideIndex-1].style.display = "block";  
-	  dots[slideIndex-1].className += " active";
+		var i;
+		var slides = document.getElementsByClassName("mySlides");
+		var dots = document.getElementsByClassName("dot");
+		if (n > slides.length) {
+			slideIndex = 1
+		}
+		if (n < 1) {
+			slideIndex = slides.length
+		}
+		for (i = 0; i < slides.length; i++) {
+			slides[i].style.display = "none";
+		}
+		for (i = 0; i < dots.length; i++) {
+			dots[i].className = dots[i].className.replace(" active", "");
+		}
+		slides[slideIndex - 1].style.display = "block";
+		dots[slideIndex - 1].className += " active";
 	}
 </script>
 
@@ -340,22 +373,29 @@ img {vertical-align: middle;}
 		</div>
 		<div class="leg">
 			<div class="productContents">
-				//임시버튼태그//
-				<input type="button" value="게시글 신고" class="btn" style="display: inline-block" onclick="javascript:location.href='prodReportForm?prodNum=${productdto.prodNum}&memId=${memberdto.memId }'">
-				<input type="button" value="채팅" class="btn" style="display: inline-block" onclick="javascript:location.href='chat'">
-				<input type="button" value="etc" class="btn" style="display: inline-block" onclick="javascript:location.href='etc'">
-				<input type="button" value="찜" class="btn" style="display: inline-block" onclick="javascript:location.href='heart'">
-				
-				
+				//임시버튼태그// <input type="button" value="게시글 신고" class="btn"
+					style="display: inline-block"
+					onclick="javascript:location.href='prodReportForm?prodNum=${productdto.prodNum}&memId=${memberdto.memId }'">
+				<input type="button" value="채팅" class="btn"
+					style="display: inline-block"
+					onclick="javascript:location.href='chat'"> <input
+					type="button" value="etc" class="btn" style="display: inline-block"
+					onclick="javascript:location.href='etc'"> <input
+					type="button" value="찜" class="btn" style="display: inline-block"
+					onclick="javascript:location.href='heart?prodNum=${productdto.prodNum}'">
+
+
 				<c:if test="${authinfo.userId == memberdto.memId }">
-					<input type="button" value="수정" class="btn" style="display: inline-block" onclick="javascript:location.href='productModify/prodModifyPage?prodNum=${productdto.prodNum}'">
+					<input type="button" value="수정" class="btn"
+						style="display: inline-block"
+						onclick="javascript:location.href='productModify/prodModifyPage?prodNum=${productdto.prodNum}'">
 				</c:if>
 				<table>
 					<tr>
 						<td colspan="4" class="subject">상품 상세 정보</td>
 					</tr>
 
-<%-- 					<tr class="border_bottom">
+					<%-- 					<tr class="border_bottom">
 						<th width="150" rowspan=9>상품이미지</th>
 						<td width="500" rowspan=9>
 						<img src="upload/${productdto.prodImage }" width="500" height="500"></td>
@@ -365,206 +405,193 @@ img {vertical-align: middle;}
 						<img src="upload/${productdto.prodImage3 }" width="500" height="500"></td>
 						
 					</tr> --%>
-				<tr class="border_bottom">
-					<th width="150" rowspan=9>상품이미지</th>
-					<td width="500" rowspan=9>
-					<div class="slideshow-container">
-						<div class="mySlides fade">
-						  <div class="numbertext">1 / 3</div>
-						  <img src="upload/${productdto.prodImage }" style="width:100%">
-						  <!-- <div class="text">Caption Text</div> -->
-						</div>
-						
-						<div class="mySlides fade">
-						  <div class="numbertext">2 / 3</div>
-						  <img src="upload/${productdto.prodImage2 }" style="width:100%">
-						  <!-- <div class="text">Caption Two</div> -->
-						</div>
-						
-						<div class="mySlides fade">
-						  <div class="numbertext">3 / 3</div>
-						  <img src="upload/${productdto.prodImage3 }" style="width:100%">
-						  <!-- <div class="text">Caption Three</div> -->
-						</div>
-						
-						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-						<a class="next" onclick="plusSlides(1)">&#10095;</a>
-						
-						</div>
-						<br>
-						
-						<div style="text-align:center">
-						  <span class="dot" onclick="currentSlide(1)"></span> 
-						  <span class="dot" onclick="currentSlide(2)"></span> 
-						  <span class="dot" onclick="currentSlide(3)"></span> 
-						</div>
-						</td>
-						</tr>
-						
-				<tr class="border_bottom">
-					<th width="150">브랜드</th>
-						<td width="300">
+					<tr class="border_bottom">
+						<th width="150" rowspan=9>상품이미지</th>
+						<td width="500" rowspan=9>
+							<div class="slideshow-container">
+								<div class="mySlides fade">
+									<div class="numbertext">1 / 3</div>
+									<img src="upload/${productdto.prodImage }" style="width: 100%">
+									<!-- <div class="text">Caption Text</div> -->
+								</div>
 
-						<c:set var="productdto.prodBrand" value="a" />
+								<div class="mySlides fade">
+									<div class="numbertext">2 / 3</div>
+									<img src="upload/${productdto.prodImage2 }" style="width: 100%">
+									<!-- <div class="text">Caption Two</div> -->
+								</div>
+
+								<div class="mySlides fade">
+									<div class="numbertext">3 / 3</div>
+									<img src="upload/${productdto.prodImage3 }" style="width: 100%">
+									<!-- <div class="text">Caption Three</div> -->
+								</div>
+
+								<a class="prev" onclick="plusSlides(-1)">&#10094;</a> <a
+									class="next" onclick="plusSlides(1)">&#10095;</a>
+
+							</div> <br>
+
+							<div style="text-align: center">
+								<span class="dot" onclick="currentSlide(1)"></span> <span
+									class="dot" onclick="currentSlide(2)"></span> <span class="dot"
+									onclick="currentSlide(3)"></span>
+							</div>
+						</td>
+					</tr>
+
+					<tr class="border_bottom">
+						<th width="150">브랜드</th>
+						<td width="300"><c:set var="productdto.prodBrand" value="a" />
 							<c:choose>
-							    <c:when test="${productdto.prodBrand eq 'a'}">
+								<c:when test="${productdto.prodBrand eq 'a'}">
 							        SAINT LAURENT
 							    </c:when>
-							    <c:when test="${productdto.prodBrand eq 'b'}">
+								<c:when test="${productdto.prodBrand eq 'b'}">
 							        PRADA
 							    </c:when>
-							    <c:when test="${productdto.prodBrand eq 'c'}">
+								<c:when test="${productdto.prodBrand eq 'c'}">
 							        BURBERRY
 							    </c:when>
-							    <c:when test="${productdto.prodBrand eq 'd'}">
+								<c:when test="${productdto.prodBrand eq 'd'}">
 							        GUCCI
 							    </c:when>
-							    <c:when test="${productdto.prodBrand eq 'e'}">
+								<c:when test="${productdto.prodBrand eq 'e'}">
 							         MAISON MARGIELA
 							    </c:when>
-							    <c:when test="${productdto.prodBrand eq 'f'}">
+								<c:when test="${productdto.prodBrand eq 'f'}">
 							        BOTTEGA VENETA
 							    </c:when>
-							    <c:when test="${productdto.prodBrand eq 'g'}">
+								<c:when test="${productdto.prodBrand eq 'g'}">
 							        VALENTINO
 							    </c:when>
-							    <c:when test="${productdto.prodBrand eq 'h'}">
+								<c:when test="${productdto.prodBrand eq 'h'}">
 							        BALENCIAGA
 							    </c:when>
-							    <c:when test="${productdto.prodBrand eq 'i'}">
+								<c:when test="${productdto.prodBrand eq 'i'}">
 							        LOUIS VUITTON
 							    </c:when>
-							    <c:when test="${productdto.prodBrand eq 'j'}">
+								<c:when test="${productdto.prodBrand eq 'j'}">
 							                기타 등등
 							    </c:when>
-							</c:choose>						
-						</td>
+							</c:choose></td>
 					</tr>
 					<tr class="border_bottom">
 						<th>카테고리</th>
-						<td width="300">
-						<c:set var="productdto.prodKind" value="10" />
+						<td width="300"><c:set var="productdto.prodKind" value="10" />
 							<c:choose>
-							    <c:when test="${productdto.prodKind eq '10'}">
+								<c:when test="${productdto.prodKind eq '10'}">
 							        가방
 							    </c:when>
-							    <c:when test="${productdto.prodKind eq '11'}">
+								<c:when test="${productdto.prodKind eq '11'}">
 							        크로스/숄더 백
 							    </c:when>
-							    <c:when test="${productdto.prodKind eq '12'}">
+								<c:when test="${productdto.prodKind eq '12'}">
 							        클러치/파우치
 							    </c:when>
-							    <c:when test="${productdto.prodKind eq '13'}">
+								<c:when test="${productdto.prodKind eq '13'}">
 							        토트백 
 							    </c:when>
-							    <c:when test="${productdto.prodKind eq '14'}">
+								<c:when test="${productdto.prodKind eq '14'}">
 							        벨트백
 							    </c:when>
-							    <c:when test="${productdto.prodKind eq '15'}">
+								<c:when test="${productdto.prodKind eq '15'}">
 							        버킷백
 							    </c:when>
-							    <c:when test="${productdto.prodKind eq '16'}">
+								<c:when test="${productdto.prodKind eq '16'}">
 							        백팩
 							    </c:when>
-							    <c:when test="${productdto.prodKind eq '17'}">
+								<c:when test="${productdto.prodKind eq '17'}">
 							        여행 가방
 							    </c:when>
-							    <c:when test="${productdto.prodKind eq '18'}">
+								<c:when test="${productdto.prodKind eq '18'}">
 							        카테고리 외 가방
 							    </c:when>
-							    <c:when test="${productdto.prodKind eq '20'}">
+								<c:when test="${productdto.prodKind eq '20'}">
 							        카테고리 외 신발
 							    </c:when>
-							    <c:when test="${productdto.prodKind eq '21'}">
+								<c:when test="${productdto.prodKind eq '21'}">
 							        구두
 							    </c:when>
-							    <c:when test="${productdto.prodKind eq '22'}">
+								<c:when test="${productdto.prodKind eq '22'}">
 							        플랫슈즈
 							    </c:when>
-							    <c:when test="${productdto.prodKind eq '23'}">
+								<c:when test="${productdto.prodKind eq '23'}">
 							        샌들/슬리퍼
 							    </c:when>
-							    <c:when test="${productdto.prodKind eq '24'}">
+								<c:when test="${productdto.prodKind eq '24'}">
 							        부츠
 							    </c:when>
-							    <c:when test="${productdto.prodKind eq '25'}">
+								<c:when test="${productdto.prodKind eq '25'}">
 							        로퍼
 							    </c:when>
-							    <c:when test="${productdto.prodKind eq '26'}">
+								<c:when test="${productdto.prodKind eq '26'}">
 							        드레스 구두
 							    </c:when>
-							    <c:when test="${productdto.prodKind eq '30'}">
+								<c:when test="${productdto.prodKind eq '30'}">
 							        카테고리 외 쥬얼리
 							    </c:when>
-							    <c:when test="${productdto.prodKind eq '31'}">
+								<c:when test="${productdto.prodKind eq '31'}">
 							        팔찌
 							    </c:when>
-							    <c:when test="${productdto.prodKind eq '32'}">
+								<c:when test="${productdto.prodKind eq '32'}">
 							        브로치/핀
 							    </c:when>
-							    <c:when test="${productdto.prodKind eq '33'}">
+								<c:when test="${productdto.prodKind eq '33'}">
 							        귀걸이
 							    </c:when>
-							    <c:when test="${productdto.prodKind eq '34'}">
+								<c:when test="${productdto.prodKind eq '34'}">
 							        목걸이
 							    </c:when>
-							    <c:when test="${productdto.prodKind eq '35'}">
+								<c:when test="${productdto.prodKind eq '35'}">
 							        반지
 							    </c:when>
-							</c:choose>
-						</td>					
+							</c:choose></td>
 
 					</tr>
 					<tr class="border_bottom">
 						<th>상품 상태</th>
-						<td colspan="1">
-						<c:set var="productdto.prodState" value="O" />
+						<td colspan="1"><c:set var="productdto.prodState" value="O" />
 							<c:choose>
-							    <c:when test="${productdto.prodState eq 'O'}">
+								<c:when test="${productdto.prodState eq 'O'}">
 							        	중고상품
 							    </c:when>
-							    <c:when test="${productdto.prodState eq 'N'}">
+								<c:when test="${productdto.prodState eq 'N'}">
 							        	새상품 
 							    </c:when>
-							</c:choose>
-							</td>
+							</c:choose></td>
 					</tr>
 					<tr class="border_bottom">
 						<th>게시날짜</th>
-						<td>
-							<fmt:parseDate var="parseRegDate" value="${productdto.prodDate }" pattern="yyyy-MM-dd HH:mm"/>
-							<fmt:formatDate var="resultRegDt" value="${parseRegDate}" pattern="yyyy-MM-dd HH:mm"/>
-							${resultRegDt}
-						</td>						
+						<td><fmt:parseDate var="parseRegDate"
+								value="${productdto.prodDate }" pattern="yyyy-MM-dd HH:mm" /> <fmt:formatDate
+								var="resultRegDt" value="${parseRegDate}"
+								pattern="yyyy-MM-dd HH:mm" /> ${resultRegDt}</td>
 
 					</tr>
 					<tr class="border_bottom">
 						<th>거래 방법</th>
-						<td colspan="1">
-						<c:set var="productdto.prodMethod" value="J" />
+						<td colspan="1"><c:set var="productdto.prodMethod" value="J" />
 							<c:choose>
-							    <c:when test="${productdto.prodMethod eq 'J'}">
+								<c:when test="${productdto.prodMethod eq 'J'}">
 							        	직거래
 							    </c:when>
-							    <c:when test="${productdto.prodMethod eq 'T'}">
+								<c:when test="${productdto.prodMethod eq 'T'}">
 							        	택배거래
 							    </c:when>
-							</c:choose>
-						</td>					
+							</c:choose></td>
 					</tr>
 					<tr class="border_bottom">
 						<th>보증서 유무</th>
-						<td colspan="1">
-						<c:set var="productdto.prodGuarantee" value="Y" />
-							<c:choose>
-							    <c:when test="${productdto.prodGuarantee eq 'Y'}">
+						<td colspan="1"><c:set var="productdto.prodGuarantee"
+								value="Y" /> <c:choose>
+								<c:when test="${productdto.prodGuarantee eq 'Y'}">
 							        	유
 							    </c:when>
-							    <c:when test="${productdto.prodGuarantee eq 'N'}">
+								<c:when test="${productdto.prodGuarantee eq 'N'}">
 							        	무
 							    </c:when>
-							</c:choose>						
-						</td>				
+							</c:choose></td>
 					</tr>
 					<tr class="border_bottom">
 						<th>상품 갯수</th>
@@ -572,28 +599,30 @@ img {vertical-align: middle;}
 					</tr>
 					<tr class="border_bottom">
 						<th rowspan="4">판매자 프로필</th>
-						<td colspan="1" rowspan="4"><img src="upload/${memberdto.memImage }" width="100" style="border-radius: 20px"></td>
+						<td colspan="1" rowspan="4"><img
+							src="upload/${memberdto.memImage }" width="100"
+							style="border-radius: 20px"></td>
 					</tr>
-					
+
 					<!-- 여기 부분 지우면 안됨.-->
-					<tr class="border_bottom" >
+					<tr class="border_bottom">
 					</tr>
 					<!-- 여기 부분 지우면 안됨.-->
-					
-					<tr class="border_bottom" >
-						<th >상품명</th>
+
+					<tr class="border_bottom">
+						<th>상품명</th>
 						<td colspan="1.5"><span id="main_point">${productdto.prodName }</span></td>
 					</tr>
-					<tr class="border_bottom" >
+					<tr class="border_bottom">
 						<th>가격</th>
-						<td colspan="1.5"><span id="main_point"> 
-						${productdto.prodPrice }원</span></td>
+						<td colspan="1.5"><span id="main_point">
+								${productdto.prodPrice }원</span></td>
 					</tr>
-					<tr class="border_bottom" >
+					<tr class="border_bottom">
 						<th>거래 장소</th>
-						<td colspan="1.5"><span id="main_point">${productdto.prodLocation }</span></td>		
+						<td colspan="1.5"><span id="main_point">${productdto.prodLocation }</span></td>
 						<th>판매자 닉네임</th>
-						<td>${memberdto.memNick }</td>						 
+						<td>${memberdto.memNick }</td>
 					</tr>
 
 					<tr class="border_bottom" height=100>

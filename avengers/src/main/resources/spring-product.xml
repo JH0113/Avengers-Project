@@ -17,7 +17,9 @@
 	<bean class="service.product.ProductListService" />
 	<bean class="service.product.ProductDetailService" />
 	<bean class="service.product.ProductModifyService" />
+	<bean class="service.product.WishService" />
 	
 	<bean class="repository.ProductRepository" />
+	<bean class="repository.WishRepository" />
 	
 </beans>

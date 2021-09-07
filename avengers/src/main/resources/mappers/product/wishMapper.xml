@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="wishMapper">
+	<insert id="heart" parameterType="model.WishDTO">
+		insert into heart(
+		prod_num,
+		mem_id,
+		heart_date
+		)
+		values(
+		#{prodNum},
+		#{userId},
+		sysdate
+		)
+	</insert>
+	<select id="wishList" parameterType="string"
+		resultType="model.ProductDTO">
+		select
+		p.PROD_NUM prodNum,p.MEM_ID memId,
+		p.PROD_NAME
+		prodName,p.PROD_PRICE prodPrice,
+		p.PROD_IMAGE prodImage,h.heart_date
+		heartDate
+		from products p,heart h
+		where h.prod_num = p.prod_num
+		and
+		h.mem_id = #{userId}
+	</select>
+	<delete id="wishDelete" parameterType="int">
+		delete heart where
+		prod_num=#{prodNum}
+	</delete>
+</mapper>
