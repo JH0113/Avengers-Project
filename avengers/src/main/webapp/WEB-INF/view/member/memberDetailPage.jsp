@@ -233,7 +233,7 @@ tr.border_bottom_th {
 					<table id="scroll">
 					
 				 
-					<tr class="border_bottom" height=100>
+					<tr height=100>
 					 	<c:forEach items="${list }" var="dto" varStatus="cnt">
 						 
 						
