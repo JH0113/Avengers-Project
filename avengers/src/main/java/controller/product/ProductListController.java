@@ -18,10 +18,4 @@ public class ProductListController {
 		productListService.productList(ctgr, model);
 		return "product/productListPage";
 	}
-
-	@RequestMapping("productListPage2")
-	public String productPage(Model model) {
-		productListService.productListMain(model);
-		return "product/prodListPage2";
-	}
 }

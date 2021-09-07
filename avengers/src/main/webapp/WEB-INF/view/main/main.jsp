@@ -193,7 +193,7 @@ td {
 								<li><a href="productListPage?prodKind=10">all</a></li>
 								<li><a href="productListPage?prodKind=11">cross/shoulder
 										bag</a></li>
-								<li><a href="productListPage2">clutch/pouch bag</a></li>
+								<li><a href="productListPage?prodKind=12">clutch/pouch bag</a></li>
 								<li><a href="productListPage?prodKind=13">tote bag</a></li>
 								<li><a href="productListPage?prodKind=14">belt bag</a></li>
 								<li><a href="productListPage?prodKind=15">bucket bag</a></li>
