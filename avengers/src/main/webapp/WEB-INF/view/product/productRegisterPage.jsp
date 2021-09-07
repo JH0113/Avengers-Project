@@ -585,7 +585,7 @@ textarea {
 											<div>
 												키워드 : <input type="text" value="이젠아이티" id="keyword" size="15"> 
 												
-												<input type="hidden" id="prodLocation" name="prodLocation"value=""> 
+												<input type="text" id="prodLocation" name="prodLocation"value=""> 
 												<input type="hidden" id="latitude" name="latitude" value=""> 
 												<input type="hidden" id="longitude" name="longitude" value="">
 												
@@ -677,6 +677,17 @@ textarea {
 
 			}
 		}
+		
+		function displayGeocoder(marker){
+			var geocoder = new kakao.maps.services.Geocoder();
+			var callback = function(result, status) {
+			    if (status === kakao.maps.services.Status.OK) {
+			        console.log('그런 너를 마주칠까 ' + result[0].address.address_name + '을 못가');
+			        $("#prodLocation").val(result[0].address.address_name);
+			    }
+			};
+	        geocoder.coord2Address(marker.getPosition().getLng(), marker.getPosition().getLat(), callback);
+		}
 
 		// 검색 결과 목록과 마커를 표출하는 함수입니다
 		function displayPlaces(places) {
@@ -699,7 +710,9 @@ textarea {
 		        var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
 		            marker = addMarker(placePosition, i), 
 		            itemEl = getListItem(i, places[i]); // 검색 결과 항목 Element를 생성합니다
-				
+		        
+		        
+		        
 		        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
 		        // LatLngBounds 객체에 좌표를 추가합니다
 		        bounds.extend(placePosition);
@@ -714,7 +727,7 @@ textarea {
   		            		// 좌표정보를 파싱하기 위해 hidden input에 값 지정
 			                $("#latitude").val(marker.getPosition().getLat());
 			                $("#longitude").val(marker.getPosition().getLng());
-			                $("#prodLocation").val(places[0].address_name); 
+			                displayGeocoder(marker); 
  
 /* 			            	var message = '위치는 ' + marker.getPosition() + ' 입니다';
 			                var resultDiv = document.getElementById('result'); 
