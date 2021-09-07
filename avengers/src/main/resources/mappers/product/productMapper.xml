@@ -73,7 +73,7 @@
 		where PROD_NUM = #{prodNum}
 	</select>
 	<select id="memberDetail" parameterType="string" resultType="model.MemberDTO">
-		select MEM_NICK memNick, MEM_IMAGE memImage 
+		select MEM_NICK memNick, MEM_IMAGE memImage, MEM_ID memId
 		from member
 		where mem_id = 
 		(select mem_id from products

@@ -10,10 +10,13 @@
 	<bean class="controller.product.ProductRegisterController" />
 	<bean class="controller.product.WishlistController" />
 	<bean class="controller.product.ProductDetailController" />
+	<bean class="controller.product.ProductModifyController" />
+	
 	
 	<bean class="service.product.ProductRegistService" />
 	<bean class="service.product.ProductListService" />
 	<bean class="service.product.ProductDetailService" />
+	<bean class="service.product.ProductModifyService" />
 	
 	<bean class="repository.ProductRepository" />
 	

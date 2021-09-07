@@ -346,6 +346,10 @@ img {vertical-align: middle;}
 				<input type="button" value="etc" class="btn" style="display: inline-block" onclick="javascript:location.href='etc'">
 				<input type="button" value="찜" class="btn" style="display: inline-block" onclick="javascript:location.href='heart'">
 				
+				
+				<c:if test="${authinfo.userId == memberdto.memId }">
+					<input type="button" value="수정" class="btn" style="display: inline-block" onclick="javascript:location.href='productModify/prodModifyPage?prodNum=${productdto.prodNum}'">
+				</c:if>
 				<table>
 					<tr>
 						<td colspan="4" class="subject">상품 상세 정보</td>
