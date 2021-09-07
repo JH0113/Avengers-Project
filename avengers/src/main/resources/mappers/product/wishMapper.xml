@@ -32,4 +32,9 @@
 		delete heart where
 		prod_num=#{prodNum}
 	</delete>
+	<select id="wishCk" parameterType="string" resultType="string">
+		select mem_id memId
+		from heart
+		where prod_num = #{prodNum}
+	</select>
 </mapper>

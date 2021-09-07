@@ -224,6 +224,27 @@ li a {
 	text-decoration: underline;
 	color: red;
 }
+#prodName_text {
+	text-decoration: underline;
+	font-weight: bolder;
+}
+
+.btn {
+	display: block;
+	width: 500px;
+	height: 56px;
+	line-height: 55px;
+	margin: 12px 0 14px;
+	border-radius: 0;
+	border: solid 1px rgba(0, 0, 0, .1);
+	box-shadow: 0 2px 6px 0 rgb(61 80 81/ 8%);
+	background-color: #404040;
+	color: #fff;
+	font-size: 16px;
+	font-weight: 700;
+	cursor: pointer;
+	text-align: center;
+}
 </style>
 </head>
 <body>
@@ -285,37 +306,40 @@ li a {
 				<div class="kategorie_top">찜한 상품</div>
 				<div class="products">
 					<table class="wish_table">
-					<c:if test="${empty list }">
-					<tr>
-						<td colspan="2">"위시리스트가 비어있습니다."</td>
-					</tr>
-					</c:if>
-					<c:if test="${!empty list }">
-						<c:forEach items="${list }" var="dto">
+						<c:if test="${empty list }">
 							<tr>
-								<td rowspan="4" id="td_image"><c:if
-										test="${dto.prodImage != null }">
-										<img width="200" height="200" src="upload/${dto.prodImage }" />
-									</c:if> <c:if test="${dto.prodImage == null }">
-										<img width="200" height="200" src="images/noimage.png" />
-									</c:if></td>
-								<td id="td_text"><p class="ellipsis_multi">
-										제목 : ${dto.prodName } <a id="delete_text"
-											href="wishDelete?prodNum=${dto.prodNum }">삭제</a>
-									</p></td>
+								<td colspan="2">"위시리스트가 비어있습니다."</td>
 							</tr>
-							<tr>
-								<td>가격 : ${dto.prodPrice }원</td>
-							</tr>
-							<tr>
-								<td>판매자 : ${dto.memId }</td>
-							</tr>
-							<tr>
-								<td>등록일 : ${dto.heartDate }</td>
-							</tr>
-						</c:forEach>
+						</c:if>
+						<c:if test="${!empty list }">
+							<c:forEach items="${list }" var="dto">
+								<tr>
+									<td rowspan="4" id="td_image"><c:if
+											test="${dto.prodImage != null }">
+											<img width="200" height="200" src="upload/${dto.prodImage }" />
+										</c:if> <c:if test="${dto.prodImage == null }">
+											<img width="200" height="200" src="images/noimage.png" />
+										</c:if></td>
+									<td id="td_text"><p class="ellipsis_multi">
+											<a id="prodName_text" href="prodDetailPage?prodNum=${dto.prodNum }">제목 :
+												${dto.prodName }</a> <a id="delete_text"
+												href="wishDelete?prodNum=${dto.prodNum }">삭제</a>
+										</p></td>
+								</tr>
+								<tr>
+									<td>가격 : ${dto.prodPrice }원</td>
+								</tr>
+								<tr>
+									<td>판매자 : ${dto.memId }</td>
+								</tr>
+								<tr>
+									<td>등록일 : ${dto.heartDate }</td>
+								</tr>
+							</c:forEach>
 						</c:if>
 					</table>
+					<button class="btn" onclick="script:location.href='main'">쇼핑
+						계속하기</button>
 				</div>
 			</div>
 		</div>

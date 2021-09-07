@@ -27,4 +27,9 @@ public class WishRepository {
 		statement = namespace + ".wishDelete";
 		sqlSession.delete(statement, prodNum);
 	}
+	public String wishCk(String prodNum) {
+		statement = namespace + ".wishCk";
+		String memId = sqlSession.selectOne(statement, prodNum);
+		return memId;
+	}
 }

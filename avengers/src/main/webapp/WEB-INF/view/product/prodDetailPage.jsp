@@ -311,50 +311,44 @@ to {
 	}
 }
 
-
-
-
-
 .dropdown {
-   position: relative;
-   display: inline-block;
+	position: relative;
+	display: inline-block;
 }
 
 .dropdown-content {
-   display: none;
-   position: relative;
-   background-color: #F9F9F9;
-   min-width: 160px;
-   padding: 8px;
-   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	display: none;
+	position: relative;
+	background-color: #F9F9F9;
+	min-width: 160px;
+	padding: 8px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
 .dropdown:hover .dropdown-content {
-   display: block;
+	display: block;
 }
 
 #menu_text {
-   font-family: 'Montserrat', sans-serif;
-   font-size: 100%;
-   cursor: pointer;
-   display: block;
-   width: 250px;
-   height: 50px;
-   padding-top: 12px;
-   padding-left: 32px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 100%;
+	cursor: pointer;
+	display: block;
+	width: 250px;
+	height: 50px;
+	padding-top: 12px;
+	padding-left: 32px;
 }
+
 .dropdown-content a:hover {
-   font-weight: bolder;
+	font-weight: bolder;
 }
+
 #memdropdown {
-   padding: 5px;
-   font-family: 'Montserrat', sans-serif;
-   font-size: 100%;
+	padding: 5px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 100%;
 }
-
-
-
-
 </style>
 
 <script type="text/javascript">
@@ -437,7 +431,11 @@ to {
 				</c:if>
 				<table>
 					<tr>
-						<td colspan="4" class="subject">상품 상세 정보</td>
+						<td colspan="4" class="subject">상품 상세 정보
+						<c:if test="${!empty authinfo }">
+						<c:if test="${wishCk==1 }"><img width="20px" height="20" alt="heart_img" src="images/heart1.png"></c:if>
+						<c:if test="${wishCk==0 }"><img width="20px" height="20" alt="heart_img" src="images/heart0.png"></c:if>
+						</c:if></td>
 					</tr>
 
 					<%-- 					<tr class="border_bottom">
@@ -667,17 +665,18 @@ to {
 						<th>거래 장소</th>
 						<td colspan="1.5"><span id="main_point">${productdto.prodLocation }</span></td>
 						<th>판매자 닉네임</th>
-						<td>   
-                  <div class="dropdown">
-               <span id="menu_text">${memberdto.memNick }</span>
-               <div class="dropdown-content">
-                     <ul>
-                        <li id="memdropdown"><a href="memberDetailPage?memId=${memberdto.memId }">회원정보보기</a></li>
-                        <li id="memdropdown"><a href="#">신고하기</a></li>
-                     </ul>
-                  </div>
-               </div>
-            </td>                        
+						<td>
+							<div class="dropdown">
+								<span id="menu_text">${memberdto.memNick }</span>
+								<div class="dropdown-content">
+									<ul>
+										<li id="memdropdown"><a
+											href="memberDetailPage?memId=${memberdto.memId }">회원정보보기</a></li>
+										<li id="memdropdown"><a href="#">신고하기</a></li>
+									</ul>
+								</div>
+							</div>
+						</td>
 					</tr>
 
 					<tr class="border_bottom" height=100>
