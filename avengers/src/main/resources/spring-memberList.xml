@@ -12,6 +12,7 @@
 	<bean class="service.member.MemberListService" />	
 	<bean class="service.member.MemberInfoService" />	 
 	<bean class="service.member.MemberDeleteService" />	
+	<bean class="service.member.MemberDetailService" />	
 	<bean class="repository.MemberListRepository" />
 	
 </beans>

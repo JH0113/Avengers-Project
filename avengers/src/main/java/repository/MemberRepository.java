@@ -37,4 +37,5 @@ public class MemberRepository {
 		statement = namespace + ".idck";
 		return sqlSession.selectOne(statement, userId);
 	}
+
 }

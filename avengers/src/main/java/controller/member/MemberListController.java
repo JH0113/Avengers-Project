@@ -6,10 +6,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
- 
+
 import repository.MemberListRepository;
 import service.member.MemberDeleteService;
-import service.member.MemberInfoService; 
+import service.member.MemberDetailService;
+import service.member.MemberInfoService;
 import service.member.MemberListService;
 
 @Controller
@@ -23,6 +24,8 @@ public class MemberListController {
 	MemberDeleteService memberDeleteService; 
 	@Autowired
 	MemberListRepository memberListRepository;
+	@Autowired
+	MemberDetailService memberDetailService;
 	
 
 	@RequestMapping("memberListPage")  
@@ -46,5 +49,11 @@ public class MemberListController {
 		return "redirect:memberListPage";
 	}
 
+	@RequestMapping("memberDetailPage") // 회원끼리 정보보기 페이지 
+	public String memberDetailPage(@RequestParam(value = "memId") String memId, Model model) {
+		model.addAttribute("memId",memId);
+		memberDetailService.memberDetail(memId,model);
+		return "member/memberDetailPage";
+	}
 }
 

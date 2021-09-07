@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import model.MemberDTO;
+import model.ProductDTO;
 
 public class MemberListRepository {
 
@@ -34,6 +35,13 @@ public class MemberListRepository {
 		statement=namespace+".memberDelete";
 		sqlSession.delete(statement,memId);
 	}
- 
+	public MemberDTO memberDetail(String memId) {
+		statement = namespace + ".memberDetail";
+		return sqlSession.selectOne(statement, memId);
+	}
+	public List<ProductDTO> memberProductsDetail(String memId) {
+		statement = namespace + ".memberProductsDetail";
+		return sqlSession.selectList(statement,memId);
+	}
 
 }
