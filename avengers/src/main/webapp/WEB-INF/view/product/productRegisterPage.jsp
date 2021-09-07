@@ -585,7 +585,7 @@ textarea {
 											<div>
 												키워드 : <input type="text" value="이젠아이티" id="keyword" size="15"> 
 												
-												<input type="text" id="prodLocation" name="prodLocation"value=""> 
+												<input type="hidden" id="prodLocation" name="prodLocation"value=""> 
 												<input type="hidden" id="latitude" name="latitude" value=""> 
 												<input type="hidden" id="longitude" name="longitude" value="">
 												
