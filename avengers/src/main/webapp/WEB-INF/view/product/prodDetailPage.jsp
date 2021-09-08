@@ -351,14 +351,12 @@ ul.imgs li{
                <input type="button" value="수정" class="btn"
                   style="display: inline-block"
                   onclick="javascript:location.href='productModify/prodModifyPage?prodNum=${productdto.prodNum}'">
-                  						
-						<input type="button" value="삭제" class="btn" style="display: inline-block"
-						onclick="javascript:location.href='prodDelete?prodNum=${productdto.prodNum}'">
             </c:if>
             <table>
                <tr>
                   <td colspan="4" class="subject">상품 상세 정보
-                  <c:if test="${wishCk==1 }"><img width="20px" height="20" alt="heart_img" src="images/heart1.png"></c:if>
+                  <c:if test="${wis
+                  hCk==1 }"><img width="20px" height="20" alt="heart_img" src="images/heart1.png"></c:if>
                   <c:if test="${wishCk==0 }"><img width="20px" height="20" alt="heart_img" src="images/heart0.png"></c:if>
                   </td>
                </tr>
