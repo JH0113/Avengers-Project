@@ -215,6 +215,7 @@ td {
 								<li><a href="productListPage?prodKind=24">boots</a></li>
 								<li><a href="productListPage?prodKind=25">loafer</a></li>
 								<li><a href="productListPage?prodKind=26">dress shoes</a></li>
+								<li><a href="productListPage?prodKind=27">sneakers</a></li>
 							</ul>
 						</div>
 					</div>

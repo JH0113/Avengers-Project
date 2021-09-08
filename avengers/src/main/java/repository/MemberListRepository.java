@@ -43,5 +43,9 @@ public class MemberListRepository {
 		statement = namespace + ".memberProductsDetail";
 		return sqlSession.selectList(statement,memId);
 	}
+	public Integer heartCount(String memId) {
+		statement = namespace + ".heartCount";
+		return sqlSession.selectOne(statement,memId);
+	}
 
 }

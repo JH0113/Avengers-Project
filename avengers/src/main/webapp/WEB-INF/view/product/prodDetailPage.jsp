@@ -551,6 +551,11 @@ to {
 								<c:when test="${productdto.prodKind eq '26'}">
 							        드레스 구두
 							    </c:when>
+							    <c:when test="${productdto.prodKind eq '27'}">
+							        스니커즈
+							    </c:when>
+							    							    
+							    
 								<c:when test="${productdto.prodKind eq '30'}">
 							        카테고리 외 쥬얼리
 							    </c:when>
