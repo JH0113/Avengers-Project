@@ -128,7 +128,7 @@ li a {
 	padding: 5px 10px;
 	text-align: center;
 	position: absolute;
-	top: 65%;
+	top: 62%;
 	left: 77%;
 	transform: translate( -50%, -50% );
 }
