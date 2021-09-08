@@ -397,7 +397,7 @@ to {
 					onclick="javascript:location.href='prodReportForm?prodNum=${productdto.prodNum}&memId=${memberdto.memId }'">
 				<input type="button" value="채팅" class="btn"
 					style="display: inline-block"
-					onclick="javascript:location.href='chat'"> <input
+					onclick="javascript:location.href='purchase'"> <input
 					type="button" value="etc" class="btn" style="display: inline-block"
 					onclick="javascript:location.href='etc'"> <input
 					type="button" value="찜" class="btn" style="display: inline-block"

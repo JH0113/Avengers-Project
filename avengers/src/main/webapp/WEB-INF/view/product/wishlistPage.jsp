@@ -224,6 +224,7 @@ li a {
 	text-decoration: underline;
 	color: red;
 }
+
 #prodName_text {
 	text-decoration: underline;
 	font-weight: bolder;
@@ -321,7 +322,8 @@ li a {
 											<img width="200" height="200" src="images/noimage.png" />
 										</c:if></td>
 									<td id="td_text"><p class="ellipsis_multi">
-											<a id="prodName_text" href="prodDetailPage?prodNum=${dto.prodNum }">제목 :
+											<a id="prodName_text"
+												href="prodDetailPage?prodNum=${dto.prodNum }">제목 :
 												${dto.prodName }</a> <a id="delete_text"
 												href="wishDelete?prodNum=${dto.prodNum }">삭제</a>
 										</p></td>
@@ -338,9 +340,9 @@ li a {
 							</c:forEach>
 						</c:if>
 					</table>
-					<button class="btn" onclick="script:location.href='main'">쇼핑
-						계속하기</button>
 				</div>
+				<button class="btn" onclick="script:location.href='main'">쇼핑
+					계속하기</button>
 			</div>
 		</div>
 		<div class="footer">
