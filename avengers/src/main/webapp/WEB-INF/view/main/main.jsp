@@ -117,7 +117,7 @@ li a {
 }
 
 .headmenu {
-	width: 950px;
+	width: 1050px;
 	height: 120px;
 }
 
@@ -270,6 +270,7 @@ td {
 									<li><a href="productRegisterPage">SELL</a></li>
 									<li><a href="noticePage">NOTICE</a></li>
 									<li><a href="chat">chat</a></li>
+									<li><a href="oneononePage">1:1문의</a></li>
 									<li><a href="login/logout">LOGOUT</a></li>
 								</ul>
 							</c:if>

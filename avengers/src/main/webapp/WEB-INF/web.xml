@@ -36,6 +36,7 @@
 				classpath:spring-memberList.xml
 				classpath:spring-report.xml
 				classpath:spring-chat.xml
+				classpath:spring-oneonone.xml
 			</param-value>
 		</init-param>
 	</servlet>
