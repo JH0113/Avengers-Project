@@ -312,7 +312,7 @@ textarea {
 	margin-top: 4px;
 }
 
-#placesList .item h5, #placesList .item .info {
+#placesList .item h5, #placesList .item .info, #result{
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
@@ -425,10 +425,13 @@ textarea {
 }
 
 #result {
-	font-weight: 500;
+	padding : 5px;
+	font-weight: bold;
+	font-size: 14px;
+	color: #4B89DC;
 	display: inline-block;
 	width: 100%;
-	text-align: center;
+	text-align: left;
 }
 </style>
 
@@ -696,6 +699,9 @@ textarea {
 					console.log('그런 너를 마주칠까 ' + result[0].address.address_name
 							+ '을 못가');
 					$("#prodLocation").val(result[0].address.address_name);
+					var message = '선택하신 거래 장소는 ' + '"' + result[0].address.address_name + '"' + ' 입니다';
+					var resultDiv = document.getElementById('result'); 
+					resultDiv.innerHTML = message;
 				}
 			};
 			geocoder.coord2Address(marker.getPosition().getLng(), marker
