@@ -639,7 +639,7 @@ to {
 					<tr class="border_bottom">
 						<th>가격</th>
 						<td colspan="1.5"><span id="main_point">
-								${productdto.prodPrice }원</span></td>
+								<fmt:formatNumber value="${productdto.prodPrice }" type="number"/>원</span></td>
 					</tr>
 					<tr class="border_bottom">
 						<th>거래 장소</th>

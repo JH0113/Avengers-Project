@@ -52,7 +52,7 @@
 </select>
    
 <select id="memberProductsDetail" parameterType="string" resultType="model.ProductDTO">
-   SELECT PROD_NUM prodNum, PROD_NAME prodName, PROD_IMAGE prodImage
+   SELECT PROD_NUM prodNum, PROD_NAME prodName, PROD_IMAGE prodImage, PROD_PRICE prodPrice
    FROM PRODUCTS 
    WHERE MEM_ID = #{memId} 
 </select> 

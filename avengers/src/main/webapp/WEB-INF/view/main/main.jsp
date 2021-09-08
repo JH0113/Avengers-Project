@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -298,7 +299,9 @@ td {
 										</c:if>
 
 										<p class="ellipsis_multi">${dto.prodName }</p> <br />
-										<p class="ellipsis_multi">${dto.prodPrice }원</p></a></td>
+										<p class="ellipsis_multi">
+										<fmt:formatNumber value="${dto.prodPrice }" type="number"/>원
+										</p></a></td>
 								<c:if test="${cnt.count % 4 == 0 }">
 						</tr>
 						<tr>
