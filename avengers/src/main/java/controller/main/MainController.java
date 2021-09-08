@@ -20,11 +20,6 @@ public class MainController {
 		return "main/main";
 	}
 
-	@RequestMapping("test")
-	public String testPage() {
-		return "main/test";
-	}
-
 	@RequestMapping(value = "search", method = RequestMethod.GET)
 	public String search(@RequestParam(value = "searchName") String searchName, Model model) {
 		System.out.println(searchName);
