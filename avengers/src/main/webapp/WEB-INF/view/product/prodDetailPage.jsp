@@ -224,6 +224,10 @@ tr.border_bottom_th {
    text-decoration: underline;
 }
 
+#menu_text:hover{
+	font-weight: bolder;
+}
+
 .dropdown-content a:hover {
    font-weight: bolder;
 }

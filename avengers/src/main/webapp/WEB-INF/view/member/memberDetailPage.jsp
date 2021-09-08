@@ -177,6 +177,19 @@ tr.border_bottom_th {
 	font-size: 12px;
 	font-family: 'Montserrat', sans-serif;
 } 
+.ellipsis_multi {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 15px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2; /* 라인수 */
+	-webkit-box-orient: vertical;
+	word-wrap: break-word;
+	line-height: 18px;
+	height: 36px; /* height = line-height * 줄수 : 비wekkit 계열 */
+}
+
 </style>
 </head>
 <body> 
@@ -244,8 +257,8 @@ tr.border_bottom_th {
 							<img src="upload/${dto.prodImage}" width="200" style="border-radius: 20px">
 							 
 							
-							 <span id="prodInfo">${dto.prodName}</br></span>
-							 <span id="prodInfo"><fmt:formatNumber value="${dto.prodPrice}" type="number"/>원</span></a></td>
+							 <p class="ellipsis_multi">${dto.prodName}</p>
+							 <p class="ellipsis_multi"><fmt:formatNumber value="${dto.prodPrice}" type="number"/>원</p></a></td>
 							 
 							
 							<c:if test="${cnt.count % 5 == 0 }">
