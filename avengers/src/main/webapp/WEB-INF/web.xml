@@ -48,7 +48,7 @@
 	 
   <error-page>
   	<error-code>500</error-code>
-  	<location>/error/500.jsp</location>
+  	<location>/WEB-INF/view/login/loginPage.jsp</location>
   </error-page>
   
   
