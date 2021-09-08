@@ -408,6 +408,7 @@ to {
 					<input type="button" value="수정" class="btn"
 						style="display: inline-block"
 						onclick="javascript:location.href='productModify/prodModifyPage?prodNum=${productdto.prodNum}'">
+						
 				</c:if>
 				<table>
 					<tr>

@@ -40,6 +40,9 @@
 	font-weight: bolder;
 	padding-top: 30px;
 }
+img {
+	border-radius: 15%;
+}
 </style>
 <div class="profile_box">
 	<div class="profile">
