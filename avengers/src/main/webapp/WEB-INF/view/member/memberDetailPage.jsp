@@ -240,9 +240,9 @@ tr.border_bottom_th {
 							<td><a href="prodDetailPage?prodNum=${dto.prodNum}">
 							
 							<img src="upload/${dto.prodImage}" width="200" style="border-radius: 20px">
+							 
 							
-							
-							 ${dto.prodName}</a></td>
+							 <span id="prodName">${dto.prodName}</br></span><span>${dto.prodPrice}</span></a></td>
 							 
 							
 							<c:if test="${cnt.count % 5 == 0 }">
