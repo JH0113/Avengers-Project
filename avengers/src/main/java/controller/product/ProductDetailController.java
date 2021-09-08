@@ -25,8 +25,4 @@ public class ProductDetailController {
 		model.addAttribute("wishCk", wishCk);
 		return "product/prodDetailPage";
 	}
-	@RequestMapping("productDetailTest")
-	public String productDetail() {
-		return "product/productDetailTest";
-	}
 }

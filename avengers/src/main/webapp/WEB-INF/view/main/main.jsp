@@ -261,7 +261,6 @@ td {
 								<li><a href="loginPage">LOGIN</a></li>
 								<li><a href="memberRegistPage">REGIST</a></li>
 								<li><a href="noticePage">NOTICE</a></li>
-									<li><a href="productDetailTest">Test</a></li>
 							</ul>
 						</c:if>
 						<c:if test="${!empty authinfo }">
