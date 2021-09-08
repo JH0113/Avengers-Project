@@ -20,6 +20,6 @@ public class ProdReportService {
 		dto.setReportedReasonDetail(reportCommand.getReportedReasonDetail());
 		dto.setReporter(reportCommand.getReporter()); 
 		reportRepository.prodReportInsert(dto);
-	}
-	
+		 
+	} 
 }

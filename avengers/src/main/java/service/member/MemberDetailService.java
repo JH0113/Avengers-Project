@@ -17,5 +17,7 @@ public class MemberDetailService {
 		List<ProductDTO> list = memberListRepository.memberProductsDetail(memId); 
 		model.addAttribute("memberDTO",dto);
 		model.addAttribute("list",list);
+		int heartCount = memberListRepository.heartCount(memId);
+		model.addAttribute("heartCount",heartCount);
 	}
 }

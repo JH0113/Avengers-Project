@@ -25,15 +25,11 @@ public class ProductModifyController {
 	
 	@RequestMapping("prodModifyPage")
 	public String prodModify(@RequestParam(value = "prodNum") String prodNum, ProductCommandDTO productCommand, Model model) {
-		productModifyService.productModifyPage(prodNum, model);
-		System.out.println(productCommand.getProdNum());
+		productModifyService.productModifyPage(prodNum, model);		
 		return "product/prodModifyPage";
 	}
 	@RequestMapping(value = "productModify", method = RequestMethod.POST)
-	public String productModify(ProductCommandDTO prodCommand,HttpSession session,Model model) {
-		
-		System.out.println(prodCommand.getProdNum());
-		System.out.println(prodCommand.getProdName());
+	public String productModify(ProductCommandDTO prodCommand,HttpSession session,Model model) {	
 		productModifyService.productModify(prodCommand,session);
 		
 		String encodedParam = "";

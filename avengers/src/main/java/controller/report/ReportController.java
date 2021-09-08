@@ -108,6 +108,7 @@ public class ReportController {
 		prodReportService.prodReportInsert(reportCommand, prodNum, memId, model, session);
 		model.addAttribute("memId",memId);
 		model.addAttribute("prodNum",prodNum);
+		
 		return "report/prodReportFinish";
 	}
 	

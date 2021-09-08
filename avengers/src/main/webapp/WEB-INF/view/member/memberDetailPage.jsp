@@ -176,7 +176,7 @@ tr.border_bottom_th {
 #prodInfo{
 	font-size: 12px;
 	font-family: 'Montserrat', sans-serif;
-	} 
+} 
 </style>
 </head>
 <body> 
@@ -212,7 +212,7 @@ tr.border_bottom_th {
 					</tr>
 					
  					<tr class="border_bottom">
-						<th rowspan=2><img src="upload/${memberDTO.memImage }" width="200" style="border-radius: 20px"></th>
+						<th rowspan=2><img src="upload/${memberDTO.memImage }" width="200" height="200" style="border-radius: 20px"></th>
 						<th>아이디</th>
 						<th>${memberDTO.memId }</th> 
 						<th>닉네임</th>
@@ -222,10 +222,9 @@ tr.border_bottom_th {
 					<tr class="border_bottom">
 						<th>신고 횟수</th> 
 						<th> ${memberDTO.memReportedCount }</th> 
-						<th>찜 받은 갯수</th> 
-						<th>쿼리 짜 야 함</th> 
+						<th>받은 관심</th> 
+						<th>${heartCount }</th> 
 					</tr>
-				  
 				  
 				  	<tr>
 						<td colspan="5" class="subject">판매중인 상품</td>

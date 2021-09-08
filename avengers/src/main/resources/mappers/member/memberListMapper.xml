@@ -57,5 +57,9 @@
    WHERE MEM_ID = #{memId} 
 </select> 
    
-
+<select id="heartCount" parameterType="string" resultType="int">
+	select count(prod_num) from heart 
+	where prod_num in (select prod_num from products where mem_id = #{memId})
+</select>
+ 
 </mapper>

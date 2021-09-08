@@ -286,6 +286,7 @@ td {
 						<c:when test="${ctgr eq '24' }">boots</c:when>
 						<c:when test="${ctgr eq '25' }">loafer</c:when>
 						<c:when test="${ctgr eq '26' }">dress shoes</c:when>
+						<c:when test="${ctgr eq '27' }">sneakers</c:when>
 						<c:when test="${ctgr eq '31' }">bracelet</c:when>
 						<c:when test="${ctgr eq '32' }">brooch/pin</c:when>
 						<c:when test="${ctgr eq '33' }">earring</c:when>
