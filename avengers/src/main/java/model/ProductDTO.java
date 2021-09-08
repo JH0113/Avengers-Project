@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class ProductDTO {
 	String memId;
 	String prodName;
-	int prodPrice;
+	String prodPrice;
 	String prodImage;
 	String prodImage2;
 	String prodImage3;
@@ -87,10 +87,11 @@ public class ProductDTO {
 	public void setProdName(String prodName) {
 		this.prodName = prodName;
 	}
-	public int getProdPrice() {
+ 
+	public String getProdPrice() {
 		return prodPrice;
 	}
-	public void setProdPrice(int prodPrice) {
+	public void setProdPrice(String prodPrice) {
 		this.prodPrice = prodPrice;
 	}
 	public String getProdImage() {

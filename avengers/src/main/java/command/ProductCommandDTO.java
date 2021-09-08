@@ -5,7 +5,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class ProductCommandDTO {
 	String prodNum;
 	String prodName;
-	int prodPrice;
+	String prodPrice;
 	MultipartFile[] prodImage;
 	MultipartFile[] prodImage2;
 	MultipartFile[] prodImage3;
@@ -65,10 +65,11 @@ public class ProductCommandDTO {
 	public void setProdName(String prodName) {
 		this.prodName = prodName;
 	}
-	public int getProdPrice() {
+ 
+	public String getProdPrice() {
 		return prodPrice;
 	}
-	public void setProdPrice(int prodPrice) {
+	public void setProdPrice(String prodPrice) {
 		this.prodPrice = prodPrice;
 	}
 	public MultipartFile[] getProdImage() {

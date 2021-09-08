@@ -173,7 +173,10 @@ tr.border_bottom_th {
 #scroll::-webkit-scrollbar{
     display: none; /* Chrome, Safari, Opera*/
 }
- 
+#prodInfo{
+	font-size: 12px;
+	font-family: 'Montserrat', sans-serif;
+	} 
 </style>
 </head>
 <body> 
@@ -242,7 +245,8 @@ tr.border_bottom_th {
 							<img src="upload/${dto.prodImage}" width="200" style="border-radius: 20px">
 							 
 							
-							 <span id="prodName">${dto.prodName}</br></span><span>${dto.prodPrice}</span></a></td>
+							 <span id="prodInfo">${dto.prodName}</br></span>
+							 <span id="prodInfo"><fmt:formatNumber value="${dto.prodPrice}" type="number"/>원</span></a></td>
 							 
 							
 							<c:if test="${cnt.count % 5 == 0 }">
