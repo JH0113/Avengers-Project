@@ -197,7 +197,9 @@ tr.border_bottom_th {
 
 .dropdown-content {
    display: none;
-   position: relative;
+   position: absolute;
+   top:40px;
+   left:23%;
    background-color: #F9F9F9;
    min-width: 160px;
    padding: 8px;
@@ -205,6 +207,7 @@ tr.border_bottom_th {
 }
 
 .dropdown:hover .dropdown-content {
+
    display: block;
 }
 
@@ -217,6 +220,8 @@ tr.border_bottom_th {
    height: 50px;
    padding-top: 12px;
    padding-left: 32px;
+   position: relative;
+   text-decoration: underline;
 }
 
 .dropdown-content a:hover {
@@ -338,25 +343,21 @@ ul.imgs li{
             //임시버튼태그// <input type="button" value="게시글 신고" class="btn"
                style="display: inline-block"
                onclick="javascript:location.href='prodReportForm?prodNum=${productdto.prodNum}&memId=${memberdto.memId }'">
-            <input type="button" value="채팅" class="btn"
-               style="display: inline-block"
-               onclick="javascript:location.href='chat'"> <input
-               type="button" value="etc" class="btn" style="display: inline-block"
-               onclick="javascript:location.href='etc'"> <input
-               type="button" value="찜" class="btn" style="display: inline-block"
-               onclick="javascript:location.href='heart?prodNum=${productdto.prodNum}'">
-
+            <input type="button" value="채팅" class="btn" style="display: inline-block" onclick="javascript:location.href='chat'"> 
+            <input type="button" value="etc" class="btn" style="display: inline-block" onclick="javascript:location.href='etc'"> 
+            <input type="button" value="찜" class="btn" style="display: inline-block" onclick="javascript:location.href='heart?prodNum=${productdto.prodNum}'">
 
             <c:if test="${authinfo.userId == memberdto.memId }">
                <input type="button" value="수정" class="btn"
                   style="display: inline-block"
                   onclick="javascript:location.href='productModify/prodModifyPage?prodNum=${productdto.prodNum}'">
+            <input type="button" value="삭제" class="btn" style="display: inline-block"
+              onclick="javascript:location.href='prodDelete?prodNum=${productdto.prodNum}'">
             </c:if>
             <table>
                <tr>
                   <td colspan="4" class="subject">상품 상세 정보
-                  <c:if test="${wis
-                  hCk==1 }"><img width="20px" height="20" alt="heart_img" src="images/heart1.png"></c:if>
+                  <c:if test="${wishCk==1 }"><img width="20px" height="20" alt="heart_img" src="images/heart1.png"></c:if>
                   <c:if test="${wishCk==0 }"><img width="20px" height="20" alt="heart_img" src="images/heart0.png"></c:if>
                   </td>
                </tr>
@@ -544,8 +545,7 @@ ul.imgs li{
                <tr class="border_bottom">
                   <th>게시날짜</th>
                   <td><fmt:parseDate var="parseRegDate"
-                        value="${productdto.prodDate }" pattern="yyyy-MM-dd HH:mm" /> <fmt:formatDate
-                        var="resultRegDt" value="${parseRegDate}"
+                        value="${productdto.prodDate }" pattern="yyyy-MM-dd HH:mm" /> <fmt:formatDate var="resultRegDt" value="${parseRegDate}"
                         pattern="yyyy-MM-dd HH:mm" /> ${resultRegDt}</td>
 
                </tr>
