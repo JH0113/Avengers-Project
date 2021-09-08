@@ -351,6 +351,9 @@ ul.imgs li{
                <input type="button" value="수정" class="btn"
                   style="display: inline-block"
                   onclick="javascript:location.href='productModify/prodModifyPage?prodNum=${productdto.prodNum}'">
+                  						
+						<input type="button" value="삭제" class="btn" style="display: inline-block"
+						onclick="javascript:location.href='prodDelete?prodNum=${productdto.prodNum}'">
             </c:if>
             <table>
                <tr>

@@ -102,4 +102,8 @@
 		where PROD_NUM=#{prodNum} 
 	
 	</update>
+	<delete id="prodDelete" parameterType="string">
+		delete from products
+		where PROD_NUM=#{prodNum}
+	</delete>
 </mapper>

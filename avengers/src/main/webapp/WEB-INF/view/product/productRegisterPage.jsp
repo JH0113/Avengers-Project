@@ -480,6 +480,9 @@ textarea {
 								<input class="input" type="text" name="prodName"
 									placeholder="상품 제목을 입력해주세요."><a href="#">거래금지품목</a>
 							</div>
+							<div class="error_box">
+								<form:errors id="error_text" path="prodName" />
+							</div>
 						</td>
 					</tr>
 					<tr class="contents">
