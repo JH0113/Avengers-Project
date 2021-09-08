@@ -312,7 +312,7 @@ textarea {
 	margin-top: 4px;
 }
 
-#placesList .item h5, #placesList .item .info, #result{
+#placesList .item h5, #placesList .item .info, #result {
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
@@ -425,7 +425,6 @@ textarea {
 }
 
 #result {
-	padding : 5px;
 	font-weight: bold;
 	font-size: 14px;
 	color: #4B89DC;
@@ -433,6 +432,15 @@ textarea {
 	width: 100%;
 	text-align: left;
 }
+#explain{
+	padding: 5px;
+	font-weight: bold;
+	font-size: 14px;
+	display: inline-block;
+	width: 100%;
+	text-align: left;
+}
+
 </style>
 
 </head>
@@ -604,6 +612,7 @@ textarea {
 										<div id="pagination"></div>
 									</div>
 								</div>
+								<div id="explain">*거래 장소 선택은 마커를 클릭해주세요.</div>
 								<div id="result"></div>
 							</form>
 						</td>
@@ -702,8 +711,9 @@ textarea {
 					console.log('그런 너를 마주칠까 ' + result[0].address.address_name
 							+ '을 못가');
 					$("#prodLocation").val(result[0].address.address_name);
-					var message = '선택하신 거래 장소는 ' + '"' + result[0].address.address_name + '"' + ' 입니다';
-					var resultDiv = document.getElementById('result'); 
+					var message = '선택하신 거래 장소는 ' + '"'
+							+ result[0].address.address_name + '"' + ' 입니다';
+					var resultDiv = document.getElementById('result');
 					resultDiv.innerHTML = message;
 				}
 			};
