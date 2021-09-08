@@ -237,12 +237,12 @@ tr.border_bottom_th {
 					 	<c:forEach items="${list }" var="dto" varStatus="cnt">
 						 
 						
-							<td>
+							<td><a href="prodDetailPage?prodNum=${dto.prodNum}">
 							
 							<img src="upload/${dto.prodImage}" width="200" style="border-radius: 20px">
 							
 							
-							/${dto.prodNum}/${dto.prodName}</td>
+							 ${dto.prodName}</a></td>
 							 
 							
 							<c:if test="${cnt.count % 5 == 0 }">
