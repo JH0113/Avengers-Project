@@ -96,15 +96,14 @@ li a {
 }
 .subject {
 	text-align: center;
-	border-bottom: solid 2px;	
 	font-family: 'Montserrat', sans-serif;
 	padding: 20px;
-	font-size: 170%;
-	font-weight: 400;
+	font-size: 100%;
+	font-weight: bolder;
 }
 .leg {
 	width: 1200px;
-	height: 1200px;
+	height: 1000px;
 	margin: auto;
 }
 .Contents {
@@ -221,26 +220,23 @@ tr.border_bottom_th {
 			<div class="Contents"> 
 				<table>
 					<tr>
-						<td colspan="5" class="subject">'${memberDTO.memNick }'의 shop</td>
+						<th rowspan="3" width="200"><img src="upload/${memberDTO.memImage }" width="200" height="200" style="border-radius: 20px"></th>
+						<td height="10" colspan="5" class="subject" style="background-color: LightGray;">'${memberDTO.memNick }'의 shop</td>
+						
 					</tr>
 					
- 					<tr class="border_bottom">
-						<th rowspan=2><img src="upload/${memberDTO.memImage }" width="200" height="200" style="border-radius: 20px"></th>
-						<th>아이디</th>
-						<th>${memberDTO.memId }</th> 
-						<th>닉네임</th>
-						<th>${memberDTO.memNick }</th> 	
+ 					<tr>
+						 
+						<td colspan="2">${memberDTO.memId } / ${memberDTO.memNick }</td> <td></td>
 					</tr>
 	    
-					<tr class="border_bottom">
-						<th>신고 횟수</th> 
-						<th> ${memberDTO.memReportedCount }</th> 
-						<th>받은 관심</th> 
-						<th>${heartCount }</th> 
+					<tr>
+						<td>신고 횟수 : ${memberDTO.memReportedCount }</td> 
+						<td>받은 관심 : ${heartCount }</td> 
 					</tr>
 				  
 				  	<tr>
-						<td colspan="5" class="subject">판매중인 상품</td>
+						<td colspan="5" class="subject" style="background-color: LightGray;">items</td>
 					</tr>
 					</table>
 
@@ -257,7 +253,7 @@ tr.border_bottom_th {
 							<img src="upload/${dto.prodImage}" width="200" style="border-radius: 20px">
 							 
 							
-							 <p class="ellipsis_multi">${dto.prodName}</p>
+							 <p class="ellipsis_multi" style="font-weight: bold;">${dto.prodName}</p>
 							 <p class="ellipsis_multi"><fmt:formatNumber value="${dto.prodPrice}" type="number"/>원</p></a></td>
 							 
 							
