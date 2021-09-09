@@ -599,9 +599,7 @@ textarea {
 											<div>
 												키워드 : <input type="text" value="이젠아이티" id="keyword"
 													size="15"> <input type="hidden" id="prodLocation"
-													name="prodLocation" value=""> <input type="hidden"
-													id="latitude" name="latitude" value=""> <input
-													type="hidden" id="longitude" name="longitude" value="">
+													name="prodLocation" value="">
 
 												<input type="button" id="searchBtn" onclick="searchPlaces()"
 													value="검색">
@@ -752,9 +750,7 @@ textarea {
 					// 마커에 클릭이벤트를 등록합니다
 					kakao.maps.event.addListener(marker, 'click', function() {
 						displayInfowindow(marker, title);
-						// 좌표정보를 파싱하기 위해 hidden input에 값 지정
-						$("#latitude").val(marker.getPosition().getLat());
-						$("#longitude").val(marker.getPosition().getLng());
+					
 						displayGeocoder(marker);
 
 						/* 			            	var message = '위치는 ' + marker.getPosition() + ' 입니다';

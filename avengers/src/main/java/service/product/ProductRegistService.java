@@ -27,13 +27,15 @@ public class ProductRegistService {
 		productDTO.setProdBrand(productCommandDTO.getProdBrand());
 		productDTO.setProdKind(productCommandDTO.getProdKind());
 		productDTO.setProdMethod(productCommandDTO.getProdMethod());
-		productDTO.setProdLocation(productCommandDTO.getProdLocation());
+		if(productCommandDTO.getProdLocation().equals("")) {
+			productDTO.setProdLocation(authinfo.getMemAddr());
+		} else {
+			productDTO.setProdLocation(productCommandDTO.getProdLocation());
+		}
 		productDTO.setProdGuarantee(productCommandDTO.getProdGuarantee());
 		productDTO.setProdState(productCommandDTO.getProdState());
 		productDTO.setProdQuantity(productCommandDTO.getProdQuantity());
-		
-		productDTO.setLatitude(productCommandDTO.getLatitude());
-		productDTO.setLongitude(productCommandDTO.getLongitude());
+
 		
 		String prodImage = "";
 		if (!productCommandDTO.getProdImage()[0].getOriginalFilename().equals("")) {

@@ -22,8 +22,7 @@ public class ProductDTO {
 	String prodDate;
 	int prodQuantity;
 	String prodNum;
-	String latitude;
-	String longitude;
+
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	Date heartDate;
 	
@@ -32,18 +31,6 @@ public class ProductDTO {
 	}
 	public void setHeartDate(Date heartDate) {
 		this.heartDate = heartDate;
-	}
-	public String getLatitude() {
-		return latitude;
-	}
-	public void setLatitude(String latitude) {
-		this.latitude = latitude;
-	}
-	public String getLongitude() {
-		return longitude;
-	}
-	public void setLongitude(String longitude) {
-		this.longitude = longitude;
 	}
 	public String getProdNum() {
 		return prodNum;
