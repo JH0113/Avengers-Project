@@ -19,31 +19,26 @@
 	margin: 0px;
 	color: #000;
 }
-
 .error_box {
 	font-size: 60%;
 	margin-bottom: 8px;
 	margin-left: 5px;
 	margin-top: 20px;
 }
-
 #error_text {
 	color: red;
 }
-
 .web {
 	width: 100%;
 	height: 100%;
 	background-color: #f5f6f7;
 }
-
 .container {
 	width: 500px;
 	height: 1300px;
 	margin: auto;
 	top: 0px;
 }
-
 .logo {
 	width: 100%;
 	height: 200px;
@@ -53,12 +48,10 @@
 	text-align: center;
 	line-height: 240px;
 }
-
 .regist_box {
 	width: 100%;
 	height: 950px;
 }
-
 .input_box {
 	display: block;
 	position: relative;
@@ -70,7 +63,6 @@
 	box-sizing: border-box;
 	vertical-align: top;
 }
-
 .box_local {
 	text-align: center;
 	position: relative;
@@ -83,7 +75,6 @@
 	vertical-align: top;
 	justify-content: flex-end;
 }
-
 .input {
 	display: block;
 	position: relative;
@@ -104,7 +95,6 @@
 	-webkit-apperance: none;
 	width: 100%;
 }
-
 .input_Post {
 	display: block;
 	position: relative;
@@ -123,13 +113,11 @@
 	apperance: none;
 	-webkit-apperance: none;
 }
-
 .text_box {
 	margin: 19px 0 8px;
 	font-size: 14px;
 	font-weight: 700;
 }
-
 .btn {
 	display: block;
 	width: 50%;
@@ -143,7 +131,6 @@
 	background-color: #404040;
 	color: #fff;
 }
-
 .btn_box {
 	width: 100%;
 	height: 80px;
@@ -155,7 +142,6 @@
 	justify-content: flex-end;
 	float: left;
 }
-
 .localbtn {
    display: inline-block;
    float: right;
@@ -174,7 +160,6 @@
     margin: 4px;
     cursor: pointer;
 }
-
 .footer {
 	padding-top: 95px;
 	padding-bottom: 15px;
@@ -183,11 +168,9 @@
 	align-items: center;
 	width: 100%;
 }
-
 #copyright {
 	font-family: none;
 }
-
 .box1 {
 	display: flex;
 }
@@ -201,12 +184,10 @@
 				{
 					oncomplete : function(data) {
 						// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-
 						// 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
 						// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
 						var roadAddr = data.roadAddress; // 도로명 주소 변수
 						var extraRoadAddr = ''; // 참고 항목 변수
-
 						// 법정동명이 있을 경우 추가한다. (법정리는 제외)
 						// 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
 						if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
@@ -221,18 +202,15 @@
 						if (extraRoadAddr !== '') {
 							extraRoadAddr = ' (' + extraRoadAddr + ')';
 						}
-
 						// 우편번호와 주소 정보를 해당 필드에 넣는다.
 						document.getElementById('sample4_postcode').value = data.zonecode;
 						document.getElementById("sample4_roadAddress").value = roadAddr;
-
 						// 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
 						if (roadAddr !== '') {
 							document.getElementById("sample4_extraAddress").value = extraRoadAddr;
 						} else {
 							document.getElementById("sample4_extraAddress").value = '';
 						}
-
 						var guideTextBox = document.getElementById("guide");
 						// 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
 						if (data.autoRoadAddress) {
@@ -241,7 +219,6 @@
 							guideTextBox.innerHTML = '(예상 도로명 주소 : '
 									+ expRoadAddr + ')';
 							guideTextBox.style.display = 'block';
-
 						} else {
 							guideTextBox.innerHTML = '';
 							guideTextBox.style.display = 'none';
@@ -345,8 +322,7 @@
 						</div>
 					</div>
 					<span class="input_box"> <input type="text" name="memPhone"
-						class="input" value="${registInfo.memPhone }">
-						<button type="submit" class="localbtn" value="인증하기" onclick="sendSms();" />
+						class="input" value="${registInfo.memPhone }"> 
 					</span>
 
 

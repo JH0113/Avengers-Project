@@ -349,7 +349,6 @@ ul.imgs li{
                onclick="javascript:location.href='prodReportForm?prodNum=${productdto.prodNum}&memId=${memberdto.memId }'">
             <input type="button" value="채팅" class="btn" style="display: inline-block" onclick="javascript:location.href='chat'"> 
           <input type="button" value="찜" class="btn" style="display: inline-block" onclick="javascript:location.href='heart?prodNum=${productdto.prodNum}'">
-
             <c:if test="${authinfo.userId == memberdto.memId }">
                <input type="button" value="수정" class="btn"
                   style="display: inline-block"
