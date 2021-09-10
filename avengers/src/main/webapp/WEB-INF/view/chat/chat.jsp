@@ -28,7 +28,7 @@
 	</form>
 </body>
 <script>
-	var url = "ws://192.168.0.88:8080/avengers/chat/";
+	var url = "ws://localhost:8080/avengers/chat/";
 	var webSocket = null;
 	var monitor = document.getElementById("monitor");
 	//접속 URL

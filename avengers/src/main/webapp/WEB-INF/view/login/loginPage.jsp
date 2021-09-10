@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>login Page</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link
 	href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
 	rel="stylesheet">
@@ -84,6 +86,7 @@
 	margin-bottom: 8px;
 	margin-left: 10px;
 }
+
 #error_text {
 	color: red;
 }
@@ -145,6 +148,7 @@
 .copyright {
 	font-style: none;
 }
+
 a:hover {
 	font-weight: bolder;
 }
@@ -162,7 +166,8 @@ a:hover {
 				modelAttribute="loginDTO">
 				<div class="form_box">
 					<div class="input_box">
-						<input class="input" type="text" name="userId" value="${registInfo.memId}" placeholder="아이디">
+						<input class="input" type="text" name="userId"
+							value="${registInfo.memId}" placeholder="아이디">
 					</div>
 					<div class="error_box">
 						<form:errors id="error_text" path="userId" />
@@ -183,9 +188,13 @@ a:hover {
 			</form:form>
 		</div>
 		<div class="option_container">
-			<div class="opt_text"><a href="findIdPage">아이디 찾기</a> | <a href="findPwPage">비밀번호 찾기</a> | <a href="memberRegistPage">회원가입</a></div>
+			<div class="opt_text">
+				<a href="findIdPage">아이디 찾기</a> | <a href="findPwPage">비밀번호 찾기</a> |
+				<a href="memberRegistPage">회원가입</a>
+			</div>
 			<div class="banner"></div>
 		</div>
+		
 		<div class="footer">
 			<span id="copyright">Copyright © 2nd shop All Rights Reserved.</span>
 		</div>

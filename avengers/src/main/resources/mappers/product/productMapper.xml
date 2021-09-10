@@ -14,7 +14,8 @@
 		PROD_BRAND prodBrand,PROD_KIND
 		prodKind,PROD_LOCATION prodLocation,PROD_GUARANTEE prodGuarantee,
 		PROD_DATE prodDate,PROD_METHOD prodMethod,PROD_STATE
-		prodState,PROD_QUANTITY prodQuantity
+		prodState,PROD_QUANTITY prodQuantity,LOCATION_NAME locationName,
+		LOCATIONLAT locationLat,LOCATIONLNG locationLng
 	</sql>
 	<insert id="productRegist" parameterType="model.ProductDTO">
 		insert into products
