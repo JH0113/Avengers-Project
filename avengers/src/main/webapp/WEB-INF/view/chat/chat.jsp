@@ -19,8 +19,7 @@
 <body>
 	<h3>웹 소켓 페이지</h3>
 	<form>
-		대화명 : <input id="nick" type="text" /><input id="login" type="button"
-			value="로그인" />
+		대화명 : <input id="nick" type="text" /><input id="login" type="button" value="로그인" />
 		<div id="monitor" contentEditable="true"></div>
 		<div>
 			메시지 : <input id="msg" type="text" /> <input type="button" value="전송" onClick="sendMsg()" />
@@ -29,7 +28,7 @@
 	</form>
 </body>
 <script>
-	var url = "ws://192.168.4.205:8080/avengers/chat/";
+	var url = "ws://192.168.0.88:8080/avengers/chat/";
 	var webSocket = null;
 	var monitor = document.getElementById("monitor");
 	//접속 URL
