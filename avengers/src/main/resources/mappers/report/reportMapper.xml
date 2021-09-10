@@ -129,5 +129,15 @@
 	((<include refid="reportedNum" />),#{prodNum},#{memId},#{reporter},#{reportedReason},#{reportedReasonDetail},sysdate,0)
 </insert>
 
+	<sql id="memReportedNum">
+		select 'M-'||(nvl(max(substr(REPORTED_NUM,3,6)),100000) + 1) from mem_reported
+	</sql>
+	
+<insert id="memberReportInsert" parameterType="model.ReportDTO">
+	insert into mem_reported
+	(REPORTED_NUM, PROD_NUM, MEM_ID, REPORTER, REPORTED_REASON, REPORTED_REASON_DETAIL, REPORTDATE, REPORT_STATE)
+	values
+	((<include refid="memReportedNum" />),0,#{memId},#{reporter},#{reportedReason},#{reportedReasonDetail},sysdate,0)
+</insert>
 
 </mapper>

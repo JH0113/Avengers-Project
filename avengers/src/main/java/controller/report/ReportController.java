@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import authinfo.AuthinfoDTO;
 import command.ReportCommand;
 import model.ReportDTO;
+import service.report.MemberReportService;
 import service.report.ProdReportService;
 import service.report.ReportCancelService;
 import service.report.ReportDetailService;
@@ -41,6 +42,8 @@ public class ReportController {
 	ReportSearchService reportSearchService;
 	@Autowired
 	ProdReportService prodReportService;
+	@Autowired
+	MemberReportService memberReportService;
  
 	@RequestMapping("reportPage")
 	public String reportPage(@RequestParam(value = "page", defaultValue = "1") Integer page, Model model) { // 모든 리포트를 다 가져오기
@@ -111,5 +114,19 @@ public class ReportController {
 		
 		return "report/prodReportFinish";
 	}
-	
+	@RequestMapping("memberReportPage")
+	public String memberReportForm(@ModelAttribute(value = "reportCommand") ReportCommand reportCommand,
+								   @RequestParam(value = "memId") String memId, Model model, HttpSession session) {
+		model.addAttribute("memId",memId);
+		AuthinfoDTO authinfo = (AuthinfoDTO)session.getAttribute("authinfo"); 
+		String reporter = authinfo.getUserId();		
+		model.addAttribute("reporter",reporter);
+		return "report/memberReportRegistPage";
+	}
+	@RequestMapping("memberReportAct")
+	public String memberReportAct(ReportCommand reportCommand, @RequestParam(value = "memId") String memId, Model model, HttpSession session) {
+		memberReportService.memberReport(reportCommand, memId, model, session);
+		model.addAttribute("memId",memId);
+		return "report/memberReportFinish";
+	}
 }

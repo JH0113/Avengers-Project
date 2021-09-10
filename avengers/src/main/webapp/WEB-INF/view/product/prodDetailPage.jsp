@@ -344,12 +344,11 @@ ul.imgs li{
       </div>
       <div class="leg">
          <div class="productContents">
-            //임시버튼태그// <input type="button" value="게시글 신고" class="btn"
+           <input type="button" value="게시글 신고" class="btn"
                style="display: inline-block"
                onclick="javascript:location.href='prodReportForm?prodNum=${productdto.prodNum}&memId=${memberdto.memId }'">
             <input type="button" value="채팅" class="btn" style="display: inline-block" onclick="javascript:location.href='chat'"> 
-            <input type="button" value="etc" class="btn" style="display: inline-block" onclick="javascript:location.href='etc'"> 
-            <input type="button" value="찜" class="btn" style="display: inline-block" onclick="javascript:location.href='heart?prodNum=${productdto.prodNum}'">
+          <input type="button" value="찜" class="btn" style="display: inline-block" onclick="javascript:location.href='heart?prodNum=${productdto.prodNum}'">
 
             <c:if test="${authinfo.userId == memberdto.memId }">
                <input type="button" value="수정" class="btn"
@@ -613,7 +612,7 @@ ul.imgs li{
                            <ul>
                               <li id="memdropdown"><a
                                  href="memberDetailPage?memId=${memberdto.memId }">회원정보보기</a></li>
-                              <li id="memdropdown"><a href="#">신고하기</a></li>
+                              <li id="memdropdown"><a href="memberReportPage?memId=${memberdto.memId }">신고하기</a></li>
                            </ul>
                         </div>
                      </div>

@@ -64,6 +64,10 @@ public class ReportRepository {
 		statement = namespace + ".prodReportInsert";
 		sqlSession.insert(statement,dto);
 	}
- 
+	public void memberReportInsert(ReportDTO dto) {
+		statement = namespace + ".memberReportInsert";
+		sqlSession.insert(statement,dto);
+		
+	}
 	
 }

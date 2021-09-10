@@ -15,5 +15,6 @@
 	<bean class="service.report.ReportCancelService" />
 	<bean class="service.report.ReportFinishService" />
 	<bean class="service.report.ProdReportService" /> 
+	<bean class="service.report.MemberReportService" /> 
 	<bean class="repository.ReportRepository" />
 </beans>
