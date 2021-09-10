@@ -17,11 +17,30 @@ public class ProductCommandDTO {
 	String prodGuarantee;
 	String prodState;
 	int prodQuantity;
-
+	String locationName;
+	String locationLat;
+	String locationLng;
 	
 	
 	
-	
+	public String getLocationLat() {
+		return locationLat;
+	}
+	public void setLocationLat(String locationLat) {
+		this.locationLat = locationLat;
+	}
+	public String getLocationLng() {
+		return locationLng;
+	}
+	public void setLocationLng(String locationLng) {
+		this.locationLng = locationLng;
+	}
+	public String getLocationName() {
+		return locationName;
+	}
+	public void setLocationName(String locationName) {
+		this.locationName = locationName;
+	}
 	public String getProdNum() {
 		return prodNum;
 	}

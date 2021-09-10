@@ -24,7 +24,7 @@
 
 .web {
 	width: 100%;
-	height: 2000px;
+	height: 2500px;
 }
 
 header {
@@ -60,7 +60,7 @@ nav span a:hover {
 
 .body {
 	width: 1280px;
-	height: 2300px;
+	height: 2500px;
 	/* 	background-color: skyblue; */
 	margin: auto;
 	padding-top: 150px;
@@ -424,7 +424,7 @@ textarea {
 	color: #777;
 }
 
-#result {
+#result, #locationName {
 	font-weight: bold;
 	font-size: 14px;
 	color: #4B89DC;
@@ -432,7 +432,8 @@ textarea {
 	width: 100%;
 	text-align: left;
 }
-#explain{
+
+#explain {
 	padding: 5px;
 	font-weight: bold;
 	font-size: 14px;
@@ -441,6 +442,16 @@ textarea {
 	text-align: left;
 }
 
+.error_box {
+	font-size: 60%;
+	margin-bottom: 8px;
+	margin-left: 5px;
+	margin-top: 20px;
+}
+
+#error_text {
+	color: red;
+}
 </style>
 
 </head>
@@ -472,7 +483,10 @@ textarea {
 							onchange="setThumbnail(event);" name="prodImage2"
 							multiple="multiple" /><br /> 이미지 3 : <input type="file"
 							id="image" accept="image/*" onchange="setThumbnail(event);"
-							name="prodImage3" multiple="multiple" /><br /> <br /> <br />
+							name="prodImage3" multiple="multiple" />
+							<div class="error_box">
+								<form:errors id="error_text" path="prodImage" />
+							</div> <br /> <br /> <br />
 							<h5>
 								* 상품 이미지는 최대 3장까지 등록가능합니다.<br /> - 이미지는 상품등록 시 정사각형으로 짤려서
 								등록됩니다.<br /> - 상품 이미지는 640x640에 최적화 되어 있습니다. <br /> - 큰 이미지일경우
@@ -571,12 +585,18 @@ textarea {
 								<input class="input" type="number" name="prodPrice"
 									placeholder="숫자만 입력해주세요."><span>원</span>
 							</div>
+							<div class="error_box">
+								<form:errors id="error_text" path="prodPrice" />
+							</div>
 						</td>
 					</tr>
 					<tr class="contents">
 						<td class="td_left">설명</td>
 						<td class="td_right"><textarea rows="8" cols="65"
 								name="prodDetail" placeholder="상품 설명을 입력해주세요."></textarea></td>
+						<div class="error_box">
+							<form:errors id="error_text" path="prodDetail" />
+						</div>
 					</tr>
 					<tr class="contents">
 						<td class="td_left">수량</td>
@@ -597,12 +617,13 @@ textarea {
 									<div id="menu_wrap" class="bg_white">
 										<div class="option">
 											<div>
-												키워드 : <input type="text" value="이젠아이티" id="keyword"
-													size="15"> <input type="hidden" id="prodLocation"
-													name="prodLocation" value="">
-
-												<input type="button" id="searchBtn" onclick="searchPlaces()"
-													value="검색">
+												키워드 : 
+												<input type="text" value="이젠아이티" id="keyword" size="15"> 
+												<input type="hidden" id="prodLocation"name="prodLocation" value=""> 
+												<input type="hidden" id="locationName" name="locationName" value=""> 
+												<input type="hidden" id="LocationLat"name="LocationLat" value=""> 
+												<input type="hidden" id="LocationLng"name="LocationLng" value=""> 
+												<input type="button" id="searchBtn" onclick="searchPlaces()" value="검색">
 											</div>
 										</div>
 										<hr>
@@ -612,6 +633,7 @@ textarea {
 								</div>
 								<div id="explain">*거래 장소 선택은 마커를 클릭해주세요.</div>
 								<div id="result"></div>
+								<div id="latlng"></div>
 							</form>
 						</td>
 					</tr>
@@ -709,10 +731,18 @@ textarea {
 					console.log('그런 너를 마주칠까 ' + result[0].address.address_name
 							+ '을 못가');
 					$("#prodLocation").val(result[0].address.address_name);
+					
 					var message = '선택하신 거래 장소는 ' + '"'
 							+ result[0].address.address_name + '"' + ' 입니다';
 					var resultDiv = document.getElementById('result');
 					resultDiv.innerHTML = message;
+					
+					$("#LocationLat").val(marker.getPosition().getLat());
+					$("#LocationLng").val(marker.getPosition().getLng());
+					
+/* 					var message = '경도 : ' + marker.getPosition().getLng() + '위도 : ' + marker.getPosition().getLat();
+					var resultD = document.getElementById('latlng');
+					resultD.innerHTML = message; */
 				}
 			};
 			geocoder.coord2Address(marker.getPosition().getLng(), marker
@@ -750,9 +780,10 @@ textarea {
 					// 마커에 클릭이벤트를 등록합니다
 					kakao.maps.event.addListener(marker, 'click', function() {
 						displayInfowindow(marker, title);
-					
+						
 						displayGeocoder(marker);
-
+						
+						
 						/* 			            	var message = '위치는 ' + marker.getPosition() + ' 입니다';
 						 var resultDiv = document.getElementById('result'); 
 						 resultDiv.innerHTML = message; */
@@ -776,6 +807,7 @@ textarea {
 			map.setBounds(bounds);
 		} // 함수 끝
 
+		
 		// 검색결과 항목을 Element로 반환하는 함수입니다
 		function getListItem(index, places) {
 
@@ -869,6 +901,8 @@ textarea {
 
 			infowindow.setContent(content);
 			infowindow.open(map, marker);
+			
+			$("#locationName").val(title);
 
 		}
 

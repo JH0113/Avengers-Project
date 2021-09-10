@@ -35,6 +35,9 @@ public class ProductRegistService {
 		productDTO.setProdGuarantee(productCommandDTO.getProdGuarantee());
 		productDTO.setProdState(productCommandDTO.getProdState());
 		productDTO.setProdQuantity(productCommandDTO.getProdQuantity());
+		productDTO.setLocationName(productCommandDTO.getLocationName());
+		productDTO.setLocationLat(productCommandDTO.getLocationLat());
+		productDTO.setLocationLng(productCommandDTO.getLocationLng());
 
 		
 		String prodImage = "";

@@ -22,7 +22,8 @@
 		PROD_NUM,MEM_ID,PROD_NAME,PROD_PRICE,
 		PROD_IMAGE,PROD_IMAGE2,PROD_IMAGE3,PROD_DETAIL,
 		PROD_BRAND,PROD_KIND,PROD_LOCATION,PROD_GUARANTEE,
-		PROD_DATE,PROD_METHOD,PROD_STATE,PROD_QUANTITY
+		PROD_DATE,PROD_METHOD,PROD_STATE,PROD_QUANTITY,LOCATION_NAME,
+		LOCATIONLAT,LOCATIONLNG
 		)
 		values
 		(
@@ -42,7 +43,8 @@
 		<if test="prodDetail == null">null</if>
 		,
 		#{prodBrand},#{prodKind},#{prodLocation},#{prodGuarantee},
-		sysdate,#{prodMethod},#{prodState},#{prodQuantity}
+		sysdate,#{prodMethod},#{prodState},#{prodQuantity},#{locationName},
+		#{locationLat},#{locationLng}
 		)
 	</insert>
 	<select id="productList" parameterType="string"

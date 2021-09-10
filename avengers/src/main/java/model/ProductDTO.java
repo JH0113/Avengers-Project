@@ -22,7 +22,28 @@ public class ProductDTO {
 	String prodDate;
 	int prodQuantity;
 	String prodNum;
+	String locationName;
+	String locationLat;
+	String locationLng;
 
+	public String getLocationLat() {
+		return locationLat;
+	}
+	public void setLocationLat(String locationLat) {
+		this.locationLat = locationLat;
+	}
+	public String getLocationLng() {
+		return locationLng;
+	}
+	public void setLocationLng(String locationLng) {
+		this.locationLng = locationLng;
+	}
+	public String getLocationName() {
+		return locationName;
+	}
+	public void setLocationName(String locationName) {
+		this.locationName = locationName;
+	}
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	Date heartDate;
 	
