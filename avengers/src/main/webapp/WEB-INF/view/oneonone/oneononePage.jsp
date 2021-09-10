@@ -216,21 +216,17 @@ tr.border_bottom_th {
 			<div class="noticeContents">
 				<table>
 					<tr class="border_bottom_th">
-						<th width="88px">글번호</th>
-						<th width="143px">종류</th>
-						<th width="590px">제목</th>
-						<th width="88px">조회수</th>
+						<th width="88px">제목</th>
+						<th width="590px">내용</th>
 						<th width="88px">글쓴이</th>
 						<th width="203px">게시일</th>
 					</tr>
-					<c:forEach items="${noticePage }" var="dto">
+					<c:forEach items="${oneononelist }" var="oneononedto">
 						<tr class="border_bottom">
-							<td><a id="clickText" href="noticeDetailPage?noticeNum=${dto.noticeNum }"><span id="detail">${dto.noticeNum }</span></a></td>
-							<td>${dto.noticeKind }</td>
-							<td><a id="clickText" href="noticeDetailPage?noticeNum=${dto.noticeNum }"><span id="detail">${dto.noticeSub }</span></a></td>
-							<td>${dto.noticeHits }</td>
-							<td>${dto.noticeEmpId }</td>
-							<td><fmt:formatDate value="${dto.noticeDate }" type="date"
+							<td><a id="clickText" href="noticeDetailPage?noticeNum=${oneononedto.oneononeSub }"><span id="detail">${oneononedto.oneononeContents }</span></a></td>
+							<td>${dto.memName }</td>
+							<td></td>
+							<td><fmt:formatDate value="${oneononedto.oneononeDate }" type="date"
 									pattern="yyyy-MM-dd  HH:mm:ss" /></td>
 						</tr>
 					</c:forEach>

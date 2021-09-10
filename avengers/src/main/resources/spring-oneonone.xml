@@ -8,6 +8,6 @@
 >
 
 	<bean class="controller.oneonone.OneOnOneController" />	
-<!-- 	<bean class="service.oneonone.OneOnOneService" />
-	<bean class="repository.OneOnOneRepository" /> -->
+  	<bean class="service.oneonone.OneOnOneService" />
+	<bean class="repository.OneOnOneRepository" />
 </beans>
