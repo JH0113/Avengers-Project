@@ -130,7 +130,7 @@ li a {
    height: auto;
 }
 
-.btn {
+.btn, #findBtn {
    display: block;
    width: 100px;
    margin: auto;
@@ -629,6 +629,12 @@ ul.imgs li{
                      <div id="map"style="width: 100%; height: 100%; 
                      position: relative; overflow: hidden;"></div>
                      <input type="hidden" id="prodLocation" name="prodLocation" value="${productdto.prodLocation }">
+                     <input type="hidden" id="locationName" name="locationName" value="${productdto.locationName }">
+                  	 <input type="hidden" id="locationLat" name="locationLat" value="${productdto.locationLat }">
+                     <input type="hidden" id="locationLng" name="locationLng" value="${productdto.locationLng }">
+                  </div>
+                  ${productdto.locationName }, ${productdto.locationLat }, ${productdto.locationLng }
+                  <input type="button" id="findBtn" name="findBtn" value="길찾기" onclick="findPlace();"></button>
                   </div>
                   
                   </td>
@@ -644,7 +650,13 @@ ul.imgs li{
 <script type="text/javascript"
       src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5921de72df8da90539ae4441abbd63ca&libraries=services"></script>
 <script type="text/javascript">
-//호텔 데이터 변수선언 
+var locationName = document.querySelector("#locationName").value;
+var locationLat = document.querySelector("#locationLat").value;
+var locationLng = document.querySelector("#locationLng").value;
+function findPlace(){
+	location.href = "https://map.kakao.com/link/to/"+locationName+","+locationLat+","+locationLng;                                      
+}
+//데이터 변수선언 
 var prodLocation = document.querySelector("#prodLocation").value;
 
 //지도생성 
@@ -660,7 +672,7 @@ var map = new kakao.maps.Map(mapContainer, mapOption);
 //주소-좌표 변환 객체를 생성합니다
 var geocoder = new kakao.maps.services.Geocoder();
 
-//호텔 주소를 불러와서 지도에 표시합니다
+//주소를 불러와서 지도에 표시합니다
 geocoder.addressSearch( prodLocation, function(result, status) {
 
 // 정상적으로 검색이 완료됐으면 
