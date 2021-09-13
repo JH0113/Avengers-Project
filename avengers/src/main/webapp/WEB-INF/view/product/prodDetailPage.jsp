@@ -633,7 +633,6 @@ ul.imgs li{
                   	 <input type="hidden" id="locationLat" name="locationLat" value="${productdto.locationLat }">
                      <input type="hidden" id="locationLng" name="locationLng" value="${productdto.locationLng }">
                   </div>
-                  ${productdto.locationLat }, ${productdto.locationLat }, ${productdto.locationLng }
                   <input type="button" id="findBtn" name="findBtn" value="길찾기" onclick="findPlace();"></button>
                   </div>
                   
