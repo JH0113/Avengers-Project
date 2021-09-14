@@ -9,5 +9,6 @@
 
 	<bean class="controller.oneonone.OneOnOneController" />	
   	<bean class="service.oneonone.OneOnOneService" />
+  	<bean class="service.oneonone.OneOnOneRegistService" />
 	<bean class="repository.OneOnOneRepository" />
 </beans>

@@ -10,13 +10,12 @@ import org.springframework.ui.Model;
 import model.OneOnOneDTO;
 import repository.OneOnOneRepository;
 
-public class OneOnOneService {
+public class OneOnOneRegistService {
 	@Autowired
 	OneOnOneRepository oneOnOneRepository;
 	
-	public void oneononeList(Model model) {
-		OneOnOneDTO dto = new OneOnOneDTO();
-		List<OneOnOneDTO> list = oneOnOneRepository.oneononeList(dto);
-		model.addAttribute("oneononelist",list);
+	public void registInfo(OneOnOneDTO oneOnOneDTO) {
+		oneOnOneRepository.oneononeRegist(oneOnOneDTO);
 	}
+	
 }

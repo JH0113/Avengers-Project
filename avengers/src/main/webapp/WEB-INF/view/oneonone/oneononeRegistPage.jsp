@@ -230,37 +230,29 @@ textarea {
 			</div>
 		</div>	
 		
-		<form:form action="oneononeRegist" name="frm" method="post" modelAttribute="oneononeCommand">
+		<form action="oneononeRegist" name="frm" method="post">
 		<div class="leg">
 				<div class="text_box">작성자</div>
 					<span class="input_box">
-					 <input type="text" name="oneononeName" class="input" value="${registInfo.oneononeName }"/></span>
-					<div class="error_box">
-						<form:errors id="error_text" path="oneononeName"/>
-					</div>
+					 <input type="text" name="memName" class="input" /></span>
+				
 				<div class="text_box">휴대전화</div>
 					<span class="input_box">
-					 <input type="text" name="oneononePhnumber" class="input" value="${registInfo.oneononePhnumber }"/></span>
-					<div class="error_box">
-						<form:errors id="error_text" path="oneononePhnumber"/>
-					</div>
+					 <input type="text" name="oneononePhnumber" class="input" /></span>
+
 					<div class="text_box">제목</div>
 					<span class="input_box">
-					 <input type="text" name="oneononeSub" class="input" value="${registInfo.oneononeSub }"/></span>
-					<div class="error_box">
-						<form:errors id="error_text" path="oneononeSub"/>
-					</div>
+					 <input type="text" name="oneononeSub" class="input"/></span>
+					
 					<div class="text_box">내용</div>
-					<textarea rows="20" cols="10" name="oneononeContents">${registInfo.oneononeContents }</textarea>
-					<div class="error_box">
-						<form:errors id="error_text" path="oneononeContents" />
-					</div>
+					<textarea rows="20" cols="10" name="oneononeContents"></textarea>
+
 				</div>
 		<div class="foot" align="center">
-			<input type="submit" value="공지사항 등록" class="btn" style="display: inline-block"> 
+			<input type="submit" value="문의 등록" class="btn" style="display: inline-block"> 
 			<input type="button" value="취소" class="btn" style="display: inline-block" onclick="javascript:location.href='oneononePage'">
 		</div>
-		</form:form>
+		</form>
 		
 		<div class="footer">
 			<%@include file="../include/includeFooter.jsp"%>

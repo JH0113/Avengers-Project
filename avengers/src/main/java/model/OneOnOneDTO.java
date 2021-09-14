@@ -8,7 +8,15 @@ public class OneOnOneDTO {
 	String memName;
 	String memId;
 	Date oneononeDate;
+	int oneononeNum;
+	String oneononePhnumber;
 	
+	public String getOneononePhnumber() {
+		return oneononePhnumber;
+	}
+	public void setOneononePhnumber(String oneononePhnumber) {
+		this.oneononePhnumber = oneononePhnumber;
+	}
 	public String getOneononeSub() {
 		return oneononeSub;
 	}
@@ -39,5 +47,12 @@ public class OneOnOneDTO {
 	public void setOneononeDate(Date oneononeDate) {
 		this.oneononeDate = oneononeDate;
 	}
+	public int getOneononeNum() {
+		return oneononeNum;
+	}
+	public void setOneononeNum(int oneononeNum) {
+		this.oneononeNum = oneononeNum;
+	}
+	
 	
 }

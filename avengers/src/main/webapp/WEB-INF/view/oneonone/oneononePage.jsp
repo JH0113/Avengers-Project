@@ -216,6 +216,7 @@ tr.border_bottom_th {
 			<div class="noticeContents">
 				<table>
 					<tr class="border_bottom_th">
+						<th width="88px">글번호</th>					
 						<th width="88px">제목</th>
 						<th width="590px">내용</th>
 						<th width="88px">글쓴이</th>
@@ -223,9 +224,10 @@ tr.border_bottom_th {
 					</tr>
 					<c:forEach items="${oneononelist }" var="oneononedto">
 						<tr class="border_bottom">
-							<td><a id="clickText" href="noticeDetailPage?noticeNum=${oneononedto.oneononeSub }"><span id="detail">${oneononedto.oneononeContents }</span></a></td>
-							<td>${dto.memName }</td>
-							<td></td>
+							<td><a id="clickText" href="oneononeDetailPage?oneononeNum=${oneononedto.oneononeNum }"><span id="detail">${oneononedto.oneononeNum }</span></a></td>
+							<td><a id="clickText" href="oneononeDetailPage?oneononeNum=${oneononedto.oneononeNum }"><span id="detail">${oneononedto.oneononeSub }</span></a></td>
+							<td><a id="clickText" href="oneononeDetailPage?oneononeNum=${oneononedto.oneononeNum }"><span id="detail">${oneononedto.oneononeContents }</span></a></td>
+							<td>${oneononedto.memName }</td>
 							<td><fmt:formatDate value="${oneononedto.oneononeDate }" type="date"
 									pattern="yyyy-MM-dd  HH:mm:ss" /></td>
 						</tr>

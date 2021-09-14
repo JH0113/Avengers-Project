@@ -18,5 +18,11 @@ public class OneOnOneRepository {
 		statement = nameSpace + ".oneononeList";
 		return sqlSession.selectList(statement, dto);
 	}
+
+	public void oneononeRegist(OneOnOneDTO oneOnOneDTO) {
+		statement = nameSpace + ".oneononeRegist";
+		sqlSession.insert(statement, oneOnOneDTO);
+			
+	}
 	
 }
