@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.messageMapper">
+	<sql id="roomNum">
+		select nvl(max(ROOM_NUM),100000) + 1 from MSG_ROOM
+	</sql>
+
+	<insert id="createRoom"
+		parameterType="command.MsgRoomCommandDTO">
+		insert into
+		msg_room(
+		prod_num,
+		room_num
+		)
+		values(
+		#{prodNum},
+		(
+		<include refid="roomNum" />
+		)
+		)
+	</insert>
+	<insert id="createMsg" parameterType="command.MsgRoomCommandDTO">
+		insert into
+		msg_contents
+		(
+		room_num,
+		buyer_id,
+		prod_num
+		)
+		values
+		(
+		(select room_num from msg_room where prod_num = #{prodNum}),
+		#{memId},
+		#{prodNum}
+		)
+	</insert>
+	<select id="readMsgRoom"
+		parameterType="command.MsgRoomCommandDTO" resultType="integer">
+		select room_num
+		roomNum from msg_room where prod_num = #{prodNum} and room_num =
+		(select room_num from msg_contents where buyer_id = #{memId} and
+		msg_text is null and prod_num = #{prodNum})
+	</select>
+	<select id="readMsgText" parameterType="int"
+		resultType="model.MsgContentsDTO">
+		select
+		room_num roomNum,
+		buyer_id buyerId,
+		seller_id sellerId,
+		msg_text msgText,
+		msg_time msgTime
+		from msg_contents
+		where room_num =
+		#{roomNum}
+		order by msg_time asc
+	</select>
+	<insert id="sendMsg">
+		insert into msg_contents(
+		ROOM_NUM,BUYER_ID,
+		MSG_TEXT,MSG_TIME
+		)
+		values(
+		#{roomNum},#{buyerId},
+		#{msgText},sysdate
+		)
+	</insert>
+	<select id="chatList" parameterType="string" resultType="integer">
+		select room_num roomNum from msg_room where prod_num = #{prodNum}
+	</select>
+</mapper>
