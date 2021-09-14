@@ -11,13 +11,15 @@
 		insert into
 		msg_room(
 		prod_num,
-		room_num
+		room_num,
+		mem_id
 		)
 		values(
 		#{prodNum},
 		(
 		<include refid="roomNum" />
-		)
+		),
+		#(memId)
 		)
 	</insert>
 	<insert id="createMsg" parameterType="command.MsgRoomCommandDTO">
