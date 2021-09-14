@@ -43,7 +43,7 @@ public class MessageRepository {
 
 	}
 	
-	public List<Integer> chatList(String prodNum) {
+	public List<MsgRoomDTO> chatList(String prodNum) {
 		statement = namespace + ".chatList";
 		return sqlSession.selectList(statement, prodNum);
 	}

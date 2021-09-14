@@ -10,16 +10,12 @@
 		parameterType="command.MsgRoomCommandDTO">
 		insert into
 		msg_room(
-		prod_num,
-		room_num,
-		mem_id
+		prod_num,room_num,mem_id
 		)
 		values(
-		#{prodNum},
-		(
+		#{prodNum},(
 		<include refid="roomNum" />
-		),
-		#(memId)
+		),#{memId}
 		)
 	</insert>
 	<insert id="createMsg" parameterType="command.MsgRoomCommandDTO">
@@ -32,7 +28,8 @@
 		)
 		values
 		(
-		(select room_num from msg_room where prod_num = #{prodNum}),
+		(select room_num from msg_room where
+		prod_num = #{prodNum} and mem_id = #{memId}),
 		#{memId},
 		#{prodNum}
 		)
@@ -67,7 +64,9 @@
 		#{msgText},sysdate
 		)
 	</insert>
-	<select id="chatList" parameterType="string" resultType="integer">
-		select room_num roomNum from msg_room where prod_num = #{prodNum}
+	<select id="chatList" parameterType="string"
+		resultType="model.MsgRoomDTO">
+		select room_num roomNum, mem_id memId from msg_room where prod_num =
+		#{prodNum}
 	</select>
 </mapper>

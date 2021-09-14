@@ -43,7 +43,7 @@ setInterval('autoRefresh_sample_div()', 1000); //1초 후 새로고침
 	</c:if>
 	<c:if test="${productdto.memId == authinfo.userId }">
 		<c:forEach items="${chatList }" var="list">
-			<a href="sellerChat?roomNum=${list }">채팅방 : ${list }</a>
+			<a href="sellerChat?roomNum=${list.roomNum }">"${list.memId }"와의 채팅방.</a><br />
 		</c:forEach>
 	</c:if>
 </body>

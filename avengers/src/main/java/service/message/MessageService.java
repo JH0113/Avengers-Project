@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 
 import command.MsgRoomCommandDTO;
 import model.MsgContentsDTO;
+import model.MsgRoomDTO;
 import repository.MessageRepository;
 
 @Service
@@ -40,7 +41,7 @@ public class MessageService {
 	}
 	
 	public void chatList(String prodNum, Model model) {
-		List<Integer> list = messageRepository.chatList(prodNum);
+		List<MsgRoomDTO> list = messageRepository.chatList(prodNum);
 		model.addAttribute("chatList", list);
 	}
 }

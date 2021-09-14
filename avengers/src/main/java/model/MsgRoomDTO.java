@@ -2,6 +2,7 @@ package model;
 
 public class MsgRoomDTO {
 	String roomNum;
+	String memId;
 	int prodNum;
 
 	public String getRoomNum() {
@@ -10,6 +11,14 @@ public class MsgRoomDTO {
 
 	public void setRoomNum(String roomNum) {
 		this.roomNum = roomNum;
+	}
+
+	public String getMemId() {
+		return memId;
+	}
+
+	public void setMemId(String memId) {
+		this.memId = memId;
 	}
 
 	public int getProdNum() {
