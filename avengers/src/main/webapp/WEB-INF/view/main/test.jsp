@@ -43,7 +43,7 @@ setInterval('autoRefresh_sample_div()', 1000); //1초 후 새로고침
 	</c:if>
 	<c:if test="${productdto.memId == authinfo.userId }">
 		<c:if test="${!empty chatList }">
-		상품관련 받은 채팅리스트.
+		상품관련 받은 채팅리스트.<br/>
 		<c:forEach items="${chatList }" var="list">
 			<a href="sellerChat?roomNum=${list.roomNum }">"${list.memId }"와의 채팅방.</a><br />
 		</c:forEach>
