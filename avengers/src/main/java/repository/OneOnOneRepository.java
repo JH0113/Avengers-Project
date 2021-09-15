@@ -18,6 +18,10 @@ public class OneOnOneRepository {
 		statement = nameSpace + ".oneononeList";
 		return sqlSession.selectList(statement, memId);
 	}
+	public List<OneOnOneDTO> oneononeEmployee() {
+		statement = nameSpace + ".oneononeEmployeeList";
+		return sqlSession.selectList(statement);
+	}
 
 	public void oneononeRegist(OneOnOneDTO oneOnOneDTO) {
 		statement = nameSpace + ".oneononeRegist";
@@ -29,8 +33,17 @@ public class OneOnOneRepository {
 		statement = nameSpace + ".oneononeDetail";
 		return sqlSession.selectOne(statement, oneononeNum);
 	}
+	public OneOnOneDTO oneononeEmployeeDetail(int oneononeNum) {
+		statement = nameSpace + ".oneononeEmployeeDetail";
+		return sqlSession.selectOne(statement, oneononeNum);
+	}
 	public void oneononeDelete(int oneononeNum) {
 		statement = nameSpace + ".oneononeDelete";
 		sqlSession.delete(statement, oneononeNum);
+	}
+	public void oneononeUpdate(OneOnOneDTO oneOnOneDTO) {
+		statement = nameSpace + ".oneononeUpdate";
+		sqlSession.update(statement, oneOnOneDTO);
+		
 	}
 }

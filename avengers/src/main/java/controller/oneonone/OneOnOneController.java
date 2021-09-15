@@ -13,6 +13,9 @@ import authinfo.AuthinfoDTO;
 import model.OneOnOneDTO;
 import service.oneonone.OneOnOneDeleteService;
 import service.oneonone.OneOnOneDetailService;
+import service.oneonone.OneOnOneEmployeeDetailService;
+import service.oneonone.OneOnOneEmployeeService;
+import service.oneonone.OneOnOneModifyService;
 import service.oneonone.OneOnOneRegistService;
 import service.oneonone.OneOnOneService;
 
@@ -26,12 +29,23 @@ public class OneOnOneController {
 	OneOnOneDetailService oneOnOneDetailService;
 	@Autowired
 	OneOnOneDeleteService oneoneDeleteService;
+	@Autowired
+	OneOnOneEmployeeService oneononeEmployeeService;
+	@Autowired
+	OneOnOneEmployeeDetailService oneononeEmployeeDetailService;
+	@Autowired
+	OneOnOneModifyService oneononeModifyService;
 	
 	@RequestMapping("oneononePage")
 	public String oneononePage(Model model, HttpSession httpSession) {
 		AuthinfoDTO authinfoDTO = (AuthinfoDTO) httpSession.getAttribute("authinfo");
 		oneononeService.oneononeList(model, authinfoDTO.getUserId());
 		return "oneonone/oneononePage";
+	}
+	@RequestMapping("oneononeEmployeePage")
+	public String oneononeEmployeePage(Model model) {
+		oneononeEmployeeService.oneononeEmployee(model);
+		return "oneonone/oneononeEmployeePage";
 	}
 
 	@RequestMapping("oneononeRegistPage")
@@ -48,12 +62,22 @@ public class OneOnOneController {
 	@RequestMapping("oneononeDetailPage")
 	public String oneononeDetailPage(@RequestParam(value = "oneononeNum") int oneononeNum, Model model) {
 		oneOnOneDetailService.oneononeDetail(oneononeNum, model);
-		System.out.println(oneononeNum);
 		return "oneonone/oneononeDetailPage";
+	}
+	@RequestMapping("oneononeEmployeeDetailPage")
+	public String oneononeEmployeeDetailPage(@RequestParam(value = "oneononeNum") int oneononeNum, Model model) {
+		oneononeEmployeeDetailService.oneononeEmployeeDetail(oneononeNum, model);
+		return "oneonone/oneononeEmployeeDetailPage";
 	}
 	@RequestMapping("oneononeDelete")
 	public String noticeDelete(@RequestParam (value = "oneononeNum") int oneononeNum) {
 		oneoneDeleteService.oneononeDelete(oneononeNum);
 		return "redirect:/";
+	}
+	@RequestMapping("oneononesubmit")
+	public String modify(OneOnOneDTO oneOnOneDTO) {
+		oneononeModifyService.oneononeModify(oneOnOneDTO);
+		return "redirect:oneononeEmployeePage";
+		
 	}
 }

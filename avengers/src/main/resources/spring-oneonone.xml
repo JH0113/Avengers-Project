@@ -12,6 +12,9 @@
 	<bean class="service.oneonone.OneOnOneRegistService" />
 	<bean class="service.oneonone.OneOnOneDetailService" />
 	<bean class="service.oneonone.OneOnOneDeleteService" />
+	<bean class="service.oneonone.OneOnOneEmployeeService" />
+	<bean class="service.oneonone.OneOnOneEmployeeDetailService" />
+	<bean class="service.oneonone.OneOnOneModifyService" />
 
 	<bean class="repository.OneOnOneRepository" />
 </beans>

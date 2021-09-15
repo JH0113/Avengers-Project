@@ -56,6 +56,7 @@
 					<li><a href="memberListPage">MEMBER LIST</a></li>
 					<li><a href="reportPage">REPORT</a></li>
 					<li><a href="noticePage">NOTICE</a></li>
+					<li><a href="oneononeEmployeePage">1:1문의</a></li>
 					<li><a href="login/logout">LOGOUT</a></li>
 				</ul>
 			</c:if>

@@ -16,6 +16,16 @@
 		oneononeDate, ONEONONE_NUM oneononeNum
 		from oneonone where mem_Id = #{memId}
 	</select>
+	
+	<select id="oneononeEmployeeList" resultType="model.OneOnOneDTO"
+		parameterType="string">
+		select
+		ONEONONE_SUB oneononeSub, ONEONONE_CONTENTS
+		oneononeContents, MEM_NAME memName,
+		MEM_ID memId, ONEONONE_DATE
+		oneononeDate, ONEONONE_NUM oneononeNum
+		from oneonone
+	</select>
 
 	<insert id="oneononeRegist" parameterType="model.OneOnOneDTO">
 		insert into oneonone
@@ -31,12 +41,23 @@
 		),#{oneononePhnumber},#{memId}
 		)
 	</insert>
+	<select id="oneononeEmployeeDetail" parameterType="int" resultType="model.OneOnOneDTO">
+		select
+		ONEONONE_SUB oneononeSub, ONEONONE_CONTENTS
+		oneononeContents, MEM_NAME memName,
+		MEM_ID memId, ONEONONE_DATE
+		oneononeDate, ONEONONE_NUM oneononeNum,
+		ONEONONE_SUBMIT oneononeSubmit
+		from oneonone where ONEONONE_NUM
+		= #{oneononeNum}
+	</select>
 	<select id="oneononeDetail" parameterType="int" resultType="model.OneOnOneDTO">
 		select
 		ONEONONE_SUB oneononeSub, ONEONONE_CONTENTS
 		oneononeContents, MEM_NAME memName,
 		MEM_ID memId, ONEONONE_DATE
-		oneononeDate, ONEONONE_NUM oneononeNum
+		oneononeDate, ONEONONE_NUM oneononeNum,
+		ONEONONE_SUBMIT oneononeSubmit
 		from oneonone where ONEONONE_NUM
 		= #{oneononeNum}
 	</select>
@@ -45,4 +66,11 @@
 		where ONEONONE_NUM
 		= #{oneononeNum}
 	</delete>
+	
+	<update id="oneononeUpdate" parameterType="model.OneOnOneDTO">
+		update oneonone
+		set ONEONONE_SUBMIT = #{oneononeSubmit}
+		where ONEONONE_NUM = #{oneononeNum}
+	
+	</update>
 </mapper>

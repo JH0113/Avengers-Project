@@ -226,26 +226,27 @@ tr.border_bottom_th {
 						<th width="200px">게시 시간</th>
 					</tr>
 					
-<%-- 				<!-- 직원 로그인시 모든 게시물 보이게 하기 -->						
+ 				<!-- 직원 로그인시 모든 게시물 보이게 하기 -->						
 				<c:if test="${!empty authinfo }">
 					<c:if test="${authinfo.grade != 1 }">
-						<c:forEach items="${oneononelist }" var="oneononedto">
+						<c:forEach items="${oneononeEmployee }" var="oneononedto">
 							<tr class="border_bottom">
 								<td><a id="clickText"
-									href="oneononeDetailPage?oneononeNum=${oneononedto.oneononeNum }"><span
+									href="oneononeEmployeeDetailPage?oneononeNum=${oneononedto.oneononeNum }"><span
 										id="detail">${oneononedto.oneononeNum }</span></a></td>
 								<td><a id="clickText"
-									href="oneononeDetailPage?oneononeNum=${oneononedto.oneononeNum }"><span
+									href="oneononeEmployeeDetailPage?oneononeNum=${oneononedto.oneononeNum }"><span
 										id="detail">${oneononedto.oneononeSub }</span></a></td>
 								<td>${oneononedto.memName }</td>
+								<td>${oneononedto.memId }</td>
 								<td><fmt:formatDate value="${oneononedto.oneononeDate }"
 										type="date" pattern="yyyy-MM-dd  HH:mm:ss" /></td>
 							</tr>
 						</c:forEach>					
 					</c:if>
-				</c:if>--%>
+				</c:if>
 									
-					<c:if test="${authinfo.userId == oneononelist[0].memId }">
+<%--					<c:if test="${authinfo.userId == oneononelist[0].memId }">
 						<c:forEach items="${oneononelist }" var="oneononedto">
 							<tr class="border_bottom">
 								<td><a id="clickText"
@@ -255,48 +256,11 @@ tr.border_bottom_th {
 									href="oneononeDetailPage?oneononeNum=${oneononedto.oneononeNum }"><span
 										id="detail">${oneononedto.oneononeSub }</span></a></td>
 								<td>${oneononedto.memName }</td>
-								<td>${oneononedto.memId }</td>								
 								<td><fmt:formatDate value="${oneononedto.oneononeDate }"
 										type="date" pattern="yyyy-MM-dd  HH:mm:ss" /></td>
 							</tr>
 						</c:forEach>
-					</c:if> 
-					
-					<%-- <c:choose> 
-						<c:when test="${authinfo.userId == oneononelist[0].memId }">
-							<c:forEach items="${oneononelist }" var="oneononedto">
-								<tr class="border_bottom">
-									<td><a id="clickText"
-										href="oneononeDetailPage?oneononeNum=${oneononedto.oneononeNum }"><span
-											id="detail">${oneononedto.oneononeNum }</span></a></td>
-									<td><a id="clickText"
-										href="oneononeDetailPage?oneononeNum=${oneononedto.oneononeNum }"><span
-											id="detail">${oneononedto.oneononeSub }</span></a></td>
-									<td>${oneononedto.memName }</td>
-									<td><fmt:formatDate value="${oneononedto.oneononeDate }"
-											type="date" pattern="yyyy-MM-dd  HH:mm:ss" /></td>
-								</tr>
-							</c:forEach>					
-						</c:when>
-						
- 						<c:when test="${!empty authinfo }">
-							<c:when test="${authinfo.grade != 1 }">
-								<c:forEach items="${oneononelist }" var="oneononedto">
-									<tr class="border_bottom">
-										<td><a id="clickText"
-											href="oneononeDetailPage?oneononeNum=${oneononedto.oneononeNum }"><span
-												id="detail">${oneononedto.oneononeNum }</span></a></td>
-										<td><a id="clickText"
-											href="oneononeDetailPage?oneononeNum=${oneononedto.oneononeNum }"><span
-												id="detail">${oneononedto.oneononeSub }</span></a></td>
-										<td>${oneononedto.memName }</td>
-										<td><fmt:formatDate value="${oneononedto.oneononeDate }"
-												type="date" pattern="yyyy-MM-dd  HH:mm:ss" /></td>
-									</tr>
-								</c:forEach>						
-							</c:when>
- 						</c:when>
-					</c:choose> --%>
+					</c:if> --%>
 				</table>
 				
 				<!-- 1:1문의는 회원 로그인 시에만 보이게 하기 -->

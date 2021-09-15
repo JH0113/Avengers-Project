@@ -10,7 +10,14 @@ public class OneOnOneDTO {
 	Date oneononeDate;
 	int oneononeNum;
 	String oneononePhnumber;
+	String oneononeSubmit;
 	
+	public String getOneononeSubmit() {
+		return oneononeSubmit;
+	}
+	public void setOneononeSubmit(String oneononeSubmit) {
+		this.oneononeSubmit = oneononeSubmit;
+	}
 	public String getOneononePhnumber() {
 		return oneononePhnumber;
 	}

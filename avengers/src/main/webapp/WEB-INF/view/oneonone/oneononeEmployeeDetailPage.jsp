@@ -204,7 +204,7 @@ tr.border_bottom_th {
 				</div>
 			</div>
 		</div>
-		<form:form method="post" name="frm" modelAttribute="oneononedto">
+		<form method="post" name="frm" action="oneononesubmit">
 			<input type="hidden" name="noticeNum">
 			<div class="leg">
 				<div class="noticeContents">
@@ -229,23 +229,25 @@ tr.border_bottom_th {
 							<th>내용</th>
 							<td colspan="4"><p>${oneononedto.oneononeContents }</p></td>
 						</tr>
-						<tr class="border_bottom" height="300">
-							<th>답글</th>
-							<td colspan="4"><p>
-							<%-- ${oneononedto.oneononeSubmit } --%>
-								 <c:set var="oneononedto.oneononeSubmit" value="" />
-									<c:choose>
-									    <c:when test="${empty oneononedto.oneononeSubmit }">
-									        답변 미응답 상태
-									    </c:when>
-									    
-									    <c:otherwise>
-									    ${oneononedto.oneononeSubmit }
-									    </c:otherwise>
-									</c:choose> 
-							</p></td>
-						</tr>
+						
+					 	<c:if test="${!empty authinfo }">
+							<c:if test="${authinfo.grade != 1 }">
+								<!-- <form action="oneononesubmit" method="post" name="frm2" > -->
+									<tr class="border_bottom" height="300">
+									
+										<th>답글</th>
+										<td colspan="4"><p>
+										<!-- <input type="hidden" name="oneononeNum"> -->
+										<textarea rows="20" cols="100" name="oneononeText" placeholder="${oneononedto.oneononeSubmit }"></textarea>
+										<input type="submit" value="답글 등록" class="btn" style="display: inline-block" > 
+										</p></td>
+									
+									</tr>
+								<!-- </form> -->
+							</c:if>
+						</c:if> 
 					</table>
+
 
 					<c:if test="${!empty authinfo }">
 						<p align="center">
@@ -256,7 +258,7 @@ tr.border_bottom_th {
 				</div>
 			</div>
 
-		</form:form>
+		</form>
 		<div class="footer">
 			<%@include file="../include/includeFooter.jsp"%>
 		</div>
