@@ -14,7 +14,8 @@ public class OneOnOneRegistService {
 	@Autowired
 	OneOnOneRepository oneOnOneRepository;
 	
-	public void registInfo(OneOnOneDTO oneOnOneDTO) {
+	public void registInfo(OneOnOneDTO oneOnOneDTO, String userId) {
+		oneOnOneDTO.setMemId(userId);
 		oneOnOneRepository.oneononeRegist(oneOnOneDTO);
 	}
 	

@@ -14,9 +14,9 @@ public class OneOnOneRepository {
 	String nameSpace = "mappers.oneononeMapper";
 	String statement;
 
-	public List<OneOnOneDTO> oneononeList(OneOnOneDTO dto) {
+	public List<OneOnOneDTO> oneononeList(String memId) {
 		statement = nameSpace + ".oneononeList";
-		return sqlSession.selectList(statement, dto);
+		return sqlSession.selectList(statement, memId);
 	}
 
 	public void oneononeRegist(OneOnOneDTO oneOnOneDTO) {
@@ -25,4 +25,12 @@ public class OneOnOneRepository {
 			
 	}
 	
+	public OneOnOneDTO oneononeDetail(int oneononeNum) {
+		statement = nameSpace + ".oneononeDetail";
+		return sqlSession.selectOne(statement, oneononeNum);
+	}
+	public void oneononeDelete(int oneononeNum) {
+		statement = nameSpace + ".oneononeDelete";
+		sqlSession.delete(statement, oneononeNum);
+	}
 }

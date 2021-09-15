@@ -72,11 +72,6 @@ li a {
 	width: 100%;
 }
 
-.headmenu {
-	width: 950px;
-	height: 120px;
-}
-
 .search {
 	width: 100%;
 	height: 120px;
@@ -109,35 +104,36 @@ li a {
 	cursor: pointer;
 }
 
+.headmenu {
+	width: 100%;
+	height: 120px;
+}
+
 .leg {
 	width: 1200px;
-	height: 920px;
+	height: 1000px;
 	margin: auto;
-}
-
-.banner {
-	width: 100%;
-	height: 400px;
-	background-image: url("images/oneononeBanner2.jpg");
-	background-size: 100% 400px;
-}
-
-.bannerText {
-	color: white;
-	font-family: 'Montserrat', sans-serif;
-	font-size: 50px;
-	padding: 5px 10px;
-	text-align: center;
-	position: absolute;
-	top: 62%;
-	left: 77%;
-	transform: translate(-50%, -50%);
 }
 
 .noticeContents {
 	font-family: 'Montserrat', sans-serif;
 	width: 100%;
-	height: 600px;
+	height: auto;
+}
+
+.btn {
+	display: block;
+	width: 200px;
+	margin: auto;
+	padding: 5px 0 5px;
+	font-size: 14px;
+	font-family: 'Montserrat', sans-serif;
+	text-align: center;
+	cursor: pointer;
+	box-sizing: border-box;
+	margin-top: 30px;
+	background-color: #404040;
+	color: #ffffff;
 }
 
 td, th {
@@ -167,26 +163,22 @@ tr.border_bottom_th {
 	border-bottom: 3px solid #1a1a1a;
 }
 
-.btn {
-	display: block;
-	width: 200px;
-	margin: auto;
-	padding: 5px 0 5px;
-	font-size: 14px;
-	font-family: 'Montserrat', sans-serif;
+.footer {
+	clear: both;
+	width: 100%;
+	height: 150px;
+	background-color: #000;
 	text-align: center;
-	cursor: pointer;
-	box-sizing: border-box;
-	background-color: #404040;
-	color: #ffffff;
-	margin-top: 20px;
+	line-height: 50px;
 }
 
-#clickText:hover {
-	font-weight: bolder;
-	border-bottom: 1px solid;
+#footer_text {
+	color: #fff;
 }
 </style>
+
+
+
 </head>
 <body>
 	<div class="web">
@@ -195,8 +187,8 @@ tr.border_bottom_th {
 				<div class="logo">
 					<span id="logo_text"><a href="main">2nd shop</a></span>
 				</div>
-
 			</div>
+
 			<div class="right_bar">
 				<div class="header">
 					<div class="search">
@@ -210,50 +202,53 @@ tr.border_bottom_th {
 						<%@include file="../include/includeTopMenu.jsp"%>
 					</div>
 				</div>
-
 			</div>
 		</div>
-		<div class="leg">
-			<div class="banner"></div>
-			<div class="bannerText">1:1문의</div>
-			<div class="noticeContents">
-				<table>
-					<tr class="border_bottom_th">
-						<th width="88px">글번호</th>
-						<th width="590px">제목</th>
-						<th width="88px">글쓴이</th>
-						<th width="203px">게시일</th>
-					</tr>
-					<c:if test="${authinfo.userId == oneononelist[0].memId }">
-						<c:forEach items="${oneononelist }" var="oneononedto">
-							<tr class="border_bottom">
-								<td><a id="clickText"
-									href="oneononeDetailPage?oneononeNum=${oneononedto.oneononeNum }"><span
-										id="detail">${oneononedto.oneononeNum }</span></a></td>
-								<td><a id="clickText"
-									href="oneononeDetailPage?oneononeNum=${oneononedto.oneononeNum }"><span
-										id="detail">${oneononedto.oneononeSub }</span></a></td>
-								<td>${oneononedto.memName }</td>
-								<td><fmt:formatDate value="${oneononedto.oneononeDate }"
-										type="date" pattern="yyyy-MM-dd  HH:mm:ss" /></td>
-							</tr>
-						</c:forEach>
-					</c:if>
-				</table>
-				<!-- 1:1문의는 회원 로그인 시에만 보이게 하기 -->
-				<c:if test="${!empty authinfo }">
-					<c:if test="${authinfo.grade == 1 }">
-						<input type="button" value="1:1문의하기"
-							onclick="javascript:location.href='oneononeRegistPage'"
-							class="btn" />
-					</c:if>
-				</c:if>
-			</div>
-		</div>
+		<form:form method="post" name="frm" modelAttribute="noticeCommand">
+			<input type="hidden" name="noticeNum">
+			<div class="leg">
+				<div class="noticeContents">
+					<table>
+						<tr class="border_bottom">
+							<th width="150">게시글번호</th>
+							<td width="300">${oneononedto.oneononeNum }</td>
+						</tr>
+						<tr class="border_bottom">
+							<th>날짜</th>
+							<td><fmt:formatDate value="${oneononedto.oneononeDate }"
+									type="date" pattern="yyyy-MM-dd  HH:mm:ss" /></td>
+							<th>글쓴이</th>
+							<td>${oneononedto.memName }</td>
+						</tr>
+						<tr class="border_bottom">
+							<th>제목</th>
+							<td colspan="4">${oneononedto.oneononeSub }</td>
+						</tr>
 
+						<tr class="border_bottom" height="600">
+							<th>내용</th>
+							<td colspan="4"><p>${oneononedto.oneononeContents }</p></td>
+						</tr>
+					</table>
+
+
+					<c:if test="${!empty authinfo }">
+						<p align="center">
+							<input type="button" class="btn" value="삭제"
+								style="display: inline-block" onclick="javascript:location.href='oneononeDelete?oneononeNum=${oneononedto.oneononeNum}'" />
+						</p>
+					</c:if>
+				</div>
+			</div>
+
+		</form:form>
 		<div class="footer">
 			<%@include file="../include/includeFooter.jsp"%>
 		</div>
 	</div>
+
+
+
 </body>
 </html>
+

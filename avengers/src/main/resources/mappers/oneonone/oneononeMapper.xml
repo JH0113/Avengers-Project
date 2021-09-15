@@ -2,27 +2,47 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.oneononeMapper">
-	
+
 	<sql id="oneononeNum">
 		select nvl(max(ONEONONE_NUM),0) + 1 from ONEONONE
 	</sql>
-	
-	<select id="oneononeList" resultType="model.OneOnOneDTO" parameterType="model.OneOnOneDTO">
-      select 
-      ONEONONE_SUB oneononeSub, ONEONONE_CONTENTS oneononeContents, MEM_NAME memName, MEM_ID memId, ONEONONE_DATE oneononeDate, ONEONONE_NUM oneononeNum
-      from oneonone
+
+	<select id="oneononeList" resultType="model.OneOnOneDTO"
+		parameterType="string">
+		select
+		ONEONONE_SUB oneononeSub, ONEONONE_CONTENTS
+		oneononeContents, MEM_NAME memName,
+		MEM_ID memId, ONEONONE_DATE
+		oneononeDate, ONEONONE_NUM oneononeNum
+		from oneonone where mem_Id = #{memId}
 	</select>
-	
+
 	<insert id="oneononeRegist" parameterType="model.OneOnOneDTO">
-		insert into oneonone 
+		insert into oneonone
 		(
 		ONEONONE_SUB, ONEONONE_CONTENTS, MEM_NAME,
 		ONEONONE_DATE,ONEONONE_NUM,ONEONONE_PHNUMBER,MEM_ID
-		) 
-		values 
+		)
+		values
 		(
 		#{oneononeSub},#{oneononeContents},#{memName},
-		sysdate,(<include refid="oneononeNum" />),#{oneononePhnumber},0
+		sysdate,(
+		<include refid="oneononeNum" />
+		),#{oneononePhnumber},#{memId}
 		)
 	</insert>
-	</mapper>
+	<select id="oneononeDetail" parameterType="int" resultType="model.OneOnOneDTO">
+		select
+		ONEONONE_SUB oneononeSub, ONEONONE_CONTENTS
+		oneononeContents, MEM_NAME memName,
+		MEM_ID memId, ONEONONE_DATE
+		oneononeDate, ONEONONE_NUM oneononeNum
+		from oneonone where ONEONONE_NUM
+		= #{oneononeNum}
+	</select>
+	<delete id="oneononeDelete" parameterType="int">
+		delete from oneonone
+		where ONEONONE_NUM
+		= #{oneononeNum}
+	</delete>
+</mapper>

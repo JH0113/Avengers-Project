@@ -14,9 +14,9 @@ public class OneOnOneService {
 	@Autowired
 	OneOnOneRepository oneOnOneRepository;
 	
-	public void oneononeList(Model model) {
+	public void oneononeList(Model model, String userId) {
 		OneOnOneDTO dto = new OneOnOneDTO();
-		List<OneOnOneDTO> list = oneOnOneRepository.oneononeList(dto);
+		List<OneOnOneDTO> list = oneOnOneRepository.oneononeList(userId);
 		model.addAttribute("oneononelist",list);
 	}
 }
