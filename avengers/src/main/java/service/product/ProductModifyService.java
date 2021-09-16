@@ -28,8 +28,6 @@ public class ProductModifyService {
 		ProductDTO productDTO=new ProductDTO();
 		AuthinfoDTO authinfo=(AuthinfoDTO)session.getAttribute("authinfo");
 		String memId = authinfo.getUserId();
-		System.out.println(prodCommand.getProdNum());
-		System.out.println(prodCommand.getProdName());
 		productDTO.setMemId(memId);  
 		productDTO.setProdNum(prodCommand.getProdNum());
 		productDTO.setProdName(prodCommand.getProdName());

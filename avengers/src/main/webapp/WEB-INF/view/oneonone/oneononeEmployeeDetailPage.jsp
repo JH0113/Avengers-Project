@@ -238,7 +238,7 @@ tr.border_bottom_th {
 										<th>답글</th>
 										<td colspan="4"><p>
 										<!-- <input type="hidden" name="oneononeNum"> -->
-										<textarea rows="20" cols="100" name="oneononeText" placeholder="${oneononedto.oneononeSubmit }"></textarea>
+										<textarea rows="20" cols="100" name="oneononeSubmit" placeholder="${oneononedto.oneononeSubmit }"></textarea>
 										<input type="submit" value="답글 등록" class="btn" style="display: inline-block" > 
 										</p></td>
 									

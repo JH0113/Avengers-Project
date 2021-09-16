@@ -31,14 +31,14 @@
 		insert into oneonone
 		(
 		ONEONONE_SUB, ONEONONE_CONTENTS, MEM_NAME,
-		ONEONONE_DATE,ONEONONE_NUM,ONEONONE_PHNUMBER,MEM_ID
+		ONEONONE_DATE,ONEONONE_NUM,ONEONONE_PHNUMBER,MEM_ID,ONEONONE_SUBMIT
 		)
 		values
 		(
 		#{oneononeSub},#{oneononeContents},#{memName},
 		sysdate,(
 		<include refid="oneononeNum" />
-		),#{oneononePhnumber},#{memId}
+		),#{oneononePhnumber},#{memId},'답변 대기중'
 		)
 	</insert>
 	<select id="oneononeEmployeeDetail" parameterType="int" resultType="model.OneOnOneDTO">
