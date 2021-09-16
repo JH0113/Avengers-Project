@@ -43,8 +43,8 @@ public class OneOnOneController {
 		return "oneonone/oneononePage";
 	}
 	@RequestMapping("oneononeEmployeePage")
-	public String oneononeEmployeePage(Model model) {
-		oneononeEmployeeService.oneononeEmployee(model);
+	public String oneononeEmployeePage(@RequestParam(value = "page", defaultValue = "1") int page, Model model) {
+		oneononeEmployeeService.oneononeEmployee(page,model);
 		return "oneonone/oneononeEmployeePage";
 	}
 
@@ -78,6 +78,5 @@ public class OneOnOneController {
 	public String modify(OneOnOneDTO oneOnOneDTO) {
 		oneononeModifyService.oneononeModify(oneOnOneDTO);
 		return "redirect:oneononeEmployeePage";
-		
 	}
 }

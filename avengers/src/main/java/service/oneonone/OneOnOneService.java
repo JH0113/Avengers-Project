@@ -7,7 +7,9 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 
+import controller.PageAction;
 import model.OneOnOneDTO;
+import model.StartEndPageDTO;
 import repository.OneOnOneRepository;
 
 public class OneOnOneService {
@@ -15,8 +17,8 @@ public class OneOnOneService {
 	OneOnOneRepository oneOnOneRepository;
 	
 	public void oneononeList(Model model, String userId) {
-		OneOnOneDTO dto = new OneOnOneDTO();
 		List<OneOnOneDTO> list = oneOnOneRepository.oneononeList(userId);
 		model.addAttribute("oneononelist",list);
+
 	}
 }

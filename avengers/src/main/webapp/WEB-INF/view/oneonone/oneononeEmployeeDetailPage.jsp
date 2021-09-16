@@ -135,6 +135,20 @@ li a {
 	background-color: #404040;
 	color: #ffffff;
 }
+.btn2{
+	display: block;
+	width: 150px;
+	margin: 20px;
+	padding: 5px 5px;
+	font-size: 14px;
+	font-family: 'Montserrat', sans-serif;
+	text-align: center;
+	cursor: pointer;
+	box-sizing: border-box;
+	/* margin-top: 50px; */
+	background-color: #404040;
+	color: #ffffff;
+}
 
 td, th {
 	padding-top: 20px;
@@ -205,7 +219,7 @@ tr.border_bottom_th {
 			</div>
 		</div>
 		<form method="post" name="frm" action="oneononesubmit">
-			<input type="hidden" name="noticeNum">
+		
 			<div class="leg">
 				<div class="noticeContents">
 					<table>
@@ -233,13 +247,13 @@ tr.border_bottom_th {
 					 	<c:if test="${!empty authinfo }">
 							<c:if test="${authinfo.grade != 1 }">
 								<!-- <form action="oneononesubmit" method="post" name="frm2" > -->
-									<tr class="border_bottom" height="300">
+									<tr class="border_bottom" height="100">
 									
 										<th>답글</th>
 										<td colspan="4"><p>
-										<!-- <input type="hidden" name="oneononeNum"> -->
-										<textarea rows="20" cols="100" name="oneononeSubmit" placeholder="${oneononedto.oneononeSubmit }"></textarea>
-										<input type="submit" value="답글 등록" class="btn" style="display: inline-block" > 
+									<input type="hidden" name="oneononeNum" value="${oneononedto.oneononeNum }"> 
+										<textarea style="resize: none;" rows="12" cols="80" name="oneononeSubmit" placeholder="${oneononedto.oneononeSubmit }"></textarea>
+										<input type="submit" value="답글 등록" class="btn2" style="display: inline-block" > 
 										</p></td>
 									
 									</tr>

@@ -15,16 +15,26 @@
 		MEM_ID memId, ONEONONE_DATE
 		oneononeDate, ONEONONE_NUM oneononeNum
 		from oneonone where mem_Id = #{memId}
+		
+		order by ONEONONE_NUM desc
+	</select>
+	
+	<select id="count" resultType="int">
+	select count(*) from oneonone
 	</select>
 	
 	<select id="oneononeEmployeeList" resultType="model.OneOnOneDTO"
-		parameterType="string">
+		parameterType="model.OneOnOneDTO">
 		select
-		ONEONONE_SUB oneononeSub, ONEONONE_CONTENTS
+		rn,oneononeSub,oneononeContents,memName,
+		memId,oneononeDate,oneononeNum
+		from
+		(select ROWNUM rn,ONEONONE_SUB oneononeSub, ONEONONE_CONTENTS
 		oneononeContents, MEM_NAME memName,
 		MEM_ID memId, ONEONONE_DATE
 		oneononeDate, ONEONONE_NUM oneononeNum
-		from oneonone
+		from (select * from oneonone order by ONEONONE_NUM desc))
+		where rn between #{startEndPageDTO.startRow} and #{startEndPageDTO.endRow}
 	</select>
 
 	<insert id="oneononeRegist" parameterType="model.OneOnOneDTO">

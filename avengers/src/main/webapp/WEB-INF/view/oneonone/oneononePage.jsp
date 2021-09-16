@@ -261,7 +261,10 @@ tr.border_bottom_th {
 							</tr>
 						</c:forEach>
 					</c:if> 
-					
+<%-- 					<tr>
+						<td colspan="7" align="center">
+						<%@include file="../include/includePage.jsp"%></td>
+					</tr> --%>					
 					<%-- <c:choose> 
 						<c:when test="${authinfo.userId == oneononelist[0].memId }">
 							<c:forEach items="${oneononelist }" var="oneononedto">

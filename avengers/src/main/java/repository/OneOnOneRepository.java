@@ -16,11 +16,15 @@ public class OneOnOneRepository {
 
 	public List<OneOnOneDTO> oneononeList(String memId) {
 		statement = nameSpace + ".oneononeList";
-		return sqlSession.selectList(statement, memId);
+		return sqlSession.selectList(statement,memId);
 	}
-	public List<OneOnOneDTO> oneononeEmployee() {
+	public Integer count() {
+		statement = nameSpace + ".count";
+		return sqlSession.selectOne(statement);
+	}	
+	public List<OneOnOneDTO> oneononeEmployee(OneOnOneDTO dto) {
 		statement = nameSpace + ".oneononeEmployeeList";
-		return sqlSession.selectList(statement);
+		return sqlSession.selectList(statement,dto);
 	}
 
 	public void oneononeRegist(OneOnOneDTO oneOnOneDTO) {

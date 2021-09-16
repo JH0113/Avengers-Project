@@ -11,7 +11,14 @@ public class OneOnOneDTO {
 	int oneononeNum;
 	String oneononePhnumber;
 	String oneononeSubmit;
+	StartEndPageDTO startEndPageDTO;
 	
+	public StartEndPageDTO getStartEndPageDTO() {
+		return startEndPageDTO;
+	}
+	public void setStartEndPageDTO(StartEndPageDTO startEndPageDTO) {
+		this.startEndPageDTO = startEndPageDTO;
+	}
 	public String getOneononeSubmit() {
 		return oneononeSubmit;
 	}

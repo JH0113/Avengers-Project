@@ -9,7 +9,6 @@ public class OneOnOneModifyService {
 	@Autowired
 	OneOnOneRepository oneOnOneRepository;
 	public void oneononeModify(OneOnOneDTO oneOnOneDTO) {
-		
 		oneOnOneRepository.oneononeUpdate(oneOnOneDTO);
 		
 	}
